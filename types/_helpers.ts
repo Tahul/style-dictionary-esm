@@ -11,4 +11,4 @@
  * and limitations under the License.
  */
 
-export type Named<T> = T & { name: string; };
+export type Named<T> = T & { name: string }

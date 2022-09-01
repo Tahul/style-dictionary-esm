@@ -10,48 +10,47 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-const formats = require('../../lib/common/formats');
-const createDictionary = require('../../lib/utils/createDictionary');
-const createFormatArgs = require('../../lib/utils/createFormatArgs');
+import formats from '../../src/common/formats'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
 
 const file = {
-  "destination": "__output/",
-  "format": "typescript/es6-declarations",
-  "filter": {
-    "attributes": {
-      "category": "color"
-    }
-  }
-};
+  destination: '__output/',
+  format: 'typescript/es6-declarations',
+  filter: {
+    attributes: {
+      category: 'color',
+    },
+  },
+}
 
 const properties = {
-  "color": {
-    "red": {"value": "#FF0000"}
-  }
-};
+  color: {
+    red: { value: '#FF0000' },
+  },
+}
 
-const formatter = formats['typescript/es6-declarations'].bind(file);
+const formatter = formats['typescript/es6-declarations'].bind(file)
 
 describe('formats', () => {
   describe('typescript/es6-declarations', () => {
     it('should be a valid TS file', () => {
-      const dictionary = createDictionary({ properties });
+      const dictionary = createDictionary({ properties })
       const output = formatter(createFormatArgs({
         dictionary,
         file,
         platform: {},
-      }), {}, file);
+      }), {}, file)
 
       // get all lines that begin with export
       const lines = output
         .split('\n')
-        .filter(l => l.indexOf('export') >= 0);
+        .filter(l => l.includes('export'))
 
       // assert that any lines have a string type definition
-      lines.forEach(l => {
-        expect(l.match(/^export.* : string;$/g).length).toEqual(1);
-      });
-    });
-  });
-
-});
+      lines.forEach((l) => {
+        expect(l.match(/^export.* : string;$/g).length).toEqual(1)
+      })
+    })
+  })
+})

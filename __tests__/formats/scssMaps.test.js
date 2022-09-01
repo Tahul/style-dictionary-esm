@@ -11,146 +11,142 @@
  * and limitations under the License.
  */
 
-var formats = require('../../lib/common/formats');
-var scss = require('node-sass');
-var _ = require('../../lib/utils/es6_');
-var createDictionary = require('../../lib/utils/createDictionary');
-var createFormatArgs = require('../../lib/utils/createFormatArgs');
+import scss from 'node-sass'
+import formats from '../../src/common/formats'
+import _ from '../../src/utils/es6_'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
 
-var properties = {
-  "size": {
-    "font": {
-      "small": {
-        "value": "12rem",
-        "original": {
-          "value": "12px"
+const properties = {
+  size: {
+    font: {
+      small: {
+        value: '12rem',
+        original: {
+          value: '12px',
         },
-        "name": "size-font-small",
-        "attributes": {
-          "category": "size",
-          "type": "font",
-          "item": "small"
+        name: 'size-font-small',
+        attributes: {
+          category: 'size',
+          type: 'font',
+          item: 'small',
         },
-        "path": [
-          "size",
-          "font",
-          "small"
-        ]
+        path: [
+          'size',
+          'font',
+          'small',
+        ],
       },
-      "large": {
-        "value": "18rem",
-        "original": {
-          "value": "18px"
+      large: {
+        value: '18rem',
+        original: {
+          value: '18px',
         },
-        "name": "size-font-large",
-        "attributes": {
-          "category": "size",
-          "type": "font",
-          "item": "large"
+        name: 'size-font-large',
+        attributes: {
+          category: 'size',
+          type: 'font',
+          item: 'large',
         },
-        "path": [
-          "size",
-          "font",
-          "large"
-        ]
-      }
-    }
-  },
-  "color": {
-    "base": {
-      "red": {
-        "value": "#ff0000",
-        "comment": "comment",
-        "original": {
-          "value": "#FF0000",
-          "comment": "comment"
-        },
-        "name": "color-base-red",
-        "attributes": {
-          "category": "color",
-          "type": "base",
-          "item": "red"
-        },
-        "path": [
-          "color",
-          "base",
-          "red"
-        ]
-      }
+        path: [
+          'size',
+          'font',
+          'large',
+        ],
+      },
     },
-    "white": {
-      "value": "#ffffff",
-      "original": {
-        "value": "#ffffff"
-      },
-      "name": "color-white",
-      "attributes": {
-        "category": "color",
-        "type": "white"
-      },
-      "path": [
-        "color",
-        "white"
-      ]
-    }
   },
-  "asset": {
-    "icon": {
-      "book": {
-        "value": "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItYm9vayI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCI+PC9wYXRoPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ij48L3BhdGg+PC9zdmc+",
-        "original": {
-          "value": "./test/__assets/icons/book.svg"
+  color: {
+    base: {
+      red: {
+        value: '#ff0000',
+        comment: 'comment',
+        original: {
+          value: '#FF0000',
+          comment: 'comment',
         },
-        "name": "asset-icon-book",
-        "attributes": {
-          "category": "asset",
-          "type": "icon",
-          "item": "book"
+        name: 'color-base-red',
+        attributes: {
+          category: 'color',
+          type: 'base',
+          item: 'red',
         },
-        "path": [
-          "asset",
-          "icon",
-          "book"
-        ]
-      }
-    }
-  }
-};
+        path: [
+          'color',
+          'base',
+          'red',
+        ],
+      },
+    },
+    white: {
+      value: '#ffffff',
+      original: {
+        value: '#ffffff',
+      },
+      name: 'color-white',
+      attributes: {
+        category: 'color',
+        type: 'white',
+      },
+      path: [
+        'color',
+        'white',
+      ],
+    },
+  },
+  asset: {
+    icon: {
+      book: {
+        value: 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItYm9vayI+PHBhdGggZD0iTTQgMTkuNUEyLjUgMi41IDAgMCAxIDYuNSAxN0gyMCI+PC9wYXRoPjxwYXRoIGQ9Ik02LjUgMkgyMHYyMEg2LjVBMi41IDIuNSAwIDAgMSA0IDE5LjV2LTE1QTIuNSAyLjUgMCAwIDEgNi41IDJ6Ij48L3BhdGg+PC9zdmc+',
+        original: {
+          value: './test/__assets/icons/book.svg',
+        },
+        name: 'asset-icon-book',
+        attributes: {
+          category: 'asset',
+          type: 'icon',
+          item: 'book',
+        },
+        path: [
+          'asset',
+          'icon',
+          'book',
+        ],
+      },
+    },
+  },
+}
 
 describe('formats', () => {
-  _.each(['scss/map-flat', 'scss/map-deep'], function(key) {
-
+  _.each(['scss/map-flat', 'scss/map-deep'], (key) => {
     describe(key, () => {
+      const file = {
+        destination: '__output/',
+        format: key,
+      }
 
-      var file = {
-        "destination": "__output/",
-        "format": key
-      };
-
-      var formatter = formats[key].bind(file);
-      const dictionary = createDictionary({ properties });
-      var output = formatter(createFormatArgs({
+      const formatter = formats[key].bind(file)
+      const dictionary = createDictionary({ properties })
+      const output = formatter(createFormatArgs({
         dictionary,
         file,
         platform: {},
-      }), {}, file);
+      }), {}, file)
 
-      it('should return ' + key + ' as a string', () => {
-        expect(typeof output).toBe('string');
-      });
+      it(`should return ${key} as a string`, () => {
+        expect(typeof output).toBe('string')
+      })
 
       it('should have a valid scss syntax', () => {
         const result = scss.renderSync({
           data: output,
-        });
-        expect(result.css).toBeDefined();
-      });
+        })
+        expect(result.css).toBeDefined()
+      })
 
-      it(key + ' snapshot', () => {
-        expect(output).toMatchSnapshot();
-      });
-
-    });
-
-  });
-});
+      it(`${key} snapshot`, () => {
+        expect(output).toMatchSnapshot()
+      })
+    })
+  })
+})

@@ -11,58 +11,57 @@
  * and limitations under the License.
  */
 
-var helpers    = require('./__helpers');
-var buildFiles = require('../lib/buildFiles');
-var cleanFiles = require('../lib/cleanFiles');
+import buildFiles from '../src/buildFiles'
+import cleanFiles from '../src/cleanFiles'
+import helpers from './__helpers'
 
-var dictionary = {
+const dictionary = {
   properties: {
-    foo: 'bar'
-  }
-};
+    foo: 'bar',
+  },
+}
 
-var platform = {
+const platform = {
   files: [
     {
       destination: '__tests__/__output/test.json',
-      format: function(dictionary) {
+      format(dictionary) {
         return JSON.stringify(dictionary.properties)
-      }
-    }
-  ]
-};
+      },
+    },
+  ],
+}
 
-var platformWithBuildPath = {
+const platformWithBuildPath = {
   buildPath: '__tests__/__output/',
   files: [
     {
       destination: 'test.json',
-      format: function(dictionary) {
+      format(dictionary) {
         return JSON.stringify(dictionary.properties)
-      }
-    }
-  ]
-};
+      },
+    },
+  ],
+}
 
 describe('cleanFiles', () => {
-
   beforeEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   afterEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   it('should delete without buildPath', () => {
-    buildFiles( dictionary, platform );
-    cleanFiles( dictionary, platform );
-    expect(helpers.fileDoesNotExist('./__tests__/__output/test.json')).toBeTruthy();
-  });
+    buildFiles(dictionary, platform)
+    cleanFiles(dictionary, platform)
+    expect(helpers.fileDoesNotExist('./__tests__/__output/test.json')).toBeTruthy()
+  })
 
   it('should delete with buildPath', () => {
-    buildFiles( dictionary, platformWithBuildPath );
-    cleanFiles( dictionary, platformWithBuildPath );
-    expect(helpers.fileDoesNotExist('./__tests__/__output/test.json')).toBeTruthy();
-  });
-});
+    buildFiles(dictionary, platformWithBuildPath)
+    cleanFiles(dictionary, platformWithBuildPath)
+    expect(helpers.fileDoesNotExist('./__tests__/__output/test.json')).toBeTruthy()
+  })
+})

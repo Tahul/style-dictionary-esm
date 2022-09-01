@@ -11,180 +11,179 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const scss = require('node-sass');
-const StyleDictionary = require('../index');
-const {buildPath} = require('./_constants');
+import fs from 'fs-extra'
+import scss from 'node-sass'
+import StyleDictionary from '../src/index'
+import { buildPath } from './_constants'
 
-describe(`integration`, () => {
-  describe(`scss`, () => {
+describe('integration', () => {
+  describe('scss', () => {
     StyleDictionary.extend({
-      source: [`__integration__/tokens/**/*.json?(c)`],
+      source: ['__integration__/tokens/**/*.json?(c)'],
       platforms: {
         css: {
-          transformGroup: `scss`,
+          transformGroup: 'scss',
           buildPath,
           files: [{
-            destination: `variables.scss`,
-            format: `scss/variables`
+            destination: 'variables.scss',
+            format: 'scss/variables',
           },
           {
-            destination: `variables-themeable.scss`,
-            format: `scss/variables`,
+            destination: 'variables-themeable.scss',
+            format: 'scss/variables',
             options: {
-              themeable: true
-            }
+              themeable: true,
+            },
           }, {
-            destination: `variables-with-references.scss`,
-            format: `scss/variables`,
+            destination: 'variables-with-references.scss',
+            format: 'scss/variables',
             options: {
-              outputReferences: true
-            }
-          },{
-            destination: `filtered-variables-with-references.scss`,
-            format: `scss/variables`,
-            filter: (token) => token.path[1] === 'background',
+              outputReferences: true,
+            },
+          }, {
+            destination: 'filtered-variables-with-references.scss',
+            format: 'scss/variables',
+            filter: token => token.path[1] === 'background',
             options: {
-              outputReferences: true
-            }
-          },{
-            destination: `map-flat.scss`,
-            format: `scss/map-flat`,
-            mapName: 'design-system-tokens'
-          },{
-            destination: `map-deep.scss`,
-            format: `scss/map-deep`,
-            mapName: 'design-system-tokens'
-          },{
-            destination: `map-deep-with-references.scss`,
-            format: `scss/map-deep`,
+              outputReferences: true,
+            },
+          }, {
+            destination: 'map-flat.scss',
+            format: 'scss/map-flat',
+            mapName: 'design-system-tokens',
+          }, {
+            destination: 'map-deep.scss',
+            format: 'scss/map-deep',
+            mapName: 'design-system-tokens',
+          }, {
+            destination: 'map-deep-with-references.scss',
+            format: 'scss/map-deep',
             mapName: 'design-system-tokens',
             options: {
-              outputReferences: true
-            }
-          },{
-            destination: `map-deep-not-themeable.scss`,
-            format: `scss/map-deep`,
+              outputReferences: true,
+            },
+          }, {
+            destination: 'map-deep-not-themeable.scss',
+            format: 'scss/map-deep',
             mapName: 'design-system-tokens',
             options: {
-              themeable: false
-            }
-          }]
-        }
-      }
-    }).buildAllPlatforms();
+              themeable: false,
+            },
+          }],
+        },
+      },
+    }).buildAllPlatforms()
 
-    describe(`scss/variables`, () => {
-      const output = fs.readFileSync(`${buildPath}variables.scss`, {encoding:'UTF-8'});
+    describe('scss/variables', () => {
+      const output = fs.readFileSync(`${buildPath}variables.scss`, { encoding: 'UTF-8' })
 
-      it(`should have a valid scss syntax`, () => {
+      it('should have a valid scss syntax', () => {
         const result = scss.renderSync({
           data: output,
-        });
-        expect(result.css).toBeDefined();
-      });
+        })
+        expect(result.css).toBeDefined()
+      })
 
-      it(`should match snapshot`, () => {
-        expect(output).toMatchSnapshot();
-      });
+      it('should match snapshot', () => {
+        expect(output).toMatchSnapshot()
+      })
 
-      describe(`with themeable`, () => {
-        const output = fs.readFileSync(`${buildPath}variables-themeable.scss`, {encoding:'UTF-8'});
-        it(`should have a valid scss syntax`, () => {
+      describe('with themeable', () => {
+        const output = fs.readFileSync(`${buildPath}variables-themeable.scss`, { encoding: 'UTF-8' })
+        it('should have a valid scss syntax', () => {
           const result = scss.renderSync({
             data: output,
-          });
-          expect(result.css).toBeDefined();
-        });
+          })
+          expect(result.css).toBeDefined()
+        })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-      });
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
 
-      describe(`with outputReferences`, () => {
-        const output = fs.readFileSync(`${buildPath}variables-with-references.scss`, {encoding:'UTF-8'});
-        it(`should have a valid scss syntax`, () => {
+      describe('with outputReferences', () => {
+        const output = fs.readFileSync(`${buildPath}variables-with-references.scss`, { encoding: 'UTF-8' })
+        it('should have a valid scss syntax', () => {
           const result = scss.renderSync({
             data: output,
-          });
-          expect(result.css).toBeDefined();
-        });
+          })
+          expect(result.css).toBeDefined()
+        })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-      });
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
 
-      describe(`with filter and output references`, () => {
-        const output = fs.readFileSync(`${buildPath}filtered-variables-with-references.scss`, {encoding:'UTF-8'});
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-      });
-    });
+      describe('with filter and output references', () => {
+        const output = fs.readFileSync(`${buildPath}filtered-variables-with-references.scss`, { encoding: 'UTF-8' })
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
+    })
 
-    describe(`scss/map-flat`, () => {
-      const output = fs.readFileSync(`${buildPath}map-flat.scss`, {encoding:'UTF-8'});
+    describe('scss/map-flat', () => {
+      const output = fs.readFileSync(`${buildPath}map-flat.scss`, { encoding: 'UTF-8' })
 
-      it(`should have a valid scss syntax`, () => {
+      it('should have a valid scss syntax', () => {
         const result = scss.renderSync({
           data: output,
-        });
-        expect(result.css).toBeDefined();
-      });
+        })
+        expect(result.css).toBeDefined()
+      })
 
-      it(`should match snapshot`, () => {
-        expect(output).toMatchSnapshot();
-      });
-    });
+      it('should match snapshot', () => {
+        expect(output).toMatchSnapshot()
+      })
+    })
 
-    describe(`scss/map-deep`, () => {
-      const output = fs.readFileSync(`${buildPath}map-deep.scss`, {encoding:'UTF-8'});
+    describe('scss/map-deep', () => {
+      const output = fs.readFileSync(`${buildPath}map-deep.scss`, { encoding: 'UTF-8' })
 
-      it(`should have a valid scss syntax`, () => {
+      it('should have a valid scss syntax', () => {
         const result = scss.renderSync({
           data: output,
-        });
-        expect(result.css).toBeDefined();
-      });
+        })
+        expect(result.css).toBeDefined()
+      })
 
-      it(`should match snapshot`, () => {
-        expect(output).toMatchSnapshot();
-      });
+      it('should match snapshot', () => {
+        expect(output).toMatchSnapshot()
+      })
 
-      describe(`with outputReferences`, () => {
-        const output = fs.readFileSync(`${buildPath}map-deep-with-references.scss`, { encoding: 'UTF-8' });
-        it(`should have a valid scss syntax`, () => {
+      describe('with outputReferences', () => {
+        const output = fs.readFileSync(`${buildPath}map-deep-with-references.scss`, { encoding: 'UTF-8' })
+        it('should have a valid scss syntax', () => {
           const result = scss.renderSync({
             data: output,
-          });
-          expect(result.css).toBeDefined();
-        });
+          })
+          expect(result.css).toBeDefined()
+        })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-      });
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
 
-      describe(`without themeable`, () => {
-        const output = fs.readFileSync(`${buildPath}map-deep-not-themeable.scss`, { encoding: 'UTF-8' });
-        it(`should have a valid scss syntax`, () => {
+      describe('without themeable', () => {
+        const output = fs.readFileSync(`${buildPath}map-deep-not-themeable.scss`, { encoding: 'UTF-8' })
+        it('should have a valid scss syntax', () => {
           const result = scss.renderSync({
             data: output,
-          });
-          expect(result.css).toBeDefined();
-        });
+          })
+          expect(result.css).toBeDefined()
+        })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-      });
-
-    });
-  });
-});
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

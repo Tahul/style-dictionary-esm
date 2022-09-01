@@ -1,10 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`formats scss/map-deep scss/map-deep snapshot 1`] = `
+exports[`formats > scss/map-deep > scss/map-deep snapshot 1`] = `
 "
 /**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:21 GMT
  */
 
 $size-font-small: 12rem !default;
@@ -35,11 +35,11 @@ $tokens: (
 "
 `;
 
-exports[`formats scss/map-flat scss/map-flat snapshot 1`] = `
+exports[`formats > scss/map-flat > scss/map-flat snapshot 1`] = `
 "
 /**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:21 GMT
  */
 
 $tokens: (

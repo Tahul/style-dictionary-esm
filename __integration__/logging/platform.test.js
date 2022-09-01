@@ -11,13 +11,14 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../../index');
-const {buildPath, cleanConsoleOutput} = require('../_constants');
+import fs from 'fs-extra'
+import { vi } from 'vitest'
+import StyleDictionary from '../../src/index'
+import { buildPath, cleanConsoleOutput } from '../_constants'
 
 // Spy on console.log and add all messages to an array
-let consoleOutput = [];
-const log = jest.spyOn(console, "log")
+let consoleOutput = []
+const log = vi.spyOn(console, 'log')
   .mockImplementation(message => consoleOutput.push(message))
 
 /**
@@ -29,97 +30,97 @@ const log = jest.spyOn(console, "log")
  * an error if a user tries to use an unknown transform.
  *
  */
-describe(`integration`, () => {
+describe('integration', () => {
   // before each test clear the mocked console.log and the output array
   beforeEach(() => {
-    log.mockClear();
-    consoleOutput = [];
-  });
+    log.mockClear()
+    consoleOutput = []
+  })
 
-  describe(`logging`, () => {
-    describe(`platform`, () => {
-      it(`should throw and notify users of unknown actions`, () => {
+  describe('logging', () => {
+    describe('platform', () => {
+      it('should throw and notify users of unknown actions', () => {
         // unknown actions should throw
         expect(() => {
           StyleDictionary.extend({
             properties: {},
             platforms: {
               css: {
-                actions: [`foo`]
-              }
-            }
-          }).buildAllPlatforms();
-        }).toThrow();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
+                actions: ['foo'],
+              },
+            },
+          }).buildAllPlatforms()
+        }).toThrow()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should throw and notify users of unknown transforms`, () => {
+      it('should throw and notify users of unknown transforms', () => {
         expect(() => {
           StyleDictionary.extend({
             platforms: {
               css: {
-                transforms: [`foo`,`bar`]
-              }
-            }
-          }).buildAllPlatforms();
-        }).toThrow();
-        expect(consoleOutput.map(cleanConsoleOutput).join(`\n`)).toMatchSnapshot();
-      });
+                transforms: ['foo', 'bar'],
+              },
+            },
+          }).buildAllPlatforms()
+        }).toThrow()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should throw and notify users of unknown transformGroups`, () => {
+      it('should throw and notify users of unknown transformGroups', () => {
         expect(() => {
           StyleDictionary.extend({
             platforms: {
               css: {
-                transformGroup: `foo`
-              }
-            }
-          }).buildAllPlatforms();
-        }).toThrow();
-        expect(consoleOutput.map(cleanConsoleOutput).join(`\n`)).toMatchSnapshot();
-      });
+                transformGroup: 'foo',
+              },
+            },
+          }).buildAllPlatforms()
+        }).toThrow()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      describe(`property reference errors`, () => {
-        it(`should throw and notify users of unknown references`, () => {
+      describe('property reference errors', () => {
+        it('should throw and notify users of unknown references', () => {
           expect(() => {
             StyleDictionary.extend({
               properties: {
                 color: {
-                  danger: { value: "{color.red.value}" },
-                }
+                  danger: { value: '{color.red.value}' },
+                },
               },
               platforms: {
-                css: {}
-              }
-            }).buildAllPlatforms();
-          }).toThrow();
-          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-        });
+                css: {},
+              },
+            }).buildAllPlatforms()
+          }).toThrow()
+          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+        })
 
-        it(`circular references should throw notify users`, () => {
+        it('circular references should throw notify users', () => {
           expect(() => {
             StyleDictionary.extend({
               properties: {
                 color: {
-                  foo: { value: "{color.foo.value}" },
-                  teal: { value: "{color.blue.value}" },
-                  blue: { value: "{color.green.value}" },
-                  green: { value: "{color.teal.value}" },
-                  purple: { value: "{color.teal.value}" }
-                }
+                  foo: { value: '{color.foo.value}' },
+                  teal: { value: '{color.blue.value}' },
+                  blue: { value: '{color.green.value}' },
+                  green: { value: '{color.teal.value}' },
+                  purple: { value: '{color.teal.value}' },
+                },
               },
               platforms: {
-                css: {}
-              }
-            }).buildAllPlatforms();
-          }).toThrow();
-          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-        });
-      });
-    });
-  });
-});
+                css: {},
+              },
+            }).buildAllPlatforms()
+          }).toThrow()
+          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+        })
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

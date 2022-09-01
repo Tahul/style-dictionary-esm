@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`integration valid custom file headers file options config file header should match snapshot 1`] = `
+exports[`integration > valid custom file headers > file options > config file header should match snapshot 1`] = `
 "/**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:21 GMT
  * hello, world!
  */
 
@@ -13,7 +13,7 @@ exports[`integration valid custom file headers file options config file header s
 "
 `;
 
-exports[`integration valid custom file headers file options inline file header should match snapshot 1`] = `
+exports[`integration > valid custom file headers > file options > inline file header should match snapshot 1`] = `
 "/**
  * build version 1.0.0
  */
@@ -24,11 +24,11 @@ exports[`integration valid custom file headers file options inline file header s
 "
 `;
 
-exports[`integration valid custom file headers file options registered file header should match snapshot 1`] = `
+exports[`integration > valid custom file headers > file options > registered file header should match snapshot 1`] = `
 "/**
  * hello
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:21 GMT
  */
 
 :root {
@@ -37,12 +37,12 @@ exports[`integration valid custom file headers file options registered file head
 "
 `;
 
-exports[`integration valid custom file headers platform options file header override should match snapshot 1`] = `
+exports[`integration > valid custom file headers > platform options > file header override should match snapshot 1`] = `
 "/**
  * Header overridden
  */
 
-module.exports = {
+export default {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",
@@ -63,14 +63,14 @@ module.exports = {
 };"
 `;
 
-exports[`integration valid custom file headers platform options no file options should match snapshot 1`] = `
+exports[`integration > valid custom file headers > platform options > no file options should match snapshot 1`] = `
 "/**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:21 GMT
  * hello, world!
  */
 
-module.exports = {
+export default {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",
@@ -91,8 +91,8 @@ module.exports = {
 };"
 `;
 
-exports[`integration valid custom file headers platform options showFileHeader should match snapshot 1`] = `
-"module.exports = {
+exports[`integration > valid custom file headers > platform options > showFileHeader should match snapshot 1`] = `
+"export default {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",

@@ -11,39 +11,47 @@
  * and limitations under the License.
  */
 
-var fs   = require('fs-extra');
+import { fileURLToPath } from 'url'
+import fs from 'fs-extra'
+import { dirname, join } from 'pathe'
 
-module.exports = {
-  clearOutput: function() {
-    fs.emptyDirSync('__tests__/__output');
+export default {
+  clearOutput() {
+    fs.emptyDirSync('__tests__/__output')
   },
 
-  fileToJSON: function(path) {
-    return fs.readJsonSync(path);
+  fileToJSON(path) {
+    return fs.readJsonSync(this.resolveTestsPath(path))
   },
 
-  fileExists: function(filePath) {
+  fileExists(filePath) {
     try {
-      return fs.statSync(filePath).isFile();
-    } catch (err) {
-      return false;
+      return fs.statSync(this.resolveTestsPath(filePath)).isFile()
+    }
+    catch (err) {
+      return false
     }
   },
 
-  pathDoesNotExist: function(path) {
+  pathDoesNotExist(path) {
     try {
-      return !fs.existsSync(path);
-    } catch (err) {
-      return false;
+      return !fs.existsSync(this.resolveTestsPath(path))
+    }
+    catch (err) {
+      return false
     }
   },
 
-  dirDoesNotExist: function(dirPath) {
-    return this.pathDoesNotExist(dirPath);
+  dirDoesNotExist(dirPath) {
+    return this.pathDoesNotExist(this.resolveTestsPath(dirPath))
   },
 
-  fileDoesNotExist: function(filePath) {
-    return this.pathDoesNotExist(filePath);
+  fileDoesNotExist(filePath) {
+    return this.pathDoesNotExist(this.resolveTestsPath(filePath))
+  },
 
-  }
-};
+  resolveTestsPath(_path) {
+    const _dir = dirname(fileURLToPath(import.meta.url))
+    return join(_dir, _path)
+  },
+}

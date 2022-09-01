@@ -11,60 +11,52 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../index');
-const {buildPath} = require('./_constants');
+import fs from 'fs-extra'
+import StyleDictionary from '../src/index'
+import { buildPath } from './_constants'
 
 describe('integration', () => {
   describe('swift', () => {
     StyleDictionary.extend({
-      source: [`__integration__/tokens/**/*.json?(c)`],
+      source: ['__integration__/tokens/**/*.json?(c)'],
       platforms: {
         flutter: {
-          transformGroup: `ios-swift`,
+          transformGroup: 'ios-swift',
           buildPath,
           files: [{
-            destination: "style_dictionary.swift",
-            format: "ios-swift/class.swift",
-            className: "StyleDictionary"
-          },{
-            destination: "style_dictionary_with_references.swift",
-            format: "ios-swift/class.swift",
-            className: "StyleDictionary",
+            destination: 'style_dictionary.swift',
+            format: 'ios-swift/class.swift',
+            className: 'StyleDictionary',
+          }, {
+            destination: 'style_dictionary_with_references.swift',
+            format: 'ios-swift/class.swift',
+            className: 'StyleDictionary',
             options: {
-              outputReferences: true
-            }
-          }]
+              outputReferences: true,
+            },
+          }],
         },
-      }
-    }).buildAllPlatforms();
+      },
+    }).buildAllPlatforms()
 
-    describe(`ios-swift/class.swift`, () => {
-      const output = fs.readFileSync(`${buildPath}style_dictionary.swift`, {encoding:`UTF-8`});
+    describe('ios-swift/class.swift', () => {
+      const output = fs.readFileSync(`${buildPath}style_dictionary.swift`, { encoding: 'UTF-8' })
 
-      it(`should match snapshot`, () => {
-        expect(output).toMatchSnapshot();
-      });
+      it('should match snapshot', () => {
+        expect(output).toMatchSnapshot()
+      })
 
-      describe(`with references`, () => {
-        const output = fs.readFileSync(`${buildPath}style_dictionary_with_references.swift`, {encoding:`UTF-8`});
+      describe('with references', () => {
+        const output = fs.readFileSync(`${buildPath}style_dictionary_with_references.swift`, { encoding: 'UTF-8' })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-
-      });
-
-      // describe(`separate`, () => {
-      //   const output = fs.readFileSync(`${buildPath}style_dictionary_color.dart`);
-      //   it(`should match snapshot`, () => {
-      //     expect(output).toMatchSnapshot();
-      //   });
-      // });
-    });
-  });
-});
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

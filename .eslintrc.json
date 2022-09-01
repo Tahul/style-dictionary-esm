@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "plugins": ["jest"],
   "env": {
@@ -8,20 +9,25 @@
     "mocha": true,
     "jest": true
   },
+
   "globals": {
     "Buffer": true,
     "escape": true
   },
+
   "extends": [
-    "eslint:recommended",
+    "@antfu",
     "plugin:jest/recommended"
   ],
+
   "rules": {
     "no-console": 0,
     "no-unused-vars": 1,
     "no-control-regex": 0,
     "comma-dangle": 0,
     "no-prototype-builtins": 0,
-    "jest/valid-title": 0
+    "jest/valid-title": 0,
+    "n/no-path-concat": 0,
+    "jest/no-commented-out-tests": 0
   }
 }

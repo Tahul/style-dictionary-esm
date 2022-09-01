@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`formats android/resources should match default snapshot 1`] = `
+exports[`formats > android/resources > should match default snapshot 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <!--
   Do not edit directly
-  Generated on Sat, 01 Jan 2000 00:00:00 GMT
+  Generated on Thu, 01 Sep 2022 04:36:21 GMT
 -->
 <resources>
   <dimen name=\\"size-font-small\\">12rem</dimen>
@@ -17,12 +17,12 @@ exports[`formats android/resources should match default snapshot 1`] = `
 "
 `;
 
-exports[`formats android/resources with resourceMap override should match snapshot 1`] = `
+exports[`formats > android/resources > with resourceMap override should match snapshot 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <!--
   Do not edit directly
-  Generated on Sat, 01 Jan 2000 00:00:00 GMT
+  Generated on Thu, 01 Sep 2022 04:36:21 GMT
 -->
 <resources>
   <color name=\\"backgroundColorSecondary\\">#F2F3F4</color>
@@ -32,12 +32,12 @@ exports[`formats android/resources with resourceMap override should match snapsh
 "
 `;
 
-exports[`formats android/resources with resourceType override should match snapshot 1`] = `
+exports[`formats > android/resources > with resourceType override should match snapshot 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 
 <!--
   Do not edit directly
-  Generated on Sat, 01 Jan 2000 00:00:00 GMT
+  Generated on Thu, 01 Sep 2022 04:36:21 GMT
 -->
 <resources>
   <dimen name=\\"size-font-small\\">12rem</dimen>

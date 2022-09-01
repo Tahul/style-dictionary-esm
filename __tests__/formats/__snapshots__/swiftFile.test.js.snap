@@ -1,13 +1,13 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`formats ios-swift/any.swift should match default snapshot 1`] = `
+exports[`formats > ios-swift/any.swift > should match default snapshot 1`] = `
 "
 //
 // __output/
 //
 
 // Do not edit directly
-// Generated on Sat, 01 Jan 2000 00:00:00 GMT
+// Generated on Thu, 01 Sep 2022 04:36:21 GMT
 
 
 import UIKit
@@ -18,14 +18,14 @@ public class StyleDictionary {
 "
 `;
 
-exports[`formats ios-swift/any.swift with access control override should match snapshot 1`] = `
+exports[`formats > ios-swift/any.swift > with access control override should match snapshot 1`] = `
 "
 //
 // __output/
 //
 
 // Do not edit directly
-// Generated on Sat, 01 Jan 2000 00:00:00 GMT
+// Generated on Thu, 01 Sep 2022 04:36:21 GMT
 
 
 import UIKit
@@ -36,14 +36,14 @@ internal class StyleDictionary {
 "
 `;
 
-exports[`formats ios-swift/any.swift with import override should match snapshot 1`] = `
+exports[`formats > ios-swift/any.swift > with import override should match snapshot 1`] = `
 "
 //
 // __output/
 //
 
 // Do not edit directly
-// Generated on Sat, 01 Jan 2000 00:00:00 GMT
+// Generated on Thu, 01 Sep 2022 04:36:21 GMT
 
 
 import UIKit
@@ -55,14 +55,14 @@ public class StyleDictionary {
 "
 `;
 
-exports[`formats ios-swift/any.swift with objectType override should match snapshot 1`] = `
+exports[`formats > ios-swift/any.swift > with objectType override should match snapshot 1`] = `
 "
 //
 // __output/
 //
 
 // Do not edit directly
-// Generated on Sat, 01 Jan 2000 00:00:00 GMT
+// Generated on Thu, 01 Sep 2022 04:36:21 GMT
 
 
 import UIKit

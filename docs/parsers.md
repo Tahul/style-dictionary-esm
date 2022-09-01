@@ -50,7 +50,7 @@ StyleDictionary.registerParser({
 ### Inline
 
 ```javascript
-module.exports = {
+export default {
   parsers: [{
     pattern: /\.json$/,
     parse: ({ filePath, contents }) => {

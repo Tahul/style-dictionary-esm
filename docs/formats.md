@@ -742,7 +742,7 @@ styleDictionary.registerFormat({
 
 ## Pre-defined Formats
 
-These are the formats included in Style Dictionary by default, pulled from [lib/common/formats.js](https://github.com/amzn/style-dictionary/blob/main/lib/common/formats.js)
+These are the formats included in Style Dictionary by default, pulled from [lib/common/formats.js](https://github.com/amzn/style-dictionary/blob/main/src/common/formats.js)
 
 Want a format? [You can request it here](https://github.com/amzn/style-dictionary/issues).
 
@@ -957,7 +957,7 @@ Creates a CommonJS module with the whole style dictionary
 
 **Example**  
 ```js
-module.exports = {
+export default {
   color: {
     base: {
        red: {
@@ -977,7 +977,7 @@ Creates a CommonJS module with the whole style dictionary flattened to a single 
 
 **Example**  
 ```js
-module.exports = {
+export default {
  "ColorBaseRed": "#ff0000"
 }
 ```
@@ -1016,7 +1016,7 @@ in your config.
 ```js
 (function(root, factory) {
   if (typeof module === "object" && module.exports) {
-    module.exports = factory();
+    export default factory();
   } else if (typeof exports === "object") {
     exports["_styleDictionary"] = factory();
   } else if (typeof define === "function" && define.amd) {

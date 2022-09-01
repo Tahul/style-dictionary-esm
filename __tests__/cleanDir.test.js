@@ -11,31 +11,29 @@
  * and limitations under the License.
  */
 
-var helpers   = require('./__helpers');
-var buildFile = require('../lib/buildFile');
-var cleanFile = require('../lib/cleanFile');
-var cleanDir = require('../lib/cleanDir');
+import buildFile from '../src/buildFile'
+import cleanFile from '../src/cleanFile'
+import cleanDir from '../src/cleanDir'
+import helpers from './__helpers'
 
 function format() {
-  return "hi";
+  return 'hi'
 }
 
 describe('cleanDir', () => {
-
   beforeEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   afterEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   it('should delete a dir properly', () => {
-    buildFile({destination:'test.txt', format}, {buildPath: '__tests__/__output/extradir1/extradir2/'}, {});
-    cleanFile({destination:'test.txt', format}, {buildPath: '__tests__/__output/extradir1/extradir2/'}, {});
-    cleanDir({destination:'test.txt', format}, {buildPath: '__tests__/__output/extradir1/extradir2/'}, {});
-    expect(helpers.dirDoesNotExist('./__tests__/__output/extradir1/extradir2')).toBeTruthy();
-    expect(helpers.dirDoesNotExist('./__tests__/__output/extradir1')).toBeTruthy();
-  });
-
-});
+    buildFile({ destination: 'test.txt', format }, { buildPath: '__tests__/__output/extradir1/extradir2/' }, {})
+    cleanFile({ destination: 'test.txt', format }, { buildPath: '__tests__/__output/extradir1/extradir2/' }, {})
+    cleanDir({ destination: 'test.txt', format }, { buildPath: '__tests__/__output/extradir1/extradir2/' }, {})
+    expect(helpers.dirDoesNotExist('./__tests__/__output/extradir1/extradir2')).toBeTruthy()
+    expect(helpers.dirDoesNotExist('./__tests__/__output/extradir1')).toBeTruthy()
+  })
+})

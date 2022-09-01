@@ -11,41 +11,39 @@
  * and limitations under the License.
  */
 
-const setSwiftFileProperties = require('../../../lib/common/formatHelpers/setSwiftFileProperties');
+import setSwiftFileProperties from '../../../src/common/formatHelpers/setSwiftFileProperties'
 
 describe('common', () => {
   describe('formatHelpers', () => {
-
     describe('setSwiftFileProperties', () => {
       it('should default accessControl be public', () => {
-        const file = setSwiftFileProperties({}, undefined, 'ios-swift');
-        expect(file.accessControl).toEqual('public ');
-      });
+        const file = setSwiftFileProperties({}, undefined, 'ios-swift')
+        expect(file.accessControl).toEqual('public ')
+      })
 
       it('should default objectType be class', () => {
-        const file = setSwiftFileProperties({}, undefined, 'ios-swift');
-        expect(file.objectType).toEqual('class');
-      });
+        const file = setSwiftFileProperties({}, undefined, 'ios-swift')
+        expect(file.objectType).toEqual('class')
+      })
 
       it('should default import be ["UIKit"]', () => {
-        const file = setSwiftFileProperties({}, undefined, 'ios-swift');
-        const fileSeparate = setSwiftFileProperties({}, undefined, 'ios-swift-separate');
-        expect(file.import).toEqual(['UIKit']);
-        expect(fileSeparate.import).toEqual(['UIKit']);
-      });
+        const file = setSwiftFileProperties({}, undefined, 'ios-swift')
+        const fileSeparate = setSwiftFileProperties({}, undefined, 'ios-swift-separate')
+        expect(file.import).toEqual(['UIKit'])
+        expect(fileSeparate.import).toEqual(['UIKit'])
+      })
 
       it('should transform string import to array', () => {
-        const file = setSwiftFileProperties({ import: 'SwiftUI' }, undefined, 'ios-swift');
-        expect(file.import).toEqual(['SwiftUI']);
-      });
+        const file = setSwiftFileProperties({ import: 'SwiftUI' }, undefined, 'ios-swift')
+        expect(file.import).toEqual(['SwiftUI'])
+      })
 
       it('should file be properly configured', () => {
-        const file = setSwiftFileProperties({ objectType: 'extension', import: ['SwiftUI'], accessControl: 'public'}, undefined, 'ios-swift');
-        expect(file.objectType).toEqual('extension');
-        expect(file.import).toEqual(['SwiftUI']);
-        expect(file.accessControl).toEqual('public ');
-      });
-
-    });
+        const file = setSwiftFileProperties({ objectType: 'extension', import: ['SwiftUI'], accessControl: 'public' }, undefined, 'ios-swift')
+        expect(file.objectType).toEqual('extension')
+        expect(file.import).toEqual(['SwiftUI'])
+        expect(file.accessControl).toEqual('public ')
+      })
+    })
   })
 })

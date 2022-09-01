@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`integration custom formats inline custom with new args should match snapshot 1`] = `
+exports[`integration > custom formats > inline custom with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
     \\"properties\\": {
@@ -8,8 +8,6 @@ exports[`integration custom formats inline custom with new args should match sna
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -27,8 +25,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -46,8 +42,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -65,8 +59,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -88,8 +80,6 @@ exports[`integration custom formats inline custom with new args should match sna
     \\"allProperties\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -107,8 +97,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -126,8 +114,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -145,8 +131,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -168,8 +152,6 @@ exports[`integration custom formats inline custom with new args should match sna
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -187,8 +169,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -206,8 +186,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -225,8 +203,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -248,8 +224,6 @@ exports[`integration custom formats inline custom with new args should match sna
     \\"allTokens\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -267,8 +241,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -286,8 +258,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -305,8 +275,6 @@ exports[`integration custom formats inline custom with new args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -328,8 +296,6 @@ exports[`integration custom formats inline custom with new args should match sna
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -347,8 +313,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -366,8 +330,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -385,8 +347,6 @@ exports[`integration custom formats inline custom with new args should match sna
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -409,8 +369,6 @@ exports[`integration custom formats inline custom with new args should match sna
   \\"allProperties\\": [
     {
       \\"value\\": \\"0.5rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 0.5
       },
@@ -428,8 +386,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -447,8 +403,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -466,8 +420,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -489,8 +441,6 @@ exports[`integration custom formats inline custom with new args should match sna
       \\"padding\\": {
         \\"small\\": {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -508,8 +458,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"medium\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -527,8 +475,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"large\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -546,8 +492,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"xl\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -569,8 +513,6 @@ exports[`integration custom formats inline custom with new args should match sna
   \\"allTokens\\": [
     {
       \\"value\\": \\"0.5rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 0.5
       },
@@ -588,8 +530,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -607,8 +547,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -626,8 +564,6 @@ exports[`integration custom formats inline custom with new args should match sna
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -649,8 +585,6 @@ exports[`integration custom formats inline custom with new args should match sna
       \\"padding\\": {
         \\"small\\": {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -668,8 +602,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"medium\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -687,8 +619,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"large\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -706,8 +636,6 @@ exports[`integration custom formats inline custom with new args should match sna
         },
         \\"xl\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -728,7 +656,7 @@ exports[`integration custom formats inline custom with new args should match sna
   },
   \\"platform\\": {
     \\"transformGroup\\": \\"js\\",
-    \\"buildPath\\": \\"__integration__/build/\\",
+    \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
     \\"options\\": {
       \\"otherOption\\": \\"platform option\\"
     },
@@ -778,7 +706,7 @@ exports[`integration custom formats inline custom with new args should match sna
 }"
 `;
 
-exports[`integration custom formats inline custom with old args should match snapshot 1`] = `
+exports[`integration > custom formats > inline custom with old args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
@@ -787,8 +715,6 @@ exports[`integration custom formats inline custom with old args should match sna
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -806,8 +732,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -825,8 +749,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -844,8 +766,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -867,8 +787,6 @@ exports[`integration custom formats inline custom with old args should match sna
       \\"allProperties\\": [
         {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -886,8 +804,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -905,8 +821,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -924,8 +838,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -947,8 +859,6 @@ exports[`integration custom formats inline custom with old args should match sna
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -966,8 +876,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -985,8 +893,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -1004,8 +910,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -1027,8 +931,6 @@ exports[`integration custom formats inline custom with old args should match sna
       \\"allTokens\\": [
         {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -1046,8 +948,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -1065,8 +965,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -1084,8 +982,6 @@ exports[`integration custom formats inline custom with old args should match sna
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -1107,8 +1003,6 @@ exports[`integration custom formats inline custom with old args should match sna
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -1126,8 +1020,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -1145,8 +1037,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -1164,8 +1054,6 @@ exports[`integration custom formats inline custom with old args should match sna
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -1188,8 +1076,6 @@ exports[`integration custom formats inline custom with old args should match sna
     \\"allProperties\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -1207,8 +1093,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1226,8 +1110,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1245,8 +1127,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1268,8 +1148,6 @@ exports[`integration custom formats inline custom with old args should match sna
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -1287,8 +1165,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1306,8 +1182,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1325,8 +1199,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1348,8 +1220,6 @@ exports[`integration custom formats inline custom with old args should match sna
     \\"allTokens\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -1367,8 +1237,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1386,8 +1254,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1405,8 +1271,6 @@ exports[`integration custom formats inline custom with old args should match sna
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1428,8 +1292,6 @@ exports[`integration custom formats inline custom with old args should match sna
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -1447,8 +1309,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1466,8 +1326,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1485,8 +1343,6 @@ exports[`integration custom formats inline custom with old args should match sna
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1507,7 +1363,7 @@ exports[`integration custom formats inline custom with old args should match sna
     },
     \\"platform\\": {
       \\"transformGroup\\": \\"js\\",
-      \\"buildPath\\": \\"__integration__/build/\\",
+      \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
       \\"options\\": {
         \\"otherOption\\": \\"platform option\\"
       },
@@ -1557,7 +1413,7 @@ exports[`integration custom formats inline custom with old args should match sna
   },
   \\"platform\\": {
     \\"transformGroup\\": \\"js\\",
-    \\"buildPath\\": \\"__integration__/build/\\",
+    \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
     \\"options\\": {
       \\"otherOption\\": \\"platform option\\"
     },
@@ -1603,7 +1459,7 @@ exports[`integration custom formats inline custom with old args should match sna
 }"
 `;
 
-exports[`integration custom formats register custom format with new args should match snapshot 1`] = `
+exports[`integration > custom formats > register custom format with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
     \\"properties\\": {
@@ -1611,8 +1467,6 @@ exports[`integration custom formats register custom format with new args should 
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -1630,8 +1484,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1649,8 +1501,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1668,8 +1518,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1691,8 +1539,6 @@ exports[`integration custom formats register custom format with new args should 
     \\"allProperties\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -1710,8 +1556,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1729,8 +1573,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1748,8 +1590,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1771,8 +1611,6 @@ exports[`integration custom formats register custom format with new args should 
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -1790,8 +1628,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1809,8 +1645,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1828,8 +1662,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1851,8 +1683,6 @@ exports[`integration custom formats register custom format with new args should 
     \\"allTokens\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -1870,8 +1700,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1889,8 +1717,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1908,8 +1734,6 @@ exports[`integration custom formats register custom format with new args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -1931,8 +1755,6 @@ exports[`integration custom formats register custom format with new args should 
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -1950,8 +1772,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1969,8 +1789,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -1988,8 +1806,6 @@ exports[`integration custom formats register custom format with new args should 
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -2012,8 +1828,6 @@ exports[`integration custom formats register custom format with new args should 
   \\"allProperties\\": [
     {
       \\"value\\": \\"0.5rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 0.5
       },
@@ -2031,8 +1845,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2050,8 +1862,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2069,8 +1879,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2092,8 +1900,6 @@ exports[`integration custom formats register custom format with new args should 
       \\"padding\\": {
         \\"small\\": {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -2111,8 +1917,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"medium\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2130,8 +1934,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"large\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2149,8 +1951,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"xl\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2172,8 +1972,6 @@ exports[`integration custom formats register custom format with new args should 
   \\"allTokens\\": [
     {
       \\"value\\": \\"0.5rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 0.5
       },
@@ -2191,8 +1989,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2210,8 +2006,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2229,8 +2023,6 @@ exports[`integration custom formats register custom format with new args should 
     },
     {
       \\"value\\": \\"1rem\\",
-      \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-      \\"isSource\\": true,
       \\"original\\": {
         \\"value\\": 1
       },
@@ -2252,8 +2044,6 @@ exports[`integration custom formats register custom format with new args should 
       \\"padding\\": {
         \\"small\\": {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -2271,8 +2061,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"medium\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2290,8 +2078,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"large\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2309,8 +2095,6 @@ exports[`integration custom formats register custom format with new args should 
         },
         \\"xl\\": {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2331,7 +2115,7 @@ exports[`integration custom formats register custom format with new args should 
   },
   \\"platform\\": {
     \\"transformGroup\\": \\"js\\",
-    \\"buildPath\\": \\"__integration__/build/\\",
+    \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
     \\"options\\": {
       \\"otherOption\\": \\"platform option\\"
     },
@@ -2381,7 +2165,7 @@ exports[`integration custom formats register custom format with new args should 
 }"
 `;
 
-exports[`integration custom formats register custom format with old args should match snapshot 1`] = `
+exports[`integration > custom formats > register custom format with old args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
@@ -2390,8 +2174,6 @@ exports[`integration custom formats register custom format with old args should 
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -2409,8 +2191,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2428,8 +2208,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2447,8 +2225,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2470,8 +2246,6 @@ exports[`integration custom formats register custom format with old args should 
       \\"allProperties\\": [
         {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -2489,8 +2263,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2508,8 +2280,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2527,8 +2297,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2550,8 +2318,6 @@ exports[`integration custom formats register custom format with old args should 
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -2569,8 +2335,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2588,8 +2352,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2607,8 +2369,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2630,8 +2390,6 @@ exports[`integration custom formats register custom format with old args should 
       \\"allTokens\\": [
         {
           \\"value\\": \\"0.5rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 0.5
           },
@@ -2649,8 +2407,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2668,8 +2424,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2687,8 +2441,6 @@ exports[`integration custom formats register custom format with old args should 
         },
         {
           \\"value\\": \\"1rem\\",
-          \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-          \\"isSource\\": true,
           \\"original\\": {
             \\"value\\": 1
           },
@@ -2710,8 +2462,6 @@ exports[`integration custom formats register custom format with old args should 
           \\"padding\\": {
             \\"small\\": {
               \\"value\\": \\"0.5rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 0.5
               },
@@ -2729,8 +2479,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"medium\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2748,8 +2496,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"large\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2767,8 +2513,6 @@ exports[`integration custom formats register custom format with old args should 
             },
             \\"xl\\": {
               \\"value\\": \\"1rem\\",
-              \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-              \\"isSource\\": true,
               \\"original\\": {
                 \\"value\\": 1
               },
@@ -2791,8 +2535,6 @@ exports[`integration custom formats register custom format with old args should 
     \\"allProperties\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -2810,8 +2552,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -2829,8 +2569,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -2848,8 +2586,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -2871,8 +2607,6 @@ exports[`integration custom formats register custom format with old args should 
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -2890,8 +2624,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -2909,8 +2641,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -2928,8 +2658,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -2951,8 +2679,6 @@ exports[`integration custom formats register custom format with old args should 
     \\"allTokens\\": [
       {
         \\"value\\": \\"0.5rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 0.5
         },
@@ -2970,8 +2696,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -2989,8 +2713,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -3008,8 +2730,6 @@ exports[`integration custom formats register custom format with old args should 
       },
       {
         \\"value\\": \\"1rem\\",
-        \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-        \\"isSource\\": true,
         \\"original\\": {
           \\"value\\": 1
         },
@@ -3031,8 +2751,6 @@ exports[`integration custom formats register custom format with old args should 
         \\"padding\\": {
           \\"small\\": {
             \\"value\\": \\"0.5rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 0.5
             },
@@ -3050,8 +2768,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"medium\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -3069,8 +2785,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"large\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -3088,8 +2802,6 @@ exports[`integration custom formats register custom format with old args should 
           },
           \\"xl\\": {
             \\"value\\": \\"1rem\\",
-            \\"filePath\\": \\"__integration__/tokens/size/padding.json\\",
-            \\"isSource\\": true,
             \\"original\\": {
               \\"value\\": 1
             },
@@ -3110,7 +2822,7 @@ exports[`integration custom formats register custom format with old args should 
     },
     \\"platform\\": {
       \\"transformGroup\\": \\"js\\",
-      \\"buildPath\\": \\"__integration__/build/\\",
+      \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
       \\"options\\": {
         \\"otherOption\\": \\"platform option\\"
       },
@@ -3160,7 +2872,7 @@ exports[`integration custom formats register custom format with old args should 
   },
   \\"platform\\": {
     \\"transformGroup\\": \\"js\\",
-    \\"buildPath\\": \\"__integration__/build/\\",
+    \\"buildPath\\": \\"/Users/yaelguilloux/Code/sandbox/style-dictionary-light/__integration__/__integration__/build/\\",
     \\"options\\": {
       \\"otherOption\\": \\"platform option\\"
     },

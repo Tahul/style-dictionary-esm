@@ -45,7 +45,7 @@ StyleDictionary.registerTransform({
   }
 });
 
-module.exports = StyleDictionary;
+export default StyleDictionary;
 
 // package b
 const StyleDictionary = require('package-a');

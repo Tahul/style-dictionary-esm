@@ -11,92 +11,96 @@
  * and limitations under the License.
  */
 
-const fileHeader = require('../../../lib/common/formatHelpers/fileHeader');
+import fileHeader from '../../../src/common/formatHelpers/fileHeader'
 
-const defaultLine1 = `Do not edit directly`;
-const defaultLine2 = `Generated on Sat, 01 Jan 2000 00:00:00 GMT`;
+const defaultLine1 = 'Do not edit directly'
+const defaultLine2 = 'Generated on Sat, 01 Jan 2000 00:00:00 GMT'
 
 describe('common', () => {
   describe('formatHelpers', () => {
-
     describe('fileHeader', () => {
-      it(`should default to /**/ comment style`, () => {
-        const comment = fileHeader({});
+      it('should default to /**/ comment style', () => {
+        const comment = fileHeader({})
+
+        console.log({
+          comment,
+        })
+
         expect(comment).toEqual(
 `/**
  * ${defaultLine1}
  * ${defaultLine2}
  */
 
-`);
-      });
+`)
+      })
 
-      it(`should handle commentStyle short`, () => {
-        const comment = fileHeader({commentStyle: 'short'});
+      it('should handle commentStyle short', () => {
+        const comment = fileHeader({ commentStyle: 'short' })
         expect(comment).toEqual(
 `
 // ${defaultLine1}
 // ${defaultLine2}
 
-`);
-      });
+`)
+      })
 
-      it(`should handle commentStyle xml`, () => {
-        const comment = fileHeader({commentStyle: 'xml'});
+      it('should handle commentStyle xml', () => {
+        const comment = fileHeader({ commentStyle: 'xml' })
         expect(comment).toEqual(
 `<!--
   ${defaultLine1}
   ${defaultLine2}
--->`);
-      });
+-->`)
+      })
 
-      it(`should handle showFileHeader option`, () => {
+      it('should handle showFileHeader option', () => {
         const comment = fileHeader({
           file: {
             options: {
-              showFileHeader: false
-            }
-          }
-        });
-        expect(comment).toEqual('');
-      });
+              showFileHeader: false,
+            },
+          },
+        })
+        expect(comment).toEqual('')
+      })
 
-      it(`should handle custom fileHeader function`, () => {
+      it('should handle custom fileHeader function', () => {
         const comment = fileHeader({
           file: {
             options: {
               fileHeader: () => {
                 return [
-                  `Never gonna give you up`,
-                  `Never gonna let you down`
+                  'Never gonna give you up',
+                  'Never gonna let you down',
                 ]
-              }
-            }
-          }
-        });
+              },
+            },
+          },
+        })
         expect(comment).toEqual(
 `/**
  * Never gonna give you up
  * Never gonna let you down
  */
 
-`);
-      });
+`)
+      })
 
-      it(`should handle custom fileHeader function with default`, () => {
+      it('should handle custom fileHeader function with default', () => {
         const comment = fileHeader({
           file: {
             options: {
               fileHeader: (defaultMessage) => {
                 return [
                   ...defaultMessage,
-                  `Never gonna give you up`,
-                  `Never gonna let you down`
+                  'Never gonna give you up',
+                  'Never gonna let you down',
                 ]
-              }
-            }
-          }
-        });
+              },
+            },
+          },
+        })
         expect(comment).toEqual(
 `/**
  * ${defaultLine1}
@@ -105,21 +109,23 @@ describe('common', () => {
  * Never gonna let you down
  */
 
-`);
-      });
+`)
+      })
 
       it('should handle custom formatting', () => {
-        const comment = fileHeader({formatting: {
-          prefix: `  `,
-          header: `{#\n`,
-          footer: `\n#}`
-        }});
+        const comment = fileHeader({
+          formatting: {
+            prefix: '  ',
+            header: '{#\n',
+            footer: '\n#}',
+          },
+        })
         expect(comment).toEqual(
 `{#
   ${defaultLine1}
   ${defaultLine2}
-#}`);
-      });
-    });
-  });
-});
+#}`)
+      })
+    })
+  })
+})

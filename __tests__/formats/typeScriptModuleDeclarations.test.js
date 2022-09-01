@@ -10,48 +10,47 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-const formats = require('../../lib/common/formats');
-const createDictionary = require('../../lib/utils/createDictionary');
-const createFormatArgs = require('../../lib/utils/createFormatArgs');
+import formats from '../../src/common/formats'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
 
 const file = {
-  "destination": "__output/",
-  "format": "typescript/module-declarations",
-  "filter": {
-    "attributes": {
-      "category": "color"
-    }
-  }
-};
+  destination: '__output/',
+  format: 'typescript/module-declarations',
+  filter: {
+    attributes: {
+      category: 'color',
+    },
+  },
+}
 
 const properties = {
-  "color": {
-    "red": {"value": "#FF0000"}
-  }
-};
+  color: {
+    red: { value: '#FF0000' },
+  },
+}
 
-
-var formatter = formats['typescript/module-declarations'].bind(file);
+const formatter = formats['typescript/module-declarations'].bind(file)
 
 describe('formats', () => {
   describe('typescript/module-declarations', () => {
     it('should be a valid TS file', () => {
-      const dictionary = createDictionary({ properties });
+      const dictionary = createDictionary({ properties })
       const output = formatter(createFormatArgs({
         dictionary,
         file,
         platform: {},
-      }), {}, file);
+      }), {}, file)
 
       // get all lines that have DesignToken
       const lines = output
         .split('\n')
-        .filter(l => l.indexOf(': DesignToken') >= 0);
+        .filter(l => l.includes(': DesignToken'))
 
       // assert that any lines have a DesignToken type definition
-      lines.forEach(l => {
-        expect(l.match(/^.*: DesignToken$/g).length).toEqual(1);
-      });
-    });
-  });
-});
+      lines.forEach((l) => {
+        expect(l.match(/^.*: DesignToken$/g).length).toEqual(1)
+      })
+    })
+  })
+})

@@ -90,7 +90,7 @@ If you want to learn more about transitive transforms, take a look at the [trans
 
 ## Pre-defined Transforms
 
-[lib/common/transforms.js](https://github.com/amzn/style-dictionary/blob/main/lib/common/transforms.js)
+[lib/common/transforms.js](https://github.com/amzn/style-dictionary/blob/main/src/common/transforms.js)
 
 > All the pre-defined transforms included use the [CTI structure](tokens.md?id=category-type-item) for matching tokens. If you structure your design tokens differently you will need to write [custom transforms](transforms.md?id=defining-custom-transforms) or make sure the proper CTIs are on the attributes of your design tokens.
 
@@ -141,7 +141,7 @@ Creates a human-friendly name
 ```js
 // Matches: All
 // Returns:
-"button primary"
+'button primary'
 ```
 
 
@@ -155,8 +155,8 @@ Creates a camel case name. If you define a prefix on the platform in your config
 ```js
 // Matches: all
 // Returns:
-"colorBackgroundButtonPrimaryActive"
-"prefixColorBackgroundButtonPrimaryActive"
+'colorBackgroundButtonPrimaryActive'
+'prefixColorBackgroundButtonPrimaryActive'
 ```
 
 
@@ -172,8 +172,8 @@ If you define a prefix on the platform in your config, it will prepend with your
 ```js
 // Matches: all
 // Returns:
-"backgroundButtonPrimaryActive"
-"prefixBackgroundButtonPrimaryActive"
+'backgroundButtonPrimaryActive'
+'prefixBackgroundButtonPrimaryActive'
 ```
 
 
@@ -187,8 +187,8 @@ Creates a kebab case name. If you define a prefix on the platform in your config
 ```js
 // Matches: all
 // Returns:
-"color-background-button-primary-active"
-"prefix-color-background-button-primary-active"
+'color-background-button-primary-active'
+'prefix-color-background-button-primary-active'
 ```
 
 
@@ -202,8 +202,8 @@ Creates a snake case name. If you define a prefix on the platform in your config
 ```js
 // Matches: all
 // Returns:
-"color_background_button_primary_active"
-"prefix_color_background_button_primary_active"
+'color_background_button_primary_active'
+'prefix_color_background_button_primary_active'
 ```
 
 
@@ -217,8 +217,8 @@ Creates a constant-style name based on the full CTI of the token. If you define 
 ```js
 // Matches: all
 // Returns:
-"COLOR_BACKGROUND_BUTTON_PRIMARY_ACTIVE"
-"PREFIX_COLOR_BACKGROUND_BUTTON_PRIMARY_ACTIVE"
+'COLOR_BACKGROUND_BUTTON_PRIMARY_ACTIVE'
+'PREFIX_COLOR_BACKGROUND_BUTTON_PRIMARY_ACTIVE'
 ```
 
 
@@ -232,8 +232,8 @@ Creates a constant-style name on the type and item of the token. This is useful 
 ```js
 // Matches: all
 // Returns:
-"BACKGROUND_BUTTON_PRIMARY_ACTIVE"
-"PREFIX_BACKGROUND_BUTTON_PRIMARY_ACTIVE"
+'BACKGROUND_BUTTON_PRIMARY_ACTIVE'
+'PREFIX_BACKGROUND_BUTTON_PRIMARY_ACTIVE'
 ```
 
 
@@ -247,8 +247,8 @@ Creates a Pascal case name. If you define a prefix on the platform in your confi
 ```js
 // Matches: all
 // Returns:
-"ColorBackgroundButtonPrimaryActive"
-"PrefixColorBackgroundButtonPrimaryActive"
+'ColorBackgroundButtonPrimaryActive'
+'PrefixColorBackgroundButtonPrimaryActive'
 ```
 
 
@@ -262,7 +262,7 @@ Transforms the value into an RGB string
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"rgb(0, 150, 136)"
+'rgb(0, 150, 136)'
 ```
 
 
@@ -276,8 +276,8 @@ Transforms the value into an HSL string or HSLA if alpha is present. Better brow
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"hsl(174, 100%, 29%)"
-"hsl(174, 100%, 29%, .5)"
+'hsl(174, 100%, 29%)'
+'hsl(174, 100%, 29%, .5)'
 ```
 
 
@@ -291,8 +291,8 @@ Transforms the value into an HSL string, using fourth argument if alpha is prese
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"hsl(174 100% 29%)"
-"hsl(174 100% 29% / .5)"
+'hsl(174 100% 29%)'
+'hsl(174 100% 29% / .5)'
 ```
 
 
@@ -306,7 +306,7 @@ Transforms the value into an 6-digit hex string
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"#009688"
+'#009688'
 ```
 
 
@@ -320,7 +320,7 @@ Transforms the value into an 8-digit hex string
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"#009688ff"
+'#009688ff'
 ```
 
 
@@ -334,7 +334,7 @@ Transforms the value into an 8-digit hex string for Android because they put the
 ```js
 // Matches: token.attributes.category === 'color'
 // Returns:
-"#ff009688"
+'#ff009688'
 ```
 
 
@@ -440,7 +440,7 @@ Transforms the value into a scale-independent pixel (sp) value for font sizes on
 ```js
 // Matches: token.attributes.category === 'size' && token.attributes.type === 'font'
 // Returns:
-"10.0sp"
+'10.0sp'
 ```
 
 
@@ -454,7 +454,7 @@ Transforms the value into a density-independent pixel (dp) value for non-font si
 ```js
 // Matches: token.attributes.category === 'size' && token.attributes.type !== 'font'
 // Returns:
-"10.0dp"
+'10.0dp'
 ```
 
 
@@ -487,7 +487,7 @@ Transforms the value from a REM size on web into a scale-independent pixel (sp) 
 ```js
 // Matches: token.attributes.category === 'size' && token.attributes.type === 'font'
 // Returns:
-"16.0sp"
+'16.0sp'
 ```
 
 
@@ -501,7 +501,7 @@ Transforms the value from a REM size on web into a density-independent pixel (dp
 ```js
 // Matches: token.attributes.category === 'size' && token.attributes.type !== 'font'
 // Returns:
-"16.0dp"
+'16.0dp'
 ```
 
 
@@ -515,7 +515,7 @@ Adds 'px' to the end of the number. Does not scale the number
 ```js
 // Matches: token.attributes.category === 'size'
 // Returns:
-"10px"
+'10px'
 ```
 
 
@@ -529,7 +529,7 @@ Adds 'rem' to the end of the number. Does not scale the number
 ```js
 // Matches: token.attributes.category === 'size'
 // Returns:
-"10rem"
+'10rem'
 ```
 
 
@@ -543,7 +543,7 @@ Scales the number by 16 (or the value of 'basePxFontSize' on the platform in you
 ```js
 // Matches: token.attributes.category === 'size'
 // Returns:
-"16pt"
+'16pt'
 ```
 
 
@@ -612,7 +612,7 @@ Scales the number by 16 (or the value of 'basePxFontSize' on the platform in you
 ```js
 // Matches: token.attributes.category === 'size'
 // Returns:
-"16px"
+'16px'
 ```
 
 
@@ -626,7 +626,7 @@ Takes a unicode point and transforms it into a form CSS can use.
 ```js
 // Matches: token.attributes.category === 'content' && token.attributes.type === 'icon'
 // Returns:
-"'\\E001'"
+'\'\\E001\''
 ```
 
 
@@ -640,7 +640,7 @@ Wraps the value in a single quoted string
 ```js
 // Matches: token.attributes.category === 'content'
 // Returns:
-"'string'"
+'\'string\''
 ```
 
 
@@ -707,7 +707,7 @@ Assumes a time in miliseconds and transforms it into a decimal
 ```js
 // Matches: token.attributes.category === 'time'
 // Returns:
-"0.5s"
+'0.5s'
 ```
 
 
@@ -735,7 +735,7 @@ Prepends the local file path
 ```js
 // Matches: token.attributes.category === 'asset'
 // Returns:
-"path/to/file/asset.png"
+'path/to/file/asset.png'
 ```
 
 

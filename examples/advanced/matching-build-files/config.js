@@ -1,15 +1,15 @@
-const StyleDictionary = require("style-dictionary");
-const tokens = require("./tokens");
+const StyleDictionary = require('style-dictionary')
+const tokens = require('./tokens')
 
-module.exports = {
-  source: ["tokens/**/*.json"],
+export default {
+  source: ['tokens/**/*.json'],
   platforms: {
-    "esm/category": {
-      buildPath: "build/js/esm/",
-      transforms: ["attribute/cti", "name/cti/camel", "size/px", "color/hex"],
-      files: tokens.map((tokenCategory) => ({
+    'esm/category': {
+      buildPath: 'build/js/esm/',
+      transforms: ['attribute/cti', 'name/cti/camel', 'size/px', 'color/hex'],
+      files: tokens.map(tokenCategory => ({
         destination: `${tokenCategory}.js`,
-        format: "javascript/es6",
+        format: 'javascript/es6',
         filter: {
           attributes: {
             category: tokenCategory,
@@ -17,22 +17,22 @@ module.exports = {
         },
       })),
     },
-    "esm/index": {
-      buildPath: "build/js/esm/",
-      transforms: ["attribute/cti", "name/cti/camel", "size/px", "color/hex"],
+    'esm/index': {
+      buildPath: 'build/js/esm/',
+      transforms: ['attribute/cti', 'name/cti/camel', 'size/px', 'color/hex'],
       files: [
         {
-          destination: `index.js`,
-          format: "javascript/es6",
+          destination: 'index.js',
+          format: 'javascript/es6',
         },
       ],
     },
-    "cjs/category": {
-      buildPath: "build/js/cjs/",
-      transforms: ["attribute/cti", "name/cti/camel", "size/px", "color/hex"],
-      files: tokens.map((tokenCategory) => ({
+    'cjs/category': {
+      buildPath: 'build/js/cjs/',
+      transforms: ['attribute/cti', 'name/cti/camel', 'size/px', 'color/hex'],
+      files: tokens.map(tokenCategory => ({
         destination: `${tokenCategory}.js`,
-        format: "custom/cjsmodule",
+        format: 'custom/cjsmodule',
         filter: {
           attributes: {
             category: tokenCategory,
@@ -40,35 +40,35 @@ module.exports = {
         },
       })),
     },
-    "cjs/index": {
-      buildPath: "build/js/cjs/",
-      transforms: ["attribute/cti", "name/cti/camel", "size/px", "color/hex"],
+    'cjs/index': {
+      buildPath: 'build/js/cjs/',
+      transforms: ['attribute/cti', 'name/cti/camel', 'size/px', 'color/hex'],
       files: [
         {
-          destination: `index.js`,
-          format: "custom/cjsmodule",
+          destination: 'index.js',
+          format: 'custom/cjsmodule',
         },
       ],
     },
 
     // Web output in scss format
-    scss: {
-      transformGroup: "scss",
-      buildPath: `build/scss/`,
+    'scss': {
+      transformGroup: 'scss',
+      buildPath: 'build/scss/',
       files: [
         {
-          destination: `tokens.scss`,
-          format: "scss/variables",
+          destination: 'tokens.scss',
+          format: 'scss/variables',
         },
       ],
     },
     // Web output in scss partialformat
-    "scss/category": {
-      transformGroup: "scss",
-      buildPath: `build/scss/`,
-      files: tokens.map((tokenCategory) => ({
+    'scss/category': {
+      transformGroup: 'scss',
+      buildPath: 'build/scss/',
+      files: tokens.map(tokenCategory => ({
         destination: `_${tokenCategory}.scss`,
-        format: "scss/variables",
+        format: 'scss/variables',
         filter: {
           attributes: {
             category: tokenCategory,
@@ -77,13 +77,13 @@ module.exports = {
       })),
     },
   },
-};
+}
 
 StyleDictionary.registerFormat({
-  name: "custom/cjsmodule",
-  formatter: function({ dictionary }) {
-    return `module.exports = {${dictionary.allTokens.map(
-      (token) => `\n\t${token.name}: "${token.value}"`
-    )}\n};`;
+  name: 'custom/cjsmodule',
+  formatter({ dictionary }) {
+    return `export default {${dictionary.allTokens.map(
+      token => `\n\t${token.name}: "${token.value}"`
+    )}\n};`
   },
-});
+})

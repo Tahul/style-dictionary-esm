@@ -11,13 +11,14 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../../index');
-const {buildPath, cleanConsoleOutput} = require('../_constants');
+import fs from 'fs-extra'
+import { vi } from 'vitest'
+import StyleDictionary from '../../src/index'
+import { buildPath, cleanConsoleOutput } from '../_constants'
 
 // Spy on console.log and add all messages to an array
-let consoleOutput = [];
-const log = jest.spyOn(console, "log")
+let consoleOutput = []
+const log = vi.spyOn(console, 'log')
   .mockImplementation(message => consoleOutput.push(message))
 
 /**
@@ -28,47 +29,47 @@ const log = jest.spyOn(console, "log")
  * and merging properties. This is the first of 3 phases of logging, the
  * next two are: platform and file.
  */
-describe(`integration >`, () => {
+describe('integration >', () => {
   // before each test clear the mocked console.log and the output array
   beforeEach(() => {
-    log.mockClear();
-    consoleOutput = [];
-  });
+    log.mockClear()
+    consoleOutput = []
+  })
 
-  describe(`logging >`, () => {
-    describe(`config >`, () => {
-      describe(`property value collisions`, () => {
-        it(`should not throw, but notify users by default`, () => {
+  describe('logging >', () => {
+    describe('config >', () => {
+      describe('property value collisions', () => {
+        it('should not throw, but notify users by default', () => {
           StyleDictionary.extend({
             source: [
               // including a specific file twice will throw value collision warnings
-              `__integration__/tokens/size/padding.json`,
-              `__integration__/tokens/size/padding.json`
+              '__integration__/tokens/size/padding.json',
+              '__integration__/tokens/size/padding.json',
             ],
             platforms: {
-            }
-          });
-          expect(consoleOutput.map(cleanConsoleOutput).join(`\n`)).toMatchSnapshot();
-        });
+            },
+          })
+          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+        })
 
-        it(`should not show warnings if given higher log level`, () => {
+        it('should not show warnings if given higher log level', () => {
           StyleDictionary.extend({
-            logLevel: `error`,
+            logLevel: 'error',
             source: [
               // including a specific file twice will throw value collision warnings
-              `__integration__/tokens/size/padding.json`,
-              `__integration__/tokens/size/padding.json`
+              '__integration__/tokens/size/padding.json',
+              '__integration__/tokens/size/padding.json',
             ],
             platforms: {
-            }
-          });
-          expect(consoleOutput.map(cleanConsoleOutput).join(`\n`)).toMatchSnapshot();
-        });
-      });
-    });
-  });
-});
+            },
+          })
+          expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+        })
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

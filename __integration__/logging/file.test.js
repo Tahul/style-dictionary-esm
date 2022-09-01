@@ -11,15 +11,15 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../../index');
-const {buildPath, cleanConsoleOutput} = require('../_constants');
+import fs from 'fs-extra'
+import { vi } from 'vitest'
+import StyleDictionary from '../../src/index'
+import { buildPath, cleanConsoleOutput } from '../_constants'
 
 // Spy on console.log and add all messages to an array
-let consoleOutput = [];
-const log = jest.spyOn(console, "log")
+let consoleOutput = []
+const log = vi.spyOn(console, 'log')
   .mockImplementation(message => consoleOutput.push(message))
-
 
 /**
  * The last and final level of logging: file.
@@ -28,140 +28,140 @@ const log = jest.spyOn(console, "log")
  * skipping building an empty file, property name collisions, or filtered
  * out references.
  */
-describe(`integration`, () => {
+describe('integration', () => {
   // before each test clear the mocked console.log and the output array
   beforeEach(() => {
-    log.mockClear();
-    consoleOutput = [];
-  });
+    log.mockClear()
+    consoleOutput = []
+  })
 
-  describe(`logging`, () => {
-    describe(`file`, () => {
-      it(`should warn user empty properties`, () => {
+  describe('logging', () => {
+    describe('file', () => {
+      it('should warn user empty properties', () => {
         StyleDictionary.extend({
-          source: [`__integration__/tokens/**/*.json?(c)`],
+          source: ['__integration__/tokens/**/*.json?(c)'],
           platforms: {
             css: {
-              transformGroup: `css`,
+              transformGroup: 'css',
               files: [{
-                destination: `empty.css`,
-                format: `css/variables`,
-                filter: (token) => token.attributes.category === `foo`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
+                destination: 'empty.css',
+                format: 'css/variables',
+                filter: token => token.attributes.category === 'foo',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
 
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should not warn user of empty properties with log level set to error`, () => {
+      it('should not warn user of empty properties with log level set to error', () => {
         StyleDictionary.extend({
-          logLevel: `error`,
-          source: [`__integration__/tokens/**/*.json?(c)`],
+          logLevel: 'error',
+          source: ['__integration__/tokens/**/*.json?(c)'],
           platforms: {
             css: {
-              transformGroup: `css`,
+              transformGroup: 'css',
               files: [{
-                destination: `empty.css`,
-                format: `css/variables`,
-                filter: (token) => token.attributes.category === `foo`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
+                destination: 'empty.css',
+                format: 'css/variables',
+                filter: token => token.attributes.category === 'foo',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should warn user of name collisions`, () => {
+      it('should warn user of name collisions', () => {
         StyleDictionary.extend({
-          source: [`__integration__/tokens/**/*.json?(c)`],
-          platforms: {
-            css: {
-              // no name transform means there will be name collisions
-              transforms: [`attribute/cti`],
-              buildPath,
-              files: [{
-                destination: `nameCollisions.css`,
-                format: `css/variables`,
-                filter: (token) => token.attributes.category === `color`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
-
-      it(`should not warn user of name collisions with log level set to error`, () => {
-        StyleDictionary.extend({
-          logLevel: `error`,
-          source: [`__integration__/tokens/**/*.json?(c)`],
+          source: ['__integration__/tokens/**/*.json?(c)'],
           platforms: {
             css: {
               // no name transform means there will be name collisions
-              transforms: [`attribute/cti`],
+              transforms: ['attribute/cti'],
               buildPath,
               files: [{
-                destination: `nameCollisions.css`,
-                format: `css/variables`,
-                filter: (token) => token.attributes.category === `color`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
+                destination: 'nameCollisions.css',
+                format: 'css/variables',
+                filter: token => token.attributes.category === 'color',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should warn user of filtered references`, () => {
+      it('should not warn user of name collisions with log level set to error', () => {
         StyleDictionary.extend({
-          source: [`__integration__/tokens/**/*.json?(c)`],
+          logLevel: 'error',
+          source: ['__integration__/tokens/**/*.json?(c)'],
           platforms: {
             css: {
-              transformGroup: `css`,
+              // no name transform means there will be name collisions
+              transforms: ['attribute/cti'],
               buildPath,
               files: [{
-                destination: `filteredReferences.css`,
-                format: `css/variables`,
+                destination: 'nameCollisions.css',
+                format: 'css/variables',
+                filter: token => token.attributes.category === 'color',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
+
+      it('should warn user of filtered references', () => {
+        StyleDictionary.extend({
+          source: ['__integration__/tokens/**/*.json?(c)'],
+          platforms: {
+            css: {
+              transformGroup: 'css',
+              buildPath,
+              files: [{
+                destination: 'filteredReferences.css',
+                format: 'css/variables',
                 options: {
-                  outputReferences: true
+                  outputReferences: true,
                 },
                 // background colors have references, only including them
                 // should warn the user
-                filter: (token) => token.attributes.type === `background`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
+                filter: token => token.attributes.type === 'background',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
 
-      it(`should not warn user of filtered references with log level set to error`, () => {
+      it('should not warn user of filtered references with log level set to error', () => {
         StyleDictionary.extend({
-          logLevel: `error`,
-          source: [`__integration__/tokens/**/*.json?(c)`],
+          logLevel: 'error',
+          source: ['__integration__/tokens/**/*.json?(c)'],
           platforms: {
             css: {
-              transformGroup: `css`,
+              transformGroup: 'css',
               buildPath,
               files: [{
-                destination: `filteredReferences.css`,
-                format: `css/variables`,
+                destination: 'filteredReferences.css',
+                format: 'css/variables',
                 options: {
-                  outputReferences: true
+                  outputReferences: true,
                 },
                 // background colors have references, only including them
                 // should warn the user
-                filter: (token) => token.attributes.type === `background`
-              }]
-            }
-          }
-        }).buildAllPlatforms();
-        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot();
-      });
-    });
-  });
-});
+                filter: token => token.attributes.type === 'background',
+              }],
+            },
+          },
+        }).buildAllPlatforms()
+        expect(consoleOutput.map(cleanConsoleOutput).join('\n')).toMatchSnapshot()
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

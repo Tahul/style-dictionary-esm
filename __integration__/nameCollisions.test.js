@@ -11,24 +11,25 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const chalk = require('chalk');
-const StyleDictionary = require('../index');
-const {buildPath} = require('./_constants');
+import fs from 'fs-extra'
+import chalk from 'chalk'
+import { vi } from 'vitest'
+import StyleDictionary from '../src/index'
+import { buildPath } from './_constants'
 
 const properties = {
   color: {
     red: { value: '#f00' },
     background: {
-      red: { value: '{color.red.value}' }
-    }
-  }
+      red: { value: '{color.red.value}' },
+    },
+  },
 }
 
 describe('integration', () => {
   describe('name collisions', () => {
-    it(`should warn users of name collisions for flat files`, () => {
-      console.log = jest.fn();
+    it('should warn users of name collisions for flat files', () => {
+      console.log = vi.fn()
       StyleDictionary.extend({
         // we are only testing name collision warnings options so we don't need
         // the full source.
@@ -39,15 +40,15 @@ describe('integration', () => {
             files: [{
               destination: 'variables.css',
               format: 'css/variables',
-            }]
+            }],
           },
-        }
-      }).buildAllPlatforms();
-      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}variables.css`);
-    });
+        },
+      }).buildAllPlatforms()
+      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}variables.css`)
+    })
 
-    it(`should not warn users of name collisions for nested files`, () => {
-      console.log = jest.fn();
+    it('should not warn users of name collisions for nested files', () => {
+      console.log = vi.fn()
       StyleDictionary.extend({
         // we are only testing name collision warnings options so we don't need
         // the full source.
@@ -57,18 +58,16 @@ describe('integration', () => {
             buildPath,
             files: [{
               destination: 'tokens.json',
-              format: 'json/nested'
-            }]
+              format: 'json/nested',
+            }],
           },
-        }
-      }).buildAllPlatforms();
-      expect(console.log).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${buildPath}tokens.json`));
-    });
-
-
-  });
-});
+        },
+      }).buildAllPlatforms()
+      expect(console.log).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${buildPath}tokens.json`))
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

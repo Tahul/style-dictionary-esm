@@ -11,44 +11,41 @@
  * and limitations under the License.
  */
 
-var helpers = require('./__helpers');
-var fs = require('fs-extra');
-var StyleDictionary = require('../index');
-var StyleDictionaryExtended = StyleDictionary.extend({
-  "platforms": {
-    "android": {
-      "actions": ["test"]
-    }
-  }
-});
+import fs from 'fs-extra'
+import StyleDictionary from '../src/index'
+import helpers from './__helpers'
+const StyleDictionaryExtended = StyleDictionary.extend({
+  platforms: {
+    android: {
+      actions: ['test'],
+    },
+  },
+})
 
 StyleDictionaryExtended.registerAction({
   name: 'test',
-  do: function() {
+  do() {
     fs.writeFileSync('./__tests__/__output/action.txt', 'hi')
   },
-  undo: function() {
+  undo() {
     fs.removeSync('./__tests__/__output/action.txt')
-  }
-});
+  },
+})
 
 describe('cleanAction', () => {
-
   describe('clean actions', () => {
-
     beforeEach(() => {
-      helpers.clearOutput();
-    });
+      helpers.clearOutput()
+    })
 
     afterEach(() => {
-      helpers.clearOutput();
-    });
+      helpers.clearOutput()
+    })
 
     it('should delete a file properly', () => {
-      StyleDictionaryExtended.buildPlatform('android');
-      StyleDictionaryExtended.cleanPlatform('android');
-      expect(helpers.fileDoesNotExist('./__tests__/__output/action.txt')).toBeTruthy();
-    });
-  });
-
-});
+      StyleDictionaryExtended.buildPlatform('android')
+      StyleDictionaryExtended.cleanPlatform('android')
+      expect(helpers.fileDoesNotExist('./__tests__/__output/action.txt')).toBeTruthy()
+    })
+  })
+})

@@ -11,40 +11,39 @@
  * and limitations under the License.
  */
 
-var filters = require('../../lib/common/filters');
+import filters from '../../src/common/filters'
 
 describe('common', () => {
   describe('filters', () => {
     describe('removePrivate', () => {
       it('should keep a regular token in for distribution', () => {
-        var regularToken = {
+        const regularToken = {
           name: 'color-border',
-          value: '#1a1aed'
+          value: '#1a1aed',
         }
 
-        expect(filters["removePrivate"](regularToken)).toEqual(true);
-      });
+        expect(filters.removePrivate(regularToken)).toEqual(true)
+      })
 
       it('should keep an unfiltered token in for distribution', () => {
-        var unfilteredToken = {
+        const unfilteredToken = {
           name: 'color-border',
           value: '#1a1aed',
-          private: false
+          private: false,
         }
 
-        expect(filters["removePrivate"](unfilteredToken)).toEqual(true);
-      });
-
+        expect(filters.removePrivate(unfilteredToken)).toEqual(true)
+      })
 
       it('should remove a filtered token from the distribution output', () => {
-        var filteredToken = {
+        const filteredToken = {
           name: 'color-border',
           value: '#1a1aed',
-          private: true
+          private: true,
         }
 
-        expect(filters["removePrivate"](filteredToken)).toEqual(false);
-      });
-    });
-  });
-});
+        expect(filters.removePrivate(filteredToken)).toEqual(false)
+      })
+    })
+  })
+})

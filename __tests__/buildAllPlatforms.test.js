@@ -11,30 +11,29 @@
  * and limitations under the License.
  */
 
-var helpers = require('./__helpers');
-var StyleDictionary = require('../index');
+import StyleDictionary from '../src/index'
+import helpers from './__helpers'
 
 describe('buildAllPlatforms', () => {
-
   beforeEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   afterEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   it('should work with json config', () => {
-    var StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/__configs/test.json');
-    StyleDictionaryExtended.buildAllPlatforms();
-    expect(helpers.fileExists('./__tests__/__output/web/_icons.css')).toBeTruthy();
-    expect(helpers.fileExists('./__tests__/__output/android/colors.xml')).toBeTruthy();
-  });
+    const StyleDictionaryExtended = StyleDictionary.extend(helpers.resolveTestsPath('/__configs/test.json'))
+    StyleDictionaryExtended.buildAllPlatforms()
+    expect(helpers.fileExists('__output/web/_icons.css')).toBeTruthy()
+    expect(helpers.fileExists('__output/android/colors.xml')).toBeTruthy()
+  })
 
   it('should work with js config', () => {
-    var StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/__configs/test.js');
-    StyleDictionaryExtended.buildAllPlatforms();
-    expect(helpers.fileExists('./__tests__/__output/web/_icons.css')).toBeTruthy();
-    expect(helpers.fileExists('./__tests__/__output/android/colors.xml')).toBeTruthy();
-  });
-});
+    const StyleDictionaryExtended = StyleDictionary.extend(helpers.resolveTestsPath('/__configs/test.js'))
+    StyleDictionaryExtended.buildAllPlatforms()
+    expect(helpers.fileExists('__output/web/_icons.css')).toBeTruthy()
+    expect(helpers.fileExists('__output/android/colors.xml')).toBeTruthy()
+  })
+})

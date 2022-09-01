@@ -1,5 +1,5 @@
-module.exports = {
+export default {
   component: {
-    button: require('./button')
-  }
+    button: require('./button'),
+  },
 }

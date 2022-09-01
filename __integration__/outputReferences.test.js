@@ -11,18 +11,19 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../index');
-const {buildPath} = require('./_constants');
+import fs from 'fs-extra'
+import { vi } from 'vitest'
+import StyleDictionary from '../src/index'
+import { buildPath } from './_constants'
 
 describe('integration', () => {
   describe('output references', () => {
     it('should warn the user if filters out references', () => {
-      console.log = jest.fn();
+      console.log = vi.fn()
       StyleDictionary.extend({
         // we are only testing showFileHeader options so we don't need
         // the full source.
-        source: [`__integration__/tokens/**/*.json?(c)`],
+        source: ['__integration__/tokens/**/*.json?(c)'],
         platforms: {
           css: {
             transformGroup: 'css',
@@ -33,20 +34,20 @@ describe('integration', () => {
               // filter tokens and use outputReferences
               // Style Dictionary should build this file ok
               // but warn the user
-              filter: (token) => token.attributes.type === 'background',
+              filter: token => token.attributes.type === 'background',
               options: {
-                outputReferences: true
-              }
-            }]
-          }
-        }
-      }).buildAllPlatforms();
+                outputReferences: true,
+              },
+            }],
+          },
+        },
+      }).buildAllPlatforms()
 
-      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}filteredVariables.css`);
-    });
-  });
-});
+      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}filteredVariables.css`)
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

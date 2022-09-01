@@ -1,7 +1,7 @@
-const jsdoc2md = require('jsdoc-to-markdown');
+import jsdoc2md from 'jsdoc-to-markdown'
 
 async function clear() {
   await jsdoc2md.clear()
-};
+}
 
-clear();
+clear()

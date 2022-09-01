@@ -5,7 +5,7 @@
     "platforms": {
         "flutter": {
             "transformGroup": "flutter",
-            "buildPath": "../lib/unique_file/",
+            "buildPath": "../src/unique_file/",
             "files": [
                 {
                     "destination": "style_dictionary.dart",
@@ -16,7 +16,7 @@
         },
         "flutter-separate": {
             "transformGroup": "flutter-separate",
-            "buildPath": "../lib/",
+            "buildPath": "../src/",
             "files": [
                 {
                     "destination": "style_dictionary_color.dart",

@@ -1,27 +1,28 @@
-const StyleDictionary = require('../../../index');
+import { fileURLToPath } from 'url'
+import { dirname } from 'pathe'
 
-console.log('Build started...');
-console.log('\n==============================================');
+const StyleDictionary = require('../../../src/index')
 
+console.log('Build started...')
+console.log('\n==============================================')
 
 // REGISTER THE CUSTOM FILTERS
 
 StyleDictionary.registerFilter({
   name: 'removeBigSpacing',
-  matcher: function(token) {
+  matcher(token) {
     return token.group === 'spacing' && token.value < 0.5
-  }
-});
+  },
+})
 
 // APPLY THE CONFIGURATION
 // IMPORTANT: the registration of custom transforms
 // needs to be done _before_ applying the configuration
-const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.json');
-
+const _dir = dirname(fileURLToPath(import.meta.url))
+const StyleDictionaryExtended = StyleDictionary.extend(`${_dir}/config.json`)
 
 // FINALLY, BUILD ALL THE PLATFORMS
-StyleDictionaryExtended.buildAllPlatforms();
+StyleDictionaryExtended.buildAllPlatforms()
 
-
-console.log('\n==============================================');
-console.log('\nBuild completed!');
+console.log('\n==============================================')
+console.log('\nBuild completed!')

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   primary: require('./primary'),
-  secondary: require('./secondary')
+  secondary: require('./secondary'),
 }

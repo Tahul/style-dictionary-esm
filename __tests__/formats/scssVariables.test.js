@@ -11,85 +11,84 @@
  * and limitations under the License.
  */
 
-var formats = require('../../lib/common/formats');
-var scss = require('node-sass');
-const createDictionary = require('../../lib/utils/createDictionary');
-const createFormatArgs = require('../../lib/utils/createFormatArgs');
-var _ = require('../../lib/utils/es6_');
+import scss from 'node-sass'
+import formats from '../../src/common/formats'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
+import _ from '../../src/utils/es6_'
 
-var file = {
-  "destination": "__output/",
-  "format": "scss/variables",
-  "name": "foo"
-};
+const file = {
+  destination: '__output/',
+  format: 'scss/variables',
+  name: 'foo',
+}
 
-const propertyName = "color-base-red-400";
-const propertyValue = "#EF5350";
+const propertyName = 'color-base-red-400'
+const propertyValue = '#EF5350'
 
 const properties = {
   color: {
     base: {
       red: {
         400: {
-          "name": propertyName,
-          "value": propertyValue,
-          "original": {
-            "value": propertyValue
+          name: propertyName,
+          value: propertyValue,
+          original: {
+            value: propertyValue,
           },
-          "attributes": {
-            "category": "color",
-            "type": "base",
-            "item": "red",
-            "subitem": "400"
+          attributes: {
+            category: 'color',
+            type: 'base',
+            item: 'red',
+            subitem: '400',
           },
-          "path": [
-            "color",
-            "base",
-            "red",
-            "400"
-          ]
-        }
-      }
-    }
-  }
-};
+          path: [
+            'color',
+            'base',
+            'red',
+            '400',
+          ],
+        },
+      },
+    },
+  },
+}
 
-var formatter = formats['scss/variables'].bind(file);
-const dictionary = createDictionary({properties});
+const formatter = formats['scss/variables'].bind(file)
+const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('scss/variables', () => {
-
     it('should have a valid scss syntax', () => {
       const result = scss.renderSync({
         data: formatter(createFormatArgs({
           dictionary,
           file,
-          platform: {}
+          platform: {},
         }), {}, file),
-      });
-      expect(result.css).toBeDefined();
-    });
+      })
+      expect(result.css).toBeDefined()
+    })
 
     it('should optionally use !default', () => {
-      var themeableDictionary = _.cloneDeep(dictionary),
-        formattedScss = formatter(createFormatArgs({
-          dictionary,
-          file,
-          platform: {}
-        }), {}, file),
-        themeableScss = "";
+      const themeableDictionary = _.cloneDeep(dictionary)
+      const formattedScss = formatter(createFormatArgs({
+        dictionary,
+        file,
+        platform: {},
+      }), {}, file)
+      let themeableScss = ''
 
-      expect(formattedScss).not.toMatch("!default");
+      expect(formattedScss).not.toMatch('!default')
 
-      themeableDictionary.allTokens[0].themeable = true;
+      themeableDictionary.allTokens[0].themeable = true
       themeableScss = formatter(createFormatArgs({
         dictionary: themeableDictionary,
         file,
-        platform: {}
-      }), {}, file);
+        platform: {},
+      }), {}, file)
 
-      expect(themeableScss).toMatch("#EF5350 !default;");
-    });
-  });
-});
+      expect(themeableScss).toMatch('#EF5350 !default;')
+    })
+  })
+})

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`integration showFileHeader with platform options set to false should not show file header if no file options set 1`] = `
+exports[`integration > showFileHeader > with platform options set to false > should not show file header if no file options set 1`] = `
 ":root {
   --size-padding-small: 0.5rem;
   --size-padding-medium: 1rem;
@@ -10,10 +10,10 @@ exports[`integration showFileHeader with platform options set to false should no
 "
 `;
 
-exports[`integration showFileHeader with platform options set to false should show file header if file options set to true 1`] = `
+exports[`integration > showFileHeader > with platform options set to false > should show file header if file options set to true 1`] = `
 "/**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:22 GMT
  */
 
 :root {
@@ -25,7 +25,7 @@ exports[`integration showFileHeader with platform options set to false should sh
 "
 `;
 
-exports[`integration showFileHeader without platform options should not show file header if file options set to false 1`] = `
+exports[`integration > showFileHeader > without platform options > should not show file header if file options set to false 1`] = `
 ":root {
   --size-padding-small: 0.5rem;
   --size-padding-medium: 1rem;
@@ -35,10 +35,10 @@ exports[`integration showFileHeader without platform options should not show fil
 "
 `;
 
-exports[`integration showFileHeader without platform options should show file header if no file options set 1`] = `
+exports[`integration > showFileHeader > without platform options > should show file header if no file options set 1`] = `
 "/**
  * Do not edit directly
- * Generated on Sat, 01 Jan 2000 00:00:00 GMT
+ * Generated on Thu, 01 Sep 2022 04:36:22 GMT
  */
 
 :root {

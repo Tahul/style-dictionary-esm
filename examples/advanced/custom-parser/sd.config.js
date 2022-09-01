@@ -1,38 +1,39 @@
-const StyleDictionary = require('style-dictionary');
+const StyleDictionary = require('style-dictionary')
 
 // You can use the .registerParser() method like this
 StyleDictionary.registerParser({
   pattern: /\.json$/,
-  parse: ({contents, filePath}) => {
+  parse: ({ contents, filePath }) => {
     // Probably a good idea to wrap this in a try/catch block
     try {
-      const object = JSON.parse(contents);
+      const object = JSON.parse(contents)
       // You can now perform any modifications to the file content
       // or perform any side-effects based on the file
 
       // Here we are going to grab the filepath and turn it into a prefix.
       // tokens/color/core.json will become 'color-core'. We will append this
       // to all token names.
-      const pathParts = filePath.replace(__dirname + '/tokens/', '')
-        .replace('.json','')
+      const pathParts = filePath.replace(`${__dirname}/tokens/`, '')
+        .replace('.json', '')
         .split('/')
-        .join('-');
+        .join('-')
 
-      const output = {};
+      const output = {}
 
       for (const key in object) {
         if (object.hasOwnProperty(key)) {
-          const element = object[key];
-          output[`${pathParts}-${key}`] = element;
+          const element = object[key]
+          output[`${pathParts}-${key}`] = element
         }
       }
 
-      return output;
-    } catch (error) {
-      console.log(error);
+      return output
     }
-  }
-});
+    catch (error) {
+      console.log(error)
+    }
+  },
+})
 
 // Or you can add parsers directly on the configuration object here like this:
 // StyleDictionary.extend({
@@ -53,21 +54,21 @@ StyleDictionary.registerParser({
 //   }
 // }).buildAllPlatforms();
 
-module.exports = {
+export default {
   // Or you can add parsers directly on the configuration object here like this:
   // parsers: [{
   //   pattern: /\.json$/,
   //   parse: ({contents, filePath}) => {}
   // }],
-  source: [`tokens/**/*.json`],
+  source: ['tokens/**/*.json'],
   platforms: {
     css: {
       transformGroup: 'css',
       buildPath: 'build/',
       files: [{
         destination: 'variables.css',
-        format: 'css/variables'
-      }]
-    }
-  }
+        format: 'css/variables',
+      }],
+    },
+  },
 }

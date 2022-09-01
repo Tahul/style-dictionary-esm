@@ -37,6 +37,7 @@ interface DesignToken {
 //end
 
 export { DesignToken };
+
 export interface DesignTokens {
   [key: string]: DesignTokens | DesignToken;
 }

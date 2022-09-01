@@ -11,55 +11,54 @@
  * and limitations under the License.
  */
 
-const fs = require('fs-extra');
-const StyleDictionary = require('../index');
-const {buildPath} = require('./_constants');
+import fs from 'fs-extra'
+import StyleDictionary from '../src/index'
+import { buildPath } from './_constants'
 
 describe('integration', () => {
   describe('compose', () => {
     StyleDictionary.extend({
-      source: [`__integration__/tokens/**/*.json?(c)`],
+      source: ['__integration__/tokens/**/*.json?(c)'],
       platforms: {
         compose: {
-          transformGroup: `compose`,
+          transformGroup: 'compose',
           buildPath,
           files: [{
-            destination: "StyleDictionary.kt",
-            format: "compose/object",
-            className: "StyleDictionary",
-            packageName: "com.example.tokens"
-          },{
-            destination: "StyleDictionaryWithReferences.kt",
-            format: "compose/object",
-            className: "StyleDictionary",
-            packageName: "com.example.tokens",
+            destination: 'StyleDictionary.kt',
+            format: 'compose/object',
+            className: 'StyleDictionary',
+            packageName: 'com.example.tokens',
+          }, {
+            destination: 'StyleDictionaryWithReferences.kt',
+            format: 'compose/object',
+            className: 'StyleDictionary',
+            packageName: 'com.example.tokens',
             options: {
-              outputReferences: true
-            }
-          }]
+              outputReferences: true,
+            },
+          }],
         },
-      }
-    }).buildAllPlatforms();
+      },
+    }).buildAllPlatforms()
 
-    describe(`compose/object`, () => {
-      const output = fs.readFileSync(`${buildPath}StyleDictionary.kt`, {encoding:`UTF-8`});
+    describe('compose/object', () => {
+      const output = fs.readFileSync(`${buildPath}StyleDictionary.kt`, { encoding: 'UTF-8' })
 
-      it(`should match snapshot`, () => {
-        expect(output).toMatchSnapshot();
-      });
+      it('should match snapshot', () => {
+        expect(output).toMatchSnapshot()
+      })
 
-      describe(`with references`, () => {
-        const output = fs.readFileSync(`${buildPath}StyleDictionaryWithReferences.kt`, {encoding:`UTF-8`});
+      describe('with references', () => {
+        const output = fs.readFileSync(`${buildPath}StyleDictionaryWithReferences.kt`, { encoding: 'UTF-8' })
 
-        it(`should match snapshot`, () => {
-          expect(output).toMatchSnapshot();
-        });
-
-      });
-    });
-  });
-});
+        it('should match snapshot', () => {
+          expect(output).toMatchSnapshot()
+        })
+      })
+    })
+  })
+})
 
 afterAll(() => {
-  fs.emptyDirSync(buildPath);
-});
+  fs.emptyDirSync(buildPath)
+})

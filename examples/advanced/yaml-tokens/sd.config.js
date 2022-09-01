@@ -1,6 +1,6 @@
-const yaml = require('yaml');
+const yaml = require('yaml')
 
-module.exports = {
+export default {
   parsers: [{
     // A custom parser will only run against filenames that match the pattern
     // This pattern will match any file with the .yaml extension.
@@ -10,17 +10,17 @@ module.exports = {
     // 2 attributes: contents which is a string of the file contents, and
     // filePath which is the path of the file.
     // The function is expected to return a plain object.
-    parse: ({contents, filePath}) => yaml.parse(contents)
+    parse: ({ contents, filePath }) => yaml.parse(contents),
   }],
-  source: [`tokens/**/*.yaml`],
+  source: ['tokens/**/*.yaml'],
   platforms: {
     css: {
       transformGroup: 'css',
       buildPath: 'build/',
       files: [{
         destination: 'variables.css',
-        format: 'css/variables'
-      }]
-    }
-  }
+        format: 'css/variables',
+      }],
+    },
+  },
 }

@@ -11,59 +11,57 @@
  * and limitations under the License.
  */
 
-const formats = require('../../lib/common/formats');
-const less = require('less');
-const createDictionary = require('../../lib/utils/createDictionary');
-const createFormatArgs = require('../../lib/utils/createFormatArgs');
+import less from 'less'
+import formats from '../../src/common/formats'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
 
 const file = {
-  "destination": "__output/",
-  "format": "less/icons",
-  "name": "foo"
-};
+  destination: '__output/',
+  format: 'less/icons',
+  name: 'foo',
+}
 
-const propertyName = "content-icon-email";
-const propertyValue = "'\\E001'";
-const itemClass = "3d_rotation";
+const propertyName = 'content-icon-email'
+const propertyValue = '\'\\E001\''
+const itemClass = '3d_rotation'
 
 const properties = {
   content: {
     icon: {
       email: {
-        "name": propertyName,
-        "value": propertyValue,
-        "original": {
-          "value": propertyValue
+        name: propertyName,
+        value: propertyValue,
+        original: {
+          value: propertyValue,
         },
-        "attributes": {
-          "category": "content",
-          "type": "icon",
-          "item": itemClass
+        attributes: {
+          category: 'content',
+          type: 'icon',
+          item: itemClass,
         },
-        path: ['content','icon','email']
-      }
-    }
-  }
-};
+        path: ['content', 'icon', 'email'],
+      },
+    },
+  },
+}
 
 const platform = {
-  prefix: 'sd' // Style-Dictionary Prefix
-};
+  prefix: 'sd', // Style-Dictionary Prefix
+}
 
-const formatter = formats['less/icons'].bind(file);
-const dictionary = createDictionary({ properties });
+const formatter = formats['less/icons'].bind(file)
+const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('less/icons', () => {
-
     it('should have a valid less syntax', () => {
-      expect.assertions(1);
+      expect.assertions(1)
       return expect(less.render(formatter(createFormatArgs({
         dictionary,
         file,
-        platform
-      }), platform, file))).resolves.toBeDefined();
-    });
-
-  });
-});
+        platform,
+      }), platform, file))).resolves.toBeDefined()
+    })
+  })
+})

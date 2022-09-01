@@ -11,46 +11,44 @@
  * and limitations under the License.
  */
 
-const formats = require('../../lib/common/formats');
-const fs = require('fs-extra');
-const helpers = require('../__helpers');
-const createDictionary = require('../../lib/utils/createDictionary');
-const createFormatArgs = require('../../lib/utils/createFormatArgs');
+import fs from 'fs-extra'
+import formats from '../../src/common/formats'
+import helpers from '../__helpers'
+import createDictionary from '../../src/utils/createDictionary'
+import createFormatArgs from '../../src/utils/createFormatArgs'
 
 const file = {
-  "destination": "__output/",
-  "format": "json"
-};
+  destination: '__output/',
+  format: 'json',
+}
 
 const properties = {
-  "color": {
-    "red": {"value": "#FF0000"}
-  }
-};
+  color: {
+    red: { value: '#FF0000' },
+  },
+}
 
-const formatter = formats['json'].bind(file);
-const dictionary = createDictionary({ properties });
+const formatter = formats.json.bind(file)
+const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('json', () => {
-
     beforeEach(() => {
-      helpers.clearOutput();
-    });
+      helpers.clearOutput()
+    })
 
     afterEach(() => {
-      helpers.clearOutput();
-    });
+      helpers.clearOutput()
+    })
 
-    it('should be a valid JSON file', () => {
+    it('should be a valid JSON file', async () => {
       fs.writeFileSync('./__tests__/__output/output.json', formatter(createFormatArgs({
         dictionary,
         file,
-        platform: {}
-      }), {}, file) );
-      const test = require('../__output/output.json');
-      expect(test.color.red.value).toEqual(dictionary.properties.color.red.value);
-    });
-  });
-
-});
+        platform: {},
+      }), {}, file))
+      const test = await import('../__output/output.json')
+      expect(test.color.red.value).toEqual(dictionary.properties.color.red.value)
+    })
+  })
+})

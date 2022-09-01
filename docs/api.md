@@ -15,8 +15,8 @@ to build the Style Dictionary.
 
 **Example**  
 ```js
-const StyleDictionary = require('style-dictionary').extend('config.json');
-StyleDictionary.buildAllPlatforms();
+const StyleDictionary = require('style-dictionary').extend('config.json')
+StyleDictionary.buildAllPlatforms()
 ```
 
 * * *
@@ -42,7 +42,7 @@ build each platform defined in the config.
 
 **Example**  
 ```js
-StyleDictionary.buildPlatform('web');
+StyleDictionary.buildPlatform('web')
 ```
 ```bash
 $ style-dictionary build --platform web
@@ -116,7 +116,7 @@ Create a Style Dictionary
 
 **Example**  
 ```js
-const StyleDictionary = require('style-dictionary').extend('config.json');
+const StyleDictionary = require('style-dictionary').extend('config.json')
 
 const StyleDictionary = require('style-dictionary').extend({
   source: ['tokens/*.json'],
@@ -131,7 +131,7 @@ const StyleDictionary = require('style-dictionary').extend({
     }
     // ...
   }
-});
+})
 ```
 
 * * *
@@ -166,15 +166,15 @@ it will not block.
 ```js
 StyleDictionary.registerAction({
   name: 'copy_assets',
-  do: function(dictionary, config) {
-    console.log('Copying assets directory');
-    fs.copySync('assets', config.buildPath + 'assets');
+  do(dictionary, config) {
+    console.log('Copying assets directory')
+    fs.copySync('assets', `${config.buildPath}assets`)
   },
-  undo: function(dictionary, config) {
-    console.log('Cleaning assets directory');
-    fs.removeSync(config.buildPath + 'assets');
+  undo(dictionary, config) {
+    console.log('Cleaning assets directory')
+    fs.removeSync(`${config.buildPath}assets`)
   }
-});
+})
 ```
 
 * * *
@@ -199,11 +199,11 @@ formats to display some information about how the file was built in a comment.
 ```js
 StyleDictionary.registerFileHeader({
   name: 'myCustomHeader',
-  fileHeader: function(defaultMessage) {
+  fileHeader(defaultMessage) {
     return [
       ...defaultMessage,
-      `hello, world!`
-    ];
+      'hello, world!'
+    ]
   }
 })
 ```
@@ -229,8 +229,8 @@ Add a custom filter to the style dictionary
 ```js
 StyleDictionary.registerFilter({
   name: 'isColor',
-  matcher: function(token) {
-    return token.attributes.category === 'color';
+  matcher(token) {
+    return token.attributes.category === 'color'
   }
 })
 ```
@@ -256,8 +256,8 @@ Add a custom format to the style dictionary
 ```js
 StyleDictionary.registerFormat({
   name: 'json',
-  formatter: function({dictionary, platform, options, file}) {
-    return JSON.stringify(dictionary.tokens, null, 2);
+  formatter({ dictionary, platform, options, file }) {
+    return JSON.stringify(dictionary.tokens, null, 2)
   }
 })
 ```
@@ -282,8 +282,8 @@ Adds a custom parser to parse style dictionary files
 ```js
 StyleDictionary.registerParser({
   pattern: /\.json$/,
-  parse: ({contents, filePath}) => {
-    return JSON.parse(contents);
+  parse: ({ contents, filePath }) => {
+    return JSON.parse(contents)
   }
 })
 ```
@@ -311,8 +311,8 @@ Add a custom template to the Style Dictionary
 ```js
 StyleDictionary.registerTemplate({
   name: 'Swift/colors',
-  template: __dirname + '/templates/swift/colors.template'
-});
+  template: `${__dirname}/templates/swift/colors.template`
+})
 ```
 
 * * *
@@ -341,16 +341,16 @@ Transforms can manipulate a token's name, value, or attributes
 StyleDictionary.registerTransform({
   name: 'time/seconds',
   type: 'value',
-  matcher: function(token) {
-    return token.attributes.category === 'time';
+  matcher(token) {
+    return token.attributes.category === 'time'
   },
-  transformer: function(token) {
+  transformer(token) {
     // Note the use of prop.original.value,
     // before any transforms are performed, the build system
     // clones the original token to the 'original' attribute.
-    return (parseInt(token.original.value) / 1000).toString() + 's';
+    return `${(parseInt(token.original.value) / 1000).toString()}s`
   }
-});
+})
 ```
 
 * * *
@@ -380,7 +380,7 @@ StyleDictionary.registerTransformGroup({
     'size/pt',
     'name/cti'
   ]
-});
+})
 ```
 
 * * *

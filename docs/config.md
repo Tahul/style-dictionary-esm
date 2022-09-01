@@ -46,7 +46,7 @@ Here is an example using a CommonJS module for configuration:
 
 ```javascript
 // config.js
-module.exports = {
+export default {
   source: [`tokens/**/*.json`],
   // If you don't want to call the registerTransform method a bunch of times
   // you can override the whole transform object directly. This works because

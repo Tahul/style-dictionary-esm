@@ -11,26 +11,24 @@
  * and limitations under the License.
  */
 
-var helpers = require('./__helpers');
-var config = helpers.fileToJSON(__dirname + '/__configs/test.json');
-var StyleDictionary = require('../index');
-var StyleDictionaryExtended = StyleDictionary.extend(config);
+import StyleDictionary from '../src/index'
+import helpers from './__helpers'
+const config = helpers.fileToJSON('__configs/test.json')
+const StyleDictionaryExtended = StyleDictionary.extend(config)
 
 describe('cleanAllPlatforms', () => {
-
   beforeEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   afterEach(() => {
-    helpers.clearOutput();
-  });
+    helpers.clearOutput()
+  })
 
   it('should work', () => {
-    StyleDictionaryExtended.buildAllPlatforms();
-    StyleDictionaryExtended.cleanAllPlatforms();
-    expect(helpers.fileDoesNotExist('./__tests__/__output/web/_icons.scss')).toBeTruthy();
-    expect(helpers.fileDoesNotExist('./__tests__/__output/android/colors.xml')).toBeTruthy();
-  });
-
-});
+    StyleDictionaryExtended.buildAllPlatforms()
+    StyleDictionaryExtended.cleanAllPlatforms()
+    expect(helpers.fileDoesNotExist('__output/web/_icons.scss')).toBeTruthy()
+    expect(helpers.fileDoesNotExist('__output/android/colors.xml')).toBeTruthy()
+  })
+})

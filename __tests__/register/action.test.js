@@ -11,98 +11,96 @@
  * and limitations under the License.
  */
 
-var StyleDictionary = require('../../index');
-var StyleDictionaryExtended = StyleDictionary.extend({});
+import StyleDictionary from '../../src/index'
+const StyleDictionaryExtended = StyleDictionary.extend({})
 
 describe('register', () => {
   describe('action', () => {
-
     it('should error if name is not a string', () => {
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
-          do: function() {}
+          do() {},
         })
-      ).toThrow('name must be a string');
+      ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 1,
-          do: function() {}
+          do() {},
         })
-      ).toThrow('name must be a string');
+      ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: [],
-          do: function() {}
+          do() {},
         })
-      ).toThrow('name must be a string');
+      ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: {},
-          do: function() {}
+          do() {},
         })
-      ).toThrow('name must be a string');
-    });
+      ).toThrow('name must be a string')
+    })
 
     it('should error if do is not a function', () => {
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
-          name: 'test'
+          name: 'test',
         })
-      ).toThrow('do must be a function');
+      ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
-          do: 1
+          do: 1,
         })
-      ).toThrow('do must be a function');
+      ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
-          do: 'name'
+          do: 'name',
         })
-      ).toThrow('do must be a function');
+      ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
-          do: []
+          do: [],
         })
-      ).toThrow('do must be a function');
+      ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
-          do: {}
+          do: {},
         })
-      ).toThrow('do must be a function');
-    });
+      ).toThrow('do must be a function')
+    })
 
     it('should work if name and do are good', () => {
       StyleDictionaryExtended.registerAction({
         name: 'scss',
-        do: function() {}
-      });
-      expect(typeof StyleDictionaryExtended.action['scss'].do).toBe('function');
-    });
+        do() {},
+      })
+      expect(typeof StyleDictionaryExtended.action.scss.do).toBe('function')
+    })
 
     it('should handle an undo function', () => {
       StyleDictionaryExtended.registerAction({
         name: 'scss',
-        do: function() {},
-        undo: function() {}
-      });
-      expect(typeof StyleDictionaryExtended.action['scss'].undo).toBe('function');
-    });
+        do() {},
+        undo() {},
+      })
+      expect(typeof StyleDictionaryExtended.action.scss.undo).toBe('function')
+    })
 
     it('should properly pass the registered format to instances', () => {
-      var SDE2 = StyleDictionaryExtended.extend({});
-      expect(typeof SDE2.action['scss'].do).toBe('function');
-    });
-
-  });
-});
+      const SDE2 = StyleDictionaryExtended.extend({})
+      expect(typeof SDE2.action.scss.do).toBe('function')
+    })
+  })
+})

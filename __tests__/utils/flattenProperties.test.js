@@ -11,67 +11,67 @@
  * and limitations under the License.
  */
 
-var flattenProperties = require('../../lib/utils/flattenProperties');
+import flattenProperties from '../../src/utils/flattenProperties'
+
 const sortBy = (key) => {
-  return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0);
-};
+  return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0)
+}
 
 describe('utils', () => {
   describe('flattenProperties', () => {
-
     it('should return an empty array', () => {
-      var ret = flattenProperties({});
-      expect(ret).toEqual([]);
-    });
+      const ret = flattenProperties({})
+      expect(ret).toEqual([])
+    })
 
     it('should return the same array', () => {
-      var to_ret = [];
-      var ret = flattenProperties({}, to_ret);
-      expect(ret).toBe(ret);
-    });
+      const to_ret = []
+      const ret = flattenProperties({}, to_ret)
+      expect(ret).toBe(ret)
+    })
 
     it('should return leaf node values as an array', () => {
-      var properties = {
-        'black': {
-          'value': '#000000'
+      const properties = {
+        black: {
+          value: '#000000',
         },
-        'white': {
-          'value': '#FFFFFF'
-        }
-      };
+        white: {
+          value: '#FFFFFF',
+        },
+      }
 
-      var expected_ret = [
+      const expected_ret = [
         properties.black,
-        properties.white
-      ];
+        properties.white,
+      ]
 
-      var sortedExpectedRet = expected_ret.sort(sortBy('value'));
-      var ret = flattenProperties(properties);
-      var sortedRet = ret.sort(sortBy('value'));
-      expect(sortedRet).toEqual(sortedExpectedRet);
-    });
+      const sortedExpectedRet = expected_ret.sort(sortBy('value'))
+      const ret = flattenProperties(properties)
+      const sortedRet = ret.sort(sortBy('value'))
+      expect(sortedRet).toEqual(sortedExpectedRet)
+    })
 
     it('should return nested leaf node values as an array', () => {
-      var properties = {
-        'color': {
-          'black': {
-            'value': '#000000'
+      const properties = {
+        color: {
+          black: {
+            value: '#000000',
           },
-          'white': {
-            'value': '#FFFFFF'
-          }
-        }
-      };
+          white: {
+            value: '#FFFFFF',
+          },
+        },
+      }
 
-      var expected_ret = [
+      const expected_ret = [
         properties.color.black,
-        properties.color.white
-      ];
+        properties.color.white,
+      ]
 
-      var sortedExpectedRet = expected_ret.sort(sortBy('value'));
-      var ret = flattenProperties(properties);
-      var sortedRet = ret.sort(sortBy('value'));
-      expect(sortedRet).toEqual(sortedExpectedRet);
-    });
-  });
-});
+      const sortedExpectedRet = expected_ret.sort(sortBy('value'))
+      const ret = flattenProperties(properties)
+      const sortedRet = ret.sort(sortBy('value'))
+      expect(sortedRet).toEqual(sortedExpectedRet)
+    })
+  })
+})

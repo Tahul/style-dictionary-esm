@@ -238,7 +238,7 @@ const StyleDictionary = require('style-dictionary');
 
 const { formattedVariables } = StyleDictionary.formatHelpers;
 
-module.exports = {
+export default {
   format: {
     myFormat: ({ dictionary, options, file }) => {
       const { outputReferences } = options;
@@ -328,7 +328,7 @@ When we started Style Dictionary, our intention was that the code it generates w
 You can use the custom file headers on any built-in format, or even use them in a custom format with the formatHelper.fileHeader function.
 
 ```javascript
-module.exports = {
+export default {
   //...
   fileHeader: {
     myFileHeader: (defaultMessage) => {
