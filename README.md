@@ -29,7 +29,7 @@ I wanted to use it inside multiple projects, that needs to run in workers.
 
 If [Style Dictionary 4](https://github.com/amzn/style-dictionary/issues/643) marks ESM-support as a step of their roadmap, I'll happily give help and deprecate this repository!
 
-Otherwise, I will continue to maintain this repository.
+Otherwise, I will continue to maintain it.
 
 ## Contributing
 
