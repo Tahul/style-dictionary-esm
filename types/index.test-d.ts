@@ -11,6 +11,7 @@
  * and limitations under the License.
  */
 
+import { dirname } from 'path'
 import { expectAssignable, expectError, expectType } from 'tsd'
 import StyleDictionary from '.'
 
@@ -83,7 +84,7 @@ expectType<StyleDictionary.Core>(
 expectType<StyleDictionary.Core>(
   StyleDictionary.registerTemplate({
     name: 'Swift/colors',
-    template: `${__dirname}/templates/swift/colors.template`,
+    template: `${dirname(import.meta.url)}/templates/swift/colors.template`,
   })
 )
 
