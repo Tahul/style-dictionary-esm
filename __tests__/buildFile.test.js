@@ -158,7 +158,7 @@ describe('buildFile', () => {
       },
       {
         buildPath: '__tests__/__output/',
-        writeFile: false,
+        write: false,
       },
       {}
     )
