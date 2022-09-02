@@ -42,9 +42,9 @@ describe('integration', () => {
     }).buildAllPlatforms()
 
     describe('compose/object', () => {
-      const output = fs.readFileSync(`${buildPath}StyleDictionary.kt`, { encoding: 'UTF-8' })
-
       it('should match snapshot', () => {
+        const output = fs.readFileSync(`${buildPath}StyleDictionary.kt`, { encoding: 'UTF-8' })
+
         expect(output).toMatchSnapshot()
       })
 

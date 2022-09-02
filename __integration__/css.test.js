@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -55,21 +56,21 @@ describe('integration', () => {
     }).buildAllPlatforms()
 
     describe('css/variables', () => {
-      const output = fs.readFileSync(`${buildPath}variables.css`, { encoding: 'UTF-8' })
       it('should match snapshot', () => {
+        const output = fs.readFileSync(join(buildPath, 'variables.css'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       describe('with references', () => {
-        const output = fs.readFileSync(`${buildPath}variablesWithReferences.css`, { encoding: 'UTF-8' })
         it('should match snapshot', () => {
+          const output = fs.readFileSync(join(buildPath, 'variablesWithReferences.css'), { encoding: 'UTF-8' })
           expect(output).toMatchSnapshot()
         })
       })
 
       describe('with selector', () => {
-        const output = fs.readFileSync(`${buildPath}variablesWithSelector.css`, { encoding: 'UTF-8' })
         it('should match snapshot', () => {
+          const output = fs.readFileSync(join(buildPath, 'variablesWithSelector.css'), { encoding: 'UTF-8' })
           expect(output).toMatchSnapshot()
         })
       })

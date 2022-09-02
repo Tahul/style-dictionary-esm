@@ -12,7 +12,7 @@
  */
 
 import fs from 'fs-extra'
-import scss from 'node-sass'
+import scss from 'sass'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -78,9 +78,7 @@ describe('integration', () => {
       const output = fs.readFileSync(`${buildPath}variables.scss`, { encoding: 'UTF-8' })
 
       it('should have a valid scss syntax', () => {
-        const result = scss.renderSync({
-          data: output,
-        })
+        const result = scss.compileString(output)
         expect(result.css).toBeDefined()
       })
 
@@ -91,9 +89,7 @@ describe('integration', () => {
       describe('with themeable', () => {
         const output = fs.readFileSync(`${buildPath}variables-themeable.scss`, { encoding: 'UTF-8' })
         it('should have a valid scss syntax', () => {
-          const result = scss.renderSync({
-            data: output,
-          })
+          const result = scss.compileString(output)
           expect(result.css).toBeDefined()
         })
 
@@ -105,9 +101,7 @@ describe('integration', () => {
       describe('with outputReferences', () => {
         const output = fs.readFileSync(`${buildPath}variables-with-references.scss`, { encoding: 'UTF-8' })
         it('should have a valid scss syntax', () => {
-          const result = scss.renderSync({
-            data: output,
-          })
+          const result = scss.compileString(output)
           expect(result.css).toBeDefined()
         })
 
@@ -128,9 +122,7 @@ describe('integration', () => {
       const output = fs.readFileSync(`${buildPath}map-flat.scss`, { encoding: 'UTF-8' })
 
       it('should have a valid scss syntax', () => {
-        const result = scss.renderSync({
-          data: output,
-        })
+        const result = scss.compileString(output)
         expect(result.css).toBeDefined()
       })
 
@@ -143,9 +135,7 @@ describe('integration', () => {
       const output = fs.readFileSync(`${buildPath}map-deep.scss`, { encoding: 'UTF-8' })
 
       it('should have a valid scss syntax', () => {
-        const result = scss.renderSync({
-          data: output,
-        })
+        const result = scss.compileString(output)
         expect(result.css).toBeDefined()
       })
 
@@ -156,9 +146,7 @@ describe('integration', () => {
       describe('with outputReferences', () => {
         const output = fs.readFileSync(`${buildPath}map-deep-with-references.scss`, { encoding: 'UTF-8' })
         it('should have a valid scss syntax', () => {
-          const result = scss.renderSync({
-            data: output,
-          })
+          const result = scss.compileString(output)
           expect(result.css).toBeDefined()
         })
 
@@ -170,9 +158,7 @@ describe('integration', () => {
       describe('without themeable', () => {
         const output = fs.readFileSync(`${buildPath}map-deep-not-themeable.scss`, { encoding: 'UTF-8' })
         it('should have a valid scss syntax', () => {
-          const result = scss.renderSync({
-            data: output,
-          })
+          const result = scss.compileString(output)
           expect(result.css).toBeDefined()
         })
 

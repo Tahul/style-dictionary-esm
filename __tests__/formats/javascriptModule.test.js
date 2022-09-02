@@ -12,7 +12,6 @@
  */
 
 import fs from 'fs-extra'
-import createJITI from 'jiti'
 import helpers from '../__helpers'
 import formats from '../../src/common/formats'
 import createDictionary from '../../src/utils/createDictionary'
@@ -39,21 +38,30 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('javascript/module', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JS file', async () => {
-      fs.writeFileSync('./__tests__/__output/output.js', formatter(createFormatArgs({
+      const path = helpers.resolveTestsPath('__output/output-module.js')
+
+      const content = formatter(createFormatArgs({
         dictionary,
         file,
         platform: {},
-      }), {}, file))
-      const test = createJITI(import.meta.url, { interopDefault: true })('../__output/output.js')
+      }), {}, file)
+
+      await fs.writeFile(
+        path,
+        content
+      )
+
+      let test = await import(helpers.resolveTestsPath('__output/output-module.js'))
+      test = test?.default || test
 
       expect(test.color.red.value).toEqual(dictionary.properties.color.red.value)
     })

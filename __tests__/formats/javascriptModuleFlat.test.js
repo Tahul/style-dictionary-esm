@@ -46,22 +46,28 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('javascript/module-flat', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JS file', async () => {
-      fs.writeFileSync('./__tests__/__output/output.js', formatter(createFormatArgs({
-        dictionary,
-        file: {},
-        platform: {},
-      }), {}, {}))
-      const test = await import('../__output/output.js')
-      expect(test.ColorRed).toEqual(dictionary.allProperties[0].value)
+      await fs.writeFile(
+        helpers.resolveTestsPath('__output/output-flat.js'),
+        formatter(createFormatArgs({
+          dictionary,
+          file: {},
+          platform: {},
+        }), {}, {})
+      )
+
+      let test = await import(helpers.resolveTestsPath('__output/output-flat.js'))
+      test = test?.default || test
+
+      expect((test?.default || test).ColorRed).toEqual(dictionary.allProperties[0].value)
     })
   })
 })

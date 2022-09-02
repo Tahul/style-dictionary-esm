@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import scss from 'node-sass'
+import scss from 'sass'
 import formats from '../../src/common/formats'
 import _ from '../../src/utils/es6_'
 import createDictionary from '../../src/utils/createDictionary'
@@ -138,9 +138,7 @@ describe('formats', () => {
       })
 
       it('should have a valid scss syntax', () => {
-        const result = scss.renderSync({
-          data: output,
-        })
+        const result = scss.compileString(output)
         expect(result.css).toBeDefined()
       })
 

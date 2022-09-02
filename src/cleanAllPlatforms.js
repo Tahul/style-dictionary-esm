@@ -24,8 +24,6 @@ function cleanAllPlatforms() {
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   const self = this
 
-  console.log(this)
-
   Object.keys(this.options.platforms).forEach((key) => {
     self.cleanPlatform(key)
   })

@@ -15,12 +15,12 @@ import StyleDictionary from '../src/index'
 import helpers from './__helpers'
 
 describe('buildAllPlatforms', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should work with json config', () => {

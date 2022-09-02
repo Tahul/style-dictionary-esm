@@ -20,12 +20,12 @@ function format() {
 }
 
 describe('cleanFile', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should delete a file properly', () => {

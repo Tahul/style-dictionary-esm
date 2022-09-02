@@ -49,7 +49,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
 
   const dirname = path.dirname(fullDestination)
   if (!fs.existsSync(dirname))
-    fs.mkdirsSync(dirname)
+    fs.mkdirsSync(dirname, { recursive: true })
 
   const filteredProperties = filterProperties(dictionary, filter)
   const filteredDictionary = Object.assign({}, dictionary, {

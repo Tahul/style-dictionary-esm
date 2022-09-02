@@ -24,28 +24,28 @@ const StyleDictionaryExtended = StyleDictionary.extend({
 
 StyleDictionaryExtended.registerAction({
   name: 'test',
-  do() {
-    fs.writeFileSync('./__tests__/__output/action.txt', 'hi')
+  async do() {
+    await fs.writeFile(helpers.resolveTestsPath('__output/action.txt'), 'hi')
   },
-  undo() {
-    fs.removeSync('./__tests__/__output/action.txt')
+  async undo() {
+    await fs.remove(helpers.resolveTestsPath('__output/action.txt'))
   },
 })
 
 describe('cleanAction', () => {
   describe('clean actions', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should delete a file properly', () => {
       StyleDictionaryExtended.buildPlatform('android')
       StyleDictionaryExtended.cleanPlatform('android')
-      expect(helpers.fileDoesNotExist('./__tests__/__output/action.txt')).toBeTruthy()
+      expect(helpers.fileDoesNotExist(helpers.resolveTestsPath('__output/action.txt'))).toBeTruthy()
     })
   })
 })

@@ -12,6 +12,7 @@
  */
 
 import StyleDictionary from '../../src/index'
+import { resolveTemplate } from '../../src/resolveTemplate'
 
 StyleDictionary.extend({})
 
@@ -82,7 +83,7 @@ describe('registerTemplate', () => {
     expect(
       StyleDictionary.registerTemplate({
         name: 'data',
-        template: 'index.js',
+        template: resolveTemplate('index.js.template'),
       })
     ).toMatchObject(StyleDictionary)
   })

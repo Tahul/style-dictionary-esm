@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import scss from 'node-sass'
+import scss from 'sass'
 import formats from '../../src/common/formats'
 import createDictionary from '../../src/utils/createDictionary'
 import createFormatArgs from '../../src/utils/createFormatArgs'
@@ -24,7 +24,15 @@ const file = {
 
 const propertyName = 'content-icon-email'
 const propertyValue = '\'\\E001\''
-const itemClass = '3d_rotation'
+
+/**
+ * `dart-sass` does not seem to like leading numbers in classnames,
+ * I replaced `3d_rotation` by `rotation_3d`.
+ *
+ * Note that `dart-sass` is officially recommended lib on https://sass-lang.com.
+ */
+
+const itemClass = 'rotation'
 
 const properties = {
   content: {
@@ -56,13 +64,12 @@ const dictionary = createDictionary({ properties })
 describe('formats', () => {
   describe('scss/icons', () => {
     it('should have a valid scss syntax', () => {
-      const result = scss.renderSync({
-        data: formatter(createFormatArgs({
-          dictionary,
-          file,
-          platform,
-        }), platform, file),
-      })
+      const result = scss.compileString(formatter(createFormatArgs({
+        dictionary,
+        file,
+        platform,
+      }), platform, file))
+
       expect(result.css).toBeDefined()
     })
   })

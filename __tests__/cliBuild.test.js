@@ -11,26 +11,20 @@
  * and limitations under the License.
  */
 
-import childProcess from 'child_process'
 import helpers from './__helpers'
 
 describe('cliBuildWithJsConfig', () => {
-  beforeAll(() => {
-    helpers.clearOutput()
-    childProcess.execSync('node ./bin/style-dictionary.js build --config ./__tests__/__configs/test.js')
+  afterAll(async () => {
+    await helpers.clearCliOutput()
   })
 
-  afterAll(() => {
-    helpers.clearOutput()
-  })
-
-  it('should work with json config', () => {
-    expect(helpers.fileExists('__output/web/_icons.css')).toBeTruthy()
-    expect(helpers.fileExists('__output/android/colors.xml')).toBeTruthy()
+  it('should work with json config', async () => {
+    expect(helpers.fileExists('__output-cli/web/_icons.css')).toBeTruthy()
+    expect(helpers.fileExists('__output-cli/android/colors.xml')).toBeTruthy()
   })
 
   it('should work with javascript config', () => {
-    expect(helpers.fileExists('__output/web/_icons.css')).toBeTruthy()
-    expect(helpers.fileExists('__output/android/colors.xml')).toBeTruthy()
+    expect(helpers.fileExists('__output-cli/web/_icons.css')).toBeTruthy()
+    expect(helpers.fileExists('__output-cli/android/colors.xml')).toBeTruthy()
   })
 })

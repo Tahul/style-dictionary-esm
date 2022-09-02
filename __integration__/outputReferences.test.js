@@ -20,6 +20,7 @@ describe('integration', () => {
   describe('output references', () => {
     it('should warn the user if filters out references', () => {
       console.log = vi.fn()
+
       StyleDictionary.extend({
         // we are only testing showFileHeader options so we don't need
         // the full source.

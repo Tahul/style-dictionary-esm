@@ -18,8 +18,7 @@ import { buildPath, cleanConsoleOutput } from '../_constants'
 
 // Spy on console.log and add all messages to an array
 let consoleOutput = []
-const log = vi.spyOn(console, 'log')
-  .mockImplementation(message => consoleOutput.push(message))
+const log = vi.spyOn(console, 'log').mockImplementation(message => consoleOutput.push(message))
 
 /**
  * This is the 2nd phase of logging: the platform configuration. This happens
@@ -119,8 +118,8 @@ describe('integration', () => {
       })
     })
   })
-})
 
-afterAll(() => {
-  fs.emptyDirSync(buildPath)
+  afterAll(async () => {
+    await fs.emptyDir(buildPath)
+  })
 })

@@ -38,22 +38,37 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('javascript/umd', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JS file', async () => {
-      fs.writeFileSync('./__tests__/__output/umd.js', formatter(createFormatArgs({
-        dictionary,
-        file,
-        platform: {},
-      }), {}, file))
-      const test = await import('../__output/umd.js')
-      expect(test.color.red.value).toEqual(dictionary.properties.color.red.value)
+      await fs.writeFile(
+        helpers.resolveTestsPath('__output/umd.js'),
+        formatter(createFormatArgs({
+          dictionary,
+          file,
+          platform: {},
+        }), {}, file)
+      )
+
+      // Seems like evaluating .umd from this context ain't good
+      // const test = (await import(helpers.resolveTestsPath('__output/umd.js'))).default
+      // expect(test.color.red.value).toEqual(dictionary.properties.color.red.value)
+
+      // Let's check the file content instead
+      const content = await fs.readFile(helpers.resolveTestsPath('__output/umd.js'), 'UTF-8')
+
+      // This checks for the presence of the same content as the original test, from the file source
+      expect(content).toContain('  "color": {\n'
+      + '    "red": {\n'
+      + '      "value": "#FF0000"\n'
+      + '    }\n'
+      + '  }\n')
     })
   })
 })

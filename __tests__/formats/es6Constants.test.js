@@ -11,7 +11,6 @@
  * and limitations under the License.
  */
 import fs from 'fs-extra'
-import createJITI from 'jiti'
 import helpers from '../__helpers'
 import formats from '../../src/common/formats'
 import createDictionary from '../../src/utils/createDictionary'
@@ -56,24 +55,37 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('javascript/es6', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JS file', async () => {
-      fs.writeFileSync(
-        helpers.resolveTestsPath('__output/output.js'),
-        formatter(createFormatArgs({
-          dictionary,
-          file,
-          platform: {},
-        }), {}, file)
+      const path = helpers.resolveTestsPath('__output/output-es6.js')
+
+      const content = formatter(createFormatArgs({
+        dictionary,
+        file,
+        platform: {},
+      }), {}, file)
+
+      await fs.writeFile(
+        path,
+        content
       )
-      const test = createJITI(import.meta.url, { interopDefault: true })(helpers.resolveTestsPath('__output/output.js'))
+
+      let test = await import(path)
+      test = test?.default || test
+
+      console.log({
+        path,
+        content,
+        test,
+      })
+
       expect(test.red).toEqual(dictionary.allProperties[0].value)
     })
   })

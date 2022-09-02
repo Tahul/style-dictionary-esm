@@ -38,20 +38,22 @@ function transformConfig(config, dictionary, platformName) {
   // applied.
   let transforms = []
   if (to_ret.transforms) {
-    transforms = to_ret.transforms
+    transforms = to_ret.transforms.filter(Boolean)
   }
   else if (to_ret.transformGroup) {
     if (dictionary.transformGroup[to_ret.transformGroup]) {
       transforms = dictionary.transformGroup[to_ret.transformGroup]
     }
     else {
-      const err = `
-Unknown transformGroup "${to_ret.transformGroup}" found in platform "${platformName}":
-"${to_ret.transformGroup}" does not match the name of a registered transformGroup.
-`
+      const err
+      = `Unknown transformGroup "${to_ret.transformGroup}" found in platform "${platformName}":\n`
+      + `"${to_ret.transformGroup}" does not match the name of a registered transformGroup.\n`
+
       throw new Error(err)
     }
   }
+
+  console.log({ transforms, toRet: to_ret.transforms })
 
   // Transforms are an array of strings that map to functions on
   // the StyleDictionary module. We need to map the strings to
@@ -67,22 +69,13 @@ Unknown transformGroup "${to_ret.transformGroup}" found in platform "${platformN
   })
 
   const missingTransformCount = GroupMessages.count(MISSING_TRANSFORM_ERRORS)
+
   if (missingTransformCount > 0) {
     const transform_warnings = GroupMessages.flush(MISSING_TRANSFORM_ERRORS).join(', ')
-    let err
 
-    if (missingTransformCount) {
-      err = `
-Unknown transform ${transform_warnings} found in platform "${platformName}":
-${transform_warnings} does not match the name of a registered transform.
-`
-    }
-    else {
-      err = `
-Unknown transforms ${transform_warnings} found in platform "${platformName}":
-None of ${transform_warnings} match the name of a registered transform.
-`
-    }
+    const err
+    = `Unknown transforms ${transform_warnings} found in platform "${platformName}":\n`
+    + `None of ${transform_warnings} match the name of a registered transform.`
 
     throw new Error(err)
   }

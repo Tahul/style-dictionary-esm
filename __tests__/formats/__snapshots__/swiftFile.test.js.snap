@@ -7,7 +7,7 @@ exports[`formats > ios-swift/any.swift > should match default snapshot 1`] = `
 //
 
 // Do not edit directly
-// Generated on Thu, 01 Sep 2022 04:36:21 GMT
+// Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
 
 import UIKit
@@ -25,7 +25,7 @@ exports[`formats > ios-swift/any.swift > with access control override should mat
 //
 
 // Do not edit directly
-// Generated on Thu, 01 Sep 2022 04:36:21 GMT
+// Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
 
 import UIKit
@@ -43,7 +43,7 @@ exports[`formats > ios-swift/any.swift > with import override should match snaps
 //
 
 // Do not edit directly
-// Generated on Thu, 01 Sep 2022 04:36:21 GMT
+// Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
 
 import UIKit
@@ -62,7 +62,7 @@ exports[`formats > ios-swift/any.swift > with objectType override should match s
 //
 
 // Do not edit directly
-// Generated on Thu, 01 Sep 2022 04:36:21 GMT
+// Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
 
 import UIKit

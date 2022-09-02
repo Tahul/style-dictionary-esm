@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -65,16 +66,14 @@ describe('integration', () => {
     }).buildAllPlatforms()
 
     describe('flutter/class.dart', () => {
-      console.log({ buildPath: `${buildPath}style_dictionary.dart` })
-
-      const output = fs.readFileSync(`${buildPath}style_dictionary.dart`, { encoding: 'UTF-8' })
-
       it('should match snapshot', () => {
+        const output = fs.readFileSync(join(buildPath, 'style_dictionary.dart'), { encoding: 'UTF-8' })
+
         expect(output).toMatchSnapshot()
       })
 
       describe('with references', () => {
-        const output = fs.readFileSync(`${buildPath}style_dictionary_with_references.dart`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'style_dictionary_with_references.dart'), { encoding: 'UTF-8' })
 
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()
@@ -82,7 +81,7 @@ describe('integration', () => {
       })
 
       describe('separate', () => {
-        const output = fs.readFileSync(`${buildPath}style_dictionary_color.dart`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'style_dictionary_color.dart'), { encoding: 'UTF-8' })
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()
         })

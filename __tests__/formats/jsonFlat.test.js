@@ -26,21 +26,27 @@ const formatter = formats['json/flat'].bind(file)
 
 describe('formats', () => {
   describe('json/flat', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JSON file', async () => {
-      fs.writeFileSync('./__tests__/__output/output.flat.json', formatter(createFormatArgs({
-        dictionary: colorDictionary,
-        file,
-        platform: {},
-      }), {}, file))
-      const test = await import('../__output/output.flat.json')
+      await fs.writeFile(
+        helpers.resolveTestsPath('__output/output.flat.json'),
+        formatter(createFormatArgs({
+          dictionary: colorDictionary,
+          file,
+          platform: {},
+        }), {}, file)
+      )
+
+      let test = await import(helpers.resolveTestsPath('__output/output.flat.json'))
+      test = test?.default || test
+
       expect(test['color-base-red-400']).toEqual(colorDictionary.allProperties[0].value)
     })
   })

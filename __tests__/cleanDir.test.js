@@ -21,12 +21,12 @@ function format() {
 }
 
 describe('cleanDir', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should delete a dir properly', () => {

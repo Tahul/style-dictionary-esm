@@ -42,23 +42,30 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('json/nested', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JSON file', async () => {
-      fs.writeFileSync('./__tests__/__output/json-nested.json', formatter(createFormatArgs({
-        dictionary,
-        file,
-        platform: {},
-      }), {}, file))
-      const test = await import('../__output/json-nested.json')
+      await fs.writeFile(
+        helpers.resolveTestsPath('__output/json-nested.json'),
+        formatter(createFormatArgs({
+          dictionary,
+          file,
+          platform: {},
+        }), {}, file)
+      )
+
+      let test = await import(helpers.resolveTestsPath('__output/json-nested.json'))
+      test = test?.default || test
+
       expect(test.color.base.red.primary)
         .toEqual(dictionary.properties.color.base.red.primary.value)
+
       expect(test.color.base.red.secondary.inverse)
         .toEqual(dictionary.properties.color.base.red.secondary.inverse.value)
     })
@@ -66,15 +73,24 @@ describe('formats', () => {
     it('should handle non-token data', async () => {
       // non-token data is anything in the dictionary object that is not a token object
       // i.e. anything in the rest of the object that doesn't have a 'value'
-
-      fs.writeFileSync('./__tests__/__output/json-nested.json', formatter(createFormatArgs({
+      const path = helpers.resolveTestsPath('__output/json-nested.json')
+      const content = formatter(createFormatArgs({
         dictionary,
         file,
         platform: {},
-      }), {}, file))
-      const test = await import('../__output/json-nested.json')
+      }), {}, file)
+
+      await fs.writeFile(
+        path,
+        content
+      )
+
+      let test = await import(path)
+      test = test?.default || test
+
       expect(test.color.base.comment)
         .toEqual(dictionary.properties.color.base.comment)
+
       expect(test.color.base.metadata)
         .toEqual(dictionary.properties.color.base.metadata)
     })

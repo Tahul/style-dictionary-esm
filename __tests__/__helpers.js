@@ -16,12 +16,16 @@ import fs from 'fs-extra'
 import { dirname, join } from 'pathe'
 
 export default {
-  clearOutput() {
-    fs.emptyDirSync('__tests__/__output')
+  async clearOutput() {
+    return await fs.emptyDir(this.resolveTestsPath('__output'))
   },
 
-  fileToJSON(path) {
-    return fs.readJsonSync(this.resolveTestsPath(path))
+  async clearCliOutput() {
+    return await fs.emptyDir(this.resolveTestsPath('__output-cli'))
+  },
+
+  async fileToJSON(path) {
+    return await fs.readJson(this.resolveTestsPath(path))
   },
 
   fileExists(filePath) {
@@ -43,11 +47,11 @@ export default {
   },
 
   dirDoesNotExist(dirPath) {
-    return this.pathDoesNotExist(this.resolveTestsPath(dirPath))
+    return this.pathDoesNotExist(dirPath)
   },
 
   fileDoesNotExist(filePath) {
-    return this.pathDoesNotExist(this.resolveTestsPath(filePath))
+    return this.pathDoesNotExist(filePath)
   },
 
   resolveTestsPath(_path) {

@@ -55,10 +55,5 @@ const iconProperties = {
   },
 }
 
-const colorDictionary = createDictionary({ properties: colorProperties })
-const iconDictionary = createDictionary({ properties: iconProperties })
-
-export default {
-  colorDictionary,
-  iconDictionary,
-}
+export const colorDictionary = createDictionary({ properties: colorProperties })
+export const iconDictionary = createDictionary({ properties: iconProperties })

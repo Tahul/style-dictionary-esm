@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -102,34 +103,34 @@ describe('integration', () => {
 
     describe('file options', () => {
       it('registered file header should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}registeredFileHeader.css`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'registeredFileHeader.css'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       it('config file header should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}configFileHeader.css`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'configFileHeader.css'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       it('inline file header should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}inlineFileHeader.css`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'inlineFileHeader.css'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
     })
 
     describe('platform options', () => {
       it('no file options should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}noOptions.js`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'noOptions.js'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       it('showFileHeader should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}showFileHeader.js`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'showFileHeader.js'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       it('file header override should match snapshot', () => {
-        const output = fs.readFileSync(`${buildPath}fileHeaderOverride.js`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'fileHeaderOverride.js'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
     })

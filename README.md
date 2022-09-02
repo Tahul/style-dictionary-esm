@@ -8,10 +8,11 @@
 
 An ESM-ready version of [Style Dictionary](https://github.com/amzn/style-dictionary).
 
-- **100%** test suite from original repo
-- Full **ESM-compatible** rewrite
-- Easily disable FS dependency
-- **PNPM**, **Vite** and **Vitest** for the repository
+- Fully **ESM-ready**
+- Allows configuring `fs` dependency
+- Allows configuring all console outputs
+- **100%** coverage from upstream test suite
+- [**PNPM**](https://pnpm.io/), [**tsup**](https://github.com/egoist/tsup), [**Vite**](https://vitejs.dev/) and [**Vitest**](https://vitest.dev) for the repository
 
 ## Install
 

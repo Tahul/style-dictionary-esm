@@ -35,12 +35,11 @@ describe('extend', () => {
   describe('method signature', () => {
     it('should accept a string as a path to a JSON file', () => {
       const StyleDictionaryExtended = StyleDictionary.extend(helpers.resolveTestsPath('/__configs/test.json'))
-      console.log({ StyleDictionaryExtended })
       expect(StyleDictionaryExtended).toHaveProperty('platforms.web')
     })
 
-    it('should accept an object as options', () => {
-      const config = helpers.fileToJSON('/__configs/test.json')
+    it('should accept an object as options', async () => {
+      const config = await helpers.fileToJSON('/__configs/test.json')
       const StyleDictionaryExtended = StyleDictionary.extend(config)
       expect(StyleDictionaryExtended).toHaveProperty('platforms.web')
     })
@@ -87,26 +86,28 @@ describe('extend', () => {
       expect(typeof StyleDictionaryExtended.properties.size.padding.tiny).toBe('object')
     })
 
-    it('should build the properties object if an include is given', () => {
+    it('should build the properties object if an include is given', async () => {
       const StyleDictionaryExtended = StyleDictionary.extend({
         include: [helpers.resolveTestsPath('/__properties/paddings.json')],
       })
-      const output = helpers.fileToJSON('/__properties/paddings.json')
-      traverseObj(output, (obj) => {
+      const output = await helpers.fileToJSON('/__properties/paddings.json')
+
+      traverseObj(output, async (obj) => {
         if (obj.hasOwnProperty('value') && !obj.filePath) {
           obj.filePath = helpers.resolveTestsPath('/__properties/paddings.json')
           obj.isSource = false
         }
       })
+
       expect(StyleDictionaryExtended.properties).toEqual(output)
     })
 
-    it('should override existing properties if include is given', () => {
+    it('should override existing properties if include is given', async () => {
       const StyleDictionaryExtended = StyleDictionary.extend({
         properties: test_props,
         include: [helpers.resolveTestsPath('/__properties/paddings.json')],
       })
-      const output = helpers.fileToJSON('/__properties/paddings.json')
+      const output = await helpers.fileToJSON('/__properties/paddings.json')
       traverseObj(output, (obj) => {
         if (obj.hasOwnProperty('value') && !obj.filePath) {
           obj.filePath = helpers.resolveTestsPath('/__properties/paddings.json')
@@ -146,26 +147,27 @@ describe('extend', () => {
       expect(typeof StyleDictionaryExtended.properties.size).toBe('undefined')
     })
 
-    it('should build the properties object if a source is given', () => {
+    it('should build the properties object if a source is given', async () => {
       const StyleDictionaryExtended = StyleDictionary.extend({
         source: [helpers.resolveTestsPath('/__properties/paddings.json')],
       })
-      const output = helpers.fileToJSON('/__properties/paddings.json')
+      const output = await helpers.fileToJSON('/__properties/paddings.json')
       traverseObj(output, (obj) => {
         if (obj.hasOwnProperty('value') && !obj.filePath) {
           obj.filePath = helpers.resolveTestsPath('/__properties/paddings.json')
           obj.isSource = true
         }
       })
+
       expect(StyleDictionaryExtended.properties).toEqual(output)
     })
 
-    it('should use relative filePaths for the filePath property', () => {
+    it('should use relative filePaths for the filePath property', async () => {
       const filePath = '__tests__/__properties/paddings.json'
       const StyleDictionaryExtended = StyleDictionary.extend({
         source: [filePath],
       })
-      const output = helpers.fileToJSON('/__properties/paddings.json')
+      const output = await helpers.fileToJSON('/__properties/paddings.json')
       traverseObj(output, (obj) => {
         if (obj.hasOwnProperty('value') && !obj.filePath) {
           obj.filePath = filePath
@@ -175,12 +177,12 @@ describe('extend', () => {
       expect(StyleDictionaryExtended.properties).toEqual(output)
     })
 
-    it('should override existing properties source is given', () => {
+    it('should override existing properties source is given', async () => {
       const StyleDictionaryExtended = StyleDictionary.extend({
         properties: test_props,
         source: [helpers.resolveTestsPath('/__properties/paddings.json')],
       })
-      const output = helpers.fileToJSON('/__properties/paddings.json')
+      const output = await helpers.fileToJSON('/__properties/paddings.json')
       traverseObj(output, (obj) => {
         if (obj.hasOwnProperty('value') && !obj.filePath) {
           obj.filePath = helpers.resolveTestsPath('/__properties/paddings.json')
@@ -193,19 +195,25 @@ describe('extend', () => {
 
   // This is to allow style dictionaries to depend on other style dictionaries and
   // override properties. Useful for skinning
-  it('should not throw a collision error if a source file collides with an include', () => {
+  it('should not throw a collision error if a source file collides with an include', async () => {
     const StyleDictionaryExtended = StyleDictionary.extend({
       include: [helpers.resolveTestsPath('/__properties/paddings.1.json')],
       source: [helpers.resolveTestsPath('/__properties/paddings.json')],
       log: 'error',
     })
-    const output = helpers.fileToJSON('/__properties/paddings.json')
+    const output = await helpers.fileToJSON('/__properties/paddings.json')
     traverseObj(output, (obj) => {
       if (obj.hasOwnProperty('value') && !obj.filePath) {
         obj.filePath = helpers.resolveTestsPath('/__properties/paddings.json')
         obj.isSource = true
       }
     })
+
+    console.log({
+      output: JSON.stringify(output, null, 2),
+      props: JSON.stringify(StyleDictionaryExtended.properties, null, 2),
+    })
+
     expect(StyleDictionaryExtended.properties).toEqual(output)
   })
 

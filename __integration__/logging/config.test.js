@@ -18,8 +18,7 @@ import { buildPath, cleanConsoleOutput } from '../_constants'
 
 // Spy on console.log and add all messages to an array
 let consoleOutput = []
-const log = vi.spyOn(console, 'log')
-  .mockImplementation(message => consoleOutput.push(message))
+const log = vi.spyOn(console, 'log').mockImplementation(message => consoleOutput.push(message))
 
 /**
  * These integration tests will verify the behavior and logging at the *config*

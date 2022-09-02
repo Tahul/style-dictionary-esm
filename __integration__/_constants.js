@@ -1,10 +1,4 @@
-import { fileURLToPath } from 'url'
-import { dirname, join, resolve } from 'pathe'
-
-const _dir = resolve(dirname(fileURLToPath(import.meta.url)))
-export const resolveBuildPath = _path => join(_dir, '__integration__/build/')
-
-export const buildPath = resolveBuildPath()
+export const buildPath = '__integration__/build/'
 
 export const clearConsoleOutput = (str) => {
   const arr = str.split('\n')

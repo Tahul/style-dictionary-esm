@@ -12,7 +12,8 @@
  */
 
 import fs from 'fs'
-import { resolve } from 'pathe'
+import { fileURLToPath } from 'url'
+import { dirname, resolve } from 'pathe'
 import _template from 'lodash.template'
 import { resolveTemplate } from '../resolveTemplate'
 import GroupMessages from '../utils/groupMessages'
@@ -75,7 +76,7 @@ const formats = {
   // This will soon be removed, is left here only for backwards compatibility
   'sass/map-flat': function ({ dictionary, options, file }) {
     GroupMessages.add(SASS_MAP_FORMAT_DEPRECATION_WARNINGS, 'sass/map-flat')
-    return module.exports['scss/map-flat']({ dictionary, options, file })
+    return formats['scss/map-flat']({ dictionary, options, file })
   },
 
   /**
@@ -118,7 +119,7 @@ const formats = {
   // This will soon be removed, is left here only for backwards compatibility
   'sass/map-deep': function ({ dictionary, options, file }) {
     GroupMessages.add(SASS_MAP_FORMAT_DEPRECATION_WARNINGS, 'sass/map-deep')
-    return module.exports['scss/map-deep']({ dictionary, options, file })
+    return formats['scss/map-deep']({ dictionary, options, file })
   },
 
   /**
@@ -230,6 +231,11 @@ const formats = {
    * ```
    */
   'javascript/module': function ({ dictionary, file }) {
+    console.log(
+      `${fileHeader({ file })
+    }export default ${
+      JSON.stringify(dictionary.tokens, null, 2)};`
+    )
     return `${fileHeader({ file })
     }export default ${
       JSON.stringify(dictionary.tokens, null, 2)};`
@@ -250,7 +256,7 @@ const formats = {
   'javascript/module-flat': function ({ dictionary, file }) {
     return `${fileHeader({ file })
       }export default ${
-        module.exports['json/flat']({ dictionary })};`
+        formats['json/flat']({ dictionary })};`
   },
 
   /**
@@ -486,8 +492,10 @@ const formats = {
       }
       return type
     }
+
+    const _dir = resolve(dirname(fileURLToPath(import.meta.url)), '../templates')
     const designTokenInterface = fs.readFileSync(
-      resolve('../../types/DesignToken.d.ts'), { encoding: 'UTF-8' }
+      resolve(_dir, '../../types/DesignToken.d.ts'), { encoding: 'UTF-8' }
     )
 
     // get the first and last lines to add to the format by

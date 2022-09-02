@@ -26,20 +26,20 @@ const StyleDictionaryExtended = StyleDictionary.extend({
 StyleDictionaryExtended.registerAction({
   name: 'test',
   do() {
-    fs.writeFileSync('./__tests__/__output/action.txt', 'hi')
+    fs.writeFileSync(helpers.resolveTestsPath('__output/action.txt'), 'hi')
   },
   undo() {
-    fs.removeSync('./__tests__/__output/action.txt')
+    fs.removeSync(helpers.resolveTestsPath('__output/action.txt'))
   },
 })
 
 describe('performAction', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   describe('handle actions', () => {

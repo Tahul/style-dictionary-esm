@@ -31,20 +31,20 @@ describe('utils', () => {
       ).toThrow('Please pass an object in')
     })
 
-    it('should not mutate the original object', () => {
-      const original = helpers.fileToJSON('__json_files/nested_references.json')
+    it('should not mutate the original object', async () => {
+      const original = await helpers.fileToJSON('__json_files/nested_references.json')
       const test = resolveObject(original)
       expect(original).toHaveProperty('a.b.d', '{e.f.g}')
       expect(test).toHaveProperty('a.b.d', 2)
     })
 
-    it('should do simple references', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/simple.json'))
+    it('should do simple references', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/simple.json'))
       expect(test).toHaveProperty('bar', 'bar')
     })
 
-    it('should do simple interpolation for both strings and numbers', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/interpolation.json'))
+    it('should do simple interpolation for both strings and numbers', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/interpolation.json'))
       expect(test).toHaveProperty('c', 'test1 value text after')
       expect(test).toHaveProperty('d', 'text before test1 value')
       expect(test).toHaveProperty('e', 'text before test1 value text after')
@@ -53,22 +53,22 @@ describe('utils', () => {
       expect(test).toHaveProperty('h', 'text before 123 text after')
     })
 
-    it('should do nested references', () => {
-      const obj = helpers.fileToJSON('__json_files/nested_references.json')
+    it('should do nested references', async () => {
+      const obj = await helpers.fileToJSON('__json_files/nested_references.json')
       const test = resolveObject(obj)
       expect(test).toHaveProperty('i', 2)
       expect(test).toHaveProperty('a.b.d', 2)
       expect(test).toHaveProperty('e.f.h', 1)
     })
 
-    it('should handle nested pointers', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/nested_pointers.json'))
+    it('should handle nested pointers', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/nested_pointers.json'))
       expect(test).toHaveProperty('b', 1)
       expect(test).toHaveProperty('c', 1)
     })
 
-    it('should handle deep nested pointers', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/nested_pointers_2.json'))
+    it('should handle deep nested pointers', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/nested_pointers_2.json'))
       expect(test).toHaveProperty('a', 1)
       expect(test).toHaveProperty('b', 1)
       expect(test).toHaveProperty('c', 1)
@@ -78,8 +78,8 @@ describe('utils', () => {
       expect(test).toHaveProperty('g', 1)
     })
 
-    it('should handle deep nested pointers with string interpolation', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/nested_pointers_3.json'))
+    it('should handle deep nested pointers with string interpolation', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/nested_pointers_3.json'))
       expect(test).toHaveProperty('a', 'foo bon bee bae boo bla baz bar')
       expect(test).toHaveProperty('b', 'foo bon bee bae boo bla baz')
       expect(test).toHaveProperty('c', 'foo bon bee bae boo bla')
@@ -90,8 +90,8 @@ describe('utils', () => {
     }
     )
 
-    it('should handle deep nested pointers and nested references', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/nested_pointers_4.json'))
+    it('should handle deep nested pointers and nested references', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/nested_pointers_4.json'))
       expect(test).toHaveProperty('a.a.a', 1)
       expect(test).toHaveProperty('b.b.b', 1)
       expect(test).toHaveProperty('c.c.c', 1)
@@ -101,8 +101,8 @@ describe('utils', () => {
       expect(test).toHaveProperty('g.g.g', 1)
     })
 
-    it('should keep the type of the referenced property', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/reference_type.json'))
+    it('should keep the type of the referenced property', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/reference_type.json'))
       expect(test).toHaveProperty('d', 1)
       expect(typeof test.d).toBe('number')
       expect(typeof test.e).toBe('object')
@@ -110,74 +110,74 @@ describe('utils', () => {
       expect(test).toHaveProperty('e.c', 2)
     })
 
-    it('should handle and evaluate items in an array', () => {
-      const test = resolveObject(helpers.fileToJSON('__json_files/array.json'))
+    it('should handle and evaluate items in an array', async () => {
+      const test = resolveObject(await helpers.fileToJSON('__json_files/array.json'))
       expect(test.d[0]).toBe(2)
       expect(test.d[1]).toBe(1)
       expect(test.e[0].a).toBe(1)
       expect(test.e[1].a).toBe(2)
     })
 
-    it('should throw if pointers don\'t exist', () => {
+    it('should throw if pointers don\'t exist', async () => {
       expect(
-        resolveObject.bind(helpers.fileToJSON('__json_files/non_existent.json'))
+        resolveObject.bind(await helpers.fileToJSON('__json_files/non_existent.json'))
       ).toThrow()
     })
 
-    it('should gracefully handle basic circular references', () => {
+    it('should gracefully handle basic circular references', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/circular.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/circular.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(1)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Circular definition cycle:  a, b, c, d, a',
       ]))
     })
 
-    it('should gracefully handle basic and nested circular references', () => {
+    it('should gracefully handle basic and nested circular references', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/circular_2.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/circular_2.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(1)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Circular definition cycle:  a.b.c, j, a.b.c',
       ]))
     })
 
-    it('should gracefully handle nested circular references', () => {
+    it('should gracefully handle nested circular references', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/circular_3.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/circular_3.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(1)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Circular definition cycle:  a.b, c.d.e, a.b',
       ]))
     })
 
-    it('should gracefully handle multiple nested circular references', () => {
+    it('should gracefully handle multiple nested circular references', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/circular_4.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/circular_4.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(1)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Circular definition cycle:  a.b.c.d, e.f.g, h.i, a.b.c.d',
       ]))
     })
 
-    it('should gracefully handle down-chain circular references', () => {
+    it('should gracefully handle down-chain circular references', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/circular_5.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/circular_5.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(1)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Circular definition cycle:  l, m, l',
       ]))
     })
 
-    it('should correctly replace multiple references without reference errors', () => {
+    it('should correctly replace multiple references without reference errors', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      const obj = resolveObject(helpers.fileToJSON('__json_files/not_circular.json'))
+      const obj = resolveObject(await helpers.fileToJSON('__json_files/not_circular.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(0)
       expect(JSON.stringify(obj)).toBe(JSON.stringify({
         prop1: { value: 'test1 value' },
@@ -310,10 +310,10 @@ describe('utils', () => {
       expect(test).toHaveProperty ('foo.value', test.bar.value)
     })
 
-    it('should collect multiple reference errors', () => {
+    it('should collect multiple reference errors', async () => {
       GroupMessages.clear(PROPERTY_REFERENCE_WARNINGS)
 
-      resolveObject(helpers.fileToJSON('__json_files/multiple_reference_errors.json'))
+      resolveObject(await helpers.fileToJSON('__json_files/multiple_reference_errors.json'))
       expect(GroupMessages.count(PROPERTY_REFERENCE_WARNINGS)).toBe(3)
       expect(JSON.stringify(GroupMessages.fetchMessages(PROPERTY_REFERENCE_WARNINGS))).toBe(JSON.stringify([
         'Reference doesn\'t exist: a.b tries to reference b.a, which is not defined',

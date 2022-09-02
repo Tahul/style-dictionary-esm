@@ -5,7 +5,7 @@ exports[`formats > android/resources > should match default snapshot 1`] = `
 
 <!--
   Do not edit directly
-  Generated on Thu, 01 Sep 2022 04:36:21 GMT
+  Generated on Sat, 01 Jan 2000 00:00:00 GMT
 -->
 <resources>
   <dimen name=\\"size-font-small\\">12rem</dimen>
@@ -22,7 +22,7 @@ exports[`formats > android/resources > with resourceMap override should match sn
 
 <!--
   Do not edit directly
-  Generated on Thu, 01 Sep 2022 04:36:21 GMT
+  Generated on Sat, 01 Jan 2000 00:00:00 GMT
 -->
 <resources>
   <color name=\\"backgroundColorSecondary\\">#F2F3F4</color>
@@ -37,7 +37,7 @@ exports[`formats > android/resources > with resourceType override should match s
 
 <!--
   Do not edit directly
-  Generated on Thu, 01 Sep 2022 04:36:21 GMT
+  Generated on Sat, 01 Jan 2000 00:00:00 GMT
 -->
 <resources>
   <dimen name=\\"size-font-small\\">12rem</dimen>

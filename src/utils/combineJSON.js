@@ -19,6 +19,7 @@ import deepExtend from './deepExtend'
 
 function traverseObj(obj, fn) {
   for (const key in obj) {
+    fn.apply(null, [obj, key, obj[key]])
     if (obj[key] && typeof obj[key] === 'object')
       traverseObj(obj[key], fn)
   }
@@ -54,9 +55,6 @@ function combineJSON(arr, deep, collision, source, parsers = []) {
     let file_content = null
 
     try {
-      // This delete force require(resolvedPath) to take the latest version of the file. It's handfull when using the node package along chokidar.
-      delete require.cache[resolvedPath]
-
       // Iterate over custom parsers, if the file path matches the parser's
       // pattern regex, use it's parse function to generate the object
       parsers.forEach(({ pattern, parse }) => {

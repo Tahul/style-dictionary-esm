@@ -14,12 +14,16 @@
 import StyleDictionary from '../src/index'
 import helpers from './__helpers'
 
-const config = helpers.fileToJSON('__configs/test.json')
-const StyleDictionaryExtended = StyleDictionary.extend(config)
-
 describe('buildPlatform', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  let config
+  let StyleDictionaryExtended
+  beforeAll(async () => {
+    config = await helpers.fileToJSON('__configs/test.json')
+    StyleDictionaryExtended = StyleDictionary.extend(config)
+  })
+
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should throw if passed a platform that doesn\'t exist', () => {
@@ -55,6 +59,15 @@ describe('buildPlatform', () => {
 
   it('should do android stuff', () => {
     StyleDictionaryExtended.buildPlatform('android')
+
+    console.log({
+      hdpi: helpers.fileExists('__output/android/main/res/drawable-hdpi/flag_us.png'),
+      xhdpi: helpers.fileExists('__output/android/main/res/drawable-xhdpi/flag_us.png'),
+      colors: helpers.fileExists('__output/android/colors.xml'),
+      dimens: helpers.fileExists('__output/android/dimens.xml'),
+      font_dimen: helpers.fileExists('__output/android/font_dimen.xml'),
+    })
+
     expect(helpers.fileExists('__output/android/main/res/drawable-hdpi/flag_us.png')).toBeTruthy()
     expect(helpers.fileExists('__output/android/main/res/drawable-xhdpi/flag_us.png')).toBeTruthy()
     expect(helpers.fileExists('__output/android/colors.xml')).toBeTruthy()
@@ -68,7 +81,7 @@ describe('buildPlatform', () => {
     expect(helpers.fileExists('__output/ios/style_dictionary.h')).toBeTruthy()
   })
 
-  it('should handle non-string values in properties', () => {
+  it('should handle non-string values in properties', async () => {
     const StyleDictionaryExtended = StyleDictionary.extend({
       source: ['__tests__/__properties/nonString.json'],
       platforms: {
@@ -87,7 +100,7 @@ describe('buildPlatform', () => {
     StyleDictionaryExtended.buildPlatform('test')
     expect(helpers.fileExists('__output/output.json')).toBeTruthy()
     // var input = helpers.fileToJSON('__properties/nonString.json');
-    const output = helpers.fileToJSON('__output/output.json')
+    const output = await helpers.fileToJSON('__output/output.json')
 
     // Make sure transforms run on non-string values as they normally would
     expect(output).toHaveProperty('color.red.value', output.color.otherRed.value)
@@ -103,7 +116,7 @@ describe('buildPlatform', () => {
     expect(typeof output.object.otherTest.value).toBe('object')
   })
 
-  it('should handle non-property nodes', () => {
+  it('should handle non-property nodes', async () => {
     const StyleDictionaryExtended = StyleDictionary.extend({
       source: ['__tests__/__properties/nonPropertyNode.json'],
       platforms: {
@@ -121,14 +134,14 @@ describe('buildPlatform', () => {
     })
     StyleDictionaryExtended.buildPlatform('test')
     expect(helpers.fileExists('__output/output.json')).toBeTruthy()
-    const input = helpers.fileToJSON('__properties/nonPropertyNode.json')
-    const output = helpers.fileToJSON('__output/output.json')
+    const input = await helpers.fileToJSON('__properties/nonPropertyNode.json')
+    const output = await helpers.fileToJSON('__output/output.json')
     expect(output.color.key1).toEqual(input.color.key1)
     expect(output.color.base.red.key2).toEqual(input.color.base.red.key2)
     expect(output.color.base.attributes.key3).toEqual(input.color.base.attributes.key3)
   })
 
-  it('should handle comments', () => {
+  it('should handle comments', async () => {
     const StyleDictionaryExtended = StyleDictionary.extend({
       source: ['__tests__/__properties/comment.json'],
       platforms: {
@@ -146,8 +159,8 @@ describe('buildPlatform', () => {
     })
     StyleDictionaryExtended.buildPlatform('test')
     expect(helpers.fileExists('__output/output.json')).toBeTruthy()
-    const input = helpers.fileToJSON('__properties/comment.json')
-    const output = helpers.fileToJSON('__output/output.json')
+    const input = await helpers.fileToJSON('__properties/comment.json')
+    const output = await helpers.fileToJSON('__output/output.json')
     expect(output.size.large.comment).toEqual(input.size.large.comment)
   })
 
@@ -165,10 +178,9 @@ describe('buildPlatform', () => {
       },
     })
 
-    const err = `
-Unknown transformGroup "bar" found in platform "foo":
-"bar" does not match the name of a registered transformGroup.
-`
+    const err
+    = 'Unknown transformGroup "bar" found in platform "foo":\n'
+    + '"bar" does not match the name of a registered transformGroup.\n'
 
     expect(
       StyleDictionaryExtended.buildPlatform.bind(StyleDictionaryExtended, 'foo')

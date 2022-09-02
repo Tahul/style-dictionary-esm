@@ -34,10 +34,9 @@ describe('transform', () => {
         transformGroup: 'barTransformGroup',
       }
 
-      const err = `
-Unknown transformGroup "barTransformGroup" found in platform "test":
-"barTransformGroup" does not match the name of a registered transformGroup.
-`
+      const err
+      = 'Unknown transformGroup "barTransformGroup" found in platform "test":\n'
+      + '"barTransformGroup" does not match the name of a registered transformGroup.'
 
       expect(
         transformConfig.bind(null, noTransformGroupCfg, dictionary, 'test')
@@ -49,10 +48,16 @@ Unknown transformGroup "barTransformGroup" found in platform "test":
         transforms: ['fooTransform', 'barTransform', 'bazTransform'],
       }
 
-      const err = `
-Unknown transforms "barTransform", "bazTransform" found in platform "test":
-None of "barTransform", "bazTransform" match the name of a registered transform.
-`
+      const err
+      = 'Unknown transforms "barTransform", "bazTransform" found in platform "test":\n'
+      + 'None of "barTransform", "bazTransform" match the name of a registered transform.'
+
+      try {
+        transformConfig.bind(null, noTransformCfg, dictionary, 'test')()
+      }
+      catch (e) {
+        console.log({ err, e })
+      }
 
       expect(
         transformConfig.bind(null, noTransformCfg, dictionary, 'test')

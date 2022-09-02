@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -44,14 +45,13 @@ describe('integration', () => {
     }).buildAllPlatforms()
 
     describe('android/resources', () => {
-      const output = fs.readFileSync(`${buildPath}resources.xml`, { encoding: 'UTF-8' })
-
       it('should match snapshot', () => {
+        const output = fs.readFileSync(join(buildPath, 'resources.xml'), { encoding: 'UTF-8' })
         expect(output).toMatchSnapshot()
       })
 
       describe('with references', () => {
-        const output = fs.readFileSync(`${buildPath}resourcesWithReferences.xml`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'resourcesWithReferences.xml'), { encoding: 'UTF-8' })
 
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()
@@ -59,7 +59,7 @@ describe('integration', () => {
       })
 
       describe('with filter', () => {
-        const output = fs.readFileSync(`${buildPath}colors.xml`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'colors.xml'), { encoding: 'UTF-8' })
 
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()

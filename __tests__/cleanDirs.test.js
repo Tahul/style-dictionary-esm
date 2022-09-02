@@ -46,12 +46,12 @@ const platformWithBuildPath = {
 }
 
 describe('cleanDirs', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should delete without buildPath', () => {

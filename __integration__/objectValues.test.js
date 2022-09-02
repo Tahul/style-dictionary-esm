@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import Color from 'tinycolor2'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
@@ -187,13 +188,13 @@ describe('integration', () => {
 
     describe('css/variables', () => {
       describe('hsl syntax', () => {
-        const output = fs.readFileSync(`${buildPath}hsl.css`, { encoding: 'UTF-8' })
         it('should match snapshot', () => {
+          const output = fs.readFileSync(join(buildPath, 'hsl.css'), { encoding: 'UTF-8' })
           expect(output).toMatchSnapshot()
         })
 
         describe('with references', () => {
-          const output = fs.readFileSync(`${buildPath}hslWithReferences.css`, { encoding: 'UTF-8' })
+          const output = fs.readFileSync(join(buildPath, 'hslWithReferences.css'), { encoding: 'UTF-8' })
           it('should match snapshot', () => {
             expect(output).toMatchSnapshot()
           })
@@ -201,13 +202,13 @@ describe('integration', () => {
       })
 
       describe('hex syntax', () => {
-        const output = fs.readFileSync(`${buildPath}hex.css`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'hex.css'), { encoding: 'UTF-8' })
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()
         })
 
         describe('with references', () => {
-          const output = fs.readFileSync(`${buildPath}hexWithReferences.css`, { encoding: 'UTF-8' })
+          const output = fs.readFileSync(join(buildPath, 'hexWithReferences.css'), { encoding: 'UTF-8' })
           it('should match snapshot', () => {
             expect(output).toMatchSnapshot()
           })
@@ -215,13 +216,13 @@ describe('integration', () => {
       })
 
       describe('border', () => {
-        const output = fs.readFileSync(`${buildPath}border.css`, { encoding: 'UTF-8' })
+        const output = fs.readFileSync(join(buildPath, 'border.css'), { encoding: 'UTF-8' })
         it('should match snapshot', () => {
           expect(output).toMatchSnapshot()
         })
 
         describe('with references', () => {
-          const output = fs.readFileSync(`${buildPath}borderWithReferences.css`, { encoding: 'UTF-8' })
+          const output = fs.readFileSync(join(buildPath, 'borderWithReferences.css'), { encoding: 'UTF-8' })
           it('should match snapshot', () => {
             expect(output).toMatchSnapshot()
           })
@@ -230,26 +231,30 @@ describe('integration', () => {
 
       describe('shadow', () => {
         it('should match snapshot', () => {
-          const output = fs.readFileSync(`${buildPath}shadow.css`, { encoding: 'UTF-8' })
+          const output = fs.readFileSync(join(buildPath, 'shadow.css'), { encoding: 'UTF-8' })
+
           expect(output).toMatchSnapshot()
         })
 
         it('should match snapshot with references', () => {
-          const output = fs.readFileSync(`${buildPath}shadowWithReferences.css`, { encoding: 'UTF-8' })
+          const output = fs.readFileSync(join(buildPath, 'shadowWithReferences.css'), { encoding: 'UTF-8' })
+
           expect(output).toMatchSnapshot()
         })
       })
     })
 
     describe('scss/variables', () => {
-      const output = fs.readFileSync(`${buildPath}border.scss`, { encoding: 'UTF-8' })
-      it('should match snapshot', () => {
+      it('should match snapshot', async () => {
+        const output = await fs.readFile(join(buildPath, 'border.scss'), { encoding: 'UTF-8' })
+
         expect(output).toMatchSnapshot()
       })
 
       describe('with references', () => {
-        const output = fs.readFileSync(`${buildPath}borderWithReferences.scss`, { encoding: 'UTF-8' })
-        it('should match snapshot', () => {
+        it('should match snapshot', async () => {
+          const output = await fs.readFile(join(buildPath, 'borderWithReferences.scss'), { encoding: 'UTF-8' })
+
           expect(output).toMatchSnapshot()
         })
       })

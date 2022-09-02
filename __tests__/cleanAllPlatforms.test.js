@@ -13,21 +13,27 @@
 
 import StyleDictionary from '../src/index'
 import helpers from './__helpers'
-const config = helpers.fileToJSON('__configs/test.json')
-const StyleDictionaryExtended = StyleDictionary.extend(config)
 
 describe('cleanAllPlatforms', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  let config
+  let StyleDictionaryExtended
+  beforeAll(async () => {
+    config = await helpers.fileToJSON('__configs/test.json')
+    StyleDictionaryExtended = StyleDictionary.extend(config)
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
+  })
+
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should work', () => {
     StyleDictionaryExtended.buildAllPlatforms()
     StyleDictionaryExtended.cleanAllPlatforms()
+
     expect(helpers.fileDoesNotExist('__output/web/_icons.scss')).toBeTruthy()
     expect(helpers.fileDoesNotExist('__output/android/colors.xml')).toBeTruthy()
   })

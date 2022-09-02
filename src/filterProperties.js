@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import * as _ from './utils/es6_'
+import { assign, filter as globalFilter, isEmpty, isObject, reduce } from './utils/es6_'
 
 /**
  * Takes a nested object of properties and filters them using the provided
@@ -25,18 +25,17 @@ import * as _ from './utils/es6_'
  *   that matched the filter.
  */
 function filterPropertyObject(properties, filter) {
-  // Use reduce to generate a new object with the unwanted properties filtered
-  // out
-  return _.reduce(properties, (result, value, key) => {
+  // Use reduce to generate a new object with the unwanted properties filtered out
+  return reduce(properties, (result, value, key) => {
     // If the value is not an object, we don't know what it is. We return it as-is.
-    if (!_.isObject(value)) {
+    if (!isObject(value)) {
       return result
     // If the value has a `value` member we know it's a property, pass it to
     // the filter function and either include it in the final `result` object or
     // exclude it (by returning the `result` object without it added).
     }
     else if (typeof value.value !== 'undefined') {
-      return filter(value) ? _.assign(result, { [key]: value }) : result
+      return filter(value) ? assign(result, { [key]: value }) : result
     // If we got here we have an object that is not a property. We'll assume
     // it's an object containing multiple properties and recursively filter it
     // using the `filterPropertyObject` function.
@@ -46,7 +45,7 @@ function filterPropertyObject(properties, filter) {
       // If the filtered object is not empty then add it to the final `result`
       // object. If it is empty then every property inside of it was filtered
       // out, then exclude it entirely from the final `result` object.
-      return _.isEmpty(filtered) ? result : _.assign(result, { [key]: filtered })
+      return isEmpty(filtered) ? result : assign(result, { [key]: filtered })
     }
   }, {})
 }
@@ -62,8 +61,7 @@ function filterPropertyObject(properties, filter) {
  *   that matched the filter.
  */
 function filterPropertyArray(properties, filter) {
-  // Go lodash!
-  return _.filter(properties, filter)
+  return globalFilter(properties, filter)
 }
 
 /**

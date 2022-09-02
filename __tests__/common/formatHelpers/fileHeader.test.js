@@ -22,10 +22,6 @@ describe('common', () => {
       it('should default to /**/ comment style', () => {
         const comment = fileHeader({})
 
-        console.log({
-          comment,
-        })
-
         expect(comment).toEqual(
 `/**
  * ${defaultLine1}

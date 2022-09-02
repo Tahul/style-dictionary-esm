@@ -33,21 +33,27 @@ const dictionary = createDictionary({ properties })
 
 describe('formats', () => {
   describe('json', () => {
-    beforeEach(() => {
-      helpers.clearOutput()
+    beforeEach(async () => {
+      await helpers.clearOutput()
     })
 
-    afterEach(() => {
-      helpers.clearOutput()
+    afterEach(async () => {
+      await helpers.clearOutput()
     })
 
     it('should be a valid JSON file', async () => {
-      fs.writeFileSync('./__tests__/__output/output.json', formatter(createFormatArgs({
-        dictionary,
-        file,
-        platform: {},
-      }), {}, file))
-      const test = await import('../__output/output.json')
+      await fs.writeFile(
+        helpers.resolveTestsPath('__output/output.json'),
+        formatter(createFormatArgs({
+          dictionary,
+          file,
+          platform: {},
+        }), {}, file)
+      )
+
+      let test = await import(helpers.resolveTestsPath('__output/output.json'))
+      test = test?.default || test
+
       expect(test.color.red.value).toEqual(dictionary.properties.color.red.value)
     })
   })

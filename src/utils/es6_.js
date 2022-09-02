@@ -15,14 +15,14 @@ import * as _ChangeCase from 'change-case'
 
 export const ChangeCase = _ChangeCase
 
-export const reduce = function (obj, f, accumulator_init) {
+export function reduce(obj, f, accumulator_init) {
   return Object.keys(obj || {}).reduce((accumulator, key) => {
     const value = obj[key]
     return f(accumulator, value, key, obj)
   }, accumulator_init)
 }
 
-export const forEach = function (obj, f) {
+export function forEach(obj, f) {
   Object.keys(obj || {}).forEach((key) => {
     const value = obj[key]
     f(value, key)
@@ -30,11 +30,11 @@ export const forEach = function (obj, f) {
 }
 
 // Note: This is a crappy version to a certain extent... don't use with Strings, for example...
-export const clone = function (object) {
+export function clone(object) {
   return Object.assign(new object.constructor(), object)
 }
 
-export const cloneDeep = function (obj) {
+export function cloneDeep(obj) {
   if (obj === null || obj === undefined || typeof obj !== 'object')
     return obj
 
@@ -53,20 +53,20 @@ export const cloneDeep = function (obj) {
   }
 }
 
-export const isObject = function (value) {
+export function isObject(value) {
   const type = typeof value
   return value != null && (type === 'object' || type === 'function')
 }
 
-export const isString = function (obj) {
+export function isString(obj) {
   return typeof obj === 'string' || obj instanceof String
 }
 
-export const isArray = function (obj) {
+export function isArray(obj) {
   return Array.isArray(obj)
 }
 
-export const isEmpty = function (obj) {
+export function isEmpty(obj) {
   return [Object, Array].includes((obj || {}).constructor) && !Object.entries((obj || {})).length
 }
 
@@ -84,7 +84,7 @@ export function isPlainObject(value) {
   return Object.getPrototypeOf(value) === proto
 }
 
-export const filter = function (arr, filter) {
+export function filter(arr, filter) {
   if (typeof (filter) !== 'function')
     throw new Error('filter is not a function')
 
@@ -94,13 +94,11 @@ export const filter = function (arr, filter) {
   return arr.filter(filter)
 }
 
-export const assign = function (...props) {
-  const args = Array.prototype.slice.call(...props)
-  args.unshift({})
-  return Object.assign(...args)
+export function assign(...props) {
+  return Object.assign({}, ...props)
 }
 
-export const pull = function (arr, ...removeList) {
+export function pull(arr, ...removeList) {
   const removeSet = new Set(removeList)
   for (let i = arr.length - 1; i >= 0; i--) {
     if (removeSet.has(arr[i]))
@@ -108,15 +106,15 @@ export const pull = function (arr, ...removeList) {
   }
 }
 
-export const unique = function (arr) {
+export function unique(arr) {
   return [...new Set(arr)]
 }
 
-export const upperFirst = function (str) {
+export function upperFirst(str) {
   return str ? str[0].toUpperCase() + str.substr(1) : ''
 }
 
-export const matchFn = function (inputObj, testObj) {
+export function matchFn(inputObj, testObj) {
   if (isObject(testObj))
     return Object.keys(testObj).every(key => matchFn(inputObj[key], testObj[key]))
 
@@ -124,7 +122,7 @@ export const matchFn = function (inputObj, testObj) {
     return inputObj === testObj
 }
 
-export const matches = function (matchObj) {
+export function matches(matchObj) {
   const cloneObj = cloneDeep(matchObj)
   const matchesFn = inputObj => matchFn(inputObj, cloneObj)
   return matchesFn
@@ -134,7 +132,7 @@ const DEFAULT_OPTIONS = {
   transform: ChangeCase.camelCaseTransformMerge,
 }
 
-export const changeDefaultCaseTransform = function (caseFunction, default_options) {
+export function changeDefaultCaseTransform(caseFunction, default_options) {
   return (caseToChange, options) => caseFunction(caseToChange, Object.assign({}, DEFAULT_OPTIONS, default_options, options))
 }
 

@@ -121,12 +121,12 @@ const falsy_dictionary = {
 }
 
 describe('filterProperties', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should return the original dictionary if no filter is provided', () => {
@@ -137,11 +137,14 @@ describe('filterProperties', () => {
     const filter = function (property) {
       return property.path.includes('size')
     }
+
     const filteredDictionary = filterProperties(dictionary, filter)
+
     _.each(filteredDictionary.allProperties, (property) => {
       expect(property).not.toBe(colorRed)
       expect(property).not.toBe(colorBlue)
     })
+
     expect(filteredDictionary.allProperties).toEqual([sizeSmall, sizeLarge])
     expect(filteredDictionary.properties).toHaveProperty('size')
     expect(filteredDictionary.properties).not.toHaveProperty('color')

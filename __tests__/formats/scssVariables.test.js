@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import scss from 'node-sass'
+import scss from 'sass'
 import formats from '../../src/common/formats'
 import createDictionary from '../../src/utils/createDictionary'
 import createFormatArgs from '../../src/utils/createFormatArgs'
@@ -60,13 +60,11 @@ const dictionary = createDictionary({ properties })
 describe('formats', () => {
   describe('scss/variables', () => {
     it('should have a valid scss syntax', () => {
-      const result = scss.renderSync({
-        data: formatter(createFormatArgs({
-          dictionary,
-          file,
-          platform: {},
-        }), {}, file),
-      })
+      const result = scss.compileString(formatter(createFormatArgs({
+        dictionary,
+        file,
+        platform: {},
+      }), {}, file))
       expect(result.css).toBeDefined()
     })
 

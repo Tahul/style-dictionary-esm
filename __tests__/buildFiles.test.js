@@ -82,12 +82,12 @@ const platformWithBadBuildPath = {
 }
 
 describe('buildFiles', () => {
-  beforeEach(() => {
-    helpers.clearOutput()
+  beforeEach(async () => {
+    await helpers.clearOutput()
   })
 
-  afterEach(() => {
-    helpers.clearOutput()
+  afterEach(async () => {
+    await helpers.clearOutput()
   })
 
   it('should throw if build path doesn\'t have a trailing slash', () => {
@@ -111,14 +111,12 @@ describe('buildFiles', () => {
     buildFiles(dictionary, platformWithBuildPath)
     expect(helpers.fileExists('__output/test.json')).toBeTruthy()
   })
-  it('should work with a filter', () => {
-    console.log({ dictionary: JSON.stringify(dictionary, null, 2) })
 
+  it('should work with a filter', async () => {
     buildFiles(dictionary, platformWithFilter)
-
     expect(helpers.fileExists('__output/test.json')).toBeTruthy()
-
-    const output = require('./__output/test.json')
+    let output = await import(helpers.resolveTestsPath('./__output/test.json'))
+    output = output?.default || output
     expect(output).toHaveProperty('bingo')
     expect(output).not.toHaveProperty('foo')
     _.each(output, (property) => {

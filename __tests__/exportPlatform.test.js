@@ -14,14 +14,23 @@
 import StyleDictionary from '../src/index'
 import helpers from './__helpers'
 
-const config = helpers.fileToJSON(helpers.resolveTestsPath('/__configs/test.json'))
-const styleDictionary = StyleDictionary.extend(config)
-
 describe('exportPlatform', () => {
+  let config
+  let StyleDictionaryExtended
+  beforeAll(async () => {
+    config = await helpers.fileToJSON('__configs/test.json')
+  })
+
+  beforeEach(
+    () => {
+      StyleDictionaryExtended = StyleDictionary.extend(config)
+    }
+  )
+
   it('should throw if not given a platform', () => {
     expect(
       () => {
-        styleDictionary.exportPlatform()
+        StyleDictionaryExtended.exportPlatform()
       }
     ).toThrow()
   })
@@ -29,7 +38,7 @@ describe('exportPlatform', () => {
   it('should throw if not given a proper platform', () => {
     expect(
       () => {
-        styleDictionary.exportPlatform('foo')
+        StyleDictionaryExtended.exportPlatform('foo')
       }
     ).toThrow()
   })
@@ -37,33 +46,33 @@ describe('exportPlatform', () => {
   it('should not throw if given a proper platform', () => {
     expect(
       () => {
-        styleDictionary.exportPlatform('web')
+        StyleDictionaryExtended.exportPlatform('web')
       }
     ).not.toThrow()
   })
 
   it('should return an object', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
     expect(typeof dictionary).toBe('object')
   })
 
   it('should have the same structure as the original properties', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
-    expect(Object.keys(dictionary)).toEqual(Object.keys(styleDictionary.properties))
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
+    expect(Object.keys(dictionary)).toEqual(Object.keys(StyleDictionaryExtended.properties))
   })
 
   it('should have resolved references', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
     expect(dictionary.color.font.link.value).toEqual(dictionary.color.base.blue['100'].value)
   })
 
   it('should have applied transforms', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
     expect(dictionary.size.padding.base.value.indexOf('px')).toBeGreaterThan(0)
   })
 
   it('should have applied transforms for props with refs in it', () => {
-    const StyleDictionaryExtended = styleDictionary.extend({
+    const _StyleDictionaryExtended = StyleDictionaryExtended.extend({
       platforms: {
         test: {
           transforms: ['color/css', 'color/darken'],
@@ -71,7 +80,7 @@ describe('exportPlatform', () => {
       },
     })
 
-    StyleDictionaryExtended.registerTransform({
+    _StyleDictionaryExtended.registerTransform({
       type: 'value',
       name: 'color/darken',
       transitive: true,
@@ -79,14 +88,14 @@ describe('exportPlatform', () => {
       transformer(prop) { return `${prop.value}-darker` },
     })
 
-    const dictionary = StyleDictionaryExtended.exportPlatform('test')
+    const dictionary = _StyleDictionaryExtended.exportPlatform('test')
 
     expect(dictionary.color.button.active.value).toEqual('#0077CC-darker')
     expect(dictionary.color.button.hover.value).toEqual('#0077CC-darker-darker')
   })
 
   it('should have transitive transforms applied without .value in references', () => {
-    const dictionary = StyleDictionary.extend({
+    const dictionary = StyleDictionaryExtended.extend({
       tokens: {
         one: { value: 'foo' },
         two: { value: '{one.value}' },
@@ -124,16 +133,16 @@ describe('exportPlatform', () => {
   })
 
   it('should not have mutated the original properties', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
-    expect(dictionary.color.font.link.value).not.toEqual(styleDictionary.properties.color.font.link.value)
-    expect(styleDictionary.properties.size.padding.base.value.indexOf('px')).toBe(-1)
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
+    expect(dictionary.color.font.link.value).not.toEqual(StyleDictionaryExtended.properties.color.font.link.value)
+    expect(StyleDictionaryExtended.properties.size.padding.base.value.indexOf('px')).toBe(-1)
   })
 
   // Make sure when we perform transforms and resolve references
   // we don't mutate the original object added to the property.
-  it('properties should have original value untouched', () => {
-    const dictionary = styleDictionary.exportPlatform('web')
-    const properties = helpers.fileToJSON(helpers.resolveTestsPath('/__properties/colors.json'))
+  it('properties should have original value untouched', async () => {
+    const dictionary = StyleDictionaryExtended.exportPlatform('web')
+    const properties = await helpers.fileToJSON('/__properties/colors.json')
     expect(dictionary.color.font.link.original.value).toEqual(properties.color.font.link.value)
   })
 
