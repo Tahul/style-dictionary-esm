@@ -8,5 +8,5 @@ export default <Options>{
   format: ['esm', 'cjs'],
   dts: true,
   treeshake: true,
-  external: ['vite'],
+  external: ['vite', 'fsevents', 'chokidar'],
 }
