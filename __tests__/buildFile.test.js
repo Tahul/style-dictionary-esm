@@ -132,4 +132,16 @@ describe('buildFile', () => {
     )
     expect(helpers.fileExists('__output/test.txt')).toBeTruthy()
   })
+
+  it('should allow disabling file writes', () => {
+    buildFile({
+      destination: 'test.txt',
+      format,
+    }, {
+      buildPath: '__tests__/__output/',
+      writeFile: false,
+    }, {}
+    )
+    expect(helpers.fileExists('__output/test.txt')).toBeFalsy()
+  })
 })

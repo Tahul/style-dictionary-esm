@@ -22,5 +22,6 @@ export interface Platform {
   buildPath?: string;
   files?: File[];
   actions?: string[];
+  writeFiles?: boolean
   options?: Options;
 }

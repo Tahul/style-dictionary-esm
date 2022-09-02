@@ -100,11 +100,15 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
   })
 
   const propertyNamesCollisionCount = GroupMessages.count(PROPERTY_NAME_COLLISION_WARNINGS)
-  fs.writeFileSync(fullDestination, format(createFormatArgs({
-    dictionary: filteredDictionary,
-    platform,
-    file,
-  }), platform, file))
+
+  // Allows disabling file writings
+  if (platform?.writeFile !== false) {
+    fs.writeFileSync(fullDestination, format(createFormatArgs({
+      dictionary: filteredDictionary,
+      platform,
+      file,
+    }), platform, file))
+  }
 
   const filteredReferencesCount = GroupMessages.count(GroupMessages.GROUP.FilteredOutputReferences)
 
