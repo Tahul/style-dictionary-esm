@@ -63,9 +63,9 @@
     "prepare": "husky install",
     "release": "git add . && standard-version -a",
     "serve-docs": "docsify serve docs -p 3000 -P 12345",
-    "test": "pnpm run test-types && pnpm run lint",
-    "test-types": "tsd",
-    "test-watch": "pnpm run test-types && pnpm run lint && jest --runInBand --watch",
+    "test": "pnpm run test:types && pnpm run lint",
+    "test:types": "tsd",
+    "test:watch": "pnpm run test:types && pnpm run lint && vitest --segfault-retry=3",
     "test:run": "vitest --segfault-retry=3 --run",
     "test:ui": "vitest --segfault-retry=3 --ui"
   },

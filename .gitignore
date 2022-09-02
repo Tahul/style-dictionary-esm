@@ -81,3 +81,8 @@ xcuserdata/
 # Temporary build output directory for unit tests
 __tests__/__output
 __tests__/__output-cli
+
+# IDE
+.idea
+auto-imports.d.ts
+.eslintrc-auto-import.json
