@@ -1,6 +1,7 @@
 {
   "name": "style-dictionary-esm",
   "version": "1.0.0",
+  "packageManager": "pnpm@7.9.5",
   "description": "Style once, use everywhere. A build system for creating cross-platform styles.",
   "keywords": [
     "style dictionary",
