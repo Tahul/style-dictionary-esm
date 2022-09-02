@@ -13,22 +13,22 @@
 
 // Minimum TypeScript Version: 3.0
 
-import {Action as _Action} from './Action';
-import {Config as _Config} from './Config';
-import {DesignToken as _DesignToken, DesignTokens as _DesignTokens} from './DesignToken';
-import {Dictionary as _Dictionary} from './Dictionary';
-import {File as _File} from './File';
-import {FileHeader as _FileHeader} from './FileHeader';
-import {Filter as _Filter} from './Filter';
-import {Format as _Format, Formatter as _Formatter } from './Format';
-import {FormatHelpers as _FormatHelpers} from './FormatHelpers';
-import {Options as _Options} from './Options';
-import {Parser as _Parser} from './Parser';
-import {Platform as _Platform} from './Platform';
-import {Transform as _Transform} from './Transform';
-import {TransformedToken as _TransformedToken, TransformedTokens as _TransformedTokens} from './TransformedToken';
-import {TransformGroup as _TransformGroup} from './TransformGroup';
-import {Named as _Named} from './_helpers';
+import { Action as _Action} from './Action';
+import { Config as _Config} from './Config';
+import { DesignToken as _DesignToken, DesignTokens as _DesignTokens} from './DesignToken';
+import { Dictionary as _Dictionary} from './Dictionary';
+import { File as _File} from './File';
+import { FileHeader as _FileHeader} from './FileHeader';
+import { Filter as _Filter} from './Filter';
+import { Format as _Format, Formatter as _Formatter } from './Format';
+import { FormatHelpers as _FormatHelpers} from './FormatHelpers';
+import { Options as _Options} from './Options';
+import { Parser as _Parser} from './Parser';
+import { Platform as _Platform} from './Platform';
+import { Transform as _Transform} from './Transform';
+import { TransformedToken as _TransformedToken, TransformedTokens as _TransformedTokens} from './TransformedToken';
+import { TransformGroup as _TransformGroup} from './TransformGroup';
+import { Named as _Named} from './_helpers';
 import type { Consola } from 'consola'
 
 // Because this library is used in Node and needs to be accessible
