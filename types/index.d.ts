@@ -63,7 +63,7 @@ declare namespace StyleDictionary {
     properties: DesignTokens | TransformedTokens;
     allProperties: TransformedTokens[];
     options: Config;
-    logger: Consola
+    logger: () => Consola
 
     transform: Record<string, Transform>;
     transformGroup: Record<string, TransformGroup['transforms']>;
