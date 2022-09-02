@@ -14,12 +14,13 @@
 import fs from 'fs-extra'
 import { vi } from 'vitest'
 import StyleDictionary from '../src/index'
+import logger from '../src/logger'
 import { buildPath } from './_constants'
 
 describe('integration', () => {
   describe('output references', () => {
     it('should warn the user if filters out references', () => {
-      console.log = vi.fn()
+      const spy = vi.spyOn(logger(), 'log')
 
       StyleDictionary.extend({
         // we are only testing showFileHeader options so we don't need
@@ -43,8 +44,7 @@ describe('integration', () => {
           },
         },
       }).buildAllPlatforms()
-
-      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}filteredVariables.css`)
+      expect(spy).toHaveBeenCalledWith(`⚠️ ${buildPath}filteredVariables.css`)
     })
   })
 })

@@ -29,6 +29,7 @@ import {Transform as _Transform} from './Transform';
 import {TransformedToken as _TransformedToken, TransformedTokens as _TransformedTokens} from './TransformedToken';
 import {TransformGroup as _TransformGroup} from './TransformGroup';
 import {Named as _Named} from './_helpers';
+import type { Consola } from 'consola'
 
 // Because this library is used in Node and needs to be accessible
 // as a CommonJS module, we are declaring it as a namespace so that
@@ -53,6 +54,7 @@ declare namespace StyleDictionary {
   type TransformedTokens = _TransformedTokens;
   type TransformGroup = _TransformGroup;
   type Named<T> = _Named<T>
+  type Logger = Consola
 
   interface Core {
     VERSION: string;
@@ -61,6 +63,7 @@ declare namespace StyleDictionary {
     properties: DesignTokens | TransformedTokens;
     allProperties: TransformedTokens[];
     options: Config;
+    logger: Consola
 
     transform: Record<string, Transform>;
     transformGroup: Record<string, TransformGroup['transforms']>;

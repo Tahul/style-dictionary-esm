@@ -14,6 +14,7 @@
 import * as _ from '../utils/es6_'
 import deepExtend from '../utils/deepExtend'
 import GroupMessages from '../utils/groupMessages'
+import logger from '../logger'
 
 const TEMPLATE_DEPRECATION_WARNINGS = GroupMessages.GROUP.TemplateDeprecationWarnings
 const MISSING_TRANSFORM_ERRORS = GroupMessages.GROUP.MissingRegisterTransformErrors
@@ -52,8 +53,6 @@ function transformConfig(config, dictionary, platformName) {
       throw new Error(err)
     }
   }
-
-  console.log({ transforms, toRet: to_ret.transforms })
 
   // Transforms are an array of strings that map to functions on
   // the StyleDictionary module. We need to map the strings to
@@ -159,7 +158,7 @@ function transformConfig(config, dictionary, platformName) {
 
   to_ret.actions = (config.actions || []).map((action) => {
     if (typeof dictionary.action[action].undo !== 'function')
-      console.warn(`${action} action does not have a clean function!`)
+      logger().warn(`${action} action does not have a clean function!`)
 
     return dictionary.action[action]
   })

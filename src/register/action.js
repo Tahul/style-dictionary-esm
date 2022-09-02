@@ -36,11 +36,11 @@
  * StyleDictionary.registerAction({
  *   name: 'copy_assets',
  *   do: function(dictionary, config) {
- *     console.log('Copying assets directory');
+ *     logger().log('Copying assets directory');
  *     fs.copySync('assets', config.buildPath + 'assets');
  *   },
  *   undo: function(dictionary, config) {
- *     console.log('Cleaning assets directory');
+ *     logger().log('Cleaning assets directory');
  *     fs.removeSync(config.buildPath + 'assets');
  *   }
  * });

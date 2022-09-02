@@ -231,11 +231,6 @@ const formats = {
    * ```
    */
   'javascript/module': function ({ dictionary, file }) {
-    console.log(
-      `${fileHeader({ file })
-    }export default ${
-      JSON.stringify(dictionary.tokens, null, 2)};`
-    )
     return `${fileHeader({ file })
     }export default ${
       JSON.stringify(dictionary.tokens, null, 2)};`

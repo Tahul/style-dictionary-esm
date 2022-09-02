@@ -15,6 +15,7 @@ import fs from 'fs-extra'
 import chalk from 'chalk'
 import { vi } from 'vitest'
 import StyleDictionary from '../src/index'
+import logger from '../src/logger'
 import { buildPath } from './_constants'
 
 const properties = {
@@ -29,7 +30,7 @@ const properties = {
 describe('integration', () => {
   describe('name collisions', () => {
     it('should warn users of name collisions for flat files', () => {
-      console.log = vi.fn()
+      const spy = vi.spyOn(logger(), 'log')
       StyleDictionary.extend({
         // we are only testing name collision warnings options so we don't need
         // the full source.
@@ -44,11 +45,11 @@ describe('integration', () => {
           },
         },
       }).buildAllPlatforms()
-      expect(console.log).toHaveBeenCalledWith(`⚠️ ${buildPath}variables.css`)
+      expect(spy).toHaveBeenCalledWith(`⚠️ ${buildPath}variables.css`)
     })
 
     it('should not warn users of name collisions for nested files', () => {
-      console.log = vi.fn()
+      const spy = vi.spyOn(logger(), 'log')
       StyleDictionary.extend({
         // we are only testing name collision warnings options so we don't need
         // the full source.
@@ -63,7 +64,7 @@ describe('integration', () => {
           },
         },
       }).buildAllPlatforms()
-      expect(console.log).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${buildPath}tokens.json`))
+      expect(spy).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${buildPath}tokens.json`))
     })
   })
 })

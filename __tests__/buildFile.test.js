@@ -14,6 +14,7 @@
 import chalk from 'chalk'
 import { vi } from 'vitest'
 import buildFile from '../src/buildFile'
+import logger from '../src/logger'
 import GroupMessages from '../src/utils/groupMessages'
 import helpers from './__helpers'
 
@@ -92,9 +93,9 @@ describe('buildFile', () => {
     })
 
     it('should not warn users if the format is a nested format', () => {
-      console.log = vi.fn()
+      const spy = vi.spyOn(logger(), 'log')
       buildFile({ destination, format: nestedFormat }, {}, properties)
-      expect(console.log).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${destination}`))
+      expect(spy).toHaveBeenCalledWith(chalk.bold.green(`✔︎ ${destination}`))
     })
   })
 

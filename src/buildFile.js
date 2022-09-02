@@ -17,6 +17,7 @@ import chalk from 'chalk'
 import filterProperties from './filterProperties'
 import GroupMessages from './utils/groupMessages'
 import createFormatArgs from './utils/createFormatArgs'
+import logger from './logger'
 
 /**
  * Takes the style property object and a format and returns a
@@ -68,7 +69,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
     && filteredProperties.properties.constructor === Object
   ) {
     const warnNoFile = `No properties for ${destination}. File not created.`
-    console.log(chalk.red(warnNoFile))
+    logger().log(chalk.red(warnNoFile))
     return null
   }
 
@@ -110,10 +111,10 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
   // don't show name collision warnings for nested type formats
   // because they are not relevant.
   if ((nested || propertyNamesCollisionCount === 0) && filteredReferencesCount === 0) {
-    console.log(chalk.bold.green(`✔︎ ${fullDestination}`))
+    logger().log(chalk.bold.green(`✔︎ ${fullDestination}`))
   }
   else {
-    console.log(`⚠️ ${fullDestination}`)
+    logger().log(`⚠️ ${fullDestination}`)
     if (propertyNamesCollisionCount > 0) {
       const propertyNamesCollisionWarnings = GroupMessages.fetchMessages(PROPERTY_NAME_COLLISION_WARNINGS).join('\n    ')
       const title = `While building ${chalk.red.bold(destination)}, token collisions were found; output may be unexpected.`
@@ -124,7 +125,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
         '* overly inclusive file filters',
       ].join('\n    '))
       const warn = `${title}\n    ${propertyNamesCollisionWarnings}\n${help}`
-      console.log(chalk.red.bold(warn))
+      logger().log(chalk.red.bold(warn))
     }
 
     if (filteredReferencesCount > 0) {
@@ -134,7 +135,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
         'This is caused when combining a filter and `outputReferences`.',
       ].join('\n    '))
       const warn = `${title}\n    ${filteredReferencesWarnings}\n${help}`
-      console.log(chalk.red.bold(warn))
+      logger().log(chalk.red.bold(warn))
     }
   }
 }

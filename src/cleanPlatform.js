@@ -16,6 +16,7 @@ import transformConfig from './transform/config'
 import cleanFiles from './cleanFiles'
 import cleanDirs from './cleanDirs'
 import cleanActions from './cleanActions'
+import logger from './logger'
 
 /**
  * Takes a platform and performs all transforms to
@@ -28,7 +29,7 @@ import cleanActions from './cleanActions'
  * @returns {module:style-dictionary}
  */
 function cleanPlatform(platform) {
-  console.log(`\n${platform}`)
+  logger().log(`\n${platform}`)
 
   if (!this.options || !(platform in (this.options.platforms || {})))
     throw new Error(`Platform ${platform} doesn't exist`)

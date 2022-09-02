@@ -11,7 +11,12 @@
  * and limitations under the License.
  */
 
+import childProcess from 'child_process'
 import helpers from './__helpers'
+
+beforeAll(() => {
+  childProcess.execSync(`node ./bin/style-dictionary.js build --config ${helpers.resolveTestsPath('__configs/test-cli.js')}`)
+})
 
 describe('cliBuildWithJsConfig', () => {
   afterAll(async () => {

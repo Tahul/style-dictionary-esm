@@ -115,7 +115,9 @@ describe('buildFiles', () => {
   it('should work with a filter', async () => {
     buildFiles(dictionary, platformWithFilter)
     expect(helpers.fileExists('__output/test.json')).toBeTruthy()
+
     let output = await import(helpers.resolveTestsPath('./__output/test.json'))
+
     output = output?.default || output
     expect(output).toHaveProperty('bingo')
     expect(output).not.toHaveProperty('foo')

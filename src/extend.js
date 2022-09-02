@@ -11,6 +11,7 @@
  * and limitations under the License.
  */
 
+import logger from './logger'
 import resolveFileContent from './resolveFileContent'
 import combineJSON from './utils/combineJSON'
 import deepExtend from './utils/deepExtend'
@@ -129,7 +130,7 @@ function extend(opts) {
 
     if (GroupMessages.count(PROPERTY_VALUE_COLLISIONS) > 0) {
       const collisions = GroupMessages.flush(PROPERTY_VALUE_COLLISIONS).join('\n')
-      console.log(`\n${PROPERTY_VALUE_COLLISIONS}:\n${collisions}\n\n`)
+      logger().log(`\n${PROPERTY_VALUE_COLLISIONS}:\n${collisions}\n\n`)
       if (options.log === 'error')
         throw new Error('Collisions detected')
     }

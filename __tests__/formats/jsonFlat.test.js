@@ -36,7 +36,7 @@ describe('formats', () => {
 
     it('should be a valid JSON file', async () => {
       await fs.writeFile(
-        helpers.resolveTestsPath('__output/output.flat.json'),
+        helpers.resolveTestsPath('__output/output-flat.json'),
         formatter(createFormatArgs({
           dictionary: colorDictionary,
           file,
@@ -44,7 +44,7 @@ describe('formats', () => {
         }), {}, file)
       )
 
-      let test = await import(helpers.resolveTestsPath('__output/output.flat.json'))
+      let test = await import(helpers.resolveTestsPath('__output/output-flat.json'))
       test = test?.default || test
 
       expect(test['color-base-red-400']).toEqual(colorDictionary.allProperties[0].value)

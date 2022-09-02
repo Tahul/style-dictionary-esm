@@ -13,6 +13,7 @@
 
 import fs from 'fs-extra'
 import chalk from 'chalk'
+import logger from './logger'
 
 /**
  * Takes the style property object and a format and returns a
@@ -36,12 +37,12 @@ function cleanFile(file = {}, platform = {}) {
     destination = platform.buildPath + destination
 
   if (!fs.existsSync(destination)) {
-    console.log(`${chalk.bold.red('!')} ${destination}, does not exist`)
+    logger().log(`${chalk.bold.red('!')} ${destination}, does not exist`)
     return
   }
 
   fs.unlinkSync(destination)
-  console.log(`${chalk.bold.red('-')} ${destination}`)
+  logger().log(`${chalk.bold.red('-')} ${destination}`)
 }
 
 export default cleanFile

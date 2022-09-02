@@ -159,8 +159,10 @@ describe('buildPlatform', () => {
     })
     StyleDictionaryExtended.buildPlatform('test')
     expect(helpers.fileExists('__output/output.json')).toBeTruthy()
+
     const input = await helpers.fileToJSON('__properties/comment.json')
     const output = await helpers.fileToJSON('__output/output.json')
+
     expect(output.size.large.comment).toEqual(input.size.large.comment)
   })
 

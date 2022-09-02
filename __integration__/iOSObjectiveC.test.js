@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import { join } from 'pathe'
 import StyleDictionary from '../src/index'
 import { buildPath } from './_constants'
 
@@ -64,37 +65,37 @@ describe('integration', () => {
     }).buildAllPlatforms()
 
     it('ios/singleton.m should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}singleton.m`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'singleton.m'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/singleton.h should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}singleton.h`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'singleton.h'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/color.m should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}color.m`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'color.m'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/color.h should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}color.h`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'color.h'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/macros.h should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}macros.h`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'macros.h'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/static.h should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}static.h`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'static.h'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
 
     it('ios/static.m should match snapshot', () => {
-      const output = fs.readFileSync(`${buildPath}static.m`, { encoding: 'UTF-8' })
+      const output = fs.readFileSync(join(buildPath, 'static.m'), { encoding: 'UTF-8' })
       expect(output).toMatchSnapshot()
     })
   })

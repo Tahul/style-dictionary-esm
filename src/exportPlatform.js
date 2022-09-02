@@ -16,6 +16,7 @@ import getName from './utils/references/getName'
 import transformObject from './transform/object'
 import transformConfig from './transform/config'
 import GroupMessages from './utils/groupMessages'
+import logger from './logger'
 
 const PROPERTY_REFERENCE_WARNINGS = GroupMessages.GROUP.PropertyReferenceWarnings
 
@@ -122,7 +123,7 @@ function exportPlatform(platform) {
 
   if (GroupMessages.count(PROPERTY_REFERENCE_WARNINGS) > 0) {
     const warnings = GroupMessages.flush(PROPERTY_REFERENCE_WARNINGS).join('\n')
-    console.log(`\n${PROPERTY_REFERENCE_WARNINGS}:\n${warnings}\n\n`)
+    logger().log(`\n${PROPERTY_REFERENCE_WARNINGS}:\n${warnings}\n\n`)
     throw new Error('Problems were found when trying to resolve property references')
   }
 

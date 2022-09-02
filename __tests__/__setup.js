@@ -1,4 +1,3 @@
-import childProcess from 'child_process'
 import { vi } from 'vitest'
 import __helpers from './__helpers'
 
@@ -11,7 +10,3 @@ beforeEach(
     await __helpers.clearOutput()
   }
 )
-
-beforeAll(() => {
-  childProcess.execSync(`node ./bin/style-dictionary.js build --config ${__helpers.resolveTestsPath('__configs/test-cli.js')}`)
-})

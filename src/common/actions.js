@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs-extra'
+import logger from '../logger'
 
 /**
  * @namespace Actions
@@ -52,11 +53,11 @@ export default {
    */
   'copy_assets': {
     do(dictionary, config) {
-      console.log(`Copying assets directory to ${config.buildPath}assets`)
+      logger().log(`Copying assets directory to ${config.buildPath}assets`)
       fs.copySync('assets', `${config.buildPath}assets`)
     },
     undo(dictionary, config) {
-      console.log(`Removing assets directory from ${config.buildPath}assets`)
+      logger().log(`Removing assets directory from ${config.buildPath}assets`)
       fs.removeSync(`${config.buildPath}assets`)
     },
   },

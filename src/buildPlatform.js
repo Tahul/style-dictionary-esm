@@ -15,6 +15,7 @@ import transformConfig from './transform/config'
 import buildFiles from './buildFiles'
 import performActions from './performActions'
 import createDictionary from './utils/createDictionary'
+import logger from './logger'
 
 /**
  * Takes a platform and performs all transforms to
@@ -38,7 +39,7 @@ import createDictionary from './utils/createDictionary'
  * ```
  */
 function buildPlatform(platform) {
-  console.log(`\n${platform}`)
+  logger().log(`\n${platform}`)
 
   if (!this.options || !(platform in (this.options.platforms || {})))
     throw new Error(`Platform "${platform}" does not exist`)

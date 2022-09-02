@@ -19,6 +19,7 @@ import deepExtend from './deepExtend'
 
 function traverseObj(obj, fn) {
   for (const key in obj) {
+    // eslint-disable-next-line  no-useless-call
     fn.apply(null, [obj, key, obj[key]])
     if (obj[key] && typeof obj[key] === 'object')
       traverseObj(obj[key], fn)

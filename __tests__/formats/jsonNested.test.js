@@ -74,6 +74,7 @@ describe('formats', () => {
       // non-token data is anything in the dictionary object that is not a token object
       // i.e. anything in the rest of the object that doesn't have a 'value'
       const path = helpers.resolveTestsPath('__output/json-nested.json')
+
       const content = formatter(createFormatArgs({
         dictionary,
         file,

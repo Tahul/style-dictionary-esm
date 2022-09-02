@@ -1,40 +1,36 @@
-# 🪶 style-dictionary-light
+# 🪶 style-dictionary-esm
 
-[![NPM version](https://img.shields.io/npm/v/style-dictionary-light?color=a1b858&label=)](https://www.npmjs.com/package/style-dictionary-light)
+[![NPM version](https://img.shields.io/npm/v/style-dictionary-esm?color=a1b858&label=)](https://www.npmjs.com/package/style-dictionary-esm)
 
 ---
-> This package is currently work in progress, the list above describe what it aims to do.
+> This package is currently work in progress.
 ---
 
 An ESM-ready version of [Style Dictionary](https://github.com/amzn/style-dictionary).
 
 - Fully **ESM-ready**
-- Allows configuring `fs` dependency
-- Allows configuring all console outputs
+- Allows mocking `fs` dependency, improving browser support
+- Replaces `console.log` by `consola`, with custom levels
+- Replaces `node-sass` by `dart-sass`
 - **100%** coverage from upstream test suite
+- Drops `lodash` dependency
 - [**PNPM**](https://pnpm.io/), [**tsup**](https://github.com/egoist/tsup), [**Vite**](https://vitejs.dev/) and [**Vitest**](https://vitest.dev) for the repository
 
 ## Install
 
 ```bash
-npm i style-dictionary-light
+npm i style-dictionary-esm
 ```
 
 ## Why
 
-Loving Design Tokens and the Style Dictionary API.
+I love Design Tokens and the Style Dictionary API!
 
-I wanted to use it inside multiple projects, that needs to run in workers.
+Migrating to ESM is a tedious task, but I need it to integrate it inside my projects and toolchains.
 
-# Future
+I would happily move this work as a PR on the original repo, if this work makes sense in the original project roadmap!
 
-If [Style Dictionary 4](https://github.com/amzn/style-dictionary/issues/643) marks ESM-support as a step of their roadmap, I'll happily give help and deprecate this repository!
-
-Otherwise, I will continue to maintain it.
-
-## Contributing
-
-Please help make this framework better. For more information take a look at [CONTRIBUTING.md](CONTRIBUTING.md)
+This is an initial step in doing a [Vite plugin](https://vitejs.dev/plugins) for [Style Dictionary](https://github.com/amzn/style-dictionary).
 
 ## License
 

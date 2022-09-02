@@ -11,6 +11,7 @@ specifiers:
   chalk: ^5.0.1
   change-case: ^4.1.2
   commander: ^9.4.0
+  consola: ^2.15.3
   docsify: ^4.12.2
   docsify-cli: ^4.4.4
   eslint: ^8.23.0
@@ -45,6 +46,7 @@ dependencies:
   chalk: 5.0.1
   change-case: 4.1.2
   commander: 9.4.0
+  consola: 2.15.3
   fs-extra: 10.1.0
   glob: 8.0.3
   jiti: 1.14.0
@@ -3960,6 +3962,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
+    dev: false
 
   /constant-case/3.0.4:
     resolution: {integrity: sha512-I2hSBi7Vvs7BEuJDr5dDHfzb/Ruj3FyvFyh7KLilAjNQw3Be+xgqUBA2W6scVEcL0hL1dwPRtIqEPVUCKkSsyQ==}

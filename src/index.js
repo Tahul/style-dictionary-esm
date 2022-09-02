@@ -34,6 +34,7 @@ import buildAllPlatforms from './buildAllPlatforms'
 import cleanPlatform from './cleanPlatform'
 import cleanAllPlatforms from './cleanAllPlatforms'
 import extend from './extend'
+import logger from './logger'
 
 const TEMPLATE_DEPRECATION_WARNINGS = GroupMessages.GROUP.TemplateDeprecationWarnings
 const REGISTER_TEMPLATE_DEPRECATION_WARNINGS = GroupMessages.GROUP.RegisterTemplateDeprecationWarnings
@@ -77,6 +78,7 @@ const StyleDictionary = {
   action,
   formatHelpers,
   filter,
+  logger,
 
   registerTransform,
   registerTransformGroup,
@@ -103,7 +105,7 @@ export default StyleDictionary
 process.on('exit', () => {
   if (GroupMessages.count(TEMPLATE_DEPRECATION_WARNINGS) > 0) {
     const template_warnings = GroupMessages.flush(TEMPLATE_DEPRECATION_WARNINGS).join('\n  ')
-    console.log(chalk.bold.yellow(`
+    logger().log(chalk.bold.yellow(`
 ⚠️ DEPRECATION WARNING ️️️️️⚠️
 Templates are deprecated and will be removed, please update your config to use formats.
 This is an example of how to update your config.json:
@@ -127,7 +129,7 @@ Your current config uses the following templates:
 
   if (GroupMessages.count(REGISTER_TEMPLATE_DEPRECATION_WARNINGS) > 0) {
     const register_template_warnings = GroupMessages.flush(REGISTER_TEMPLATE_DEPRECATION_WARNINGS).join('\n  ')
-    console.log(chalk.bold.yellow(`
+    logger().log(chalk.bold.yellow(`
 ⚠️ DEPRECATION WARNING ️️️️️⚠️
 The registerTemplate method is deprecated and will be removed, please
 migrate to registerFormat. You can use any templating engine you would
@@ -159,7 +161,7 @@ custom templates:
 
   if (GroupMessages.count(SASS_MAP_FORMAT_DEPRECATION_WARNINGS) > 0) {
     const sass_map_format_warnings = GroupMessages.flush(SASS_MAP_FORMAT_DEPRECATION_WARNINGS).join('\n  ')
-    console.log(chalk.bold.cyan(`
+    logger().log(chalk.bold.cyan(`
 🔔 NOTICE 🔔
 The formats 'sass/map-***' have been renamed to 'scss/map-***', please update your config.
 In the future 'sass/map-***' formats may output actual Sass instead of SCSS, which may break your current configuration.

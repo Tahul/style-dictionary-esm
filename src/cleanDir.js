@@ -14,6 +14,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import chalk from 'chalk'
+import logger from './logger'
 
 /**
  * Takes the style property object and a format and returns a
@@ -39,7 +40,7 @@ function cleanDir(file = {}, platform = {}) {
   while (dirname) {
     if (fs.existsSync(dirname)) {
       if (fs.readdirSync(dirname).length === 0) {
-        console.log(`${chalk.bold.red('-')} ${dirname}`)
+        logger().log(`${chalk.bold.red('-')} ${dirname}`)
         fs.rmdirSync(dirname)
       }
       else {
