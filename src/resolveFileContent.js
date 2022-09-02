@@ -1,6 +1,6 @@
 import fs from 'fs'
 import JSON5 from 'json5'
-import JSONC from 'jsonc-parser'
+import { parse as parseJsonC } from 'jsonc-parser'
 import jiti from 'jiti'
 
 export default function (resolvedPath) {
@@ -11,7 +11,7 @@ export default function (resolvedPath) {
   }
   else if (resolvedPath.match(/.jsonc$/)) {
     const source = fs.readFileSync(resolvedPath, { encoding: 'UTF-8' })
-    _content = JSONC.parse(source)
+    _content = parseJsonC(source)
   }
   else if (resolvedPath.match(/.json$/)) {
     const source = fs.readFileSync(resolvedPath, { encoding: 'UTF-8' })
