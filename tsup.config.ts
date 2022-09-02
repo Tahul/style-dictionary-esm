@@ -5,7 +5,7 @@ export default <Options>{
     'src/index.js',
   ],
   clean: true,
-  format: ['esm'],
+  format: ['esm', 'cjs'],
   dts: true,
   treeshake: true,
   external: ['vite'],
