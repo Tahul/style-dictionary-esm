@@ -2,10 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/style-dictionary-esm?color=a1b858&label=)](https://www.npmjs.com/package/style-dictionary-esm)
 
----
-> This package is currently work in progress.
----
-
 An ESM-ready version of [Style Dictionary](https://github.com/amzn/style-dictionary).
 
 - Fully **ESM-ready**
@@ -31,6 +27,14 @@ Migrating to ESM is a tedious task, but I need it to integrate it inside my proj
 I would happily move this work as a PR on the original repo, if this work makes sense in the original project roadmap!
 
 This is an initial step in doing a [Vite plugin](https://vitejs.dev/plugins) for [Style Dictionary](https://github.com/amzn/style-dictionary).
+
+## Todos
+
+- Improve tree-shaking
+  - Moving formats per-file and require none by default
+  - Avoid relying on global export
+- Avoid relying on `fs` globally, but instead support unified storage layer
+- Make tests paralellizable, currently `threads` has to be set to `false` due to `fs` mismatchs
 
 ## License
 
