@@ -132,9 +132,12 @@ const file: StyleDictionary.File = {
 expectType<StyleDictionary.Options | undefined>(file.options)
 
 // Files need a destination
+// This is no longer true since 970442b
+/*
 expectError<StyleDictionary.File>({
   format: 'css/variables',
 })
+*/
 
 expectAssignable<StyleDictionary.File>({
   format: 'css/variables',

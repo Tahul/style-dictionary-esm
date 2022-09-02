@@ -11,13 +11,23 @@
  * and limitations under the License.
  */
 
+import { Dictionary, Platform } from '.'
 import { Options } from './Options';
 import { TransformedToken } from './TransformedToken';
 
+export interface FileDoneCallbackResult {
+  file: File,
+  platform: Platform,
+  dictionary: Dictionary,
+  result: string
+}
+
 export interface File {
   className?: string;
-  destination: string;
+  destination?: string;
   format?: string;
   filter?: string | Partial<TransformedToken> | ((token: TransformedToken) => boolean);
+  write?: boolean;
+  done?: (result: FileDoneCallbackResult) => void
   options?: Options;
 }

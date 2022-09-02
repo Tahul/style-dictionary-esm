@@ -49,6 +49,7 @@ describe('buildFile', () => {
     ).toThrow('Please enter a valid file format')
   })
 
+  /* Destination is now optional
   it('should error if destination doesnt exist or isnt a string', () => {
     expect(
       buildFile.bind(null, { format }, {}, {})
@@ -60,6 +61,7 @@ describe('buildFile', () => {
       buildFile.bind(null, { format, destination: {} }, {}, {})
     ).toThrow('Please enter a valid destination')
   })
+  */
 
   describe('name collisions', () => {
     const destination = './__tests__/__output/test.collisions'
@@ -139,9 +141,58 @@ describe('buildFile', () => {
       format,
     }, {
       buildPath: '__tests__/__output/',
-      writeFile: false,
+      write: false,
     }, {}
     )
     expect(helpers.fileExists('__output/test.txt')).toBeFalsy()
+  })
+
+  it('supports done callback at platform level', () => {
+    buildFile(
+      {
+        destination: 'test.txt',
+        format,
+        done: ({ result }) => {
+          expect(result).toBeTruthy()
+        },
+      },
+      {
+        buildPath: '__tests__/__output/',
+        writeFile: false,
+      },
+      {}
+    )
+  })
+
+  it('supports done callback at file level', () => {
+    buildFile(
+      {
+        destination: 'test.txt',
+        format,
+      },
+      {
+        buildPath: '__tests__/__output/',
+        write: false,
+        done: ({ result }) => {
+          expect(result).toBeTruthy()
+        },
+      },
+      {}
+    )
+  })
+
+  it('supports running without destination', () => {
+    buildFile(
+      {
+        format,
+      },
+      {
+        write: false,
+        done: ({ result }) => {
+          expect(result).toBeTruthy()
+        },
+      },
+      {}
+    )
   })
 })

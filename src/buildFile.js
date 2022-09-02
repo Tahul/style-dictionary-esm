@@ -34,23 +34,26 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
 
   if (typeof format !== 'function')
     throw new Error('Please enter a valid file format')
-  if (typeof destination !== 'string')
-    throw new Error('Please enter a valid destination')
 
   // get if the format is nested, this needs to be done before
   // the function is bound
   const nested = format.nested
+
   // to maintain backwards compatibility we bind the format to the file object
   format = format.bind(file)
+
   let fullDestination = destination
+  const id = `${file?.format || ''}-${Date.now()}`
 
-  // if there is a build path, prepend the full destination with it
-  if (platform.buildPath)
-    fullDestination = platform.buildPath + fullDestination
+  if (typeof destination === 'string') {
+    // if there is a build path, prepend the full destination with it
+    if (platform.buildPath)
+      fullDestination = platform.buildPath + fullDestination
 
-  const dirname = path.dirname(fullDestination)
-  if (!fs.existsSync(dirname))
-    fs.mkdirsSync(dirname, { recursive: true })
+    const dirname = path.dirname(fullDestination)
+    if (!fs.existsSync(dirname))
+      fs.mkdirsSync(dirname, { recursive: true })
+  }
 
   const filteredProperties = filterProperties(dictionary, filter)
   const filteredDictionary = Object.assign({}, dictionary, {
@@ -68,7 +71,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
     && Object.keys(filteredProperties.properties).length === 0
     && filteredProperties.properties.constructor === Object
   ) {
-    const warnNoFile = `No properties for ${destination}. File not created.`
+    const warnNoFile = `No properties for ${destination || id}. File not created.`
     logger().log(chalk.red(warnNoFile))
     return null
   }
@@ -83,7 +86,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
     nameCollisionObj[propertyName].push(propertyData)
   })
 
-  const PROPERTY_NAME_COLLISION_WARNINGS = `${GroupMessages.GROUP.PropertyNameCollisionWarnings}:${destination}`
+  const PROPERTY_NAME_COLLISION_WARNINGS = `${GroupMessages.GROUP.PropertyNameCollisionWarnings}:${destination || id}`
   GroupMessages.clear(PROPERTY_NAME_COLLISION_WARNINGS)
   Object.keys(nameCollisionObj).forEach((propertyName) => {
     if (nameCollisionObj[propertyName].length > 1) {
@@ -102,13 +105,25 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
   const propertyNamesCollisionCount = GroupMessages.count(PROPERTY_NAME_COLLISION_WARNINGS)
 
   // Allows disabling file writings
-  if (platform?.writeFile !== false) {
-    fs.writeFileSync(fullDestination, format(createFormatArgs({
-      dictionary: filteredDictionary,
-      platform,
-      file,
-    }), platform, file))
+  const result = format(createFormatArgs({
+    dictionary: filteredDictionary,
+    platform,
+    file,
+  }), platform, file)
+
+  // Supports `write` at `platform` and `file` level
+  if (platform?.write !== false && file?.write !== false) {
+    fs.writeFileSync(
+      fullDestination,
+      result
+    )
   }
+
+  if (platform?.done && typeof platform?.done === 'function')
+    platform?.done({ file, platform, dictionary, result })
+
+  if (file?.done && typeof file?.done === 'function')
+    file?.done({ file, platform, dictionary, result })
 
   const filteredReferencesCount = GroupMessages.count(GroupMessages.GROUP.FilteredOutputReferences)
 
@@ -121,7 +136,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
     logger().log(`⚠️ ${fullDestination}`)
     if (propertyNamesCollisionCount > 0) {
       const propertyNamesCollisionWarnings = GroupMessages.fetchMessages(PROPERTY_NAME_COLLISION_WARNINGS).join('\n    ')
-      const title = `While building ${chalk.red.bold(destination)}, token collisions were found; output may be unexpected.`
+      const title = `While building ${chalk.red.bold(destination || id)}, token collisions were found; output may be unexpected.`
       const help = chalk.red([
         'This many-to-one issue is usually caused by some combination of:',
         '* conflicting or similar paths/names in property definitions',
@@ -134,7 +149,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
 
     if (filteredReferencesCount > 0) {
       const filteredReferencesWarnings = GroupMessages.flush(GroupMessages.GROUP.FilteredOutputReferences).join('\n    ')
-      const title = `While building ${chalk.red.bold(destination)}, filtered out token references were found; output may be unexpected. Here are the references that are used but not defined in the file`
+      const title = `While building ${chalk.red.bold(destination || id)}, filtered out token references were found; output may be unexpected. Here are the references that are used but not defined in the file`
       const help = chalk.red([
         'This is caused when combining a filter and `outputReferences`.',
       ].join('\n    '))

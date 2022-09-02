@@ -12,7 +12,7 @@
  */
 
 import { Options } from './Options';
-import { File } from './File';
+import { File, FileDoneCallbackResult } from './File';
 
 export interface Platform {
   transformGroup?: string;
@@ -22,6 +22,7 @@ export interface Platform {
   buildPath?: string;
   files?: File[];
   actions?: string[];
-  writeFiles?: boolean
+  write?: boolean;
+  done?: (result: FileDoneCallbackResult) => void
   options?: Options;
 }

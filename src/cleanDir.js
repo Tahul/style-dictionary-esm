@@ -28,8 +28,8 @@ import logger from './logger'
 function cleanDir(file = {}, platform = {}) {
   let { destination } = file
 
-  if (typeof destination !== 'string')
-    throw new Error('Please enter a valid destination')
+  if (typeof destination !== 'string' || platform.write === false)
+    return
 
   // if there is a clean path, prepend the destination with it
   if (platform.buildPath)
