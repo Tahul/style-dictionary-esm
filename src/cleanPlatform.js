@@ -29,15 +29,16 @@ import logger from './logger'
  * @returns {module:style-dictionary}
  */
 function cleanPlatform(platform) {
-  if (!platform?.silent)
-    logger().log(`\n${platform}`)
-
   if (!this.options || !(platform in (this.options.platforms || {})))
     throw new Error(`Platform ${platform} doesn't exist`)
 
   let properties
+
   // We don't want to mutate the original object
   const platformConfig = transformConfig(this.options.platforms[platform], this, platform)
+
+  if (!platformConfig?.silent)
+    logger().log(`\n${platform}`)
 
   // We need to transform the object before we resolve the
   // variable names because if a value contains concatenated
