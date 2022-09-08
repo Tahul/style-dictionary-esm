@@ -28,6 +28,7 @@ export interface File {
   format?: string;
   filter?: string | Partial<TransformedToken> | ((token: TransformedToken) => boolean);
   write?: boolean;
+  silent?: boolean;
   done?: (result: FileDoneCallbackResult) => void
   options?: Options;
 }

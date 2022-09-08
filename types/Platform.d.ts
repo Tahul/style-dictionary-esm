@@ -23,6 +23,7 @@ export interface Platform {
   files?: File[];
   actions?: string[];
   write?: boolean;
+  silent?: boolean;
   done?: (result: FileDoneCallbackResult) => void
   options?: Options;
 }
