@@ -29,7 +29,8 @@ import logger from './logger'
  * @returns {module:style-dictionary}
  */
 function cleanPlatform(platform) {
-  logger().log(`\n${platform}`)
+  if (!platform?.silent)
+    logger().log(`\n${platform}`)
 
   if (!this.options || !(platform in (this.options.platforms || {})))
     throw new Error(`Platform ${platform} doesn't exist`)

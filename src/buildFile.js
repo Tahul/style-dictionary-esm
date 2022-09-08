@@ -32,6 +32,8 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
   const { destination, filter } = file || {}
   let { format } = file || {}
 
+  const silent = file?.silent || platform?.silent || false
+
   if (typeof format !== 'function')
     throw new Error('Please enter a valid file format')
 
@@ -72,7 +74,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
     && filteredProperties.properties.constructor === Object
   ) {
     const warnNoFile = `No properties for ${destination || id}. File not created.`
-    logger().log(chalk.red(warnNoFile))
+    !silent && logger().log(chalk.red(warnNoFile))
     return null
   }
 
@@ -127,34 +129,36 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
 
   const filteredReferencesCount = GroupMessages.count(GroupMessages.GROUP.FilteredOutputReferences)
 
-  // don't show name collision warnings for nested type formats
+  if (!silent) {
+    // don't show name collision warnings for nested type formats
   // because they are not relevant.
-  if ((nested || propertyNamesCollisionCount === 0) && filteredReferencesCount === 0) {
-    logger().log(chalk.bold.green(`✔︎ ${fullDestination}`))
-  }
-  else {
-    logger().log(`⚠️ ${fullDestination}`)
-    if (propertyNamesCollisionCount > 0) {
-      const propertyNamesCollisionWarnings = GroupMessages.fetchMessages(PROPERTY_NAME_COLLISION_WARNINGS).join('\n    ')
-      const title = `While building ${chalk.red.bold(destination || id)}, token collisions were found; output may be unexpected.`
-      const help = chalk.red([
-        'This many-to-one issue is usually caused by some combination of:',
-        '* conflicting or similar paths/names in property definitions',
-        '* platform transforms/transformGroups affecting names, especially when removing specificity',
-        '* overly inclusive file filters',
-      ].join('\n    '))
-      const warn = `${title}\n    ${propertyNamesCollisionWarnings}\n${help}`
-      logger().log(chalk.red.bold(warn))
+    if ((nested || propertyNamesCollisionCount === 0) && filteredReferencesCount === 0) {
+      logger().log(chalk.bold.green(`✔︎ ${fullDestination}`))
     }
+    else {
+      logger().log(`⚠️ ${fullDestination}`)
+      if (propertyNamesCollisionCount > 0) {
+        const propertyNamesCollisionWarnings = GroupMessages.fetchMessages(PROPERTY_NAME_COLLISION_WARNINGS).join('\n    ')
+        const title = `While building ${chalk.red.bold(destination || id)}, token collisions were found; output may be unexpected.`
+        const help = chalk.red([
+          'This many-to-one issue is usually caused by some combination of:',
+          '* conflicting or similar paths/names in property definitions',
+          '* platform transforms/transformGroups affecting names, especially when removing specificity',
+          '* overly inclusive file filters',
+        ].join('\n    '))
+        const warn = `${title}\n    ${propertyNamesCollisionWarnings}\n${help}`
+        logger().log(chalk.red.bold(warn))
+      }
 
-    if (filteredReferencesCount > 0) {
-      const filteredReferencesWarnings = GroupMessages.flush(GroupMessages.GROUP.FilteredOutputReferences).join('\n    ')
-      const title = `While building ${chalk.red.bold(destination || id)}, filtered out token references were found; output may be unexpected. Here are the references that are used but not defined in the file`
-      const help = chalk.red([
-        'This is caused when combining a filter and `outputReferences`.',
-      ].join('\n    '))
-      const warn = `${title}\n    ${filteredReferencesWarnings}\n${help}`
-      logger().log(chalk.red.bold(warn))
+      if (filteredReferencesCount > 0) {
+        const filteredReferencesWarnings = GroupMessages.flush(GroupMessages.GROUP.FilteredOutputReferences).join('\n    ')
+        const title = `While building ${chalk.red.bold(destination || id)}, filtered out token references were found; output may be unexpected. Here are the references that are used but not defined in the file`
+        const help = chalk.red([
+          'This is caused when combining a filter and `outputReferences`.',
+        ].join('\n    '))
+        const warn = `${title}\n    ${filteredReferencesWarnings}\n${help}`
+        logger().log(chalk.red.bold(warn))
+      }
     }
   }
 }

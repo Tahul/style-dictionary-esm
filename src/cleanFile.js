@@ -29,6 +29,8 @@ import logger from './logger'
 function cleanFile(file = {}, platform = {}) {
   let { destination } = file
 
+  const silent = file?.silent || platform?.silent || false
+
   if (typeof destination !== 'string' || platform.write === false)
     return
 
@@ -42,7 +44,7 @@ function cleanFile(file = {}, platform = {}) {
   }
 
   fs.unlinkSync(destination)
-  logger().log(`${chalk.bold.red('-')} ${destination}`)
+  !silent && logger().log(`${chalk.bold.red('-')} ${destination}`)
 }
 
 export default cleanFile

@@ -28,6 +28,8 @@ import logger from './logger'
 function cleanDir(file = {}, platform = {}) {
   let { destination } = file
 
+  const silent = file?.silent || platform?.silent || false
+
   if (typeof destination !== 'string' || platform.write === false)
     return
 
@@ -40,7 +42,7 @@ function cleanDir(file = {}, platform = {}) {
   while (dirname) {
     if (fs.existsSync(dirname)) {
       if (fs.readdirSync(dirname).length === 0) {
-        logger().log(`${chalk.bold.red('-')} ${dirname}`)
+        !silent && logger().log(`${chalk.bold.red('-')} ${dirname}`)
         fs.rmdirSync(dirname)
       }
       else {

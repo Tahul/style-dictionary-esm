@@ -39,7 +39,8 @@ import logger from './logger'
  * ```
  */
 function buildPlatform(platform) {
-  logger().log(`\n${platform}`)
+  if (!platform?.silent)
+    logger().log(`\n${platform}`)
 
   if (!this.options || !(platform in (this.options.platforms || {})))
     throw new Error(`Platform "${platform}" does not exist`)
