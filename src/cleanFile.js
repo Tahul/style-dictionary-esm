@@ -39,7 +39,7 @@ function cleanFile(file = {}, platform = {}) {
     destination = platform.buildPath + destination
 
   if (!fs.existsSync(destination)) {
-    logger().log(`${chalk.bold.red('!')} ${destination}, does not exist`)
+    !silent && logger().log(`${chalk.bold.red('!')} ${destination}, does not exist`)
     return
   }
 
