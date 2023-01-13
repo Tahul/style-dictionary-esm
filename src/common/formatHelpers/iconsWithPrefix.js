@@ -32,10 +32,16 @@
  * });
  * ```
  */
-function iconsWithPrefix(_, allTokens, __) {
+function iconsWithPrefix(prefix, allTokens, options) {
   return allTokens.filter((token) => {
     return token.attributes.category === 'content' && token.attributes.type === 'icon'
   })
+    .map((token) => {
+      const varName = `${prefix + token.name}: ${token.value};`
+      const className = `.${options.prefix}-icon.${token.attributes.item}:before `
+      const declaration = `{ content: ${prefix}${token.name}; }`
+      return `${varName}\n${className}${declaration}`
+    })
     .join('\n')
 }
 

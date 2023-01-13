@@ -121,4 +121,3 @@ program.parse(process.argv)
 // show help on no command
 if (!process.argv.slice(2).length)
   program.outputHelp()
-

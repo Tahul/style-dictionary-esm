@@ -57,11 +57,31 @@ describe('formats', () => {
   describe('less/icons', () => {
     it('should have a valid less syntax', () => {
       expect.assertions(1)
-      return expect(less.render(formatter(createFormatArgs({
+      const test = less.render(
+        formatter(
+          createFormatArgs({
+            dictionary,
+            file,
+            platform,
+          }),
+          platform,
+          file
+        )
+      )
+
+      console.log({
+        formatted: createFormatArgs({
+          dictionary,
+          file,
+          platform,
+        }),
         dictionary,
         file,
         platform,
-      }), platform, file))).resolves.toBeDefined()
+      })
+
+      console.log({ test })
+      return expect(test).resolves.toBeDefined()
     })
   })
 })

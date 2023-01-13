@@ -19,9 +19,12 @@ beforeAll(() => {
 })
 
 describe('cliBuildWithJsConfig', () => {
-  afterAll(async () => {
-    await helpers.clearCliOutput()
-  })
+  try {
+    afterAll(async () => await helpers.clearCliOutput())
+  }
+  catch (e) {
+    console.log({ e })
+  }
 
   it('should work with json config', async () => {
     expect(helpers.fileExists('__output-cli/web/_icons.css')).toBeTruthy()
