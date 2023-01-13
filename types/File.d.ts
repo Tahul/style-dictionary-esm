@@ -24,7 +24,8 @@ export interface FileDoneCallbackResult {
 
 export interface File {
   className?: string;
-  destination?: string;
+  packageName?: string;
+  destination: string;
   format?: string;
   filter?: string | Partial<TransformedToken> | ((token: TransformedToken) => boolean);
   write?: boolean;

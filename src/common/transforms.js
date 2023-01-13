@@ -863,6 +863,8 @@ export default {
    * "0"
    * "1rem"
    * ```
+   *
+   * @memberof Transforms
    */
   'size/pxToRem': {
     type: 'value',
@@ -1177,5 +1179,4 @@ export default {
       return (parseFloat(token.value, 10) * baseFont).toFixed(2)
     },
   },
-
 }

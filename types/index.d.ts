@@ -21,7 +21,8 @@ import { File as _File} from './File';
 import { FileHeader as _FileHeader} from './FileHeader';
 import { Filter as _Filter} from './Filter';
 import { Format as _Format, Formatter as _Formatter } from './Format';
-import { FormatHelpers as _FormatHelpers} from './FormatHelpers';
+import { FormatHelpers as _FormatHelpers } from './FormatHelpers';
+import {Matcher as _Matcher} from './Matcher';
 import { Options as _Options} from './Options';
 import { Parser as _Parser} from './Parser';
 import { Platform as _Platform} from './Platform';
@@ -46,6 +47,7 @@ declare namespace StyleDictionary {
   type Format = _Format;
   type FormatHelpers = _FormatHelpers;
   type Formatter = _Formatter;
+  type Matcher = _Matcher;
   type Options = _Options;
   type Parser = _Parser;
   type Platform = _Platform;
@@ -69,7 +71,7 @@ declare namespace StyleDictionary {
     transformGroup: Record<string, TransformGroup['transforms']>;
     format: Record<string, Formatter>;
     action: Record<string, Action>;
-    filter: Record<string, Filter>;
+    filter: Record<string, Filter['matcher']>;
     fileHeader: Record<string, FileHeader>;
     parsers: Parser[];
 
