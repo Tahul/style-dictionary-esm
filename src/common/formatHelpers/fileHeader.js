@@ -65,7 +65,6 @@ function fileHeader({ file = {}, commentStyle, formatting = {} }) {
     `Generated on ${new Date().toUTCString()}`,
   ]
 
-  // eslint-disable-next-line prefer-const
   let { prefix, lineSeparator, header, footer } = Object.assign({}, defaultFormatting, formatting)
 
   if (commentStyle === 'short') {

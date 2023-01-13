@@ -25,7 +25,12 @@ function deepExtend(objects, collision, path) {
   if (objects == null)
     return {}
 
-  let src; let copyIsArray; let copy; let name; let options; let clone
+  let src
+  let copyIsArray
+  let copy
+  let name
+  let options
+  let clone
   let target = objects[0] || {}
   let i = 1
   const length = objects.length

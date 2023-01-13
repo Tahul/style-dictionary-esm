@@ -73,7 +73,8 @@ function traverseObj(obj) {
 
 const foundCirc = {}
 function compile_value(value, stack) {
-  let to_ret = value; let ref
+  let to_ret = value
+  let ref
 
   // Replace the reference inline, but don't replace the whole string because
   // references can be part of the value such as "1px solid {color.border.light}"
@@ -126,7 +127,9 @@ function compile_value(value, stack) {
             const circStack = stack.slice(stackIndexReference)
 
             // For all the references in this list, add them to the list of references that end up in a circular reference
-            circStack.forEach((key) => { foundCirc[key] = true })
+            circStack.forEach((key) => {
+              foundCirc[key] = true
+            })
 
             // Add our found circular reference to the end of the cycle
             circStack.push(reference)

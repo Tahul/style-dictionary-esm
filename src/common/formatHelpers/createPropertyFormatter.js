@@ -57,7 +57,6 @@ function createPropertyFormatter({
   formatting = {},
   themeable = false,
 }) {
-  // eslint-disable-next-line prefer-const
   let { prefix, commentStyle, indentation, separator, suffix } = Object.assign({}, defaultFormatting, formatting)
 
   switch (format) {

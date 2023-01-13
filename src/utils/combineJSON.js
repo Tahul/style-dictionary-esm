@@ -38,7 +38,8 @@ function traverseObj(obj, fn) {
  * @returns {Object}
  */
 function combineJSON(arr, deep, collision, source, parsers = []) {
-  let i; let files = []
+  let i
+  let files = []
   const to_ret = {}
 
   for (i = 0; i < arr.length; i++) {
