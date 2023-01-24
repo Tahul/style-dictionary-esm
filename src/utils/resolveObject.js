@@ -95,13 +95,17 @@ function compile_value(value, stack) {
 
     ref = resolveReference(pathName, updated_object)
 
+    // Handle `variable` attribute on the token that will
+    // be used as a shorthand for references resolving
+    if (ref?.attributes?.variable)
+      ref = ref?.attributes?.variable
     // If the reference doesn't end in 'value'
     // and
     // the reference points to someplace that has a `value` attribute
     // we should take the '.value' of the reference
     // per the W3C draft spec where references do not have .value
     // https://design-tokens.github.io/community-group/format/#aliases-references
-    if (!refHasValue && ref && ref.hasOwnProperty('value'))
+    else if (!refHasValue && ref && ref.hasOwnProperty('value'))
       ref = ref.value
 
     if (typeof ref !== 'undefined') {
