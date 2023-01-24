@@ -112,7 +112,9 @@ function createPropertyFormatter({
           // Here we are undoing that by replacing the value with
           // the reference's name
           if (ref.value && ref.name) {
-            value = value.replace(ref.value, () => {
+            // Support media tokens output
+            const media = prop.attributes?.media
+            value = value.replace(ref.value?.[media] || ref.value, () => {
               if (format === 'css') {
                 if (outputReferenceFallbacks)
                   return `var(${prefix}${ref.name}, ${ref.value})`
