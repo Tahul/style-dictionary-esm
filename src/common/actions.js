@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'fs-extra'
+import fs from 'node:fs'
 import logger from '../logger'
 
 /**
@@ -30,7 +30,7 @@ export default {
       dictionary.allTokens.forEach((token) => {
         if (token.attributes.category === 'asset' && token.attributes.type === 'image') {
           const name = token.path.slice(2, 4).join('_')
-          fs.copySync(token.value, `${imagesDir + token.attributes.state}/${name}.png`)
+          fs.cpSync(token.value, `${imagesDir + token.attributes.state}/${name}.png`)
         }
       })
     },
@@ -39,7 +39,7 @@ export default {
       dictionary.allTokens.forEach((token) => {
         if (token.attributes.category === 'asset' && token.attributes.type === 'image') {
           const name = token.path.slice(2, 4).join('_')
-          fs.removeSync(`${imagesDir + token.attributes.state}/${name}.png`)
+          fs.rmSync(`${imagesDir + token.attributes.state}/${name}.png`)
         }
       })
     },
@@ -54,11 +54,11 @@ export default {
   'copy_assets': {
     do(dictionary, config) {
       logger().log(`Copying assets directory to ${config.buildPath}assets`)
-      fs.copySync('assets', `${config.buildPath}assets`)
+      fs.cpSync('assets', `${config.buildPath}assets`)
     },
     undo(dictionary, config) {
       logger().log(`Removing assets directory from ${config.buildPath}assets`)
-      fs.removeSync(`${config.buildPath}assets`)
+      fs.rmSync(`${config.buildPath}assets`)
     },
   },
 }

@@ -12,7 +12,7 @@
  */
 
 import path from 'path'
-import fs from 'fs-extra'
+import fs from 'node:fs'
 import chalk from 'chalk'
 import filterProperties from './filterProperties'
 import GroupMessages from './utils/groupMessages'
@@ -54,7 +54,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
 
     const dirname = path.dirname(fullDestination)
     if (!fs.existsSync(dirname))
-      fs.mkdirsSync(dirname, { recursive: true })
+      fs.mkdirSync(dirname, { recursive: true })
   }
 
   const filteredProperties = filterProperties(dictionary, filter)

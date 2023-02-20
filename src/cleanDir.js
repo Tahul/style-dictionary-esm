@@ -12,7 +12,7 @@
  */
 
 import path from 'path'
-import fs from 'fs-extra'
+import fs from 'node:fs'
 import chalk from 'chalk'
 import logger from './logger'
 
