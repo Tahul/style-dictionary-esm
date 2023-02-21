@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'node:fs'
+import fs from 'fs'
 import logger from '../logger'
 
 /**

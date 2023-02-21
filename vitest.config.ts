@@ -7,7 +7,6 @@ export default defineConfig({
     // Tests has been designed with a single directory as output.. this leads to inconsistencies with mutli-threaded mode
     threads: false,
     // Excluding logging tests...
-    // @ts-expect-error - ignored
     exclude: [...configDefaults.exclude, '__integration__/logging'],
   },
   plugins: [

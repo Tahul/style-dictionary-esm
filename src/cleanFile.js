@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'node:fs'
+import fs from 'fs'
 import chalk from 'chalk'
 import logger from './logger'
 
@@ -31,8 +31,7 @@ function cleanFile(file = {}, platform = {}) {
 
   const silent = file?.silent || platform?.silent || false
 
-  if (typeof destination !== 'string' || platform.write === false)
-    return
+  if (typeof destination !== 'string' || platform.write === false) return
 
   // if there is a clean path, prepend the destination with it
   if (platform.buildPath)

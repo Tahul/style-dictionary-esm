@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import path from 'path'
+import * as path from 'pathe'
 import Color from 'tinycolor2'
 import * as _ from '../utils/es6_'
 import convertToBase64 from '../utils/convertToBase64'

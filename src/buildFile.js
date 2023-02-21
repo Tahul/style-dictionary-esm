@@ -11,8 +11,8 @@
  * and limitations under the License.
  */
 
-import path from 'path'
-import fs from 'node:fs'
+import fs from 'fs'
+import * as path from 'pathe'
 import chalk from 'chalk'
 import filterProperties from './filterProperties'
 import GroupMessages from './utils/groupMessages'

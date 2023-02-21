@@ -12,11 +12,11 @@
  */
 
 import fs from 'fs'
-import { fileURLToPath } from 'url'
 import { dirname, resolve } from 'pathe'
 import _template from 'lodash.template'
 import { resolveTemplate } from '../resolveTemplate'
 import GroupMessages from '../utils/groupMessages'
+import { fileURLToPath } from '../utils/fileURLToPath'
 import { createPropertyFormatter, fileHeader, formattedVariables, getTypeScriptType, iconsWithPrefix, minifyDictionary, setSwiftFileProperties, sortByName, sortByReference } from './formatHelpers'
 
 const SASS_MAP_FORMAT_DEPRECATION_WARNINGS = GroupMessages.GROUP.SassMapFormatDeprecationWarnings
@@ -68,7 +68,7 @@ const formats = {
    * ```
    */
   'scss/map-flat': function ({ dictionary, options, file }) {
-    const template = _template(fs.readFileSync(resolveTemplate('scss/map-flat.template')))
+    const template = _template(resolveTemplate('scss/map-flat.template'))
     const { allTokens } = dictionary
     return template({ allTokens, file, options, fileHeader })
   },
@@ -105,7 +105,7 @@ const formats = {
    * ```
    */
   'scss/map-deep': function ({ dictionary, options, file }) {
-    const mapTemplate = _template(fs.readFileSync(resolveTemplate('scss/map-deep.template')))
+    const mapTemplate = _template(resolveTemplate('scss/map-deep.template'))
 
     // Default the "themeable" option to true for backward compatibility.
     const { outputReferences, themeable = true } = options
@@ -542,9 +542,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/resources': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/resources.template'))
-    )
+    const template = _template(resolveTemplate('android/resources.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -573,9 +571,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/colors': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/colors.template'))
-    )
+    const template = _template(resolveTemplate('android/colors.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -604,9 +600,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/dimens': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/dimens.template'))
-    )
+    const template = _template(resolveTemplate('android/dimens.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -635,9 +629,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/fontDimens': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/fontDimens.template'))
-    )
+    const template = _template(resolveTemplate('android/fontDimens.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -668,9 +660,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/integers': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/integers.template'))
-    )
+    const template = _template(resolveTemplate('android/integers.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -700,9 +690,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'android/strings': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('android/strings.template'))
-    )
+    const template = _template(resolveTemplate('android/strings.template'))
     return template({ dictionary, file, options, fileHeader })
   },
 
@@ -729,9 +717,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'compose/object': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('compose/object.kt.template'))
-    )
+    const template = _template(resolveTemplate('compose/object.kt.template'))
     let allProperties
     const { outputReferences } = options
     const formatProperty = createPropertyFormatter({
@@ -768,9 +754,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'ios/macros': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/macros.template'))
-    )
+    const template = _template(resolveTemplate('ios/macros.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -783,9 +767,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Fix this template and add example and usage
    */
   'ios/plist': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/plist.template'))
-    )
+    const template = _template(resolveTemplate('ios/plist.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -798,9 +780,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/singleton.m': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/singleton.m.template'))
-    )
+    const template = _template(resolveTemplate('ios/singleton.m.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -813,9 +793,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/singleton.h': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/singleton.h.template'))
-    )
+    const template = _template(resolveTemplate('ios/singleton.h.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -828,9 +806,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/static.h': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/static.h.template'))
-    )
+    const template = _template(resolveTemplate('ios/static.h.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -843,9 +819,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/static.m': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/static.m.template'))
-    )
+    const template = _template(resolveTemplate('ios/static.m.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -858,9 +832,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/colors.h': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/colors.h.template'))
-    )
+    const template = _template(resolveTemplate('ios/colors.h.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -873,9 +845,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/colors.m': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/colors.m.template'))
-    )
+    const template = _template(resolveTemplate('ios/colors.m.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -888,9 +858,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/strings.h': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/strings.h.template'))
-    )
+    const template = _template(resolveTemplate('ios/strings.h.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -903,9 +871,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'ios/strings.m': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios/strings.m.template'))
-    )
+    const template = _template(resolveTemplate('ios/strings.m.template'))
 
     return template({ dictionary, options, file, fileHeader })
   },
@@ -928,9 +894,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'ios-swift/class.swift': function ({ dictionary, options, file, platform }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios-swift/any.swift.template'))
-    )
+    const template = _template(resolveTemplate('ios-swift/any.swift.template'))
     let allTokens
     const { outputReferences } = options
     options = setSwiftFileProperties(options, 'class', platform.transformGroup)
@@ -968,9 +932,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'ios-swift/enum.swift': function ({ dictionary, options, file, platform }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios-swift/any.swift.template'))
-    )
+    const template = _template(resolveTemplate('ios-swift/any.swift.template'))
     let allTokens
     const { outputReferences } = options
     options = setSwiftFileProperties(options, 'enum', platform.transformGroup)
@@ -1019,9 +981,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'ios-swift/any.swift': function ({ dictionary, options, file, platform }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('ios-swift/any.swift.template'))
-    )
+    const template = _template(resolveTemplate('ios-swift/any.swift.template'))
     let allTokens
     const { outputReferences } = options
     options = setSwiftFileProperties(options, options.objectType, platform.transformGroup)
@@ -1051,7 +1011,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @todo Add example and usage
    */
   'css/fonts.css': _template(
-    fs.readFileSync(resolveTemplate('css/fonts.css.template'))
+    resolveTemplate('css/fonts.css.template')
   ),
 
   // Web templates
@@ -1227,9 +1187,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'flutter/class.dart': function ({ dictionary, options, file }) {
-    const template = _template(
-      fs.readFileSync(resolveTemplate('flutter/class.dart.template'))
-    )
+    const template = _template(resolveTemplate('flutter/class.dart.template'))
     let allTokens
     const { outputReferences } = options
     const formatProperty = createPropertyFormatter({

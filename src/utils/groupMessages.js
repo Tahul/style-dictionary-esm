@@ -17,7 +17,6 @@ const GroupMessages = {
     PropertyReferenceWarnings: 'Property Reference Errors',
     PropertyValueCollisions: 'Property Value Collisions',
     TemplateDeprecationWarnings: 'Template Deprecation Warnings',
-    RegisterTemplateDeprecationWarnings: 'Register Template Deprecation Warnings',
     SassMapFormatDeprecationWarnings: 'Sass Map Format Deprecation Warnings',
     MissingRegisterTransformErrors: 'Missing Register Transform Errors',
     PropertyNameCollisionWarnings: 'Property Name Collision Warnings',

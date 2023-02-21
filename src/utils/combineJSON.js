@@ -11,8 +11,8 @@
  * and limitations under the License.
  */
 
-import path from 'path'
 import fs from 'fs'
+import * as path from 'pathe'
 import glob from 'glob'
 import resolveFileContent from '../resolveFileContent'
 import deepExtend from './deepExtend'

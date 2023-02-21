@@ -64,10 +64,10 @@ function deepExtend(objects, collision, path) {
         if (copy && (_.isPlainObject(copy) || copyIsArray)) {
           if (copyIsArray) {
             copyIsArray = false
-            clone = src && _.isArray(src) ? src : []
+            clone = (src && _.isArray(src)) ? src : []
           }
           else {
-            clone = src && _.isPlainObject(src) ? src : {}
+            clone = (src && _.isPlainObject(src)) ? src : {}
           }
 
           const nextPath = path.slice(0)
