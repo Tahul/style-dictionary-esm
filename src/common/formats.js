@@ -1008,9 +1008,9 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @kind member
    * @todo Add example and usage
    */
-  'css/fonts.css': function () {
+  'css/fonts.css': function (ctx) {
     const template = _template(resolveTemplate('css/fonts.css.template'))
-    return template()
+    return template(ctx)
   },
 
   // Web templates
