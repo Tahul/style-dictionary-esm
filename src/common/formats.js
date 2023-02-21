@@ -491,9 +491,7 @@ const formats = {
     }
 
     const _dir = resolve(dirname(fileURLToPath(import.meta.url)), '../templates')
-    const designTokenInterface = fs.readFileSync(
-      resolve(_dir, '../../types/DesignToken.d.ts'), { encoding: 'UTF-8' }
-    )
+    const designTokenInterface = fs.readFileSync(resolve(_dir, '../../types/DesignToken.d.ts'), { encoding: 'UTF-8' })
 
     // get the first and last lines to add to the format by
     // looking for the first and last single-line comment
@@ -1010,9 +1008,10 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @kind member
    * @todo Add example and usage
    */
-  'css/fonts.css': _template(
-    resolveTemplate('css/fonts.css.template')
-  ),
+  'css/fonts.css': function () {
+    const template = _template(resolveTemplate('css/fonts.css.template'))
+    return template()
+  },
 
   // Web templates
 
