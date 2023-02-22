@@ -47,7 +47,7 @@ function buildFile(file = {}, platform = {}, dictionary = {}) {
   let fullDestination = destination
   const id = `${file?.format || ''}-${Date.now()}`
 
-  if (typeof destination === 'string') {
+  if (typeof destination === 'string' && platform.write) {
     // if there is a build path, prepend the full destination with it
     if (platform.buildPath)
       fullDestination = platform.buildPath + fullDestination

@@ -30,6 +30,7 @@ function cleanDir(file = {}, platform = {}) {
 
   const silent = file?.silent || platform?.silent || false
 
+  // Skip when no destination or write is disabled from platform
   if (typeof destination !== 'string' || platform.write === false)
     return
 
