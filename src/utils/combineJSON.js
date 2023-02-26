@@ -13,7 +13,7 @@
 
 import fs from 'fs'
 import * as path from 'pathe'
-import glob from 'glob'
+import glob from 'fast-glob'
 import resolveFileContent from '../resolveFileContent'
 import deepExtend from './deepExtend'
 
