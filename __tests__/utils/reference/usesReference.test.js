@@ -51,7 +51,7 @@ describe('usesReference()', () => {
   })
 
   describe('with custom options', () => {
-    test('returns true if value is reference', () => {
+    it('returns true if value is reference with custom characters', () => {
       const customOpts = {
         opening_character: '(',
         closing_character: ')',
@@ -59,6 +59,14 @@ describe('usesReference()', () => {
       }
 
       expect(usesReference('(foo|bar)', customOpts)).toBe(true)
+    })
+
+    it('returns true if value is reference with referencesRegex', () => {
+      const customOpts = {
+        referencesRegex: /\$([a-z0-9][a-z0-9_.]*)\b/gi,
+      }
+
+      expect(usesReference('$color.primary.100', customOpts)).toBe(true)
     })
   })
 })

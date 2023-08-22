@@ -15,6 +15,7 @@ const defaults = {
   opening_character: '{',
   closing_character: '}',
   separator: '.',
+  referencesRegex: undefined,
 }
 
 export default defaults
