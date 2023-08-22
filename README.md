@@ -25,7 +25,7 @@ I love Design Tokens and the Style Dictionary API!
 
 Migrating to ESM is a tedious task, but I need it to integrate it inside my projects and toolchains.
 
-I would happily move this work as a PR on the original repo, if this work makes sense in the original project roadmap!
+I would happily move this work as a PR on the original repo, if this makes sense in the project roadmap!
 
 This is an initial step in doing a [Vite plugin](https://vitejs.dev/plugins) for [Style Dictionary](https://github.com/amzn/style-dictionary).
 
