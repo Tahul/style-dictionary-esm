@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`integration > flutter > flutter/class.dart > separate > should match snapshot 1`] = `
 "
@@ -369,15 +369,6 @@ import 'dart:ui';
 class StyleDictionary {
   StyleDictionary._();
 
-    static const sizePaddingXl = 16.00;
-    static const sizePaddingLarge = 16.00;
-    static const sizePaddingMedium = 16.00;
-    static const sizePaddingSmall = 8.00;
-    static const sizeFontXl = 36.00;
-    static const sizeFontLarge = 24.00;
-    static const sizeFontMedium = 16.00;
-    static const sizeFontSmall = 12.00;
-    static const sizeBorderRadiusLarge = 480.00;
     static const colorCoreYellow1100 = Color(0xFF2D1A05);
     static const colorCoreYellow1000 = Color(0xFF542A00);
     static const colorCoreYellow900 = Color(0xFF944C0C);
@@ -510,15 +501,15 @@ class StyleDictionary {
     static const colorCoreGreen200 = Color(0xFFC2F2BD);
     static const colorCoreGreen100 = Color(0xFFD7F4D7);
     static const colorCoreGreen0 = Color(0xFFEBF9EB);
-    static const colorFontSuccess = colorCoreGreen1000;
-    static const colorFontWarning = colorCoreOrange1000;
-    static const colorFontDanger = colorCoreRed1000;
-    static const colorFontTertiary = colorCoreNeutral800;
-    static const colorFontSecondary = colorCoreNeutral900;
-    static const colorFontPrimary = colorCoreNeutral1100;
-    static const colorBrandSecondary = colorCorePurple700;
-    static const colorBrandPrimary = colorCoreAqua700;
-    static const colorBorderPrimary = colorCoreNeutral300;
+    static const sizeBorderRadiusLarge = 480.00;
+    static const sizeFontXl = 36.00;
+    static const sizeFontLarge = 24.00;
+    static const sizeFontMedium = 16.00;
+    static const sizeFontSmall = 12.00;
+    static const sizePaddingXl = 16.00;
+    static const sizePaddingLarge = 16.00;
+    static const sizePaddingMedium = 16.00;
+    static const sizePaddingSmall = 8.00;
     static const colorBackgroundInfo = colorCoreBlue0;
     static const colorBackgroundSuccess = colorCoreGreen0;
     static const colorBackgroundWarning = colorCoreOrange0;
@@ -526,10 +517,19 @@ class StyleDictionary {
     static const colorBackgroundTertiary = colorCoreNeutral200;
     static const colorBackgroundSecondary = colorCoreNeutral100;
     static const colorBackgroundPrimary = colorCoreNeutral0;
+    static const colorBorderPrimary = colorCoreNeutral300;
+    static const colorBrandSecondary = colorCorePurple700;
+    static const colorBrandPrimary = colorCoreAqua700;
+    static const colorFontSuccess = colorCoreGreen1000;
+    static const colorFontWarning = colorCoreOrange1000;
+    static const colorFontDanger = colorCoreRed1000;
+    static const colorFontTertiary = colorCoreNeutral800;
+    static const colorFontSecondary = colorCoreNeutral900;
+    static const colorFontPrimary = colorCoreNeutral1100;
+    static const colorBackgroundDisabled = colorBackgroundTertiary;
     static const colorFontInteractiveDisabled = colorFontTertiary;
     static const colorFontInteractiveActive = colorBrandSecondary;
     static const colorFontInteractiveHover = colorBrandPrimary;
     static const colorFontInteractive = colorBrandPrimary;
-    static const colorBackgroundDisabled = colorBackgroundTertiary;
 }"
 `;

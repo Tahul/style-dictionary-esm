@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`integration > compose > compose/object > should match snapshot 1`] = `
 "
@@ -196,15 +196,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.*
 
 object StyleDictionary {
-  val sizePaddingXl = 16.00.dp
-  val sizePaddingLarge = 16.00.dp
-  val sizePaddingMedium = 16.00.dp
-  val sizePaddingSmall = 8.00.dp
-  val sizeFontXl = 36.00.sp
-  val sizeFontLarge = 24.00.sp
-  val sizeFontMedium = 16.00.sp
-  val sizeFontSmall = 12.00.sp
-  val sizeBorderRadiusLarge = 480.00.dp
   val colorCoreYellow1100 = Color(0xff2d1a05)
   val colorCoreYellow1000 = Color(0xff542a00)
   val colorCoreYellow900 = Color(0xff944c0c)
@@ -337,15 +328,15 @@ object StyleDictionary {
   val colorCoreGreen200 = Color(0xffc2f2bd)
   val colorCoreGreen100 = Color(0xffd7f4d7)
   val colorCoreGreen0 = Color(0xffebf9eb)
-  val colorFontSuccess = colorCoreGreen1000
-  val colorFontWarning = colorCoreOrange1000
-  val colorFontDanger = colorCoreRed1000
-  val colorFontTertiary = colorCoreNeutral800
-  val colorFontSecondary = colorCoreNeutral900
-  val colorFontPrimary = colorCoreNeutral1100
-  val colorBrandSecondary = colorCorePurple700
-  val colorBrandPrimary = colorCoreAqua700
-  val colorBorderPrimary = colorCoreNeutral300
+  val sizeBorderRadiusLarge = 480.00.dp
+  val sizeFontXl = 36.00.sp
+  val sizeFontLarge = 24.00.sp
+  val sizeFontMedium = 16.00.sp
+  val sizeFontSmall = 12.00.sp
+  val sizePaddingXl = 16.00.dp
+  val sizePaddingLarge = 16.00.dp
+  val sizePaddingMedium = 16.00.dp
+  val sizePaddingSmall = 8.00.dp
   val colorBackgroundInfo = colorCoreBlue0
   val colorBackgroundSuccess = colorCoreGreen0
   val colorBackgroundWarning = colorCoreOrange0
@@ -353,11 +344,20 @@ object StyleDictionary {
   val colorBackgroundTertiary = colorCoreNeutral200
   val colorBackgroundSecondary = colorCoreNeutral100
   val colorBackgroundPrimary = colorCoreNeutral0
+  val colorBorderPrimary = colorCoreNeutral300
+  val colorBrandSecondary = colorCorePurple700
+  val colorBrandPrimary = colorCoreAqua700
+  val colorFontSuccess = colorCoreGreen1000
+  val colorFontWarning = colorCoreOrange1000
+  val colorFontDanger = colorCoreRed1000
+  val colorFontTertiary = colorCoreNeutral800
+  val colorFontSecondary = colorCoreNeutral900
+  val colorFontPrimary = colorCoreNeutral1100
+  val colorBackgroundDisabled = colorBackgroundTertiary
   val colorFontInteractiveDisabled = colorFontTertiary
   val colorFontInteractiveActive = colorBrandSecondary
   val colorFontInteractiveHover = colorBrandPrimary
   val colorFontInteractive = colorBrandPrimary
-  val colorBackgroundDisabled = colorBackgroundTertiary
 }
 "
 `;

@@ -1,6 +1,6 @@
 export const buildPath = '__integration__/build/'
 
-export const clearConsoleOutput = (str) => {
+export function clearConsoleOutput(str) {
   const arr = str.split('\n')
     // Remove ANSI stuff from the console output so we get human-readable strings
     // https://github.com/chalk/ansi-regex/blob/main/index.js#L3

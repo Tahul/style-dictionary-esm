@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`integration > scss > scss/map-deep > should match snapshot 1`] = `
 "
@@ -7,17 +7,25 @@ exports[`integration > scss > scss/map-deep > should match snapshot 1`] = `
  * Generated on Sat, 01 Jan 2000 00:00:00 GMT
  */
 
-$color-background-primary: #ffffff !default;
-$color-background-secondary: #f3f4f4 !default;
-$color-background-tertiary: #dee1e1 !default;
-$color-background-danger: #ffeae9 !default;
-$color-background-warning: #ffede3 !default;
-$color-background-success: #ebf9eb !default;
-$color-background-info: #e9f8ff !default;
-$color-background-disabled: #dee1e1 !default;
-$color-border-primary: #c8cccc !default;
-$color-brand-primary: #0b8599 !default;
-$color-brand-secondary: #6f5ed3 !default;
+$size-padding-small: 0.5rem !default;
+$size-padding-medium: 1rem !default;
+$size-padding-large: 1rem !default;
+$size-padding-xl: 1rem !default;
+$size-font-small: 0.75rem !default;
+$size-font-medium: 1rem !default;
+$size-font-large: 1.5rem !default;
+$size-font-xl: 2.25rem !default;
+$size-border-radius-large: 30rem !default;
+$color-font-primary: #040404 !default;
+$color-font-secondary: #273333 !default;
+$color-font-tertiary: #364141 !default;
+$color-font-interactive: #0b8599 !default;
+$color-font-interactive-hover: #0b8599 !default;
+$color-font-interactive-active: #6f5ed3 !default;
+$color-font-interactive-disabled: #364141 !default;
+$color-font-danger: #6d1313 !default;
+$color-font-warning: #601700 !default;
+$color-font-success: #08422f !default;
 $color-core-green-0: #ebf9eb !default;
 $color-core-green-100: #d7f4d7 !default;
 $color-core-green-200: #c2f2bd !default;
@@ -150,50 +158,52 @@ $color-core-yellow-800: #ba7506 !default;
 $color-core-yellow-900: #944c0c !default;
 $color-core-yellow-1000: #542a00 !default;
 $color-core-yellow-1100: #2d1a05 !default;
-$color-font-primary: #040404 !default;
-$color-font-secondary: #273333 !default;
-$color-font-tertiary: #364141 !default;
-$color-font-interactive: #0b8599 !default;
-$color-font-interactive-hover: #0b8599 !default;
-$color-font-interactive-active: #6f5ed3 !default;
-$color-font-interactive-disabled: #364141 !default;
-$color-font-danger: #6d1313 !default;
-$color-font-warning: #601700 !default;
-$color-font-success: #08422f !default;
-$size-border-radius-large: 30rem !default;
-$size-font-small: 0.75rem !default;
-$size-font-medium: 1rem !default;
-$size-font-large: 1.5rem !default;
-$size-font-xl: 2.25rem !default;
-$size-padding-small: 0.5rem !default;
-$size-padding-medium: 1rem !default;
-$size-padding-large: 1rem !default;
-$size-padding-xl: 1rem !default;
+$color-brand-primary: #0b8599 !default;
+$color-brand-secondary: #6f5ed3 !default;
+$color-border-primary: #c8cccc !default;
+$color-background-primary: #ffffff !default;
+$color-background-secondary: #f3f4f4 !default;
+$color-background-tertiary: #dee1e1 !default;
+$color-background-danger: #ffeae9 !default;
+$color-background-warning: #ffede3 !default;
+$color-background-success: #ebf9eb !default;
+$color-background-info: #e9f8ff !default;
+$color-background-disabled: #dee1e1 !default;
 
 $design-system-tokens: (
-  'color': (
-    'background': (
-      'primary': $color-background-primary,
-      'secondary': $color-background-secondary,
-      'tertiary': $color-background-tertiary,
-      'danger': $color-background-danger,
-      'warning': $color-background-warning,
-      'success': $color-background-success,
-      'info': $color-background-info,
-      'disabled': $color-background-disabled
+  'size': (
+    'padding': (
+      'small': $size-padding-small,
+      'medium': $size-padding-medium,
+      'large': $size-padding-large,
+      'xl': $size-padding-xl
+    ),
+    'font': (
+      'small': $size-font-small,
+      'medium': $size-font-medium,
+      'large': $size-font-large,
+      'xl': $size-font-xl
     ),
     'border': (
-      'primary': $color-border-primary,
-      'secondary': (
-
-      ),
-      'tertiary': (
-
+      'radius': (
+        'large': $size-border-radius-large
       )
-    ),
-    'brand': (
-      'primary': $color-brand-primary,
-      'secondary': $color-brand-secondary
+    )
+  ),
+  'color': (
+    'font': (
+      'primary': $color-font-primary,
+      'secondary': $color-font-secondary,
+      'tertiary': $color-font-tertiary,
+      'interactive': (
+        '_': $color-font-interactive,
+        'hover': $color-font-interactive-hover,
+        'active': $color-font-interactive-active,
+        'disabled': $color-font-interactive-disabled
+      ),
+      'danger': $color-font-danger,
+      'warning': $color-font-warning,
+      'success': $color-font-success
     ),
     'core': (
       'green': (
@@ -351,38 +361,28 @@ $design-system-tokens: (
         '1100': $color-core-yellow-1100
       )
     ),
-    'font': (
-      'primary': $color-font-primary,
-      'secondary': $color-font-secondary,
-      'tertiary': $color-font-tertiary,
-      'interactive': (
-        '_': $color-font-interactive,
-        'hover': $color-font-interactive-hover,
-        'active': $color-font-interactive-active,
-        'disabled': $color-font-interactive-disabled
-      ),
-      'danger': $color-font-danger,
-      'warning': $color-font-warning,
-      'success': $color-font-success
-    )
-  ),
-  'size': (
+    'brand': (
+      'primary': $color-brand-primary,
+      'secondary': $color-brand-secondary
+    ),
     'border': (
-      'radius': (
-        'large': $size-border-radius-large
+      'primary': $color-border-primary,
+      'secondary': (
+
+      ),
+      'tertiary': (
+
       )
     ),
-    'font': (
-      'small': $size-font-small,
-      'medium': $size-font-medium,
-      'large': $size-font-large,
-      'xl': $size-font-xl
-    ),
-    'padding': (
-      'small': $size-padding-small,
-      'medium': $size-padding-medium,
-      'large': $size-padding-large,
-      'xl': $size-padding-xl
+    'background': (
+      'primary': $color-background-primary,
+      'secondary': $color-background-secondary,
+      'tertiary': $color-background-tertiary,
+      'danger': $color-background-danger,
+      'warning': $color-background-warning,
+      'success': $color-background-success,
+      'info': $color-background-info,
+      'disabled': $color-background-disabled
     )
   )
 );
@@ -396,15 +396,6 @@ exports[`integration > scss > scss/map-deep > with outputReferences > should mat
  * Generated on Sat, 01 Jan 2000 00:00:00 GMT
  */
 
-$size-padding-xl: 1rem !default;
-$size-padding-large: 1rem !default;
-$size-padding-medium: 1rem !default;
-$size-padding-small: 0.5rem !default;
-$size-font-xl: 2.25rem !default;
-$size-font-large: 1.5rem !default;
-$size-font-medium: 1rem !default;
-$size-font-small: 0.75rem !default;
-$size-border-radius-large: 30rem !default;
 $color-core-yellow-1100: #2d1a05 !default;
 $color-core-yellow-1000: #542a00 !default;
 $color-core-yellow-900: #944c0c !default;
@@ -537,15 +528,15 @@ $color-core-green-300: #98e58e !default;
 $color-core-green-200: #c2f2bd !default;
 $color-core-green-100: #d7f4d7 !default;
 $color-core-green-0: #ebf9eb !default;
-$color-font-success: $color-core-green-1000 !default;
-$color-font-warning: $color-core-orange-1000 !default;
-$color-font-danger: $color-core-red-1000 !default;
-$color-font-tertiary: $color-core-neutral-800 !default;
-$color-font-secondary: $color-core-neutral-900 !default;
-$color-font-primary: $color-core-neutral-1100 !default;
-$color-brand-secondary: $color-core-purple-700 !default;
-$color-brand-primary: $color-core-aqua-700 !default;
-$color-border-primary: $color-core-neutral-300 !default;
+$size-border-radius-large: 30rem !default;
+$size-font-xl: 2.25rem !default;
+$size-font-large: 1.5rem !default;
+$size-font-medium: 1rem !default;
+$size-font-small: 0.75rem !default;
+$size-padding-xl: 1rem !default;
+$size-padding-large: 1rem !default;
+$size-padding-medium: 1rem !default;
+$size-padding-small: 0.5rem !default;
 $color-background-info: $color-core-blue-0 !default;
 $color-background-success: $color-core-green-0 !default;
 $color-background-warning: $color-core-orange-0 !default;
@@ -553,36 +544,55 @@ $color-background-danger: $color-core-red-0 !default;
 $color-background-tertiary: $color-core-neutral-200 !default;
 $color-background-secondary: $color-core-neutral-100 !default;
 $color-background-primary: $color-core-neutral-0 !default;
+$color-border-primary: $color-core-neutral-300 !default;
+$color-brand-secondary: $color-core-purple-700 !default;
+$color-brand-primary: $color-core-aqua-700 !default;
+$color-font-success: $color-core-green-1000 !default;
+$color-font-warning: $color-core-orange-1000 !default;
+$color-font-danger: $color-core-red-1000 !default;
+$color-font-tertiary: $color-core-neutral-800 !default;
+$color-font-secondary: $color-core-neutral-900 !default;
+$color-font-primary: $color-core-neutral-1100 !default;
+$color-background-disabled: $color-background-tertiary !default;
 $color-font-interactive-disabled: $color-font-tertiary !default;
 $color-font-interactive-active: $color-brand-secondary !default;
 $color-font-interactive-hover: $color-brand-primary !default;
 $color-font-interactive: $color-brand-primary !default;
-$color-background-disabled: $color-background-tertiary !default;
 
 $design-system-tokens: (
-  'color': (
-    'background': (
-      'primary': $color-background-primary,
-      'secondary': $color-background-secondary,
-      'tertiary': $color-background-tertiary,
-      'danger': $color-background-danger,
-      'warning': $color-background-warning,
-      'success': $color-background-success,
-      'info': $color-background-info,
-      'disabled': $color-background-disabled
+  'size': (
+    'padding': (
+      'small': $size-padding-small,
+      'medium': $size-padding-medium,
+      'large': $size-padding-large,
+      'xl': $size-padding-xl
+    ),
+    'font': (
+      'small': $size-font-small,
+      'medium': $size-font-medium,
+      'large': $size-font-large,
+      'xl': $size-font-xl
     ),
     'border': (
-      'primary': $color-border-primary,
-      'secondary': (
-
-      ),
-      'tertiary': (
-
+      'radius': (
+        'large': $size-border-radius-large
       )
-    ),
-    'brand': (
-      'primary': $color-brand-primary,
-      'secondary': $color-brand-secondary
+    )
+  ),
+  'color': (
+    'font': (
+      'primary': $color-font-primary,
+      'secondary': $color-font-secondary,
+      'tertiary': $color-font-tertiary,
+      'interactive': (
+        '_': $color-font-interactive,
+        'hover': $color-font-interactive-hover,
+        'active': $color-font-interactive-active,
+        'disabled': $color-font-interactive-disabled
+      ),
+      'danger': $color-font-danger,
+      'warning': $color-font-warning,
+      'success': $color-font-success
     ),
     'core': (
       'green': (
@@ -740,38 +750,28 @@ $design-system-tokens: (
         '1100': $color-core-yellow-1100
       )
     ),
-    'font': (
-      'primary': $color-font-primary,
-      'secondary': $color-font-secondary,
-      'tertiary': $color-font-tertiary,
-      'interactive': (
-        '_': $color-font-interactive,
-        'hover': $color-font-interactive-hover,
-        'active': $color-font-interactive-active,
-        'disabled': $color-font-interactive-disabled
-      ),
-      'danger': $color-font-danger,
-      'warning': $color-font-warning,
-      'success': $color-font-success
-    )
-  ),
-  'size': (
+    'brand': (
+      'primary': $color-brand-primary,
+      'secondary': $color-brand-secondary
+    ),
     'border': (
-      'radius': (
-        'large': $size-border-radius-large
+      'primary': $color-border-primary,
+      'secondary': (
+
+      ),
+      'tertiary': (
+
       )
     ),
-    'font': (
-      'small': $size-font-small,
-      'medium': $size-font-medium,
-      'large': $size-font-large,
-      'xl': $size-font-xl
-    ),
-    'padding': (
-      'small': $size-padding-small,
-      'medium': $size-padding-medium,
-      'large': $size-padding-large,
-      'xl': $size-padding-xl
+    'background': (
+      'primary': $color-background-primary,
+      'secondary': $color-background-secondary,
+      'tertiary': $color-background-tertiary,
+      'danger': $color-background-danger,
+      'warning': $color-background-warning,
+      'success': $color-background-success,
+      'info': $color-background-info,
+      'disabled': $color-background-disabled
     )
   )
 );
@@ -785,17 +785,25 @@ exports[`integration > scss > scss/map-deep > without themeable > should match s
  * Generated on Sat, 01 Jan 2000 00:00:00 GMT
  */
 
-$color-background-primary: #ffffff !default;
-$color-background-secondary: #f3f4f4;
-$color-background-tertiary: #dee1e1;
-$color-background-danger: #ffeae9;
-$color-background-warning: #ffede3;
-$color-background-success: #ebf9eb;
-$color-background-info: #e9f8ff;
-$color-background-disabled: #dee1e1;
-$color-border-primary: #c8cccc;
-$color-brand-primary: #0b8599;
-$color-brand-secondary: #6f5ed3;
+$size-padding-small: 0.5rem;
+$size-padding-medium: 1rem;
+$size-padding-large: 1rem;
+$size-padding-xl: 1rem;
+$size-font-small: 0.75rem;
+$size-font-medium: 1rem;
+$size-font-large: 1.5rem;
+$size-font-xl: 2.25rem;
+$size-border-radius-large: 30rem;
+$color-font-primary: #040404;
+$color-font-secondary: #273333;
+$color-font-tertiary: #364141;
+$color-font-interactive: #0b8599;
+$color-font-interactive-hover: #0b8599;
+$color-font-interactive-active: #6f5ed3;
+$color-font-interactive-disabled: #364141;
+$color-font-danger: #6d1313;
+$color-font-warning: #601700;
+$color-font-success: #08422f;
 $color-core-green-0: #ebf9eb;
 $color-core-green-100: #d7f4d7;
 $color-core-green-200: #c2f2bd;
@@ -928,50 +936,52 @@ $color-core-yellow-800: #ba7506;
 $color-core-yellow-900: #944c0c;
 $color-core-yellow-1000: #542a00;
 $color-core-yellow-1100: #2d1a05;
-$color-font-primary: #040404;
-$color-font-secondary: #273333;
-$color-font-tertiary: #364141;
-$color-font-interactive: #0b8599;
-$color-font-interactive-hover: #0b8599;
-$color-font-interactive-active: #6f5ed3;
-$color-font-interactive-disabled: #364141;
-$color-font-danger: #6d1313;
-$color-font-warning: #601700;
-$color-font-success: #08422f;
-$size-border-radius-large: 30rem;
-$size-font-small: 0.75rem;
-$size-font-medium: 1rem;
-$size-font-large: 1.5rem;
-$size-font-xl: 2.25rem;
-$size-padding-small: 0.5rem;
-$size-padding-medium: 1rem;
-$size-padding-large: 1rem;
-$size-padding-xl: 1rem;
+$color-brand-primary: #0b8599;
+$color-brand-secondary: #6f5ed3;
+$color-border-primary: #c8cccc;
+$color-background-primary: #ffffff !default;
+$color-background-secondary: #f3f4f4;
+$color-background-tertiary: #dee1e1;
+$color-background-danger: #ffeae9;
+$color-background-warning: #ffede3;
+$color-background-success: #ebf9eb;
+$color-background-info: #e9f8ff;
+$color-background-disabled: #dee1e1;
 
 $design-system-tokens: (
-  'color': (
-    'background': (
-      'primary': $color-background-primary,
-      'secondary': $color-background-secondary,
-      'tertiary': $color-background-tertiary,
-      'danger': $color-background-danger,
-      'warning': $color-background-warning,
-      'success': $color-background-success,
-      'info': $color-background-info,
-      'disabled': $color-background-disabled
+  'size': (
+    'padding': (
+      'small': $size-padding-small,
+      'medium': $size-padding-medium,
+      'large': $size-padding-large,
+      'xl': $size-padding-xl
+    ),
+    'font': (
+      'small': $size-font-small,
+      'medium': $size-font-medium,
+      'large': $size-font-large,
+      'xl': $size-font-xl
     ),
     'border': (
-      'primary': $color-border-primary,
-      'secondary': (
-
-      ),
-      'tertiary': (
-
+      'radius': (
+        'large': $size-border-radius-large
       )
-    ),
-    'brand': (
-      'primary': $color-brand-primary,
-      'secondary': $color-brand-secondary
+    )
+  ),
+  'color': (
+    'font': (
+      'primary': $color-font-primary,
+      'secondary': $color-font-secondary,
+      'tertiary': $color-font-tertiary,
+      'interactive': (
+        '_': $color-font-interactive,
+        'hover': $color-font-interactive-hover,
+        'active': $color-font-interactive-active,
+        'disabled': $color-font-interactive-disabled
+      ),
+      'danger': $color-font-danger,
+      'warning': $color-font-warning,
+      'success': $color-font-success
     ),
     'core': (
       'green': (
@@ -1129,38 +1139,28 @@ $design-system-tokens: (
         '1100': $color-core-yellow-1100
       )
     ),
-    'font': (
-      'primary': $color-font-primary,
-      'secondary': $color-font-secondary,
-      'tertiary': $color-font-tertiary,
-      'interactive': (
-        '_': $color-font-interactive,
-        'hover': $color-font-interactive-hover,
-        'active': $color-font-interactive-active,
-        'disabled': $color-font-interactive-disabled
-      ),
-      'danger': $color-font-danger,
-      'warning': $color-font-warning,
-      'success': $color-font-success
-    )
-  ),
-  'size': (
+    'brand': (
+      'primary': $color-brand-primary,
+      'secondary': $color-brand-secondary
+    ),
     'border': (
-      'radius': (
-        'large': $size-border-radius-large
+      'primary': $color-border-primary,
+      'secondary': (
+
+      ),
+      'tertiary': (
+
       )
     ),
-    'font': (
-      'small': $size-font-small,
-      'medium': $size-font-medium,
-      'large': $size-font-large,
-      'xl': $size-font-xl
-    ),
-    'padding': (
-      'small': $size-padding-small,
-      'medium': $size-padding-medium,
-      'large': $size-padding-large,
-      'xl': $size-padding-xl
+    'background': (
+      'primary': $color-background-primary,
+      'secondary': $color-background-secondary,
+      'tertiary': $color-background-tertiary,
+      'danger': $color-background-danger,
+      'warning': $color-background-warning,
+      'success': $color-background-success,
+      'info': $color-background-info,
+      'disabled': $color-background-disabled
     )
   )
 );
@@ -1175,17 +1175,25 @@ exports[`integration > scss > scss/map-flat > should match snapshot 1`] = `
  */
 
 $design-system-tokens: (
-  'color-background-primary': #ffffff,
-  'color-background-secondary': #f3f4f4,
-  'color-background-tertiary': #dee1e1,
-  'color-background-danger': #ffeae9,
-  'color-background-warning': #ffede3,
-  'color-background-success': #ebf9eb,
-  'color-background-info': #e9f8ff,
-  'color-background-disabled': #dee1e1,
-  'color-border-primary': #c8cccc,
-  'color-brand-primary': #0b8599,
-  'color-brand-secondary': #6f5ed3,
+  'size-padding-small': 0.5rem,
+  'size-padding-medium': 1rem,
+  'size-padding-large': 1rem,
+  'size-padding-xl': 1rem,
+  'size-font-small': 0.75rem,
+  'size-font-medium': 1rem,
+  'size-font-large': 1.5rem,
+  'size-font-xl': 2.25rem,
+  'size-border-radius-large': 30rem,
+  'color-font-primary': #040404,
+  'color-font-secondary': #273333,
+  'color-font-tertiary': #364141,
+  'color-font-interactive': #0b8599,
+  'color-font-interactive-hover': #0b8599,
+  'color-font-interactive-active': #6f5ed3,
+  'color-font-interactive-disabled': #364141,
+  'color-font-danger': #6d1313,
+  'color-font-warning': #601700,
+  'color-font-success': #08422f,
   'color-core-green-0': #ebf9eb,
   'color-core-green-100': #d7f4d7,
   'color-core-green-200': #c2f2bd,
@@ -1318,25 +1326,17 @@ $design-system-tokens: (
   'color-core-yellow-900': #944c0c,
   'color-core-yellow-1000': #542a00,
   'color-core-yellow-1100': #2d1a05,
-  'color-font-primary': #040404,
-  'color-font-secondary': #273333,
-  'color-font-tertiary': #364141,
-  'color-font-interactive': #0b8599,
-  'color-font-interactive-hover': #0b8599,
-  'color-font-interactive-active': #6f5ed3,
-  'color-font-interactive-disabled': #364141,
-  'color-font-danger': #6d1313,
-  'color-font-warning': #601700,
-  'color-font-success': #08422f,
-  'size-border-radius-large': 30rem,
-  'size-font-small': 0.75rem,
-  'size-font-medium': 1rem,
-  'size-font-large': 1.5rem,
-  'size-font-xl': 2.25rem,
-  'size-padding-small': 0.5rem,
-  'size-padding-medium': 1rem,
-  'size-padding-large': 1rem,
-  'size-padding-xl': 1rem
+  'color-brand-primary': #0b8599,
+  'color-brand-secondary': #6f5ed3,
+  'color-border-primary': #c8cccc,
+  'color-background-primary': #ffffff,
+  'color-background-secondary': #f3f4f4,
+  'color-background-tertiary': #dee1e1,
+  'color-background-danger': #ffeae9,
+  'color-background-warning': #ffede3,
+  'color-background-success': #ebf9eb,
+  'color-background-info': #e9f8ff,
+  'color-background-disabled': #dee1e1
 );
 "
 `;
@@ -1346,17 +1346,25 @@ exports[`integration > scss > scss/variables > should match snapshot 1`] = `
 // Do not edit directly
 // Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
-$color-background-primary: #ffffff !default;
-$color-background-secondary: #f3f4f4;
-$color-background-tertiary: #dee1e1;
-$color-background-danger: #ffeae9;
-$color-background-warning: #ffede3;
-$color-background-success: #ebf9eb;
-$color-background-info: #e9f8ff;
-$color-background-disabled: #dee1e1;
-$color-border-primary: #c8cccc;
-$color-brand-primary: #0b8599;
-$color-brand-secondary: #6f5ed3;
+$size-padding-small: 0.5rem;
+$size-padding-medium: 1rem;
+$size-padding-large: 1rem;
+$size-padding-xl: 1rem;
+$size-font-small: 0.75rem;
+$size-font-medium: 1rem;
+$size-font-large: 1.5rem;
+$size-font-xl: 2.25rem;
+$size-border-radius-large: 30rem;
+$color-font-primary: #040404;
+$color-font-secondary: #273333;
+$color-font-tertiary: #364141;
+$color-font-interactive: #0b8599;
+$color-font-interactive-hover: #0b8599;
+$color-font-interactive-active: #6f5ed3;
+$color-font-interactive-disabled: #364141;
+$color-font-danger: #6d1313;
+$color-font-warning: #601700;
+$color-font-success: #08422f;
 $color-core-green-0: #ebf9eb;
 $color-core-green-100: #d7f4d7;
 $color-core-green-200: #c2f2bd;
@@ -1489,25 +1497,17 @@ $color-core-yellow-800: #ba7506;
 $color-core-yellow-900: #944c0c;
 $color-core-yellow-1000: #542a00;
 $color-core-yellow-1100: #2d1a05;
-$color-font-primary: #040404;
-$color-font-secondary: #273333;
-$color-font-tertiary: #364141;
-$color-font-interactive: #0b8599;
-$color-font-interactive-hover: #0b8599;
-$color-font-interactive-active: #6f5ed3;
-$color-font-interactive-disabled: #364141;
-$color-font-danger: #6d1313;
-$color-font-warning: #601700;
-$color-font-success: #08422f;
-$size-border-radius-large: 30rem;
-$size-font-small: 0.75rem;
-$size-font-medium: 1rem;
-$size-font-large: 1.5rem;
-$size-font-xl: 2.25rem;
-$size-padding-small: 0.5rem;
-$size-padding-medium: 1rem;
-$size-padding-large: 1rem;
-$size-padding-xl: 1rem;"
+$color-brand-primary: #0b8599;
+$color-brand-secondary: #6f5ed3;
+$color-border-primary: #c8cccc;
+$color-background-primary: #ffffff !default;
+$color-background-secondary: #f3f4f4;
+$color-background-tertiary: #dee1e1;
+$color-background-danger: #ffeae9;
+$color-background-warning: #ffede3;
+$color-background-success: #ebf9eb;
+$color-background-info: #e9f8ff;
+$color-background-disabled: #dee1e1;"
 `;
 
 exports[`integration > scss > scss/variables > with filter and output references > should match snapshot 1`] = `
@@ -1530,15 +1530,6 @@ exports[`integration > scss > scss/variables > with outputReferences > should ma
 // Do not edit directly
 // Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
-$size-padding-xl: 1rem;
-$size-padding-large: 1rem;
-$size-padding-medium: 1rem;
-$size-padding-small: 0.5rem;
-$size-font-xl: 2.25rem;
-$size-font-large: 1.5rem;
-$size-font-medium: 1rem;
-$size-font-small: 0.75rem;
-$size-border-radius-large: 30rem;
 $color-core-yellow-1100: #2d1a05;
 $color-core-yellow-1000: #542a00;
 $color-core-yellow-900: #944c0c;
@@ -1671,15 +1662,15 @@ $color-core-green-300: #98e58e;
 $color-core-green-200: #c2f2bd;
 $color-core-green-100: #d7f4d7;
 $color-core-green-0: #ebf9eb;
-$color-font-success: $color-core-green-1000;
-$color-font-warning: $color-core-orange-1000;
-$color-font-danger: $color-core-red-1000;
-$color-font-tertiary: $color-core-neutral-800;
-$color-font-secondary: $color-core-neutral-900;
-$color-font-primary: $color-core-neutral-1100;
-$color-brand-secondary: $color-core-purple-700;
-$color-brand-primary: $color-core-aqua-700;
-$color-border-primary: $color-core-neutral-300;
+$size-border-radius-large: 30rem;
+$size-font-xl: 2.25rem;
+$size-font-large: 1.5rem;
+$size-font-medium: 1rem;
+$size-font-small: 0.75rem;
+$size-padding-xl: 1rem;
+$size-padding-large: 1rem;
+$size-padding-medium: 1rem;
+$size-padding-small: 0.5rem;
 $color-background-info: $color-core-blue-0;
 $color-background-success: $color-core-green-0;
 $color-background-warning: $color-core-orange-0;
@@ -1687,11 +1678,20 @@ $color-background-danger: $color-core-red-0;
 $color-background-tertiary: $color-core-neutral-200;
 $color-background-secondary: $color-core-neutral-100;
 $color-background-primary: $color-core-neutral-0 !default;
+$color-border-primary: $color-core-neutral-300;
+$color-brand-secondary: $color-core-purple-700;
+$color-brand-primary: $color-core-aqua-700;
+$color-font-success: $color-core-green-1000;
+$color-font-warning: $color-core-orange-1000;
+$color-font-danger: $color-core-red-1000;
+$color-font-tertiary: $color-core-neutral-800;
+$color-font-secondary: $color-core-neutral-900;
+$color-font-primary: $color-core-neutral-1100;
+$color-background-disabled: $color-background-tertiary;
 $color-font-interactive-disabled: $color-font-tertiary;
 $color-font-interactive-active: $color-brand-secondary;
 $color-font-interactive-hover: $color-brand-primary;
-$color-font-interactive: $color-brand-primary;
-$color-background-disabled: $color-background-tertiary;"
+$color-font-interactive: $color-brand-primary;"
 `;
 
 exports[`integration > scss > scss/variables > with themeable > should match snapshot 1`] = `
@@ -1699,17 +1699,25 @@ exports[`integration > scss > scss/variables > with themeable > should match sna
 // Do not edit directly
 // Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
-$color-background-primary: #ffffff !default;
-$color-background-secondary: #f3f4f4 !default;
-$color-background-tertiary: #dee1e1 !default;
-$color-background-danger: #ffeae9 !default;
-$color-background-warning: #ffede3 !default;
-$color-background-success: #ebf9eb !default;
-$color-background-info: #e9f8ff !default;
-$color-background-disabled: #dee1e1 !default;
-$color-border-primary: #c8cccc !default;
-$color-brand-primary: #0b8599 !default;
-$color-brand-secondary: #6f5ed3 !default;
+$size-padding-small: 0.5rem !default;
+$size-padding-medium: 1rem !default;
+$size-padding-large: 1rem !default;
+$size-padding-xl: 1rem !default;
+$size-font-small: 0.75rem !default;
+$size-font-medium: 1rem !default;
+$size-font-large: 1.5rem !default;
+$size-font-xl: 2.25rem !default;
+$size-border-radius-large: 30rem !default;
+$color-font-primary: #040404 !default;
+$color-font-secondary: #273333 !default;
+$color-font-tertiary: #364141 !default;
+$color-font-interactive: #0b8599 !default;
+$color-font-interactive-hover: #0b8599 !default;
+$color-font-interactive-active: #6f5ed3 !default;
+$color-font-interactive-disabled: #364141 !default;
+$color-font-danger: #6d1313 !default;
+$color-font-warning: #601700 !default;
+$color-font-success: #08422f !default;
 $color-core-green-0: #ebf9eb !default;
 $color-core-green-100: #d7f4d7 !default;
 $color-core-green-200: #c2f2bd !default;
@@ -1842,23 +1850,15 @@ $color-core-yellow-800: #ba7506 !default;
 $color-core-yellow-900: #944c0c !default;
 $color-core-yellow-1000: #542a00 !default;
 $color-core-yellow-1100: #2d1a05 !default;
-$color-font-primary: #040404 !default;
-$color-font-secondary: #273333 !default;
-$color-font-tertiary: #364141 !default;
-$color-font-interactive: #0b8599 !default;
-$color-font-interactive-hover: #0b8599 !default;
-$color-font-interactive-active: #6f5ed3 !default;
-$color-font-interactive-disabled: #364141 !default;
-$color-font-danger: #6d1313 !default;
-$color-font-warning: #601700 !default;
-$color-font-success: #08422f !default;
-$size-border-radius-large: 30rem !default;
-$size-font-small: 0.75rem !default;
-$size-font-medium: 1rem !default;
-$size-font-large: 1.5rem !default;
-$size-font-xl: 2.25rem !default;
-$size-padding-small: 0.5rem !default;
-$size-padding-medium: 1rem !default;
-$size-padding-large: 1rem !default;
-$size-padding-xl: 1rem !default;"
+$color-brand-primary: #0b8599 !default;
+$color-brand-secondary: #6f5ed3 !default;
+$color-border-primary: #c8cccc !default;
+$color-background-primary: #ffffff !default;
+$color-background-secondary: #f3f4f4 !default;
+$color-background-tertiary: #dee1e1 !default;
+$color-background-danger: #ffeae9 !default;
+$color-background-warning: #ffede3 !default;
+$color-background-success: #ebf9eb !default;
+$color-background-info: #e9f8ff !default;
+$color-background-disabled: #dee1e1 !default;"
 `;

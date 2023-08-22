@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import path from 'path'
+import path from 'node:path'
 import Color from 'tinycolor2'
 import transforms from '../../src/common/transforms'
 

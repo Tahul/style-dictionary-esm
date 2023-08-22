@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`integration > swift > ios-swift/class.swift > should match snapshot 1`] = `
 "
@@ -192,15 +192,6 @@ exports[`integration > swift > ios-swift/class.swift > with references > should 
 import UIKit
 
 public class StyleDictionary {
-    public static let sizePaddingXl = CGFloat(16.00)
-    public static let sizePaddingLarge = CGFloat(16.00)
-    public static let sizePaddingMedium = CGFloat(16.00)
-    public static let sizePaddingSmall = CGFloat(8.00)
-    public static let sizeFontXl = CGFloat(36.00)
-    public static let sizeFontLarge = CGFloat(24.00)
-    public static let sizeFontMedium = CGFloat(16.00)
-    public static let sizeFontSmall = CGFloat(12.00)
-    public static let sizeBorderRadiusLarge = CGFloat(480.00)
     public static let colorCoreYellow1100 = UIColor(red: 0.176, green: 0.102, blue: 0.020, alpha: 1)
     public static let colorCoreYellow1000 = UIColor(red: 0.329, green: 0.165, blue: 0.000, alpha: 1)
     public static let colorCoreYellow900 = UIColor(red: 0.580, green: 0.298, blue: 0.047, alpha: 1)
@@ -333,15 +324,15 @@ public class StyleDictionary {
     public static let colorCoreGreen200 = UIColor(red: 0.761, green: 0.949, blue: 0.741, alpha: 1)
     public static let colorCoreGreen100 = UIColor(red: 0.843, green: 0.957, blue: 0.843, alpha: 1)
     public static let colorCoreGreen0 = UIColor(red: 0.922, green: 0.976, blue: 0.922, alpha: 1)
-    public static let colorFontSuccess = colorCoreGreen1000
-    public static let colorFontWarning = colorCoreOrange1000
-    public static let colorFontDanger = colorCoreRed1000
-    public static let colorFontTertiary = colorCoreNeutral800
-    public static let colorFontSecondary = colorCoreNeutral900
-    public static let colorFontPrimary = colorCoreNeutral1100
-    public static let colorBrandSecondary = colorCorePurple700
-    public static let colorBrandPrimary = colorCoreAqua700
-    public static let colorBorderPrimary = colorCoreNeutral300
+    public static let sizeBorderRadiusLarge = CGFloat(480.00)
+    public static let sizeFontXl = CGFloat(36.00)
+    public static let sizeFontLarge = CGFloat(24.00)
+    public static let sizeFontMedium = CGFloat(16.00)
+    public static let sizeFontSmall = CGFloat(12.00)
+    public static let sizePaddingXl = CGFloat(16.00)
+    public static let sizePaddingLarge = CGFloat(16.00)
+    public static let sizePaddingMedium = CGFloat(16.00)
+    public static let sizePaddingSmall = CGFloat(8.00)
     public static let colorBackgroundInfo = colorCoreBlue0
     public static let colorBackgroundSuccess = colorCoreGreen0
     public static let colorBackgroundWarning = colorCoreOrange0
@@ -349,11 +340,20 @@ public class StyleDictionary {
     public static let colorBackgroundTertiary = colorCoreNeutral200
     public static let colorBackgroundSecondary = colorCoreNeutral100
     public static let colorBackgroundPrimary = colorCoreNeutral0
+    public static let colorBorderPrimary = colorCoreNeutral300
+    public static let colorBrandSecondary = colorCorePurple700
+    public static let colorBrandPrimary = colorCoreAqua700
+    public static let colorFontSuccess = colorCoreGreen1000
+    public static let colorFontWarning = colorCoreOrange1000
+    public static let colorFontDanger = colorCoreRed1000
+    public static let colorFontTertiary = colorCoreNeutral800
+    public static let colorFontSecondary = colorCoreNeutral900
+    public static let colorFontPrimary = colorCoreNeutral1100
+    public static let colorBackgroundDisabled = colorBackgroundTertiary
     public static let colorFontInteractiveDisabled = colorFontTertiary
     public static let colorFontInteractiveActive = colorBrandSecondary
     public static let colorFontInteractiveHover = colorBrandPrimary
     public static let colorFontInteractive = colorBrandPrimary
-    public static let colorBackgroundDisabled = colorBackgroundTertiary
 }
 "
 `;

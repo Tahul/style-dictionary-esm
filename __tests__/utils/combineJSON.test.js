@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import path from 'path'
+import path from 'node:path'
 import yaml from 'yaml'
 import combineJSON from '../../src/utils/combineJSON'
 
@@ -36,7 +36,7 @@ describe('utils', () => {
 
     it('should do a deep merge', () => {
       const test = combineJSON(['__tests__/__json_files/shallow/*.json'], true)
-      expect(test).toHaveProperty('a', 2)
+      expect(test).toHaveProperty('a', 1)
       expect(test.b).toMatchObject({ a: 1, c: 2 })
       expect(test).toHaveProperty('d.e.f.g', 1)
       expect(test).toHaveProperty('d.e.f.h', 2)
@@ -44,11 +44,11 @@ describe('utils', () => {
 
     it('should do a shallow merge', () => {
       const test = combineJSON(['__tests__/__json_files/shallow/*.json'])
-      expect(test).toHaveProperty('a', 2)
-      expect(test.b).toMatchObject({ c: 2 })
-      expect(test).toHaveProperty('c', [3, 4])
-      expect(test).not.toHaveProperty('d.e.f.g')
-      expect(test).toHaveProperty('d.e.f.h', 2)
+      expect(test).toHaveProperty('a', 1)
+      expect(test.b).toMatchObject({ a: 1 })
+      expect(test).toHaveProperty('c', [1, 2])
+      expect(test).not.toHaveProperty('d.e.f.h')
+      expect(test).toHaveProperty('d.e.f.g', 1)
     })
 
     it('should fail on invalid JSON', () => {
@@ -61,8 +61,8 @@ describe('utils', () => {
       expect(
         combineJSON.bind(null, ['__tests__/__json_files/shallow/*.json'], true, (opts) => {
           expect(opts).toHaveProperty('key', 'a')
-          expect(opts.target[opts.key]).toBe(1)
-          expect(opts.copy[opts.key]).toBe(2)
+          expect(opts.target[opts.key]).toStrictEqual(2)
+          expect(opts.copy[opts.key]).toStrictEqual(1)
           throw new Error('test')
         }, true)
       ).toThrow(/test/)
@@ -74,13 +74,11 @@ describe('utils', () => {
       expect(test.d).toHaveProperty('json5e', 1)
     })
 
-    /*
     it('should support jsonc', () => {
       const test = combineJSON(['__tests__/__json_files/shallow/*.jsonc'])
       expect(test).toHaveProperty('jsonCA', 5)
       expect(test.d).toHaveProperty('jsonCe', 1)
     })
-    */
 
     describe('custom parsers', () => {
       it('should support yaml.parse', () => {

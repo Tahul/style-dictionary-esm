@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'fs'
+import fs from 'node:fs'
 import * as path from 'pathe'
 import chalk from 'chalk'
 import logger from './logger'

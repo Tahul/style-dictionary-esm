@@ -566,8 +566,8 @@ export default {
     type: 'value',
     matcher: isFontSize,
     transformer(token) {
-      const val = parseFloat(token.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(token.value)
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'sp')
       return `${val.toFixed(2)}sp`
     },
@@ -588,8 +588,8 @@ export default {
     type: 'value',
     matcher: isNotFontSize,
     transformer(token) {
-      const val = parseFloat(token.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(token.value)
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'dp')
       return `${val.toFixed(2)}dp`
     },
@@ -615,8 +615,8 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(token.value)
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'object')
 
       return {
@@ -643,9 +643,9 @@ export default {
     type: 'value',
     matcher: isFontSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'sp')
       return `${(val * baseFont).toFixed(2)}sp`
     },
@@ -666,9 +666,9 @@ export default {
     type: 'value',
     matcher: isNotFontSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'dp')
       return `${(val * baseFont).toFixed(2)}dp`
     },
@@ -689,8 +689,8 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token) {
-      const val = parseFloat(token.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(token.value)
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'px')
       return `${val}px`
     },
@@ -711,8 +711,8 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token) {
-      const val = parseFloat(token.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(token.value)
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'rem')
       return `${val}rem`
     },
@@ -733,9 +733,9 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'pt')
       return `${(val * baseFont).toFixed(2)}f`
     },
@@ -756,9 +756,9 @@ export default {
     type: 'value',
     matcher: isFontSize,
     transformer(prop, options) {
-      const val = parseFloat(prop.value)
+      const val = Number.parseFloat(prop.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(prop.name, prop.value, 'sp')
       return `${(val * baseFont).toFixed(2)}.sp`
     },
@@ -779,9 +779,9 @@ export default {
     type: 'value',
     matcher: isNotFontSize,
     transformer(prop, options) {
-      const val = parseFloat(prop.value)
+      const val = Number.parseFloat(prop.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(prop.name, prop.value, 'dp')
       return `${(val * baseFont).toFixed(2)}.dp`
     },
@@ -802,8 +802,8 @@ export default {
     type: 'value',
     matcher: isFontSize,
     transformer(prop) {
-      const val = parseFloat(prop.value)
-      if (isNaN(val))
+      const val = Number.parseFloat(prop.value)
+      if (Number.isNaN(val))
         throwSizeError(prop.name, prop.value, 'em')
       return `${val}.em`
     },
@@ -823,9 +823,9 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'CGFloat')
       return `CGFloat(${(val * baseFont).toFixed(2)})`
     },
@@ -846,9 +846,9 @@ export default {
     type: 'value',
     matcher: isSize,
     transformer(token, options) {
-      const val = parseFloat(token.value)
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
-      if (isNaN(val))
+      if (Number.isNaN(val))
         throwSizeError(token.name, token.value, 'px')
       return `${(val * baseFont).toFixed(0)}px`
     },
@@ -871,9 +871,9 @@ export default {
     matcher: isSize,
     transformer: (token, options) => {
       const baseFont = getBasePxFontSize(options)
-      const floatVal = parseFloat(token.value)
+      const floatVal = Number.parseFloat(token.value)
 
-      if (isNaN(floatVal))
+      if (Number.isNaN(floatVal))
         throwSizeError(token.name, token.value, 'rem')
 
       if (floatVal === 0)
@@ -1016,7 +1016,7 @@ export default {
       return token.attributes.category === 'time'
     },
     transformer(token) {
-      return `${(parseFloat(token.value) / 1000).toFixed(2)}s`
+      return `${(Number.parseFloat(token.value) / 1000).toFixed(2)}s`
     },
   },
 
@@ -1176,7 +1176,7 @@ export default {
     matcher: isSize,
     transformer(token, options) {
       const baseFont = getBasePxFontSize(options)
-      return (parseFloat(token.value, 10) * baseFont).toFixed(2)
+      return (Number.parseFloat(token.value, 10) * baseFont).toFixed(2)
     },
   },
 }

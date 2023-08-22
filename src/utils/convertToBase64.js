@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'fs'
+import fs from 'node:fs'
 
 /**
  * Takes a file and converts it to a base64 string.

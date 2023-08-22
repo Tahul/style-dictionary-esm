@@ -13,7 +13,7 @@
 
 import flattenProperties from '../../src/utils/flattenProperties'
 
-const sortBy = (key) => {
+function sortBy(key) {
   return (a, b) => (a[key] > b[key]) ? 1 : ((b[key] > a[key]) ? -1 : 0)
 }
 

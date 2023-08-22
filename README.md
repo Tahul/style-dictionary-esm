@@ -8,8 +8,9 @@ An ESM-ready version of [Style Dictionary](https://github.com/amzn/style-diction
 - Allows mocking `fs` dependency, improving browser support
 - Replaces `console.log` by `consola`, with custom levels
 - Replaces `node-sass` by `dart-sass`
-- **100%** coverage from upstream test suite
+- Replaces `glob` by `fast-glob`
 - Drops `lodash` dependency
+- **100%** coverage from upstream test suite
 - [**PNPM**](https://pnpm.io/), [**tsup**](https://github.com/egoist/tsup), [**Vite**](https://vitejs.dev/) and [**Vitest**](https://vitest.dev) for the repository
 
 ## Install

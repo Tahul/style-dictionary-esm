@@ -24,6 +24,9 @@
     "no-control-regex": 0,
     "comma-dangle": 0,
     "no-prototype-builtins": 0,
-    "n/no-path-concat": 0
+    "n/no-path-concat": 0,
+    "n/prefer-global/process": 0,
+    "n/prefer-global/buffer": 0,
+    "@typescript-eslint/no-invalid-this": 0
   }
 }

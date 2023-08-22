@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import { dirname, join } from 'pathe'
 

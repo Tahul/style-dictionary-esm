@@ -14,6 +14,7 @@
 import fs from 'fs-extra'
 import StyleDictionary from '../src/index'
 import helpers from './__helpers'
+
 const StyleDictionaryExtended = StyleDictionary.extend({
   platforms: {
     android: {

@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs from 'node:fs'
 import JSON5 from 'json5'
 import { parse as parseJsonC } from 'jsonc-parser'
 import jiti from 'jiti'

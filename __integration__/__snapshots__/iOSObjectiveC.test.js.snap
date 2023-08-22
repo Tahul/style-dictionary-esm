@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`integration > ios objective-c > ios/color.h should match snapshot 1`] = `
 "
@@ -13,17 +13,16 @@ exports[`integration > ios objective-c > ios/color.h should match snapshot 1`] =
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, StyleDictionaryColorName) {
-ColorBackgroundPrimary,
-ColorBackgroundSecondary,
-ColorBackgroundTertiary,
-ColorBackgroundDanger,
-ColorBackgroundWarning,
-ColorBackgroundSuccess,
-ColorBackgroundInfo,
-ColorBackgroundDisabled,
-ColorBorderPrimary,
-ColorBrandPrimary,
-ColorBrandSecondary,
+ColorFontPrimary,
+ColorFontSecondary,
+ColorFontTertiary,
+ColorFontInteractive,
+ColorFontInteractiveHover,
+ColorFontInteractiveActive,
+ColorFontInteractiveDisabled,
+ColorFontDanger,
+ColorFontWarning,
+ColorFontSuccess,
 ColorCoreGreen0,
 ColorCoreGreen100,
 ColorCoreGreen200,
@@ -156,16 +155,17 @@ ColorCoreYellow800,
 ColorCoreYellow900,
 ColorCoreYellow1000,
 ColorCoreYellow1100,
-ColorFontPrimary,
-ColorFontSecondary,
-ColorFontTertiary,
-ColorFontInteractive,
-ColorFontInteractiveHover,
-ColorFontInteractiveActive,
-ColorFontInteractiveDisabled,
-ColorFontDanger,
-ColorFontWarning,
-ColorFontSuccess
+ColorBrandPrimary,
+ColorBrandSecondary,
+ColorBorderPrimary,
+ColorBackgroundPrimary,
+ColorBackgroundSecondary,
+ColorBackgroundTertiary,
+ColorBackgroundDanger,
+ColorBackgroundWarning,
+ColorBackgroundSuccess,
+ColorBackgroundInfo,
+ColorBackgroundDisabled
 };
 
 @interface StyleDictionaryColor : NSObject
@@ -199,17 +199,16 @@ exports[`integration > ios objective-c > ios/color.m should match snapshot 1`] =
 
   dispatch_once(&onceToken, ^{
     colorArray = @[
-[UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f],
-[UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f],
-[UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f],
-[UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f],
-[UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f],
-[UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f],
-[UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
-[UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f],
+[UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f],
+[UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f],
+[UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
+[UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
 [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
 [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
+[UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
+[UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f],
+[UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f],
+[UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f],
 [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f],
 [UIColor colorWithRed:0.843f green:0.957f blue:0.843f alpha:1.000f],
 [UIColor colorWithRed:0.761f green:0.949f blue:0.741f alpha:1.000f],
@@ -342,16 +341,17 @@ exports[`integration > ios objective-c > ios/color.m should match snapshot 1`] =
 [UIColor colorWithRed:0.580f green:0.298f blue:0.047f alpha:1.000f],
 [UIColor colorWithRed:0.329f green:0.165f blue:0.000f alpha:1.000f],
 [UIColor colorWithRed:0.176f green:0.102f blue:0.020f alpha:1.000f],
-[UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f],
-[UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f],
-[UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
-[UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
 [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
 [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
-[UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
-[UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f],
-[UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f],
-[UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f]
+[UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f],
+[UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f],
+[UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f],
+[UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
+[UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f],
+[UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f],
+[UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f],
+[UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f],
+[UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f]
     ];
   });
 
@@ -375,17 +375,25 @@ exports[`integration > ios objective-c > ios/macros.h should match snapshot 1`] 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define ColorBackgroundPrimary [UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f]
-#define ColorBackgroundSecondary [UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f]
-#define ColorBackgroundTertiary [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f]
-#define ColorBackgroundDanger [UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f]
-#define ColorBackgroundWarning [UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f]
-#define ColorBackgroundSuccess [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f]
-#define ColorBackgroundInfo [UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f]
-#define ColorBackgroundDisabled [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f]
-#define ColorBorderPrimary [UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f]
-#define ColorBrandPrimary [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
-#define ColorBrandSecondary [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f]
+#define SizePaddingSmall 8.00f
+#define SizePaddingMedium 16.00f
+#define SizePaddingLarge 16.00f
+#define SizePaddingXl 16.00f
+#define SizeFontSmall 12.00f
+#define SizeFontMedium 16.00f
+#define SizeFontLarge 24.00f
+#define SizeFontXl 36.00f
+#define SizeBorderRadiusLarge 480.00f
+#define ColorFontPrimary [UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f]
+#define ColorFontSecondary [UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f]
+#define ColorFontTertiary [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f]
+#define ColorFontInteractive [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
+#define ColorFontInteractiveHover [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
+#define ColorFontInteractiveActive [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f]
+#define ColorFontInteractiveDisabled [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f]
+#define ColorFontDanger [UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f]
+#define ColorFontWarning [UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f]
+#define ColorFontSuccess [UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f]
 #define ColorCoreGreen0 [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f]
 #define ColorCoreGreen100 [UIColor colorWithRed:0.843f green:0.957f blue:0.843f alpha:1.000f]
 #define ColorCoreGreen200 [UIColor colorWithRed:0.761f green:0.949f blue:0.741f alpha:1.000f]
@@ -518,25 +526,17 @@ exports[`integration > ios objective-c > ios/macros.h should match snapshot 1`] 
 #define ColorCoreYellow900 [UIColor colorWithRed:0.580f green:0.298f blue:0.047f alpha:1.000f]
 #define ColorCoreYellow1000 [UIColor colorWithRed:0.329f green:0.165f blue:0.000f alpha:1.000f]
 #define ColorCoreYellow1100 [UIColor colorWithRed:0.176f green:0.102f blue:0.020f alpha:1.000f]
-#define ColorFontPrimary [UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f]
-#define ColorFontSecondary [UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f]
-#define ColorFontTertiary [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f]
-#define ColorFontInteractive [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
-#define ColorFontInteractiveHover [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
-#define ColorFontInteractiveActive [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f]
-#define ColorFontInteractiveDisabled [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f]
-#define ColorFontDanger [UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f]
-#define ColorFontWarning [UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f]
-#define ColorFontSuccess [UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f]
-#define SizeBorderRadiusLarge 480.00f
-#define SizeFontSmall 12.00f
-#define SizeFontMedium 16.00f
-#define SizeFontLarge 24.00f
-#define SizeFontXl 36.00f
-#define SizePaddingSmall 8.00f
-#define SizePaddingMedium 16.00f
-#define SizePaddingLarge 16.00f
-#define SizePaddingXl 16.00f
+#define ColorBrandPrimary [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f]
+#define ColorBrandSecondary [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f]
+#define ColorBorderPrimary [UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f]
+#define ColorBackgroundPrimary [UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f]
+#define ColorBackgroundSecondary [UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f]
+#define ColorBackgroundTertiary [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f]
+#define ColorBackgroundDanger [UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f]
+#define ColorBackgroundWarning [UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f]
+#define ColorBackgroundSuccess [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f]
+#define ColorBackgroundInfo [UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f]
+#define ColorBackgroundDisabled [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f]
 
 "
 `;
@@ -592,92 +592,157 @@ exports[`integration > ios objective-c > ios/singleton.m should match snapshot 1
 
   dispatch_once(&onceToken, ^{
     dictionary = @{
-  @\\"color\\": @{
-    @\\"background\\": @{
-      @\\"primary\\": @{
-        @\\"value\\": [UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundPrimary\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"primary\\"
+  @\\"size\\": @{
+    @\\"padding\\": @{
+      @\\"small\\": @{
+        @\\"value\\": @8.00f,
+        @\\"name\\": @\\"SizePaddingSmall\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"padding\\",
+        @\\"item\\": @\\"small\\"
         },
-      @\\"secondary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundSecondary\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"secondary\\"
+      @\\"medium\\": @{
+        @\\"value\\": @16.00f,
+        @\\"name\\": @\\"SizePaddingMedium\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"padding\\",
+        @\\"item\\": @\\"medium\\"
         },
-      @\\"tertiary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundTertiary\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"tertiary\\"
+      @\\"large\\": @{
+        @\\"value\\": @16.00f,
+        @\\"name\\": @\\"SizePaddingLarge\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"padding\\",
+        @\\"item\\": @\\"large\\"
         },
-      @\\"danger\\": @{
-        @\\"value\\": [UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundDanger\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"danger\\"
+      @\\"xl\\": @{
+        @\\"value\\": @16.00f,
+        @\\"name\\": @\\"SizePaddingXl\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"padding\\",
+        @\\"item\\": @\\"xl\\"
+        }
+      },
+    @\\"font\\": @{
+      @\\"small\\": @{
+        @\\"value\\": @12.00f,
+        @\\"name\\": @\\"SizeFontSmall\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"small\\"
         },
-      @\\"warning\\": @{
-        @\\"value\\": [UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundWarning\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"warning\\"
+      @\\"medium\\": @{
+        @\\"value\\": @16.00f,
+        @\\"name\\": @\\"SizeFontMedium\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"medium\\"
         },
-      @\\"success\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundSuccess\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"success\\"
+      @\\"large\\": @{
+        @\\"value\\": @24.00f,
+        @\\"name\\": @\\"SizeFontLarge\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"large\\"
         },
-      @\\"info\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundInfo\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"info\\"
-        },
-      @\\"disabled\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
-        @\\"name\\": @\\"ColorBackgroundDisabled\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"background\\",
-        @\\"item\\": @\\"disabled\\"
+      @\\"xl\\": @{
+        @\\"value\\": @36.00f,
+        @\\"name\\": @\\"SizeFontXl\\",
+        @\\"category\\": @\\"size\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"xl\\"
         }
       },
     @\\"border\\": @{
-      @\\"primary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f],
-        @\\"name\\": @\\"ColorBorderPrimary\\",
-        @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"border\\",
-        @\\"item\\": @\\"primary\\"
-        },
-      @\\"secondary\\": @
-        },
-      @\\"tertiary\\": @
+      @\\"radius\\": @{
+        @\\"large\\": @{
+          @\\"value\\": @480.00f,
+          @\\"name\\": @\\"SizeBorderRadiusLarge\\",
+          @\\"category\\": @\\"size\\",
+          @\\"type\\": @\\"border\\",
+          @\\"item\\": @\\"radius\\",
+          @\\"subitem\\": @\\"large\\"
+          }
         }
-      },
-    @\\"brand\\": @{
+      }
+    },
+  @\\"color\\": @{
+    @\\"font\\": @{
       @\\"primary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
-        @\\"name\\": @\\"ColorBrandPrimary\\",
+        @\\"value\\": [UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontPrimary\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"brand\\",
+        @\\"type\\": @\\"font\\",
         @\\"item\\": @\\"primary\\"
         },
       @\\"secondary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
-        @\\"name\\": @\\"ColorBrandSecondary\\",
+        @\\"value\\": [UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontSecondary\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"brand\\",
+        @\\"type\\": @\\"font\\",
         @\\"item\\": @\\"secondary\\"
+        },
+      @\\"tertiary\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontTertiary\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"tertiary\\"
+        },
+      @\\"interactive\\": @{
+        @\\"_\\": @{
+          @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
+          @\\"name\\": @\\"ColorFontInteractive\\",
+          @\\"category\\": @\\"color\\",
+          @\\"type\\": @\\"font\\",
+          @\\"item\\": @\\"interactive\\",
+          @\\"subitem\\": @\\"_\\"
+          },
+        @\\"hover\\": @{
+          @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
+          @\\"name\\": @\\"ColorFontInteractiveHover\\",
+          @\\"category\\": @\\"color\\",
+          @\\"type\\": @\\"font\\",
+          @\\"item\\": @\\"interactive\\",
+          @\\"subitem\\": @\\"hover\\"
+          },
+        @\\"active\\": @{
+          @\\"value\\": [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
+          @\\"name\\": @\\"ColorFontInteractiveActive\\",
+          @\\"category\\": @\\"color\\",
+          @\\"type\\": @\\"font\\",
+          @\\"item\\": @\\"interactive\\",
+          @\\"subitem\\": @\\"active\\"
+          },
+        @\\"disabled\\": @{
+          @\\"value\\": [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
+          @\\"name\\": @\\"ColorFontInteractiveDisabled\\",
+          @\\"category\\": @\\"color\\",
+          @\\"type\\": @\\"font\\",
+          @\\"item\\": @\\"interactive\\",
+          @\\"subitem\\": @\\"disabled\\"
+          }
+        },
+      @\\"danger\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontDanger\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"danger\\"
+        },
+      @\\"warning\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontWarning\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"warning\\"
+        },
+      @\\"success\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f],
+        @\\"name\\": @\\"ColorFontSuccess\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"font\\",
+        @\\"item\\": @\\"success\\"
         }
       },
     @\\"core\\": @{
@@ -1760,156 +1825,91 @@ exports[`integration > ios objective-c > ios/singleton.m should match snapshot 1
           }
         }
       },
-    @\\"font\\": @{
+    @\\"brand\\": @{
       @\\"primary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.016f green:0.016f blue:0.016f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontPrimary\\",
+        @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
+        @\\"name\\": @\\"ColorBrandPrimary\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"brand\\",
         @\\"item\\": @\\"primary\\"
         },
       @\\"secondary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.153f green:0.200f blue:0.200f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontSecondary\\",
+        @\\"value\\": [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
+        @\\"name\\": @\\"ColorBrandSecondary\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"brand\\",
+        @\\"item\\": @\\"secondary\\"
+        }
+      },
+    @\\"border\\": @{
+      @\\"primary\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.784f green:0.800f blue:0.800f alpha:1.000f],
+        @\\"name\\": @\\"ColorBorderPrimary\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"border\\",
+        @\\"item\\": @\\"primary\\"
+        },
+      @\\"secondary\\": @
+        },
+      @\\"tertiary\\": @
+        }
+      },
+    @\\"background\\": @{
+      @\\"primary\\": @{
+        @\\"value\\": [UIColor colorWithRed:1.000f green:1.000f blue:1.000f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundPrimary\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"background\\",
+        @\\"item\\": @\\"primary\\"
+        },
+      @\\"secondary\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.953f green:0.957f blue:0.957f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundSecondary\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"background\\",
         @\\"item\\": @\\"secondary\\"
         },
       @\\"tertiary\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontTertiary\\",
+        @\\"value\\": [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundTertiary\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"background\\",
         @\\"item\\": @\\"tertiary\\"
         },
-      @\\"interactive\\": @{
-        @\\"_\\": @{
-          @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
-          @\\"name\\": @\\"ColorFontInteractive\\",
-          @\\"category\\": @\\"color\\",
-          @\\"type\\": @\\"font\\",
-          @\\"item\\": @\\"interactive\\",
-          @\\"subitem\\": @\\"_\\"
-          },
-        @\\"hover\\": @{
-          @\\"value\\": [UIColor colorWithRed:0.043f green:0.522f blue:0.600f alpha:1.000f],
-          @\\"name\\": @\\"ColorFontInteractiveHover\\",
-          @\\"category\\": @\\"color\\",
-          @\\"type\\": @\\"font\\",
-          @\\"item\\": @\\"interactive\\",
-          @\\"subitem\\": @\\"hover\\"
-          },
-        @\\"active\\": @{
-          @\\"value\\": [UIColor colorWithRed:0.435f green:0.369f blue:0.827f alpha:1.000f],
-          @\\"name\\": @\\"ColorFontInteractiveActive\\",
-          @\\"category\\": @\\"color\\",
-          @\\"type\\": @\\"font\\",
-          @\\"item\\": @\\"interactive\\",
-          @\\"subitem\\": @\\"active\\"
-          },
-        @\\"disabled\\": @{
-          @\\"value\\": [UIColor colorWithRed:0.212f green:0.255f blue:0.255f alpha:1.000f],
-          @\\"name\\": @\\"ColorFontInteractiveDisabled\\",
-          @\\"category\\": @\\"color\\",
-          @\\"type\\": @\\"font\\",
-          @\\"item\\": @\\"interactive\\",
-          @\\"subitem\\": @\\"disabled\\"
-          }
-        },
       @\\"danger\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.427f green:0.075f blue:0.075f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontDanger\\",
+        @\\"value\\": [UIColor colorWithRed:1.000f green:0.918f blue:0.914f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundDanger\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"background\\",
         @\\"item\\": @\\"danger\\"
         },
       @\\"warning\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.376f green:0.090f blue:0.000f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontWarning\\",
+        @\\"value\\": [UIColor colorWithRed:1.000f green:0.929f blue:0.890f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundWarning\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"background\\",
         @\\"item\\": @\\"warning\\"
         },
       @\\"success\\": @{
-        @\\"value\\": [UIColor colorWithRed:0.031f green:0.259f blue:0.184f alpha:1.000f],
-        @\\"name\\": @\\"ColorFontSuccess\\",
+        @\\"value\\": [UIColor colorWithRed:0.922f green:0.976f blue:0.922f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundSuccess\\",
         @\\"category\\": @\\"color\\",
-        @\\"type\\": @\\"font\\",
+        @\\"type\\": @\\"background\\",
         @\\"item\\": @\\"success\\"
-        }
-      }
-    },
-  @\\"size\\": @{
-    @\\"border\\": @{
-      @\\"radius\\": @{
-        @\\"large\\": @{
-          @\\"value\\": @480.00f,
-          @\\"name\\": @\\"SizeBorderRadiusLarge\\",
-          @\\"category\\": @\\"size\\",
-          @\\"type\\": @\\"border\\",
-          @\\"item\\": @\\"radius\\",
-          @\\"subitem\\": @\\"large\\"
-          }
-        }
-      },
-    @\\"font\\": @{
-      @\\"small\\": @{
-        @\\"value\\": @12.00f,
-        @\\"name\\": @\\"SizeFontSmall\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"font\\",
-        @\\"item\\": @\\"small\\"
         },
-      @\\"medium\\": @{
-        @\\"value\\": @16.00f,
-        @\\"name\\": @\\"SizeFontMedium\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"font\\",
-        @\\"item\\": @\\"medium\\"
+      @\\"info\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.914f green:0.973f blue:1.000f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundInfo\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"background\\",
+        @\\"item\\": @\\"info\\"
         },
-      @\\"large\\": @{
-        @\\"value\\": @24.00f,
-        @\\"name\\": @\\"SizeFontLarge\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"font\\",
-        @\\"item\\": @\\"large\\"
-        },
-      @\\"xl\\": @{
-        @\\"value\\": @36.00f,
-        @\\"name\\": @\\"SizeFontXl\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"font\\",
-        @\\"item\\": @\\"xl\\"
-        }
-      },
-    @\\"padding\\": @{
-      @\\"small\\": @{
-        @\\"value\\": @8.00f,
-        @\\"name\\": @\\"SizePaddingSmall\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"padding\\",
-        @\\"item\\": @\\"small\\"
-        },
-      @\\"medium\\": @{
-        @\\"value\\": @16.00f,
-        @\\"name\\": @\\"SizePaddingMedium\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"padding\\",
-        @\\"item\\": @\\"medium\\"
-        },
-      @\\"large\\": @{
-        @\\"value\\": @16.00f,
-        @\\"name\\": @\\"SizePaddingLarge\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"padding\\",
-        @\\"item\\": @\\"large\\"
-        },
-      @\\"xl\\": @{
-        @\\"value\\": @16.00f,
-        @\\"name\\": @\\"SizePaddingXl\\",
-        @\\"category\\": @\\"size\\",
-        @\\"type\\": @\\"padding\\",
-        @\\"item\\": @\\"xl\\"
+      @\\"disabled\\": @{
+        @\\"value\\": [UIColor colorWithRed:0.871f green:0.882f blue:0.882f alpha:1.000f],
+        @\\"name\\": @\\"ColorBackgroundDisabled\\",
+        @\\"category\\": @\\"color\\",
+        @\\"type\\": @\\"background\\",
+        @\\"item\\": @\\"disabled\\"
         }
       }
     }
@@ -1937,15 +1937,15 @@ exports[`integration > ios objective-c > ios/static.h should match snapshot 1`] 
 #import <Foundation/Foundation.h>
 
 
-extern CGFloat const SizeBorderRadiusLarge;
-extern CGFloat const SizeFontSmall;
-extern CGFloat const SizeFontMedium;
-extern CGFloat const SizeFontLarge;
-extern CGFloat const SizeFontXl;
 extern CGFloat const SizePaddingSmall;
 extern CGFloat const SizePaddingMedium;
 extern CGFloat const SizePaddingLarge;
 extern CGFloat const SizePaddingXl;
+extern CGFloat const SizeFontSmall;
+extern CGFloat const SizeFontMedium;
+extern CGFloat const SizeFontLarge;
+extern CGFloat const SizeFontXl;
+extern CGFloat const SizeBorderRadiusLarge;
 "
 `;
 
@@ -1962,14 +1962,14 @@ exports[`integration > ios objective-c > ios/static.m should match snapshot 1`] 
 #import \\"StyleDictionaryStatic.h\\"
 
 
-CGFloat const SizeBorderRadiusLarge = 480.00f;
-CGFloat const SizeFontSmall = 12.00f;
-CGFloat const SizeFontMedium = 16.00f;
-CGFloat const SizeFontLarge = 24.00f;
-CGFloat const SizeFontXl = 36.00f;
 CGFloat const SizePaddingSmall = 8.00f;
 CGFloat const SizePaddingMedium = 16.00f;
 CGFloat const SizePaddingLarge = 16.00f;
 CGFloat const SizePaddingXl = 16.00f;
+CGFloat const SizeFontSmall = 12.00f;
+CGFloat const SizeFontMedium = 16.00f;
+CGFloat const SizeFontLarge = 24.00f;
+CGFloat const SizeFontXl = 36.00f;
+CGFloat const SizeBorderRadiusLarge = 480.00f;
 "
 `;

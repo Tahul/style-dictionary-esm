@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import fs from 'fs'
+import fs from 'node:fs'
 import { dirname, resolve } from 'pathe'
 import _template from 'lodash.template'
 import { resolveTemplate } from '../resolveTemplate'

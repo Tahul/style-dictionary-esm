@@ -11,9 +11,9 @@
  * and limitations under the License.
  */
 
-import fs from 'fs'
+import fs from 'node:fs'
 import * as path from 'pathe'
-import glob from 'glob'
+import glob from 'fast-glob'
 import resolveFileContent from '../resolveFileContent'
 import deepExtend from './deepExtend'
 
@@ -43,7 +43,7 @@ function combineJSON(arr, deep, collision, source, parsers = []) {
   const to_ret = {}
 
   for (i = 0; i < arr.length; i++) {
-    const new_files = glob.sync(arr[i], {})
+    const new_files = glob.sync(arr[i], {}).reverse()
     files = files.concat(new_files)
   }
 

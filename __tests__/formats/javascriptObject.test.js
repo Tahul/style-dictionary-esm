@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import vm from 'vm'
+import vm from 'node:vm'
 import formats from '../../src/common/formats'
 import createDictionary from '../../src/utils/createDictionary'
 import createFormatArgs from '../../src/utils/createFormatArgs'

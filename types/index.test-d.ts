@@ -96,7 +96,7 @@ expectType<StyleDictionary.Core>(
     },
     transformer(token) {
       expectType<StyleDictionary.TransformedToken>(token)
-      return `${(parseInt(token.original.value) / 1000).toString()}s`
+      return `${(Number.parseInt(token.original.value) / 1000).toString()}s`
     },
   })
 )

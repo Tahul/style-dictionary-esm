@@ -12,6 +12,7 @@
  */
 
 import StyleDictionary from '../../src/index'
+
 const StyleDictionaryExtended = StyleDictionary.extend({})
 
 describe('register', () => {
