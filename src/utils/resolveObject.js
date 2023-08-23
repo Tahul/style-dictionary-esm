@@ -33,11 +33,11 @@ function resolveObject(object, opts) {
 
   updated_object = _.cloneDeep(object) // This object will be edited
 
-  regex = createReferenceRegex(options)
+  regex = createReferenceRegex(options?.referencesOptions || {})
 
   if (typeof object === 'object') {
     current_context = []
-    return traverseObj(updated_object)
+    return traverseObj(updated_object, options?.referencesOptions?.openingChar)
   }
   else {
     throw new TypeError('Please pass an object in')
@@ -59,7 +59,7 @@ function traverseObj(obj, tokenDelimiter = '{') {
 
     current_context.push(key)
     if (typeof obj[key] === 'object') {
-      traverseObj(obj[key], options?.referencesOptions?.delimiter)
+      traverseObj(obj[key], tokenDelimiter)
     }
     else {
       if (typeof obj[key] === 'string' && obj[key].includes(tokenDelimiter))
