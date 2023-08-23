@@ -26,7 +26,7 @@ export interface Platform {
   silent?: boolean;
   done?: (result: FileDoneCallbackResult) => void
   options?: Options;
-  references?: {
+  referencesOptions?: {
     openingChar?: string
     closingChar?: string
     separator?: string
