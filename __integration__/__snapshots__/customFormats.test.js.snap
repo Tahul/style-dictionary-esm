@@ -772,6 +772,7 @@ exports[`integration > custom formats > inline custom with new args > should mat
     },
     \\"destination\\": \\"inlineCustomFormatWithNewArgs.json\\"
   },
+  \\"regexOptions\\": {},
   \\"options\\": {
     \\"otherOption\\": \\"Test\\",
     \\"showFileHeader\\": true
@@ -1552,6 +1553,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
       },
       \\"destination\\": \\"inlineCustomFormatWithOldArgs.json\\"
     },
+    \\"regexOptions\\": {},
     \\"options\\": {
       \\"otherOption\\": \\"Test\\",
       \\"showFileHeader\\": true
@@ -2377,6 +2379,7 @@ exports[`integration > custom formats > register custom format with new args > s
     },
     \\"destination\\": \\"registerCustomFormatWithNewArgs.json\\"
   },
+  \\"regexOptions\\": {},
   \\"options\\": {
     \\"otherOption\\": \\"Test\\",
     \\"showFileHeader\\": true
@@ -3157,6 +3160,7 @@ exports[`integration > custom formats > register custom format with old args > s
       },
       \\"destination\\": \\"registerCustomFormatWithOldArgs.json\\"
     },
+    \\"regexOptions\\": {},
     \\"options\\": {
       \\"otherOption\\": \\"Test\\",
       \\"showFileHeader\\": true
