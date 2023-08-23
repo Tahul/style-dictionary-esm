@@ -15,8 +15,6 @@ function resolveReference(path, obj) {
   let i
   let ref = obj
 
-  console.log({ path, obj })
-
   if (!Array.isArray(path))
     return
 
