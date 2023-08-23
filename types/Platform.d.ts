@@ -30,6 +30,6 @@ export interface Platform {
     opening_character?: string
     closing_character?: string
     separator?: string
-    regex?: undefined,
+    regex?: RegExp,
   }
 }
