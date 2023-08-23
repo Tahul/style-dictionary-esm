@@ -50,9 +50,14 @@ function getReferences(value, references = []) {
     if (!ref) {
       // fall back on _properties as it is unfiltered
       ref = resolveReference(pathName, self._properties)
+
       // and warn the user about this
       GroupMessages.add(GroupMessages.GROUP.FilteredOutputReferences, variable)
     }
+
+    if (typeof ref === 'object')
+      ref.match = match
+
     references.push(ref)
   }
 

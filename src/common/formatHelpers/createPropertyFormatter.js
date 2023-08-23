@@ -17,6 +17,18 @@ const defaultFormatting = {
   indentation: '',
   separator: ' =',
   suffix: ';',
+  referenceKey: 'name',
+  replaceFormat: ({ referenceKey, format, outputReferenceFallbacks, prefix, ref }) => {
+    if (format === 'css') {
+      if (outputReferenceFallbacks)
+        return `var(${prefix}${ref?.[referenceKey] || ref.name}, ${ref.value})`
+      else
+        return `var(${prefix}${ref?.[referenceKey] || ref.name})`
+    }
+    else {
+      return `${prefix}${ref?.[referenceKey] || ref.name}`
+    }
+  },
 }
 
 /**
@@ -57,7 +69,7 @@ function createPropertyFormatter({
   formatting = {},
   themeable = false,
 }) {
-  let { prefix, commentStyle, indentation, separator, suffix } = Object.assign({}, defaultFormatting, formatting)
+  let { prefix, commentStyle, indentation, separator, suffix, referenceKey, replaceFormat } = Object.assign({}, defaultFormatting, formatting)
 
   switch (format) {
     case 'css':
@@ -87,7 +99,7 @@ function createPropertyFormatter({
 
   return function (prop) {
     let to_ret_prop = `${indentation}${prefix}${prop.name}${separator} `
-    let value = prop.value
+    const value = prop.value
 
     /**
      * A single value can have multiple references either by interpolation:
@@ -112,19 +124,22 @@ function createPropertyFormatter({
           // Here we are undoing that by replacing the value with
           // the reference's name
           if (ref.value && ref.name) {
-            // Support media tokens output
-            const media = prop.attributes?.media
-            value = value.replace(ref.value?.[media] || ref.value, () => {
-              if (format === 'css') {
-                if (outputReferenceFallbacks)
-                  return `var(${prefix}${ref.name}, ${ref.value})`
-                else
-                  return `var(${prefix}${ref.name})`
-              }
-              else {
-                return `${prefix}${ref.name}`
-              }
-            })
+            // Local replacer mapped to formatter context
+            // Handle other value formats
+            if (Array.isArray(value)) {
+              return value.map(_value => _value.replace(ref.match, () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })))
+            }
+            else if (typeof value === 'object') {
+              return Object.entries(value).reduce((acc, [key, _value]) => {
+                acc[key] = _value.replace(ref.match, () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref }))
+                return acc
+              }, {})
+            }
+
+            return value.replace(
+              ref.match,
+              () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })
+            )
           }
         })
       }

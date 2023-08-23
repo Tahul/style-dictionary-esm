@@ -59,7 +59,7 @@ describe('utils', () => {
       it('should work with a single reference', () => {
         expect(dictionary.getReferences(properties.color.danger.value)).toEqual(
           expect.arrayContaining([
-            { value: '#f00' },
+            { value: '#f00', match: '{color.red.value}' },
           ])
         )
       })
@@ -67,8 +67,8 @@ describe('utils', () => {
       it('should work with object values', () => {
         expect(dictionary.getReferences(properties.border.primary.value)).toEqual(
           expect.arrayContaining([
-            { value: '2px' },
-            { value: '#f00' },
+            { value: '2px', match: '{size.border.value}' },
+            { value: '#f00', match: '{color.red.value}' },
           ])
         )
       })
@@ -76,7 +76,7 @@ describe('utils', () => {
       it('should work with objects that have numbers', () => {
         expect(dictionary.getReferences(properties.border.secondary.value)).toEqual(
           expect.arrayContaining([
-            { value: '#f00' },
+            { value: '#f00', match: '{color.red.value}' },
           ])
         )
       })
@@ -84,8 +84,8 @@ describe('utils', () => {
       it('should work with interpolated values', () => {
         expect(dictionary.getReferences(properties.border.tertiary.value)).toEqual(
           expect.arrayContaining([
-            { value: '2px' },
-            { value: '#f00' },
+            { value: '2px', match: '{size.border.value}' },
+            { value: '#f00', match: '{color.red.value}' },
           ])
         )
       })
@@ -127,8 +127,8 @@ describe('utils', () => {
 
         expect(dictionary.getReferences(properties.border.tertiary.value)).toEqual(
           expect.arrayContaining([
-            { value: '2px' },
-            { value: '#f00' },
+            { value: '2px', match: '$size.border.value' },
+            { value: '#f00', match: '$color.red.value' },
           ])
         )
       })

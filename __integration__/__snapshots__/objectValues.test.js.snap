@@ -19,7 +19,7 @@ exports[`integration > object values > css/variables > border > with references 
  */
 
 :root {
-  --border-primary: var(--size-border) solid var(--color-red);
+  --border-primary: 0.125rem solid #ff0000;
 }
 "
 `;
@@ -96,8 +96,8 @@ exports[`integration > object values > css/variables > shadow > should match sna
  */
 
 :root {
-  --shadow-light: var(--color-red), var(--color-green);
-  --shadow-dark: var(--color-green), var(--color-red);
+  --shadow-light: #ff0000, #40bf40;
+  --shadow-dark: #40bf40, #ff0000;
 }
 "
 `;
@@ -115,5 +115,5 @@ exports[`integration > object values > scss/variables > with references > should
 // Do not edit directly
 // Generated on Sat, 01 Jan 2000 00:00:00 GMT
 
-$border-primary: $size-border solid $color-red;"
+$border-primary: 0.125rem solid #ff0000;"
 `;
