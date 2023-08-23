@@ -98,7 +98,7 @@ function exportPlatform(platform) {
 
     // referenced values, that have not (yet) been transformed should be excluded from resolving
     const ignorePathsToResolve = deferredPropValueTransforms.map(p => getName([p, 'value']))
-    exportableResult = resolveObject(transformed, { ignorePaths: ignorePathsToResolve })
+    exportableResult = resolveObject(transformed, { ignorePaths: ignorePathsToResolve, regexOptions: platformConfig.references })
 
     const newDeferredPropCount = deferredPropValueTransforms.length
 
