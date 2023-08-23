@@ -99,7 +99,7 @@ function createPropertyFormatter({
 
   return function (prop) {
     let to_ret_prop = `${indentation}${prefix}${prop.name}${separator} `
-    const value = prop.value
+    let value = prop.value
 
     /**
      * A single value can have multiple references either by interpolation:
@@ -124,20 +124,9 @@ function createPropertyFormatter({
           // Here we are undoing that by replacing the value with
           // the reference's name
           if (ref.value && ref.name) {
-            // Local replacer mapped to formatter context
-            // Handle other value formats
-            if (Array.isArray(value)) {
-              return value.map(_value => _value.replace(ref.match, () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })))
-            }
-            else if (typeof value === 'object') {
-              return Object.entries(value).reduce((acc, [key, _value]) => {
-                acc[key] = _value.replace(ref.match, () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref }))
-                return acc
-              }, {})
-            }
-
-            return value.replace(
-              ref.match,
+            const media = prop.attributes?.media
+            value = value.replace(
+              ref.value?.[media] || ref.value,
               () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })
             )
           }

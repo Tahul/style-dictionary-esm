@@ -17,19 +17,19 @@ import createReferencesRegex from './createReferenceRegex'
  * Checks if the value uses a value reference.
  * @memberof Dictionary
  * @param {string} value
- * @param {Object|RegExp} regexOrOptions
+ * @param {Object|RegExp} referencesOptionsOrRegex
  * @returns {boolean} - True, if the value uses a value reference
  */
-function usesReference(value, regexOrOptions = {}) {
+function usesReference(value, referencesOptionsOrRegex = {}) {
   // eslint-disable-next-line @typescript-eslint/no-this-alias
   const self = this
 
   // `this` is the dictionary object passed to formats and actions
-  const regex = regexOrOptions instanceof RegExp
-    ? regexOrOptions
+  const regex = referencesOptionsOrRegex instanceof RegExp
+    ? referencesOptionsOrRegex
     : createReferencesRegex({
-      ...(regexOrOptions || {}),
-      ...(self?.regexOptions || {}),
+      ...(referencesOptionsOrRegex || {}),
+      ...(self?.referencesOptions || {}),
     })
 
   if (typeof value === 'string')
@@ -43,7 +43,7 @@ function usesReference(value, regexOrOptions = {}) {
     for (const key in value) {
       if (value.hasOwnProperty(key)) {
         const element = value[key]
-        const reference = usesReference(element, regexOrOptions)
+        const reference = usesReference(element, referencesOptionsOrRegex)
         if (reference) {
           hasReference = true
           break

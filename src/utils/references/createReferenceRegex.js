@@ -18,12 +18,12 @@ function createReferenceRegex(opts = {}) {
 
   return options?.regex || new RegExp(
     `\\${
-    options.opening_character
+    options.openingChar
     }([^${
-    options.closing_character
+    options.closingChar
     }]+)`
     + `\\${
-    options.closing_character}`, 'g'
+    options.closingChar}`, 'g'
   )
 }
 

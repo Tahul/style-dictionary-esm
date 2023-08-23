@@ -44,7 +44,7 @@ function resolveObject(object, opts) {
   }
 }
 
-function traverseObj(obj) {
+function traverseObj(obj, tokenDelimiter = '{') {
   let key
 
   for (key in obj) {
@@ -59,10 +59,10 @@ function traverseObj(obj) {
 
     current_context.push(key)
     if (typeof obj[key] === 'object') {
-      traverseObj(obj[key])
+      traverseObj(obj[key], options?.referencesOptions?.delimiter)
     }
     else {
-      if (typeof obj[key] === 'string' && obj[key].includes('{'))
+      if (typeof obj[key] === 'string' && obj[key].includes(tokenDelimiter))
         obj[key] = compile_value(obj[key], [getName(current_context)])
     }
     current_context.pop()

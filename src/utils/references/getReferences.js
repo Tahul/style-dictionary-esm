@@ -36,7 +36,7 @@ function getReferences(value, references = []) {
   const self = this
 
   // `this` is the dictionary object passed to formats and actions
-  const regex = createReferenceRegex(self.regexOptions || {})
+  const regex = createReferenceRegex(self.referencesOptions || {})
 
   // this will update the references array with the referenced tokens it finds.
   function findReference(match, variable) {

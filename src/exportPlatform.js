@@ -98,7 +98,7 @@ function exportPlatform(platform) {
 
     // referenced values, that have not (yet) been transformed should be excluded from resolving
     const ignorePathsToResolve = deferredPropValueTransforms.map(p => getName([p, 'value']))
-    exportableResult = resolveObject(transformed, { ignorePaths: ignorePathsToResolve, regexOptions: platformConfig.references })
+    exportableResult = resolveObject(transformed, { ignorePaths: ignorePathsToResolve, referencesOptions: platformConfig.referencesOptions })
 
     const newDeferredPropCount = deferredPropValueTransforms.length
 
@@ -112,7 +112,7 @@ function exportPlatform(platform) {
       // if we didn't resolve any deferred references then we have a circular reference
       // the resolveObject method will find the circular references
       // we do this in case there are multiple circular references
-      resolveObject(transformed)
+      resolveObject(transformed, { referencesOptions: platformConfig.referencesOptions })
       finished = true
     }
     else {

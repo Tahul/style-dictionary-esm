@@ -34,11 +34,11 @@ import usesReference from './references/usesReference'
  */
 function createDictionary(
   { properties },
-  regexOptions = {}
+  referencesOptions = {}
 ) {
   const allProperties = flattenProperties(properties)
   return {
-    regexOptions,
+    referencesOptions,
     properties,
     allProperties,
     // adding tokens and allTokens as the new way starting in v3,

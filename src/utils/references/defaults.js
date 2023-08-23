@@ -12,8 +12,8 @@
  */
 
 const defaults = {
-  opening_character: '{',
-  closing_character: '}',
+  openingChar: '{',
+  closingChar: '}',
   separator: '.',
   regex: undefined,
 }

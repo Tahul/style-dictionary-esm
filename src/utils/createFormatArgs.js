@@ -14,7 +14,7 @@
 import deepExtend from './deepExtend'
 
 function createFormatArgs({ dictionary, platform, file = {} }) {
-  const { allProperties, properties, allTokens, tokens, usesReference, getReferences, regexOptions } = dictionary
+  const { allProperties, properties, allTokens, tokens, usesReference, getReferences, referencesOptions } = dictionary
   // This will merge platform and file-level configuration
   // where the file configuration takes precedence
   const { options } = platform
@@ -32,7 +32,7 @@ function createFormatArgs({ dictionary, platform, file = {} }) {
     tokens,
     platform,
     file,
-    regexOptions,
+    referencesOptions,
     options: file.options || {},
   }
 }

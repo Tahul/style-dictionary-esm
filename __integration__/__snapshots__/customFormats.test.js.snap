@@ -3,7 +3,7 @@
 exports[`integration > custom formats > inline custom with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
-    \\"regexOptions\\": {},
+    \\"referencesOptions\\": {},
     \\"properties\\": {
       \\"size\\": {
         \\"padding\\": {
@@ -772,7 +772,7 @@ exports[`integration > custom formats > inline custom with new args > should mat
     },
     \\"destination\\": \\"inlineCustomFormatWithNewArgs.json\\"
   },
-  \\"regexOptions\\": {},
+  \\"referencesOptions\\": {},
   \\"options\\": {
     \\"otherOption\\": \\"Test\\",
     \\"showFileHeader\\": true
@@ -784,7 +784,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
-      \\"regexOptions\\": {},
+      \\"referencesOptions\\": {},
       \\"properties\\": {
         \\"size\\": {
           \\"padding\\": {
@@ -1553,7 +1553,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
       },
       \\"destination\\": \\"inlineCustomFormatWithOldArgs.json\\"
     },
-    \\"regexOptions\\": {},
+    \\"referencesOptions\\": {},
     \\"options\\": {
       \\"otherOption\\": \\"Test\\",
       \\"showFileHeader\\": true
@@ -1610,7 +1610,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
 exports[`integration > custom formats > register custom format with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
-    \\"regexOptions\\": {},
+    \\"referencesOptions\\": {},
     \\"properties\\": {
       \\"size\\": {
         \\"padding\\": {
@@ -2379,7 +2379,7 @@ exports[`integration > custom formats > register custom format with new args > s
     },
     \\"destination\\": \\"registerCustomFormatWithNewArgs.json\\"
   },
-  \\"regexOptions\\": {},
+  \\"referencesOptions\\": {},
   \\"options\\": {
     \\"otherOption\\": \\"Test\\",
     \\"showFileHeader\\": true
@@ -2391,7 +2391,7 @@ exports[`integration > custom formats > register custom format with old args > s
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
-      \\"regexOptions\\": {},
+      \\"referencesOptions\\": {},
       \\"properties\\": {
         \\"size\\": {
           \\"padding\\": {
@@ -3160,7 +3160,7 @@ exports[`integration > custom formats > register custom format with old args > s
       },
       \\"destination\\": \\"registerCustomFormatWithOldArgs.json\\"
     },
-    \\"regexOptions\\": {},
+    \\"referencesOptions\\": {},
     \\"options\\": {
       \\"otherOption\\": \\"Test\\",
       \\"showFileHeader\\": true

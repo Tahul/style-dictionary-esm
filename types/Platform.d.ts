@@ -27,8 +27,8 @@ export interface Platform {
   done?: (result: FileDoneCallbackResult) => void
   options?: Options;
   references?: {
-    opening_character?: string
-    closing_character?: string
+    openingChar?: string
+    closingChar?: string
     separator?: string
     regex?: RegExp,
   }
