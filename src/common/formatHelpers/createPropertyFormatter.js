@@ -62,25 +62,25 @@ function createPropertyFormatter({
   switch (format) {
     case 'css':
       prefix = '--'
-      indentation = '  '
+      indentation = indentation || '  '
       separator = ':'
       break
     case 'sass':
       prefix = '$'
       commentStyle = 'short'
-      indentation = ''
+      indentation = indentation || ''
       separator = ':'
       break
     case 'less':
       prefix = '@'
       commentStyle = 'short'
-      indentation = ''
+      indentation = indentation || ''
       separator = ':'
       break
     case 'stylus':
       prefix = '$'
       commentStyle = 'short'
-      indentation = ''
+      indentation = indentation || ''
       separator = '='
       break
   }
