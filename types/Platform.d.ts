@@ -26,4 +26,10 @@ export interface Platform {
   silent?: boolean;
   done?: (result: FileDoneCallbackResult) => void
   options?: Options;
+  references?: {
+    opening_character?: string
+    closing_character?: string
+    separator?: string
+    regex?: undefined,
+  }
 }

@@ -14,7 +14,6 @@
 // `.getReferences` is bound to a dictionary object, so to test it we will
 // create a dictionary object and then call `.getReferences` on it.
 import createDictionary from '../../../src/utils/createDictionary'
-import defaults from '../../../src/utils/references/defaults'
 
 const properties = {
   color: {
@@ -92,8 +91,6 @@ describe('utils', () => {
       })
 
       it('should work with custom references regex', () => {
-        defaults.referencesRegex = /\$([a-z0-9][a-z0-9_.]*)\b/gi
-
         const properties = {
           color: {
             red: { value: '#f00' },
@@ -126,7 +123,7 @@ describe('utils', () => {
           },
         }
 
-        const dictionary = createDictionary({ properties })
+        const dictionary = createDictionary({ properties }, { regex: /\$([a-z0-9][a-z0-9_.]*)\b/gi })
 
         expect(dictionary.getReferences(properties.border.tertiary.value)).toEqual(
           expect.arrayContaining([
@@ -134,8 +131,6 @@ describe('utils', () => {
             { value: '#f00' },
           ])
         )
-
-        defaults.referencesRegex = undefined
       })
     })
   })

@@ -61,7 +61,7 @@ function buildPlatform(platform) {
 
   // This is the dictionary object we pass to the file
   // building and action methods.
-  const dictionary = createDictionary({ properties })
+  const dictionary = createDictionary({ properties }, platformConfig?.references || {})
 
   buildFiles(dictionary, platformConfig)
   performActions(dictionary, platformConfig)

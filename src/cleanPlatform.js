@@ -51,7 +51,7 @@ function cleanPlatform(platform) {
 
   // This is the dictionary object we pass to the file
   // cleaning and action methods.
-  const dictionary = createDictionary({ properties })
+  const dictionary = createDictionary({ properties }, platformConfig?.references || {})
 
   // We clean files first, then actions, ...and then directories?
   cleanFiles(dictionary, platformConfig)

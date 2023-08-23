@@ -3,6 +3,7 @@
 exports[`integration > custom formats > inline custom with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
+    \\"regexOptions\\": {},
     \\"properties\\": {
       \\"size\\": {
         \\"padding\\": {
@@ -782,6 +783,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
+      \\"regexOptions\\": {},
       \\"properties\\": {
         \\"size\\": {
           \\"padding\\": {
@@ -1606,6 +1608,7 @@ exports[`integration > custom formats > inline custom with old args > should mat
 exports[`integration > custom formats > register custom format with new args > should match snapshot 1`] = `
 "{
   \\"dictionary\\": {
+    \\"regexOptions\\": {},
     \\"properties\\": {
       \\"size\\": {
         \\"padding\\": {
@@ -2385,6 +2388,7 @@ exports[`integration > custom formats > register custom format with old args > s
 "{
   \\"dictionary\\": {
     \\"dictionary\\": {
+      \\"regexOptions\\": {},
       \\"properties\\": {
         \\"size\\": {
           \\"padding\\": {

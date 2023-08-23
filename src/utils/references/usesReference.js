@@ -11,7 +11,7 @@
  * and limitations under the License.
  */
 
-import createRegex from './createReferenceRegex'
+import createReferencesRegex from './createReferenceRegex'
 
 /**
  * Checks if the value uses a value reference.
@@ -21,7 +21,16 @@ import createRegex from './createReferenceRegex'
  * @returns {boolean} - True, if the value uses a value reference
  */
 function usesReference(value, regexOrOptions = {}) {
-  const regex = regexOrOptions instanceof RegExp ? regexOrOptions : createRegex(regexOrOptions)
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
+  const self = this
+
+  // `this` is the dictionary object passed to formats and actions
+  const regex = regexOrOptions instanceof RegExp
+    ? regexOrOptions
+    : createReferencesRegex({
+      ...(regexOrOptions || {}),
+      ...(self?.regexOptions || {}),
+    })
 
   if (typeof value === 'string')
     return regex.test(value)

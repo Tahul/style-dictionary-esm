@@ -16,7 +16,7 @@ import defaults from './defaults'
 function createReferenceRegex(opts = {}) {
   const options = Object.assign({}, defaults, opts)
 
-  return options?.referencesRegex || new RegExp(
+  return options?.regex || new RegExp(
     `\\${
     options.opening_character
     }([^${

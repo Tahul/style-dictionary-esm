@@ -32,7 +32,6 @@ import cleanPlatform from './cleanPlatform'
 import cleanAllPlatforms from './cleanAllPlatforms'
 import extend from './extend'
 import logger from './logger'
-import defaults from './utils/references/defaults'
 
 /**
  * Style Dictionary module
@@ -77,8 +76,6 @@ const StyleDictionary = {
   cleanPlatform,
   cleanAllPlatforms,
   extend,
-
-  defaults,
 }
 
 export default StyleDictionary

@@ -63,7 +63,7 @@ describe('usesReference()', () => {
 
     it('returns true if value is reference with referencesRegex', () => {
       const customOpts = {
-        referencesRegex: /\$([a-z0-9][a-z0-9_.]*)\b/gi,
+        regex: /\$([a-z0-9][a-z0-9_.]*)\b/gi,
       }
 
       expect(usesReference('$color.primary.100', customOpts)).toBe(true)

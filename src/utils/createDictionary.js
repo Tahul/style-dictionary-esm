@@ -32,9 +32,13 @@ import usesReference from './references/usesReference'
  * @param {Object} args.properties
  * @returns {Dictionary}
  */
-function createDictionary({ properties }) {
+function createDictionary(
+  { properties },
+  regexOptions = {}
+) {
   const allProperties = flattenProperties(properties)
   return {
+    regexOptions,
     properties,
     allProperties,
     // adding tokens and allTokens as the new way starting in v3,
