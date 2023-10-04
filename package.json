@@ -1,7 +1,7 @@
 {
   "name": "style-dictionary-esm",
   "type": "module",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "packageManager": "pnpm@7.9.5",
   "node": ">=14.16",
   "description": "Style once, use everywhere. A build system for creating cross-platform styles.",
@@ -69,7 +69,8 @@
     "test:types": "tsd",
     "test:watch": "pnpm run test:types && pnpm run lint && vitest --segfault-retry=3",
     "test:run": "vitest --segfault-retry=3 --run",
-    "test:ui": "vitest --segfault-retry=3 --ui"
+    "test:ui": "vitest --segfault-retry=3 --ui",
+    "reset:snapshots": "rm -rf __integration__/__snapshots__/*.js.snap && rm -rf __tests__/formats/__snapshots__/*.js.snap"
   },
   "dependencies": {
     "chalk": "^5.3.0",

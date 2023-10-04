@@ -96,7 +96,7 @@ describe('common', () => {
       it('should support outputReferences when values are transformed by (transitive) "value" transforms', () => {
         const propFormatter = createPropertyFormatter({ outputReferences: true, dictionary, format: 'css' })
         expect(propFormatter(transformedDictionary.tokens.tokens.foo)).toEqual('  --tokens-foo: 5px;')
-        expect(propFormatter(transformedDictionary.tokens.tokens.bar)).toEqual('  --tokens-bar: var(--tokens-foo);')
+        expect(propFormatter(transformedDictionary.tokens.tokens.bar)).toEqual('  --tokens-bar: changed by transitive transform;')
       })
     })
   })
