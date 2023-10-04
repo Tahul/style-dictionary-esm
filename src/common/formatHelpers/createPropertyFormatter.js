@@ -118,17 +118,35 @@ function createPropertyFormatter({
       // or else you will get '[object Object]' in the output
       if (typeof value === 'string') {
         const refs = dictionary.getReferences(prop.original.value)
+
+        // original can either be string value or an object value
+        const originalIsString = typeof prop.original.value === 'string'
+
+        // Set the value to the original value with refs first, undoing value-changing transitive transforms
+        if (originalIsString)
+          value = prop.original.value
+
         refs.forEach((ref) => {
           // value should be a string that contains the resolved reference
           // because Style Dictionary resolved this in the resolution step.
           // Here we are undoing that by replacing the value with
           // the reference's name
           if (ref.value && ref.name) {
-            const media = prop.attributes?.media
-            value = value.replace(
-              ref.value?.[media] || ref.value,
-              () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })
-            )
+            const replaceFunc = function () {
+              if (format === 'css') {
+                if (outputReferenceFallbacks)
+                  return `var(${prefix}${ref.name}, ${ref.value})`
+                else
+                  return `var(${prefix}${ref.name})`
+              }
+              else {
+                return `${prefix}${ref.name}`
+              }
+            }
+            // when original is object value, we replace value by matching ref.value and putting a var instead
+            // when original is string value, we replace value by matching original.value and putting a var instead
+            // this is more friendly to transitive transforms that transform the string values
+            value = value.replace(originalIsString ? new RegExp(`{${ref.path.join('.')}(.value)?}`, 'g') : ref.value, replaceFunc)
           }
         })
       }

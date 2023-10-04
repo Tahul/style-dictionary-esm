@@ -25,6 +25,7 @@ import sortByReference from './sortByReference'
 import sortByName from './sortByName'
 import minifyDictionary from './minifyDictionary'
 import setSwiftFileProperties from './setSwiftFileProperties'
+import setComposeObjectProperties from './setComposeObjectProperties'
 
 export {
   createPropertyFormatter,
@@ -36,4 +37,5 @@ export {
   sortByName,
   minifyDictionary,
   setSwiftFileProperties,
+  setComposeObjectProperties,
 }

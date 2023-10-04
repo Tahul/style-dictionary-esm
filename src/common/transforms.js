@@ -410,7 +410,7 @@ export default {
    * Transforms the value into a Color class for Compose
    *
    * ```kotlin
-   * // Matches: prop.attributes.category === 'color'
+   * // Matches: token.attributes.category === 'color'
    * // Returns:
    * Color(0xFF009688)
    * ```
@@ -420,8 +420,8 @@ export default {
   'color/composeColor': {
     type: 'value',
     matcher: isColor,
-    transformer(prop) {
-      const str = Color(prop.value).toHex8()
+    transformer(token) {
+      const str = Color(token.value).toHex8()
       return `Color(0x${str.slice(6)}${str.slice(0, 6)})`
     },
   },
@@ -745,7 +745,7 @@ export default {
    * Transforms the value from a REM size on web into a scale-independent pixel (sp) value for font sizes in Compose. It WILL scale the number by a factor of 16 (or the value of 'basePxFontSize' on the platform in your config).
    *
    * ```kotlin
-   * // Matches: prop.attributes.category === 'size' && prop.attributes.type === 'font'
+   * // Matches: token.attributes.category === 'size' && token.attributes.type === 'font'
    * // Returns:
    * "16.0.sp"
    * ```
@@ -755,11 +755,11 @@ export default {
   'size/compose/remToSp': {
     type: 'value',
     matcher: isFontSize,
-    transformer(prop, options) {
-      const val = Number.parseFloat(prop.value)
+    transformer(token, options) {
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
       if (Number.isNaN(val))
-        throwSizeError(prop.name, prop.value, 'sp')
+        throwSizeError(token.name, token.value, 'sp')
       return `${(val * baseFont).toFixed(2)}.sp`
     },
   },
@@ -768,7 +768,7 @@ export default {
    * Transforms the value from a REM size on web into a density-independent pixel (dp) value for font sizes in Compose. It WILL scale the number by a factor of 16 (or the value of 'basePxFontSize' on the platform in your config).
    *
    * ```kotlin
-   * // Matches: prop.attributes.category === 'size' && prop.attributes.type !== 'font'
+   * // Matches: token.attributes.category === 'size' && token.attributes.type !== 'font'
    * // Returns:
    * "16.0.dp"
    * ```
@@ -778,11 +778,11 @@ export default {
   'size/compose/remToDp': {
     type: 'value',
     matcher: isNotFontSize,
-    transformer(prop, options) {
-      const val = Number.parseFloat(prop.value)
+    transformer(token, options) {
+      const val = Number.parseFloat(token.value)
       const baseFont = getBasePxFontSize(options)
       if (Number.isNaN(val))
-        throwSizeError(prop.name, prop.value, 'dp')
+        throwSizeError(token.name, token.value, 'dp')
       return `${(val * baseFont).toFixed(2)}.dp`
     },
   },
@@ -791,7 +791,7 @@ export default {
    * Adds the .em Compose extension to the end of a number. Does not scale the value
    *
    * ```kotlin
-   * // Matches: prop.attributes.category === 'size' && prop.attributes.type === 'font'
+   * // Matches: token.attributes.category === 'size' && token.attributes.type === 'font'
    * // Returns:
    * "16.0em"
    * ```
@@ -801,10 +801,10 @@ export default {
   'size/compose/em': {
     type: 'value',
     matcher: isFontSize,
-    transformer(prop) {
-      const val = Number.parseFloat(prop.value)
+    transformer(token) {
+      const val = Number.parseFloat(token.value)
       if (Number.isNaN(val))
-        throwSizeError(prop.name, prop.value, 'em')
+        throwSizeError(token.name, token.value, 'em')
       return `${val}.em`
     },
   },

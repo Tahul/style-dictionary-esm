@@ -1,9 +1,20 @@
 {
   "name": "style-dictionary-esm",
+  "type": "module",
   "version": "1.6.2",
   "packageManager": "pnpm@7.9.5",
   "node": ">=14.16",
   "description": "Style once, use everywhere. A build system for creating cross-platform styles.",
+  "author": "Amazon",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/amzn/style-dictionary",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amzn/style-dictionary.git"
+  },
+  "bugs": {
+    "url": "https://github.com/amzn/style-dictionary/issues"
+  },
   "keywords": [
     "style dictionary",
     "style",
@@ -21,16 +32,6 @@
     "react native",
     "style guide"
   ],
-  "homepage": "https://github.com/amzn/style-dictionary",
-  "bugs": {
-    "url": "https://github.com/amzn/style-dictionary/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/amzn/style-dictionary.git"
-  },
-  "license": "Apache-2.0",
-  "author": "Amazon",
   "contributors": [
     "Yuliya Baran <baranyu@amazon.com>",
     "Charles Dorner <dornerc@amazon.com>",
@@ -38,7 +39,6 @@
     "Danny Banks <djb@amazon.com>",
     "Yaël Guilloux <yael@ipseity.fr>"
   ],
-  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -70,23 +70,6 @@
     "test:watch": "pnpm run test:types && pnpm run lint && vitest --segfault-retry=3",
     "test:run": "vitest --segfault-retry=3 --run",
     "test:ui": "vitest --segfault-retry=3 --ui"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test && lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.js": [
-      "pnpm run lint",
-      "git add"
-    ]
   },
   "dependencies": {
     "chalk": "^5.3.0",
@@ -123,15 +106,29 @@
     "vitest": "^0.34.2",
     "yaml": "^2.3.1"
   },
-  "engines": {
-    "node": ">=12.0.0"
-  },
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
         "@babel/*"
       ]
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "pnpm run lint",
+      "git add"
+    ]
   },
   "release-it": {
     "hooks": {

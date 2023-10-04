@@ -1507,7 +1507,8 @@ $color-background-danger: #ffeae9;
 $color-background-warning: #ffede3;
 $color-background-success: #ebf9eb;
 $color-background-info: #e9f8ff;
-$color-background-disabled: #dee1e1;"
+$color-background-disabled: #dee1e1;
+"
 `;
 
 exports[`integration > scss > scss/variables > with filter and output references > should match snapshot 1`] = `
@@ -1522,7 +1523,8 @@ $color-background-danger: $color-core-red-0;
 $color-background-tertiary: $color-core-neutral-200;
 $color-background-secondary: $color-core-neutral-100;
 $color-background-primary: $color-core-neutral-0 !default;
-$color-background-disabled: $color-background-tertiary;"
+$color-background-disabled: $color-background-tertiary;
+"
 `;
 
 exports[`integration > scss > scss/variables > with outputReferences > should match snapshot 1`] = `
@@ -1691,7 +1693,8 @@ $color-background-disabled: $color-background-tertiary;
 $color-font-interactive-disabled: $color-font-tertiary;
 $color-font-interactive-active: $color-brand-secondary;
 $color-font-interactive-hover: $color-brand-primary;
-$color-font-interactive: $color-brand-primary;"
+$color-font-interactive: $color-brand-primary;
+"
 `;
 
 exports[`integration > scss > scss/variables > with themeable > should match snapshot 1`] = `
@@ -1860,5 +1863,6 @@ $color-background-danger: #ffeae9 !default;
 $color-background-warning: #ffede3 !default;
 $color-background-success: #ebf9eb !default;
 $color-background-info: #e9f8ff !default;
-$color-background-disabled: #dee1e1 !default;"
+$color-background-disabled: #dee1e1 !default;
+"
 `;

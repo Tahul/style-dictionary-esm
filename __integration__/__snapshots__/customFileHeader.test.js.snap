@@ -42,7 +42,7 @@ exports[`integration > valid custom file headers > platform options > file heade
  * Header overridden
  */
 
-export default {
+module.exports = {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",
@@ -60,7 +60,8 @@ export default {
       ]
     }
   }
-};"
+};
+"
 `;
 
 exports[`integration > valid custom file headers > platform options > no file options should match snapshot 1`] = `
@@ -70,7 +71,7 @@ exports[`integration > valid custom file headers > platform options > no file op
  * hello, world!
  */
 
-export default {
+module.exports = {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",
@@ -88,11 +89,12 @@ export default {
       ]
     }
   }
-};"
+};
+"
 `;
 
 exports[`integration > valid custom file headers > platform options > showFileHeader should match snapshot 1`] = `
-"export default {
+"module.exports = {
   \\"color\\": {
     \\"red\\": {
       \\"value\\": \\"#ff0000\\",
@@ -110,5 +112,6 @@ exports[`integration > valid custom file headers > platform options > showFileHe
       ]
     }
   }
-};"
+};
+"
 `;

@@ -17,7 +17,7 @@ import _template from 'lodash.template'
 import { resolveTemplate } from '../resolveTemplate'
 import GroupMessages from '../utils/groupMessages'
 import { fileURLToPath } from '../utils/fileURLToPath'
-import { createPropertyFormatter, fileHeader, formattedVariables, getTypeScriptType, iconsWithPrefix, minifyDictionary, setSwiftFileProperties, sortByName, sortByReference } from './formatHelpers'
+import { createPropertyFormatter, fileHeader, formattedVariables, getTypeScriptType, iconsWithPrefix, minifyDictionary, setComposeObjectProperties, setSwiftFileProperties, sortByName, sortByReference } from './formatHelpers'
 
 const SASS_MAP_FORMAT_DEPRECATION_WARNINGS = GroupMessages.GROUP.SassMapFormatDeprecationWarnings
 
@@ -141,8 +141,8 @@ const formats = {
    */
   'scss/variables': function ({ dictionary, options, file }) {
     const { outputReferences, themeable = false } = options
-    return fileHeader({ file, commentStyle: 'short' })
-      + formattedVariables({ format: 'sass', dictionary, outputReferences, themeable })
+    return `${fileHeader({ file, commentStyle: 'short' })
+      + formattedVariables({ format: 'sass', dictionary, outputReferences, themeable })}\n`
   },
 
   /**
@@ -176,8 +176,8 @@ const formats = {
    */
   'less/variables': function ({ dictionary, options, file }) {
     const { outputReferences } = options
-    return fileHeader({ file, commentStyle: 'short' })
-      + formattedVariables({ format: 'less', dictionary, outputReferences })
+    return `${fileHeader({ file, commentStyle: 'short' })
+      + formattedVariables({ format: 'less', dictionary, outputReferences })}\n`
   },
 
   /**
@@ -208,8 +208,8 @@ const formats = {
    */
   'stylus/variables': function ({ dictionary, options, file }) {
     const { outputReferences } = options
-    return fileHeader({ file, commentStyle: 'short' })
-      + formattedVariables({ format: 'stylus', dictionary, outputReferences })
+    return `${fileHeader({ file, commentStyle: 'short' })
+      + formattedVariables({ format: 'stylus', dictionary, outputReferences })}\n`
   },
 
   /**
@@ -232,8 +232,8 @@ const formats = {
    */
   'javascript/module': function ({ dictionary, file }) {
     return `${fileHeader({ file })
-    }export default ${
-      JSON.stringify(dictionary.tokens, null, 2)};`
+    }module.exports = ${
+      JSON.stringify(dictionary.tokens, null, 2)};\n`
   },
 
   /**
@@ -250,8 +250,9 @@ const formats = {
    */
   'javascript/module-flat': function ({ dictionary, file }) {
     return `${fileHeader({ file })
-      }export default ${
-        formats['json/flat']({ dictionary })};`
+      }module.exports = ` + `{\n${dictionary.allTokens.map((token) => {
+        return `  "${token.name}": ${JSON.stringify(token.value)}`
+      }).join(',\n')}\n}` + ';\n'
   },
 
   /**
@@ -279,7 +280,7 @@ const formats = {
        file.name || '_styleDictionary'
        } = ${
        JSON.stringify(dictionary.tokens, null, 2)
-       };`
+       };\n`
   },
 
   /**
@@ -363,13 +364,13 @@ const formats = {
    * ```
    */
   'javascript/es6': function ({ dictionary, file }) {
-    return fileHeader({ file })
+    return `${fileHeader({ file })
       + dictionary.allTokens.map((token) => {
         let to_ret = `export const ${token.name} = ${JSON.stringify(token.value)};`
         if (token.comment)
           to_ret = to_ret.concat(` // ${token.comment}`)
         return to_ret
-      }).join('\n')
+      }).join('\n')}\n`
   },
 
   // TypeScript declarations
@@ -407,13 +408,14 @@ const formats = {
    * ```
    */
   'typescript/es6-declarations': function ({ dictionary, file, options }) {
-    return fileHeader({ file })
+    return `${fileHeader({ file })
       + dictionary.allProperties.map((prop) => {
-        let to_ret_prop = `export const ${prop.name} : ${getTypeScriptType(prop.value, options)};`
+        let to_ret_prop = ''
         if (prop.comment)
-          to_ret_prop = to_ret_prop.concat(` // ${prop.comment}`)
+          to_ret_prop += `/** ${prop.comment} */\n`
+        to_ret_prop += `export const ${prop.name} : ${getTypeScriptType(prop.value, options)};`
         return to_ret_prop
-      }).join('\n')
+      }).join('\n')}\n`
   },
 
   /**
@@ -509,7 +511,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
 
     // JSON stringify will quote strings, because this is a type we need
     // it unquoted.
-    return output.replace(/"DesignToken"/g, 'DesignToken')
+    return `${output.replace(/"DesignToken"/g, 'DesignToken')}\n`
   },
 
   // Android templates
@@ -701,6 +703,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @param {String} className The name of the generated Kotlin object
    * @param {String} packageName The package for the generated Kotlin object
    * @param {Object} options
+   * @param {String[]} [options.import=['androidx.compose.ui.graphics.Color', 'androidx.compose.ui.unit.*']] - Modules to import. Can be a string or array of strings
    * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
    * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
@@ -731,6 +734,8 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
       allProperties = [...dictionary.allProperties].sort(sortByReference(dictionary))
     else
       allProperties = [...dictionary.allProperties].sort(sortByName)
+
+    options = setComposeObjectProperties(options)
 
     return template({ allProperties, file, options, formatProperty, fileHeader })
   },
@@ -881,7 +886,8 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @kind member
    * @param {Object} options
    * @param {String} [options.accessControl=public] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
-   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of string
+   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of strings
+   * @param {String} [options.className] - The name of the generated Swift class
    * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
    * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
@@ -919,7 +925,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * @kind member
    * @param {Object} options
    * @param {String} [options.accessControl=public] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
-   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of string
+   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of strings
    * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
    * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
@@ -1034,7 +1040,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'json': function ({ dictionary }) {
-    return JSON.stringify(dictionary.tokens, null, 2)
+    return `${JSON.stringify(dictionary.tokens, null, 2)}\n`
   },
 
   /**
@@ -1076,7 +1082,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    * ```
    */
   'json/nested': function ({ dictionary }) {
-    return JSON.stringify(minifyDictionary(dictionary.tokens), null, 2)
+    return `${JSON.stringify(minifyDictionary(dictionary.tokens), null, 2)}\n`
   },
 
   /**
@@ -1094,7 +1100,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
   'json/flat': function ({ dictionary }) {
     return `{\n${dictionary.allTokens.map((token) => {
         return `  "${token.name}": ${JSON.stringify(token.value)}`
-      }).join(',\n')}\n}`
+    }).join(',\n')}\n}` + '\n'
   },
 
   /**
@@ -1127,7 +1133,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
       .map((token) => {
         return token.value
       })
-    return JSON.stringify(to_ret, null, 2)
+    return `${JSON.stringify(to_ret, null, 2)}\n`
   },
 
   /**
@@ -1161,7 +1167,7 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
         }, token.value)
       }),
     }
-    return JSON.stringify(to_ret, null, 2)
+    return `${JSON.stringify(to_ret, null, 2)}\n`
   },
 
   // Flutter templates

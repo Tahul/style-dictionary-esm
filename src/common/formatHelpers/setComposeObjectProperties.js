@@ -11,25 +11,19 @@
  * and limitations under the License.
  */
 
-import { Options } from './Options';
-import { File, FileDoneCallbackResult } from './File';
+/**
+ * Outputs an object for compose format configurations. Sets import.
+ * @memberof module:formatHelpers
+ * @param {Object} options - The options object declared at configuration
+ * @returns {Object}
+ */
+function setComposeObjectProperties(options) {
+  if (typeof options.import === 'undefined')
+    options.import = ['androidx.compose.ui.graphics.Color', 'androidx.compose.ui.unit.*']
+  else if (typeof options.import === 'string')
+    options.import = [options.import]
 
-export type Platform<PlatformType = Record<string, any>> = {
-  transformGroup?: string;
-  transforms?: string[];
-  basePxFontSize?: number;
-  prefix?: string;
-  buildPath?: string;
-  files?: File[];
-  actions?: string[];
-  write?: boolean;
-  silent?: boolean;
-  done?: (result: FileDoneCallbackResult) => void
-  options?: Options;
-  referencesOptions?: {
-    openingChar?: string
-    closingChar?: string
-    separator?: string
-    regex?: RegExp,
-  }
-} & PlatformType;
+  return options
+}
+
+export default setComposeObjectProperties
