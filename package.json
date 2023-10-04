@@ -44,6 +44,9 @@
       "types": "./types/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./types/*": {
+      "types": "./types/*"
     }
   },
   "types": "types/index.d.ts",
