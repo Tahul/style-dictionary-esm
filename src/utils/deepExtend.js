@@ -47,7 +47,7 @@ function deepExtend(objects, collision, path) {
     if (options != null) {
       // Extend the base object
       for (name in options) {
-        if (!options.hasOwnProperty(name))
+        if (!options.hasOwnProperty?.(name))
           continue
         if (name === '__proto__')
           continue
