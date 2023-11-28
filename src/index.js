@@ -46,7 +46,7 @@ import logger from './logger'
  * StyleDictionary.buildAllPlatforms();
  * ```
  */
-const StyleDictionary = {
+export default {
   VERSION: version,
   tokens: {},
   allTokens: [],
@@ -77,5 +77,3 @@ const StyleDictionary = {
   cleanAllPlatforms,
   extend,
 }
-
-export default StyleDictionary
