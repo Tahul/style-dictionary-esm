@@ -28,7 +28,8 @@ describe('common', () => {
  * ${defaultLine2}
  */
 
-`)
+`,
+        )
       })
 
       it('should handle commentStyle short', () => {
@@ -38,7 +39,8 @@ describe('common', () => {
 // ${defaultLine1}
 // ${defaultLine2}
 
-`)
+`,
+        )
       })
 
       it('should handle commentStyle xml', () => {
@@ -47,7 +49,8 @@ describe('common', () => {
 `<!--
   ${defaultLine1}
   ${defaultLine2}
--->`)
+-->`,
+        )
       })
 
       it('should handle showFileHeader option', () => {
@@ -80,7 +83,8 @@ describe('common', () => {
  * Never gonna let you down
  */
 
-`)
+`,
+        )
       })
 
       it('should handle custom fileHeader function with default', () => {
@@ -105,7 +109,8 @@ describe('common', () => {
  * Never gonna let you down
  */
 
-`)
+`,
+        )
       })
 
       it('should handle custom formatting', () => {
@@ -120,7 +125,8 @@ describe('common', () => {
 `{#
   ${defaultLine1}
   ${defaultLine2}
-#}`)
+#}`,
+        )
       })
     })
   })

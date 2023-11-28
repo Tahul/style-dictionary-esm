@@ -18,7 +18,7 @@ import defaults from './defaults'
  *
  * @private
  * @param {string} pathName
- * @param {Object} opts
+ * @param {object} opts
  * @returns {Array} - The path
  */
 function getPathFromName(pathName, opts = {}) {

@@ -18,9 +18,9 @@ import usesReference from './references/usesReference'
 /**
  *
  * @typedef Dictionary
- * @property {Object} properties - Deprecated
+ * @property {object} properties - Deprecated
  * @property {Array} allProperties - Deprecated
- * @property {Object} tokens - Replacement for `properties`
+ * @property {object} tokens - Replacement for `properties`
  * @property {Array} allTokens - Replacement for `allProperties`
  * @property {Dictionary.getReferences} getReferences
  * @property {Dictionary.usesReference} usesReference
@@ -28,13 +28,13 @@ import usesReference from './references/usesReference'
 
 /**
  * Creates the dictionary object that is passed to formats and actions.
- * @param {Object} args
- * @param {Object} args.properties
+ * @param {object} args
+ * @param {object} args.properties
  * @returns {Dictionary}
  */
 function createDictionary(
   { properties },
-  referencesOptions = {}
+  referencesOptions = {},
 ) {
   const allProperties = flattenProperties(properties)
   return {

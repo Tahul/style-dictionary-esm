@@ -25,7 +25,7 @@ import logger from './logger'
  *
  * @static
  * @memberof module:style-dictionary
- * @param {String} platform
+ * @param {string} platform
  * @returns {module:style-dictionary}
  */
 function cleanPlatform(platform) {

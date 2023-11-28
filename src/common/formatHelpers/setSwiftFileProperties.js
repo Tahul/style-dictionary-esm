@@ -14,10 +14,10 @@
 /**
  * Outputs an object with swift format configurations. Sets import, object type and access control.
  * @memberof module:formatHelpers
- * @param {Object} options - The options object declared at configuration
- * @param {String} objectType - The type of the object in the final file. Could be a class, enum, struct, etc.
- * @param {String} transformGroup - The transformGroup of the file, so it can be applied proper import
- * @returns {Object}
+ * @param {object} options - The options object declared at configuration
+ * @param {string} objectType - The type of the object in the final file. Could be a class, enum, struct, etc.
+ * @param {string} transformGroup - The transformGroup of the file, so it can be applied proper import
+ * @returns {object}
  */
 function setSwiftFileProperties(options, objectType, transformGroup) {
   if (typeof options.objectType === 'undefined') {

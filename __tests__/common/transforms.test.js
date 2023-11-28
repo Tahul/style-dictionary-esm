@@ -22,9 +22,10 @@ describe('common', () => {
         expect(transforms['name/cti/camel'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('prefixOneTwoThree')
       })
 
@@ -32,8 +33,9 @@ describe('common', () => {
         expect(transforms['name/cti/camel'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('oneTwoThree')
       })
     })
@@ -43,9 +45,10 @@ describe('common', () => {
         expect(transforms['name/ti/camel'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('prefixTwoThree')
       })
 
@@ -53,8 +56,9 @@ describe('common', () => {
         expect(transforms['name/ti/camel'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('twoThree')
       })
     })
@@ -64,9 +68,10 @@ describe('common', () => {
         expect(transforms['name/cti/kebab'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('prefix-one-two-three')
       })
 
@@ -74,8 +79,9 @@ describe('common', () => {
         expect(transforms['name/cti/kebab'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('one-two-three')
       })
     })
@@ -85,9 +91,10 @@ describe('common', () => {
         expect(transforms['name/cti/snake'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('prefix_one_two_three')
       })
 
@@ -95,8 +102,9 @@ describe('common', () => {
         expect(transforms['name/cti/snake'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('one_two_three')
       })
     })
@@ -106,9 +114,10 @@ describe('common', () => {
         expect(transforms['name/cti/constant'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('PREFIX_ONE_TWO_THREE')
       })
 
@@ -116,8 +125,9 @@ describe('common', () => {
         expect(transforms['name/cti/constant'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('ONE_TWO_THREE')
       })
     })
@@ -127,9 +137,10 @@ describe('common', () => {
         expect(transforms['name/ti/constant'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
+          },
+          {
             prefix: 'prefix',
-          }
+          },
         )).toBe('PREFIX_TWO_THREE')
       })
 
@@ -137,8 +148,9 @@ describe('common', () => {
         expect(transforms['name/ti/constant'].transformer(
           {
             path: ['one', 'two', 'three'],
-          }, {
-          }
+          },
+          {
+          },
         )).toBe('TWO_THREE')
       })
     })

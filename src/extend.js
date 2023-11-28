@@ -24,7 +24,7 @@ const PROPERTY_VALUE_COLLISIONS = GroupMessages.GROUP.PropertyValueCollisions
  * Either a string to a JSON file that contains configuration for the style dictionary or a plain Javascript object
  * that contains the configuration.
  * @typedef {(object|string)} Config
- * @prop {String[]} source - Paths to token files
+ * @prop {string[]} source - Paths to token files
  * @prop {Platform} platforms.platform - A platform
  * @example
  * ```json
@@ -49,9 +49,10 @@ const PROPERTY_VALUE_COLLISIONS = GroupMessages.GROUP.PropertyValueCollisions
 
 /**
  * An object representing a platform
- * @typedef {Object} Platform
- * @prop {String} transformGroup
- * @prop {String} transforms
+ * @typedef {object} Platform
+ * @prop {string} transformGroup
+ * @prop {string} transforms
+ * @property
  */
 
 /**
@@ -124,7 +125,7 @@ function extend(opts) {
     sourceTokens = combineJSON(options.source, true, (prop) => {
       GroupMessages.add(
         PROPERTY_VALUE_COLLISIONS,
-        `Collision detected at: ${prop.path.join('.')}! Original value: ${prop.target[prop.key]}, New value: ${prop.copy[prop.key]}`
+        `Collision detected at: ${prop.path.join('.')}! Original value: ${prop.target[prop.key]}, New value: ${prop.copy[prop.key]}`,
       )
     }, true, to_ret.parsers)
 

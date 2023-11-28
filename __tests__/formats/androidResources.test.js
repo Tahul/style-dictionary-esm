@@ -156,7 +156,7 @@ describe('formats', () => {
           dictionary: customDictionary,
           file,
           platform: {},
-        }), {}, file)
+        }), {}, file),
       ).toMatchSnapshot()
     })
   })

@@ -20,16 +20,16 @@
  *
  * @function formatter
  * @memberof module:format
- * @param {Object} args - A single argument to support named parameters and destructuring.
- * @param {Object} args.dictionary - The transformed and resolved dictionary object
- * @param {Object} args.dictionary.tokens - Object structure of the tokens that has been transformed and references resolved.
+ * @param {object} args - A single argument to support named parameters and destructuring.
+ * @param {object} args.dictionary - The transformed and resolved dictionary object
+ * @param {object} args.dictionary.tokens - Object structure of the tokens that has been transformed and references resolved.
  * @param {Array} args.dictionary.allTokens - Flattened array of all the tokens. This makes it easy to output a list, like a list of SCSS variables.
- * @param {function(value): Boolean} args.dictionary.usesReference - Use this function to see if a token's value uses a reference. This is the same function style dictionary uses internally to detect a reference.
+ * @param {function(value): boolean} args.dictionary.usesReference - Use this function to see if a token's value uses a reference. This is the same function style dictionary uses internally to detect a reference.
  * @param {function(value): Value} args.dictionary.getReferences - Use this function to get the tokens that it references. You can use this to output a reference in your custom format. For example: `dictionary.getReferences(token.original.value) // returns an array of the referenced token objects`
- * @param {Object} args.platform - The platform configuration this format is being called in.
- * @param {Object} args.file - The file configuration this format is being called in.
- * @param {Object} args.options - Merged options object that combines platform level configuration and file level configuration. File options take precedence.
- * @returns {String}
+ * @param {object} args.platform - The platform configuration this format is being called in.
+ * @param {object} args.file - The file configuration this format is being called in.
+ * @param {object} args.options - Merged options object that combines platform level configuration and file level configuration. File options take precedence.
+ * @returns {string}
  * @example
  * ```js
  * StyleDictionary.registerFormat({
@@ -45,9 +45,9 @@
  * Add a custom format to the style dictionary
  * @static
  * @memberof module:style-dictionary
- * @param {Object} format
- * @param {String} format.name - Name of the format to be referenced in your config.json
- * @param {function} format.formatter - Function to perform the format. Takes a single argument. See [creating custom formats](formats.md#creating-formats)
+ * @param {object} format
+ * @param {string} format.name - Name of the format to be referenced in your config.json
+ * @param {Function} format.formatter - Function to perform the format. Takes a single argument. See [creating custom formats](formats.md#creating-formats)
  * Must return a string, which is then written to a file.
  * @returns {module:style-dictionary}
  * @example

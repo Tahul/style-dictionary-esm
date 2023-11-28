@@ -52,13 +52,13 @@ const defaultFormatting = {
  *   }
  * });
  * ```
- * @param {Object} options
- * @param {Boolean} options.outputReferences - Whether or not to output references. You will want to pass this from the `options` object sent to the formatter function.
- * @param {Boolean} options.outputReferenceFallbacks - Whether or not to output css variable fallback values when using output references. You will want to pass this from the `options` object sent to the formatter function.
+ * @param {object} options
+ * @param {boolean} options.outputReferences - Whether or not to output references. You will want to pass this from the `options` object sent to the formatter function.
+ * @param {boolean} options.outputReferenceFallbacks - Whether or not to output css variable fallback values when using output references. You will want to pass this from the `options` object sent to the formatter function.
  * @param {Dictionary} options.dictionary - The dictionary object sent to the formatter function
- * @param {String} options.format - Available formats are: 'css', 'sass', 'less', and 'stylus'. If you want to customize the format and can't use one of those predefined formats, use the `formatting` option
- * @param {Object} options.formatting - Custom formatting properties that define parts of a declaration line in code. The configurable strings are: prefix, indentation, separator, suffix, and commentStyle. Those are used to generate a line like this: `${indentation}${prefix}${prop.name}${separator} ${prop.value}${suffix}`
- * @param {Boolean} options.themeable [false] - Whether tokens should default to being themeable.
+ * @param {string} options.format - Available formats are: 'css', 'sass', 'less', and 'stylus'. If you want to customize the format and can't use one of those predefined formats, use the `formatting` option
+ * @param {object} options.formatting - Custom formatting properties that define parts of a declaration line in code. The configurable strings are: prefix, indentation, separator, suffix, and commentStyle. Those are used to generate a line like this: `${indentation}${prefix}${prop.name}${separator} ${prop.value}${suffix}`
+ * @param {boolean} options.themeable [false] - Whether tokens should default to being themeable.
  * @returns {Function}
  */
 function createPropertyFormatter({
@@ -128,7 +128,7 @@ function createPropertyFormatter({
             const media = prop.attributes?.media
             value = value.replace(
               ref.value?.[media] || ref.value,
-              () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref })
+              () => replaceFormat({ referenceKey, format, outputReferenceFallbacks, prefix, ref }),
             )
           }
         })

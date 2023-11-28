@@ -20,35 +20,35 @@ describe('register/transformGroup', () => {
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         transforms: ['foo'],
-      })
+      }),
     ).toThrow('transform name must be a string')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: 1,
         transforms: ['foo'],
-      })
+      }),
     ).toThrow('transform name must be a string')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: [],
         transforms: ['foo'],
-      })
+      }),
     ).toThrow('transform name must be a string')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: {},
         transforms: ['foo'],
-      })
+      }),
     ).toThrow('transform name must be a string')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name() {},
         transforms: ['foo'],
-      })
+      }),
     ).toThrow('transform name must be a string')
   })
 
@@ -56,38 +56,37 @@ describe('register/transformGroup', () => {
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: 'foo',
-      })
+      }),
     ).toThrow('transforms must be an array of registered value transforms')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: 'foo',
         transforms: 'foo',
-      })
+      }),
     ).toThrow('transforms must be an array of registered value transforms')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: 'foo',
         transforms: {},
-      })
+      }),
     ).toThrow('transforms must be an array of registered value transforms')
 
     expect(
       StyleDictionaryExtended.registerTransformGroup.bind(null, {
         name: 'foo',
         transforms() {},
-      })
+      }),
     ).toThrow('transforms must be an array of registered value transforms')
   })
 
   it('should error if transforms arent registered', () => {
     expect(
-      StyleDictionaryExtended.registerTransformGroup.bind(StyleDictionary,
-        {
-          name: 'foo',
-          transforms: ['foo'],
-        })
+      StyleDictionaryExtended.registerTransformGroup.bind(StyleDictionary, {
+        name: 'foo',
+        transforms: ['foo'],
+      }),
     ).toThrow('transforms must be an array of registered value transforms')
   })
 

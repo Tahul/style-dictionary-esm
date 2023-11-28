@@ -26,8 +26,8 @@
  *
  * @static
  * @memberof module:style-dictionary
- * @param {Object} action
- * @param {String} action.name - The name of the action
+ * @param {object} action
+ * @param {string} action.name - The name of the action
  * @param {Function} action.do - The action in the form of a function.
  * @param {Function} [action.undo] - A function that undoes the action.
  * @returns {module:style-dictionary}

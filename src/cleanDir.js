@@ -20,9 +20,9 @@ import logger from './logger'
  * Takes the style property object and a format and returns a
  * string that can be written to a file.
  * @memberOf StyleDictionary
- * @param {Object} file
- * @param {Object} platform
- * @param {Object} dictionary (unused)
+ * @param {object} file
+ * @param {object} platform
+ * @param {object} dictionary (unused)
  * @returns {null}
  */
 function cleanDir(file = {}, platform = {}) {

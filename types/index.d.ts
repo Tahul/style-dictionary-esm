@@ -13,77 +13,77 @@
 
 // Minimum TypeScript Version: 3.0
 
-import { Action as _Action} from './Action';
-import { Config as _Config} from './Config';
-import { DesignToken as _DesignToken, DesignTokens as _DesignTokens} from './DesignToken';
-import { Dictionary as _Dictionary} from './Dictionary';
-import { File as _File} from './File';
-import { FileHeader as _FileHeader} from './FileHeader';
-import { Filter as _Filter} from './Filter';
-import { Format as _Format, Formatter as _Formatter } from './Format';
-import { FormatHelpers as _FormatHelpers } from './FormatHelpers';
-import {Matcher as _Matcher} from './Matcher';
-import { Options as _Options} from './Options';
-import { Parser as _Parser} from './Parser';
-import { Platform as _Platform} from './Platform';
-import { Transform as _Transform} from './Transform';
-import { TransformedToken as _TransformedToken, TransformedTokens as _TransformedTokens} from './TransformedToken';
-import { TransformGroup as _TransformGroup} from './TransformGroup';
-import { Named as _Named} from './_helpers';
 import type { Consola } from 'consola'
+import type { Action as _Action } from './Action'
+import type { Config as _Config } from './Config'
+import type { DesignToken as _DesignToken, DesignTokens as _DesignTokens } from './DesignToken'
+import type { Dictionary as _Dictionary } from './Dictionary'
+import type { File as _File } from './File'
+import type { FileHeader as _FileHeader } from './FileHeader'
+import type { Filter as _Filter } from './Filter'
+import type { Format as _Format, Formatter as _Formatter } from './Format'
+import type { FormatHelpers as _FormatHelpers } from './FormatHelpers'
+import type { Matcher as _Matcher } from './Matcher'
+import type { Options as _Options } from './Options'
+import type { Parser as _Parser } from './Parser'
+import type { Platform as _Platform } from './Platform'
+import type { Transform as _Transform } from './Transform'
+import type { TransformedToken as _TransformedToken, TransformedTokens as _TransformedTokens } from './TransformedToken'
+import type { TransformGroup as _TransformGroup } from './TransformGroup'
+import type { Named as _Named } from './_helpers'
 
 // Because this library is used in Node and needs to be accessible
 // as a CommonJS module, we are declaring it as a namespace so that
 // autocomplete works for CommonJS files.
 declare namespace StyleDictionary {
-  type Action = _Action;
-  type Config = _Config;
-  type DesignToken = _DesignToken;
-  type DesignTokens = _DesignTokens;
-  type Dictionary = _Dictionary;
-  type File = _File;
-  type FileHeader = _FileHeader;
-  type Filter = _Filter;
-  type Format = _Format;
-  type FormatHelpers = _FormatHelpers;
-  type Formatter = _Formatter;
-  type Matcher = _Matcher;
-  type Options = _Options;
-  type Parser = _Parser;
-  type Platform<PlatformType = Record<string,any>> = _Platform<PlatformType>;
-  type Transform<PlatformType = Record<string,any>> = _Transform<PlatformType>;
-  type TransformedToken = _TransformedToken;
-  type TransformedTokens = _TransformedTokens;
-  type TransformGroup = _TransformGroup;
+  type Action = _Action
+  type Config = _Config
+  type DesignToken = _DesignToken
+  type DesignTokens = _DesignTokens
+  type Dictionary = _Dictionary
+  type File = _File
+  type FileHeader = _FileHeader
+  type Filter = _Filter
+  type Format = _Format
+  type FormatHelpers = _FormatHelpers
+  type Formatter = _Formatter
+  type Matcher = _Matcher
+  type Options = _Options
+  type Parser = _Parser
+  type Platform<PlatformType = Record<string, any>> = _Platform<PlatformType>
+  type Transform<PlatformType = Record<string, any>> = _Transform<PlatformType>
+  type TransformedToken = _TransformedToken
+  type TransformedTokens = _TransformedTokens
+  type TransformGroup = _TransformGroup
   type Named<T> = _Named<T>
   type Logger = Consola
 
   interface Core {
-    VERSION: string;
-    tokens: DesignTokens | TransformedTokens;
-    allTokens: TransformedTokens[];
-    properties: DesignTokens | TransformedTokens;
-    allProperties: TransformedTokens[];
-    options: Config;
+    VERSION: string
+    tokens: DesignTokens | TransformedTokens
+    allTokens: TransformedTokens[]
+    properties: DesignTokens | TransformedTokens
+    allProperties: TransformedTokens[]
+    options: Config
     logger: () => Consola
 
-    transform: Record<string, Transform>;
-    transformGroup: Record<string, TransformGroup['transforms']>;
-    format: Record<string, Formatter>;
-    action: Record<string, Action>;
-    filter: Record<string, Filter['matcher']>;
-    fileHeader: Record<string, FileHeader>;
-    parsers: Parser[];
+    transform: Record<string, Transform>
+    transformGroup: Record<string, TransformGroup['transforms']>
+    format: Record<string, Formatter>
+    action: Record<string, Action>
+    filter: Record<string, Filter['matcher']>
+    fileHeader: Record<string, FileHeader>
+    parsers: Parser[]
 
-    formatHelpers: FormatHelpers;
+    formatHelpers: FormatHelpers
 
     /**
      * Add a custom transform to the Style Dictionary
      * Transforms can manipulate a token's name, value, or attributes
      *
-     * @param {String} transform.type - Type of transform, can be: name, attribute, or value
-     * @param {String} transform.name - Name of the transformer (used by transformGroup to call a list of transforms).
-     * @param {Boolean} transform.transitive - If the value transform should be applied transitively, i.e. should be applied to referenced values as well as absolute values.
+     * @param {string} transform.type - Type of transform, can be: name, attribute, or value
+     * @param {string} transform.name - Name of the transformer (used by transformGroup to call a list of transforms).
+     * @param {boolean} transform.transitive - If the value transform should be applied transitively, i.e. should be applied to referenced values as well as absolute values.
      * @param {Function} [transform.matcher] - Matcher function, return boolean if transform should be applied. If you omit the matcher function, it will match all tokens.
      * @param {Function} transform.transformer Modifies a design token object. The transformer function will receive the token and the platform configuration as its arguments. The transformer function should return a string for name transforms, an object for attribute transforms, and same type of value for a value transform.
      * @example
@@ -100,13 +100,13 @@ declare namespace StyleDictionary {
      * });
      * ```
      */
-    registerTransform<PlatformType>(transform: Named<Transform<PlatformType>>): this;
+    registerTransform<PlatformType>(transform: Named<Transform<PlatformType>>): this
 
     /**
      * Add a custom transformGroup to the Style Dictionary, which is a
      * group of transforms.
-     * @param {String} transformGroup.name - Name of the transform group that will be referenced in config.json
-     * @param {String[]} transformGroup.transforms - Array of strings that reference the name of transforms to be applied in order. Transforms must be defined and match the name or there will be an error at build time.
+     * @param {string} transformGroup.name - Name of the transform group that will be referenced in config.json
+     * @param {string[]} transformGroup.transforms - Array of strings that reference the name of transforms to be applied in order. Transforms must be defined and match the name or there will be an error at build time.
      * @example
      * ```js
      * StyleDictionary.registerTransformGroup({
@@ -119,11 +119,11 @@ declare namespace StyleDictionary {
      * });
      * ```
      */
-    registerTransformGroup(transformGroup: Named<TransformGroup>): this;
+    registerTransformGroup(transformGroup: Named<TransformGroup>): this
 
     /**
      * Add a custom format to Style Dictionary
-     * @param {String} format.name The name of the format to be added
+     * @param {string} format.name The name of the format to be added
      * @param {Formatter} format.formatter The formatter function
      * @example
      * ```js
@@ -135,13 +135,13 @@ declare namespace StyleDictionary {
      * })
      * ```
      */
-    registerFormat(format: Named<Format>): this;
+    registerFormat(format: Named<Format>): this
 
     /**
      * Add a custom template to Style Dictionary
      * @deprecated registerTemplate will be removed in the future, please use registerFormat
-     * @param {String} template.name - The name of your template. You will refer to this in your config.json file.
-     * @param {String} template.template - Path to your lodash template
+     * @param {string} template.name - The name of your template. You will refer to this in your config.json file.
+     * @param {string} template.template - Path to your lodash template
      * @example
      * ```js
      * StyleDictionary.registerTemplate({
@@ -150,29 +150,29 @@ declare namespace StyleDictionary {
      * });
      * ```
      */
-    registerTemplate(template: Named<{ template: string }>): this;
+    registerTemplate(template: Named<{ template: string }>): this
 
     /**
      * Add a custom filter to Style Dictionary. Filters are used to hide tokens from
      * generated files.
-     * @param {String} filter.name - Name of the filter to be referenced in your config.json
+     * @param {string} filter.name - Name of the filter to be referenced in your config.json
      * @param {Function} filter.matcher - Matcher function, return boolean if the token should be included.
      * @example
      * ```js
      * StyleDictionary.registerFilter({
      *   name: 'isColor',
      *   matcher: function(token) {
-      *     return token.attributes.category === 'color';
-      *   }
-    * })
-    * ```
-    */
-    registerFilter(filter: Named<Filter>): this;
+     *     return token.attributes.category === 'color';
+     *   }
+     * })
+     * ```
+     */
+    registerFilter(filter: Named<Filter>): this
 
     /**
      * Add a custom file header to Style Dictionary. File headers are used to write a
      * custom messasge on top of the generated files.
-     * @param {String} fileHeader.name The name of the file header to be added
+     * @param {string} fileHeader.name The name of the file header to be added
      * @param {Function} fileHeader.fileHeader The file header function
      * @example
      * ```js
@@ -187,7 +187,7 @@ declare namespace StyleDictionary {
      * })
      * ```
      */
-     registerFileHeader(fileHeader: Named<{ fileHeader: FileHeader }>): this;
+    registerFileHeader(fileHeader: Named<{ fileHeader: FileHeader }>): this
 
     /**
      * Adds a custom parser to parse style dictionary files. This allows you to modify
@@ -206,7 +206,7 @@ declare namespace StyleDictionary {
      * })
      * ```
      */
-    registerParser(parser: Parser): this;
+    registerParser(parser: Parser): this
 
     /**
      * Adds a custom action to Style Dictionary. Actions
@@ -221,7 +221,7 @@ declare namespace StyleDictionary {
      * it will block other actions, or if you use asynchronous code like Promises
      * it will not block.
      *
-     * @param {String} action.name - The name of the action
+     * @param {string} action.name - The name of the action
      * @param {Function} action.do - The action in the form of a function.
      * @param {Function} [action.undo] - A function that undoes the action.
      * @example
@@ -239,7 +239,7 @@ declare namespace StyleDictionary {
      * });
      * ```
      */
-    registerAction(action: Named<Action>): this;
+    registerAction(action: Named<Action>): this
 
     /**
      * Exports a tokens object with applied
@@ -248,9 +248,9 @@ declare namespace StyleDictionary {
      * This is useful if you want to use a style
      * dictionary in JS build tools like webpack.
      *
-     * @param {String} platform - Name of the platform to be exported. This platform name must exist on the Style Dictionary configuration.
+     * @param {string} platform - Name of the platform to be exported. This platform name must exist on the Style Dictionary configuration.
      */
-    exportPlatform(platform: string): TransformedTokens;
+    exportPlatform(platform: string): TransformedTokens
 
     /**
      * Takes a platform and performs all transforms to
@@ -261,7 +261,7 @@ declare namespace StyleDictionary {
      * This method is also used internally in `.buildAllPlatforms` to
      * build each platform defined in the config.
      *
-     * @param {String} platform - Name of the platform you want to build. This platform name must exist on the Style Dictionary configuration.
+     * @param {string} platform - Name of the platform you want to build. This platform name must exist on the Style Dictionary configuration.
      * @example
      * ```js
      * StyleDictionary.buildPlatform('web');
@@ -270,7 +270,7 @@ declare namespace StyleDictionary {
      * $ style-dictionary build --platform web
      * ```
      */
-    buildPlatform(platform: string): this;
+    buildPlatform(platform: string): this
 
     /**
      * Will build all the platforms defined in the configuration.
@@ -280,17 +280,17 @@ declare namespace StyleDictionary {
      * const StyleDictionary = require('style-dictionary').extend('config.json');
      * StyleDictionary.buildAllPlatforms();
      * ```
-    */
-    buildAllPlatforms(): this;
+     */
+    buildAllPlatforms(): this
 
     /**
      * Takes a platform and performs all transforms to
      * the tokens object (non-mutative) then
      * cleans all the files and performs the undo method of any actions.
      *
-     * @param {String} platform
+     * @param {string} platform
      */
-    cleanPlatform(platform: string): this;
+    cleanPlatform(platform: string): this
 
     /**
      * Does the reverse of `.buildAllPlatforms` by
@@ -302,11 +302,11 @@ declare namespace StyleDictionary {
      * StyleDictionary.cleanAllPlatforms();
      * ```
      */
-    cleanAllPlatforms(): this;
+    cleanAllPlatforms(): this
 
     /**
      * Creates a Style Dictionary
-     * @param {String | Config} config - The configuration for Style Dictionary, can either be a path to a JSON or CommonJS file or a configuration object.
+     * @param {string | Config} config - The configuration for Style Dictionary, can either be a path to a JSON or CommonJS file or a configuration object.
      * @example
      * ```js
      * const StyleDictionary = require('style-dictionary').extend('config.json');
@@ -327,9 +327,9 @@ declare namespace StyleDictionary {
      * });
      * ```
      */
-    extend(config: string | Config): Core;
+    extend(config: string | Config): Core
   }
 }
 
-declare var StyleDictionary: StyleDictionary.Core;
-export = StyleDictionary;
+declare var StyleDictionary: StyleDictionary.Core
+export = StyleDictionary

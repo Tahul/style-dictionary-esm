@@ -74,7 +74,7 @@ describe('formats', () => {
 
       await fs.writeFile(
         path,
-        content
+        content,
       )
 
       let test = await import(path)

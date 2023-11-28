@@ -21,8 +21,8 @@ export default {
    *
    * @memberof Filters
    *
-   * @param {Object} token
-   * @returns {Boolean}
+   * @param {object} token
+   * @returns {boolean}
    */
   removePrivate(token) {
     return !((token && token.private))

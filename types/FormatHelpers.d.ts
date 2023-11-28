@@ -11,66 +11,66 @@
  * and limitations under the License.
  */
 
-import { Dictionary } from "./Dictionary";
-import { DesignToken } from "./DesignToken";
-import { TransformedToken } from "./TransformedToken";
-import { File } from "./File";
+import type { Dictionary } from './Dictionary'
+import type { DesignToken } from './DesignToken'
+import type { TransformedToken } from './TransformedToken'
+import type { File } from './File'
 
 export interface LineFormatting {
-  prefix?: string;
-  commentStyle?: "short" | "long" | "none";
-  indentation?: string;
-  separator?: string;
-  suffix?: string;
+  prefix?: string
+  commentStyle?: 'short' | 'long' | 'none'
+  indentation?: string
+  separator?: string
+  suffix?: string
 }
 
-export type TokenFormatterArgs = {
-  outputReferences?: boolean;
-  dictionary: Dictionary;
-  format?: "css" | "sass" | "less" | "stylus";
-  formatting?: LineFormatting;
-};
+export interface TokenFormatterArgs {
+  outputReferences?: boolean
+  dictionary: Dictionary
+  format?: 'css' | 'sass' | 'less' | 'stylus'
+  formatting?: LineFormatting
+}
 
 export interface CommentFormatting {
-  prefix: string;
-  lineSeparator: string;
-  header: string;
-  footer: string;
+  prefix: string
+  lineSeparator: string
+  header: string
+  footer: string
 }
 
 export interface FileHeaderArgs {
-  file: File;
-  commentStyle?: string;
-  formatting?: CommentFormatting;
+  file: File
+  commentStyle?: string
+  formatting?: CommentFormatting
 }
 
 export interface FormattedVariablesArgs {
-  format: "css" | "sass";
-  dictionary: Dictionary;
-  outputReferences?: boolean;
-  formatting?: LineFormatting;
+  format: 'css' | 'sass'
+  dictionary: Dictionary
+  outputReferences?: boolean
+  formatting?: LineFormatting
 }
 
 export interface FormatHelpers {
   createPropertyFormatter: (
     args: TokenFormatterArgs
-  ) => (token: TransformedToken) => string;
-  fileHeader: (args: FileHeaderArgs) => string;
-  formattedVariables: (args: FormattedVariablesArgs) => string;
-  minifyDictionary: (dictionary: object) => object;
-  getTypeScriptType: (value: unknown) => string;
+  ) => (token: TransformedToken) => string
+  fileHeader: (args: FileHeaderArgs) => string
+  formattedVariables: (args: FormattedVariablesArgs) => string
+  minifyDictionary: (dictionary: object) => object
+  getTypeScriptType: (value: unknown) => string
   iconsWithPrefix: (
     prefix: string,
     allTokens: DesignToken[],
     options: object
-  ) => string;
+  ) => string
   sortByReference: (
     dictionary: Dictionary
-  ) => (a: TransformedToken, b: TransformedToken) => number;
-  sortByName: (a: DesignToken, b: DesignToken) => number;
+  ) => (a: TransformedToken, b: TransformedToken) => number
+  sortByName: (a: DesignToken, b: DesignToken) => number
   setSwiftFileProperties: (
     options: object,
     objectType: string,
     transformGroup: string
-  ) => string;
+  ) => string
 }

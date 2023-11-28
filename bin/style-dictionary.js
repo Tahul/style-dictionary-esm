@@ -2,12 +2,12 @@
 
 'use strict'
 
-import path from 'path'
-import { fileURLToPath } from 'url'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import { program } from 'commander'
 import { dirname } from 'pathe'
-import StyleDictionary from '../dist/index.js'
+import StyleDictionary from '../dist/index.mjs'
 
 function collect(val, arr) {
   arr.push(val)

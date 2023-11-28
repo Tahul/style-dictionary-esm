@@ -30,12 +30,12 @@ function traverseObj(obj, fn) {
  * Takes an array of json files and merges
  * them together. Optionally does a deep extend.
  * @private
- * @param {String[]} arr - Array of paths to json (or node modules that export objects) files
- * @param {Boolean} [deep=false] - If it should perform a deep merge
+ * @param {string[]} arr - Array of paths to json (or node modules that export objects) files
+ * @param {boolean} [deep] - If it should perform a deep merge
  * @param {Function} collision - A function to be called when a name collision happens that isn't a normal deep merge of objects
- * @param {Boolean} [source=true] - If json files are "sources", tag properties
- * @param {Object[]} [parsers=[]] - Custom file parsers
- * @returns {Object}
+ * @param {boolean} [source] - If json files are "sources", tag properties
+ * @param {object[]} [parsers] - Custom file parsers
+ * @returns {object}
  */
 function combineJSON(arr, deep, collision, source, parsers = []) {
   let i

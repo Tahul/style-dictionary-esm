@@ -9,10 +9,12 @@ export default {
         {
           destination: '_icons.css',
           format: 'scss/icons',
-        }, {
+        },
+        {
           destination: '_variables.css',
           format: 'scss/variables',
-        }, {
+        },
+        {
           destination: '_styles.js',
           format: 'javascript/module',
         },
@@ -26,7 +28,8 @@ export default {
         {
           destination: '_icons.scss',
           format: 'scss/icons',
-        }, {
+        },
+        {
           destination: '_variables.scss',
           format: 'scss/variables',
         },
@@ -40,7 +43,8 @@ export default {
         {
           destination: '_icons.less',
           format: 'less/icons',
-        }, {
+        },
+        {
           destination: '_variables.less',
           format: 'less/variables',
         },
@@ -53,10 +57,12 @@ export default {
         {
           destination: 'android/colors.xml',
           format: 'android/colors',
-        }, {
+        },
+        {
           destination: 'android/font_dimen.xml',
           format: 'android/fontDimens',
-        }, {
+        },
+        {
           destination: 'android/dimens.xml',
           format: 'android/dimens',
         },
@@ -72,7 +78,8 @@ export default {
         {
           destination: 'style_dictionary.plist',
           format: 'ios/plist',
-        }, {
+        },
+        {
           destination: 'style_dictionary.h',
           format: 'ios/macros',
         },

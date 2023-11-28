@@ -18,10 +18,10 @@
  * a unicode character.
  * __You probably don't need this.__
  * @memberof module:formatHelpers
- * @param {String} prefix - Character to prefix variable names, like '$' for Sass
+ * @param {string} prefix - Character to prefix variable names, like '$' for Sass
  * @param {Token[]} allTokens - allTokens array on the dictionary object passed to the formatter function.
- * @param {Object} options - options object passed to the formatter function.
- * @returns {String}
+ * @param {object} options - options object passed to the formatter function.
+ * @returns {string}
  * @example
  * ```js
  * StyleDictionary.registerFormat({

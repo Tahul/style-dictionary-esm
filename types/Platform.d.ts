@@ -11,25 +11,25 @@
  * and limitations under the License.
  */
 
-import { Options } from './Options';
-import { File, FileDoneCallbackResult } from './File';
+import type { Options } from './Options'
+import type { File, FileDoneCallbackResult } from './File'
 
 export type Platform<PlatformType = Record<string, any>> = {
-  transformGroup?: string;
-  transforms?: string[];
-  basePxFontSize?: number;
-  prefix?: string;
-  buildPath?: string;
-  files?: File[];
-  actions?: string[];
-  write?: boolean;
-  silent?: boolean;
+  transformGroup?: string
+  transforms?: string[]
+  basePxFontSize?: number
+  prefix?: string
+  buildPath?: string
+  files?: File[]
+  actions?: string[]
+  write?: boolean
+  silent?: boolean
   done?: (result: FileDoneCallbackResult) => void
-  options?: Options;
+  options?: Options
   referencesOptions?: {
     openingChar?: string
     closingChar?: string
     separator?: string
-    regex?: RegExp,
+    regex?: RegExp
   }
-} & PlatformType;
+} & PlatformType

@@ -39,13 +39,13 @@ describe('buildFile', () => {
 
   it('should error if format doesnt exist or isnt a function', () => {
     expect(
-      buildFile.bind(null, { destination: '__tests__/__output/test.txt' }, {}, {})
+      buildFile.bind(null, { destination: '__tests__/__output/test.txt' }, {}, {}),
     ).toThrow('Please enter a valid file format')
     expect(
-      buildFile.bind(null, { destination: '__tests__/__output/test.txt', format: {} }, {}, {})
+      buildFile.bind(null, { destination: '__tests__/__output/test.txt', format: {} }, {}, {}),
     ).toThrow('Please enter a valid file format')
     expect(
-      buildFile.bind(null, { destination: '__tests__/__output/test.txt', format: [] }, {}, {})
+      buildFile.bind(null, { destination: '__tests__/__output/test.txt', format: [] }, {}, {}),
     ).toThrow('Please enter a valid file format')
   })
 
@@ -130,8 +130,7 @@ describe('buildFile', () => {
       format,
     }, {
       buildPath: '__tests__/__output/',
-    }, {}
-    )
+    }, {})
     expect(helpers.fileExists('__output/test.txt')).toBeTruthy()
   })
 
@@ -142,8 +141,7 @@ describe('buildFile', () => {
     }, {
       buildPath: '__tests__/__output/',
       write: false,
-    }, {}
-    )
+    }, {})
     expect(helpers.fileExists('__output/test.txt')).toBeFalsy()
   })
 
@@ -160,7 +158,7 @@ describe('buildFile', () => {
         buildPath: '__tests__/__output/',
         write: false,
       },
-      {}
+      {},
     )
   })
 
@@ -177,7 +175,7 @@ describe('buildFile', () => {
           expect(result).toBeTruthy()
         },
       },
-      {}
+      {},
     )
   })
 
@@ -192,7 +190,7 @@ describe('buildFile', () => {
           expect(result).toBeTruthy()
         },
       },
-      {}
+      {},
     )
   })
 })

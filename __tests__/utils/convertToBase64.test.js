@@ -17,19 +17,19 @@ describe('utils', () => {
   describe('convertToBase64', () => {
     it('should error if filePath isnt a string', () => {
       expect(
-        convertToBase64.bind(null)
+        convertToBase64.bind(null),
       ).toThrow('filePath name must be a string')
       expect(
-        convertToBase64.bind(null, [])
+        convertToBase64.bind(null, []),
       ).toThrow('filePath name must be a string')
       expect(
-        convertToBase64.bind(null, {})
+        convertToBase64.bind(null, {}),
       ).toThrow('filePath name must be a string')
     })
 
     it('should error if filePath isnt a file', () => {
       expect(
-        convertToBase64.bind(null, 'foo')
+        convertToBase64.bind(null, 'foo'),
       ).toThrow('ENOENT: no such file or directory, open \'foo\'')
     })
 

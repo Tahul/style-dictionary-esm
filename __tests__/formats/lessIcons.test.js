@@ -65,8 +65,8 @@ describe('formats', () => {
             platform,
           }),
           platform,
-          file
-        )
+          file,
+        ),
       )
 
       console.log({

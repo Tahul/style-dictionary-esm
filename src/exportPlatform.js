@@ -29,9 +29,9 @@ const PROPERTY_REFERENCE_WARNINGS = GroupMessages.GROUP.PropertyReferenceWarning
  *
  * @static
  * @memberof module:style-dictionary
- * @param {String} platform - The platform to be exported.
+ * @param {string} platform - The platform to be exported.
  * Must be defined on the style dictionary.
- * @returns {Object}
+ * @returns {object}
  */
 function exportPlatform(platform) {
   if (!platform || !this.options.platforms[platform])

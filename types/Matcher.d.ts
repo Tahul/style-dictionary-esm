@@ -11,6 +11,6 @@
  * and limitations under the License.
  */
 
-import { TransformedToken } from './TransformedToken';
+import type { TransformedToken } from './TransformedToken'
 
-export type Matcher = (token: TransformedToken) => boolean;
+export type Matcher = (token: TransformedToken) => boolean

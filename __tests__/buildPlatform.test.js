@@ -28,13 +28,13 @@ describe('buildPlatform', () => {
 
   it('should throw if passed a platform that doesn\'t exist', () => {
     expect(
-      StyleDictionaryExtended.buildPlatform.bind(test, 'foobar')
+      StyleDictionaryExtended.buildPlatform.bind(test, 'foobar'),
     ).toThrow('Platform "foobar" does not exist')
 
     expect(
       () => {
         StyleDictionaryExtended.buildPlatform('web')
-      }
+      },
     ).not.toThrow()
   })
 
@@ -185,7 +185,7 @@ describe('buildPlatform', () => {
     + '"bar" does not match the name of a registered transformGroup.\n'
 
     expect(
-      StyleDictionaryExtended.buildPlatform.bind(StyleDictionaryExtended, 'foo')
+      StyleDictionaryExtended.buildPlatform.bind(StyleDictionaryExtended, 'foo'),
     ).toThrow(err)
   })
 })

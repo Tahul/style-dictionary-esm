@@ -11,9 +11,9 @@
  * and limitations under the License.
  */
 
-import { Matcher } from './Matcher';
+import type { Matcher } from './Matcher'
 
 export interface Filter {
-  name: string;
-  matcher: Matcher;
+  name: string
+  matcher: Matcher
 }

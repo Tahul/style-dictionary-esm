@@ -18,9 +18,9 @@ import * as _ from '../utils/es6_'
  * group of transforms.
  * @static
  * @memberof module:style-dictionary
- * @param {Object} transformGroup
- * @param {String} transformGroup.name - Name of the transform group that will be referenced in config.json
- * @param {String[]} transformGroup.transforms - Array of strings that reference the name of transforms to be applied in order. Transforms must be defined and match the name or there will be an error at build time.
+ * @param {object} transformGroup
+ * @param {string} transformGroup.name - Name of the transform group that will be referenced in config.json
+ * @param {string[]} transformGroup.transforms - Array of strings that reference the name of transforms to be applied in order. Transforms must be defined and match the name or there will be an error at build time.
  * @returns {module:style-dictionary}
  * @example
  * ```js

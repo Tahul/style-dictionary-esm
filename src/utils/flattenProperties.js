@@ -18,8 +18,8 @@ import * as _ from './es6_'
  * A leaf node in this context has a 'value' property. Potentially refactor this to
  * be more generic.
  * @private
- * @param  {Object} properties - The plain object you want flattened into an array.
- * @param  {Array} [to_ret=[]] - Properties array. This function is recursive therefore this is what gets passed along.
+ * @param  {object} properties - The plain object you want flattened into an array.
+ * @param  {Array} [to_ret] - Properties array. This function is recursive therefore this is what gets passed along.
  * @return {Array}
  */
 function flattenProperties(properties, to_ret) {

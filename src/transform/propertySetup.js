@@ -20,10 +20,10 @@ import * as _ from '../utils/es6_'
  * original object for safekeeping, adds a name, adds an attributes object,
  * and a path array.
  * @private
- * @param {Object} property - the property object to setup
- * @param {String} name - The name of the property, which will should be its key in the object.
+ * @param {object} property - the property object to setup
+ * @param {string} name - The name of the property, which will should be its key in the object.
  * @param {Array} path - The path of keys to get to the property from the top level of the properties object.
- * @returns {Object} - A new object that is setup and ready to go.
+ * @returns {object} - A new object that is setup and ready to go.
  */
 function propertySetup(property, name, path) {
   if (!property && !_.isPlainObject(property))

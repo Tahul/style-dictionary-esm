@@ -11,25 +11,25 @@
  * and limitations under the License.
  */
 
-import { Dictionary, Platform } from '.'
-import { Options } from './Options';
-import { TransformedToken } from './TransformedToken';
+import type { Options } from './Options'
+import type { TransformedToken } from './TransformedToken'
+import type { Dictionary, Platform } from '.'
 
 export interface FileDoneCallbackResult {
-  file: File,
-  platform: Platform,
-  dictionary: Dictionary,
+  file: File
+  platform: Platform
+  dictionary: Dictionary
   result: string
 }
 
 export interface File {
-  className?: string;
-  packageName?: string;
-  destination: string;
-  format?: string;
-  filter?: string | Partial<TransformedToken> | ((token: TransformedToken) => boolean);
-  write?: boolean;
-  silent?: boolean;
+  className?: string
+  packageName?: string
+  destination: string
+  format?: string
+  filter?: string | Partial<TransformedToken> | ((token: TransformedToken) => boolean)
+  write?: boolean
+  silent?: boolean
   done?: (result: FileDoneCallbackResult) => void
-  options?: Options;
+  options?: Options
 }

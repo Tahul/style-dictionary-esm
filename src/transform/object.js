@@ -24,12 +24,12 @@ import propertySetup from './propertySetup'
  * we can perform transforms for different platforms
  * on the same style dictionary.
  * @private
- * @param {Object} obj
- * @param {Object} options
- * @param {Object} [transformationContext={}]
- * @param {Array} [path=[]]
- * @param {Object} [transformedObj={}]
- * @returns {Object}
+ * @param {object} obj
+ * @param {object} options
+ * @param {object} [transformationContext]
+ * @param {Array} [path]
+ * @param {object} [transformedObj]
+ * @returns {object}
  */
 function transformObject(obj, options, transformationContext = {}, path, transformedObj) {
   transformedObj = transformedObj || {}

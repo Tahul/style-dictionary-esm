@@ -14,8 +14,8 @@
 /**
  * Outputs an object for compose format configurations. Sets import.
  * @memberof module:formatHelpers
- * @param {Object} options - The options object declared at configuration
- * @returns {Object}
+ * @param {object} options - The options object declared at configuration
+ * @returns {object}
  */
 function setComposeObjectProperties(options) {
   if (typeof options.import === 'undefined')

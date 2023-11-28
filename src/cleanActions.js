@@ -18,8 +18,8 @@
  * @static
  * @private
  * @memberof module:style-dictionary
- * @param {Object} dictionary
- * @param {Object} platform
+ * @param {object} dictionary
+ * @param {object} platform
  * @returns {null}
  */
 function cleanActions(dictionary, platform) {

@@ -57,7 +57,7 @@ describe('formats', () => {
 
       await fs.writeFile(
         path,
-        content
+        content,
       )
 
       let test = await import(helpers.resolveTestsPath('__output/output-module.js'))

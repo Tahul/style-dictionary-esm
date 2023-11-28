@@ -11,13 +11,13 @@
  * and limitations under the License.
  */
 
-import { Dictionary } from './Dictionary';
-import { Platform } from './Platform';
+import type { Dictionary } from './Dictionary'
+import type { Platform } from './Platform'
 
 export interface Action {
   /** The action in the form of a function. */
-  do(dictionary: Dictionary, config: Platform): void;
+  do(dictionary: Dictionary, config: Platform): void
 
   /** A function that undoes the action. */
-  undo?(dictionary: Dictionary, config: Platform): void;
+  undo?(dictionary: Dictionary, config: Platform): void
 }

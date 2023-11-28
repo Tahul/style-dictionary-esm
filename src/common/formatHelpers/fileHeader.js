@@ -28,11 +28,11 @@ const defaultFormatting = {
  * It will use the custom file header if defined on the configuration, or use the
  * default file header.
  * @memberof module:formatHelpers
- * @param {Object} options
+ * @param {object} options
  * @param {File} options.file - The file object that is passed to the formatter.
- * @param {String} options.commentStyle - The only options are 'short' and 'xml', which will use the // or \<!-- --> style comments respectively. Anything else will use \/\* style comments.
- * @param {Object} options.formatting - Custom formatting properties that define parts of a comment in code. The configurable strings are: prefix, lineSeparator, header, and footer.
- * @returns {String}
+ * @param {string} options.commentStyle - The only options are 'short' and 'xml', which will use the // or \<!-- --> style comments respectively. Anything else will use \/\* style comments.
+ * @param {object} options.formatting - Custom formatting properties that define parts of a comment in code. The configurable strings are: prefix, lineSeparator, header, and footer.
+ * @returns {string}
  * @example
  * ```js
  * StyleDictionary.registerFormat({

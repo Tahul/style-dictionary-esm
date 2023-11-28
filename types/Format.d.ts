@@ -11,37 +11,37 @@
  * and limitations under the License.
  */
 
-import { Dictionary } from './Dictionary';
-import { File } from './File';
-import { Options } from './Options';
-import { Platform } from './Platform';
+import type { Dictionary } from './Dictionary'
+import type { File } from './File'
+import type { Options } from './Options'
+import type { Platform } from './Platform'
 
 export interface FormatterArguments {
   /**
    * The transformed and resolved dictionary object
    */
-  dictionary: Dictionary;
+  dictionary: Dictionary
   /**
    * The file configuration the format is called in
    */
-  file: File;
+  file: File
   /**
    * The options object,
    */
-  options: Options;
+  options: Options
   /**
    * The platform configuration the format is called in
    */
-  platform: Platform;
+  platform: Platform
 }
 
 /**
  * The formatter function receives an overloaded object as its arguments and
  * it should return a string, which will be written to a file.
  */
-export type Formatter = (arguments: FormatterArguments) => string;
+export type Formatter = (arguments: FormatterArguments) => string
 
 export interface Format {
-  name: string;
-  formatter: Formatter;
+  name: string
+  formatter: Formatter
 }

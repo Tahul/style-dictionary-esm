@@ -18,9 +18,9 @@ import usesReference from '../utils/references/usesReference'
  * Applies all transforms to a property. This is a pure function,
  * it returns a new property object rather than mutating it inline.
  * @private
- * @param {Object} property
- * @param {Object} options
- * @returns {Object} - A new property object with transforms applied.
+ * @param {object} property
+ * @param {object} options
+ * @returns {object} - A new property object with transforms applied.
  */
 function transformProperty(property, options) {
   const to_ret = _.clone(property)

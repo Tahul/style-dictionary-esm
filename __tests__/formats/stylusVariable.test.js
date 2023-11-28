@@ -64,13 +64,12 @@ describe('formats', () => {
         file,
         platform: {},
       })
-      stylus.render(formatter(stylusArguments, {}, file),
-        (err, css) => {
-          if (err)
-            throw new Error(err)
+      stylus.render(formatter(stylusArguments, {}, file), (err, css) => {
+        if (err)
+          throw new Error(err)
 
-          expect(css).toBeDefined()
-        })
+        expect(css).toBeDefined()
+      })
     })
   })
 })

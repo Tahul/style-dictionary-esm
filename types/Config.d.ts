@@ -11,27 +11,27 @@
  * and limitations under the License.
  */
 
-import { Parser } from './Parser';
-import { Transform } from './Transform';
-import { TransformGroup } from './TransformGroup';
-import { Filter } from './Filter';
-import { FileHeader } from './FileHeader';
-import { Formatter } from './Format';
-import { Action } from './Action';
-import { Platform } from './Platform';
-import { DesignTokens } from './DesignToken';
+import type { Parser } from './Parser'
+import type { Transform } from './Transform'
+import type { TransformGroup } from './TransformGroup'
+import type { Filter } from './Filter'
+import type { FileHeader } from './FileHeader'
+import type { Formatter } from './Format'
+import type { Action } from './Action'
+import type { Platform } from './Platform'
+import type { DesignTokens } from './DesignToken'
 
 export interface Config {
-  parsers?: Parser[];
-  transform?: Record<string, Transform>;
-  transformGroup?: Record<string, TransformGroup['transforms']>;
-  format?: Record<string, Formatter>;
-  filter?: Record<string, Filter['matcher']>;
-  fileHeader?: Record<string, FileHeader>;
-  action?: Record<string, Action>;
-  include?: string[];
-  source?: string[];
-  tokens?: DesignTokens;
-  properties?: DesignTokens;
-  platforms: Record<string, Platform>;
+  parsers?: Parser[]
+  transform?: Record<string, Transform>
+  transformGroup?: Record<string, TransformGroup['transforms']>
+  format?: Record<string, Formatter>
+  filter?: Record<string, Filter['matcher']>
+  fileHeader?: Record<string, FileHeader>
+  action?: Record<string, Action>
+  include?: string[]
+  source?: string[]
+  tokens?: DesignTokens
+  properties?: DesignTokens
+  platforms: Record<string, Platform>
 }

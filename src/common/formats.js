@@ -11,12 +11,9 @@
  * and limitations under the License.
  */
 
-import fs from 'node:fs'
-import { dirname, resolve } from 'pathe'
 import _template from 'lodash.template'
 import { resolveTemplate } from '../resolveTemplate'
 import GroupMessages from '../utils/groupMessages'
-import { fileURLToPath } from '../utils/fileURLToPath'
 import { createPropertyFormatter, fileHeader, formattedVariables, getTypeScriptType, iconsWithPrefix, minifyDictionary, setComposeObjectProperties, setSwiftFileProperties, sortByName, sortByReference } from './formatHelpers'
 
 const SASS_MAP_FORMAT_DEPRECATION_WARNINGS = GroupMessages.GROUP.SassMapFormatDeprecationWarnings
@@ -31,9 +28,9 @@ const formats = {
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @param {string} [options.selector] - Override the root css selector
    * @example
    * ```css
@@ -86,9 +83,9 @@ const formats = {
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
-   * @param {Boolean} [options.themeable=true] - Whether or not tokens should default to being themeable, if not otherwise specified per token.
+   * @param {object} options
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {boolean} [options.themeable] - Whether or not tokens should default to being themeable, if not otherwise specified per token.
    * @example
    * ```scss
    * $color-background-base: #f0f0f0 !default;
@@ -129,10 +126,10 @@ const formats = {
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
-   * @param {Boolean} [options.themeable=false] - Whether or not tokens should default to being themeable, if not otherwise specified per token.
+   * @param {object} options
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {boolean} [options.themeable] - Whether or not tokens should default to being themeable, if not otherwise specified per token.
    * @example
    * ```scss
    * $color-background-base: #f0f0f0;
@@ -165,9 +162,9 @@ const formats = {
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```less
    * \@color-background-base: #f0f0f0;
@@ -399,8 +396,8 @@ const formats = {
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.outputStringLiterals=false] - Whether or not to output literal types for string values
+   * @param {object} options
+   * @param {boolean} [options.outputStringLiterals] - Whether or not to output literal types for string values
    * @example
    * ```typescript
    * export const ColorBackgroundBase : string;
@@ -492,8 +489,50 @@ const formats = {
       return type
     }
 
-    const _dir = resolve(dirname(fileURLToPath(import.meta.url)), '../templates')
-    const designTokenInterface = fs.readFileSync(resolve(_dir, '../../types/DesignToken.d.ts'), { encoding: 'UTF-8' })
+    const designTokenInterface = `/*
+ * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"). You may not use this file except in compliance with
+ * the License. A copy of the License is located at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * or in the "license" file accompanying this file. This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
+ * and limitations under the License.
+ */
+
+/**
+ * This type is also used in the \`typescript/module-declarations\` format,
+ * but we only want to include the lines of the DesignToken interface.
+ * The comments surrounding the definition are used to trim the lines of
+ * this file in that format.
+ */
+
+//start
+interface DesignToken {
+  value: any;
+  name?: string;
+  comment?: string;
+  themeable?: boolean;
+  attributes?: {
+    category?: string;
+    type?: string;
+    item?: string;
+    subitem?: string;
+    state?: string;
+    [key: string]: any;
+  };
+  [key: string]: any;
+}
+//end
+
+export { DesignToken };
+
+export interface DesignTokens {
+  [key: string]: DesignTokens | DesignToken;
+}
+`
 
     // get the first and last lines to add to the format by
     // looking for the first and last single-line comment
@@ -529,9 +568,9 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```xml
    * <?xml version="1.0" encoding="UTF-8"?>
@@ -700,12 +739,12 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {String} className The name of the generated Kotlin object
-   * @param {String} packageName The package for the generated Kotlin object
-   * @param {Object} options
-   * @param {String[]} [options.import=['androidx.compose.ui.graphics.Color', 'androidx.compose.ui.unit.*']] - Modules to import. Can be a string or array of strings
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {string} className The name of the generated Kotlin object
+   * @param {string} packageName The package for the generated Kotlin object
+   * @param {object} options
+   * @param {string[]} [options.import] - Modules to import. Can be a string or array of strings
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```kotlin
    * package com.example.tokens;
@@ -884,12 +923,12 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {String} [options.accessControl=public] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
-   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of strings
-   * @param {String} [options.className] - The name of the generated Swift class
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {string} [options.accessControl] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
+   * @param {string[]} [options.import] - Modules to import. Can be a string or array of strings
+   * @param {string} [options.className] - The name of the generated Swift class
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```swift
    * public class StyleDictionary {
@@ -923,11 +962,11 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {String} [options.accessControl=public] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
-   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of strings
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {string} [options.accessControl] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
+   * @param {string[]} [options.import] - Modules to import. Can be a string or array of strings
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```swift
    * public enum StyleDictionary {
@@ -968,12 +1007,12 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {String} [options.accessControl=public] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
-   * @param {String[]} [options.import=UIKit] - Modules to import. Can be a string or array of strings
-   * @param {String} [options.objectType=class] - The type of the generated Swift object
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {string} [options.accessControl] - Level of [access](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html) of the generated swift object
+   * @param {string[]} [options.import] - Modules to import. Can be a string or array of strings
+   * @param {string} [options.objectType] - The type of the generated Swift object
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```swift
    * import UIKit
@@ -1176,9 +1215,9 @@ declare const ${moduleName}: ${JSON.stringify(treeWalker(dictionary.tokens), nul
    *
    * @memberof Formats
    * @kind member
-   * @param {Object} options
-   * @param {Boolean} [options.showFileHeader=true] - Whether or not to include a comment that has the build date
-   * @param {Boolean} [options.outputReferences=false] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
+   * @param {object} options
+   * @param {boolean} [options.showFileHeader] - Whether or not to include a comment that has the build date
+   * @param {boolean} [options.outputReferences] - Whether or not to keep [references](/#/formats?id=references-in-output-files) (a -> b -> c) in the output.
    * @example
    * ```dart
    * import 'package:flutter/material.dart';

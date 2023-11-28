@@ -17,8 +17,8 @@
  * the calling function should map the functions accordingly.
  * @private
  * @memberof module:style-dictionary
- * @param {Object} dictionary
- * @param {Object} platform
+ * @param {object} dictionary
+ * @param {object} platform
  * @returns {null}
  */
 function performActions(dictionary, platform) {

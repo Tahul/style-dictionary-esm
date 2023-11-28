@@ -17,11 +17,11 @@ import { assign, filter as globalFilter, isEmpty, isObject, reduce } from './uti
  * Takes a nested object of properties and filters them using the provided
  * function.
  *
- * @param {Object} properties
+ * @param {object} properties
  * @param {Function} filter - A function that receives a property object and
  *   returns `true` if the property should be included in the output or `false`
  *   if the property should be excluded from the output.
- * @returns {Object[]} properties - A new object containing only the properties
+ * @returns {object[]} properties - A new object containing only the properties
  *   that matched the filter.
  */
 function filterPropertyObject(properties, filter) {
@@ -53,11 +53,11 @@ function filterPropertyObject(properties, filter) {
 /**
  * Takes an array of properties and filters them using the provided function.
  *
- * @param {Object[]} properties
+ * @param {object[]} properties
  * @param {Function} filter - A function that receives a property object and
  *   returns `true` if the property should be included in the output or `false`
  *   if the property should be excluded from the output.
- * @returns {Object[]} properties - A new array containing only the properties
+ * @returns {object[]} properties - A new array containing only the properties
  *   that matched the filter.
  */
 function filterPropertyArray(properties, filter) {
@@ -68,11 +68,11 @@ function filterPropertyArray(properties, filter) {
  * Takes a dictionary and filters the `allProperties` array and the `properties`
  * object using a function provided by the user.
  *
- * @param {Object} dictionary
+ * @param {object} dictionary
  * @param {Function} filter - A function that receives a token object
  *   and returns `true` if the token should be included in the output
  *   or `false` if the token should be excluded from the output
- * @returns {Object} dictionary - A new dictionary containing only the
+ * @returns {object} dictionary - A new dictionary containing only the
  *   properties that matched the filter (or the original dictionary if no filter
  *   function was provided).
  */

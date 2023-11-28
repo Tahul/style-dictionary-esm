@@ -16,9 +16,9 @@
  * formats to display some information about how the file was built in a comment.
  * @static
  * @memberof module:style-dictionary
- * @param {Object} options
- * @param {String} options.name - Name of the format to be referenced in your config.json
- * @param {function} options.fileHeader - Function that returns an array of strings, which will be mapped to comment lines. It takes a single argument which is the default message array. See [file headers](formats.md#file-headers) for more information.
+ * @param {object} options
+ * @param {string} options.name - Name of the format to be referenced in your config.json
+ * @param {Function} options.fileHeader - Function that returns an array of strings, which will be mapped to comment lines. It takes a single argument which is the default message array. See [file headers](formats.md#file-headers) for more information.
  * @returns {module:style-dictionary}
  * @example
  * ```js

@@ -170,14 +170,14 @@ describe('filterProperties', () => {
       expect(
         () => {
           filterProperties(dictionary, 'my_filter')
-        }
+        },
       ).toThrow(/filter is not a function/)
     })
     it('filter is an object', () => {
       expect(
         () => {
           filterProperties(dictionary, { attributes: { category: 'size' } })
-        }
+        },
       ).toThrow(/filter is not a function/)
     })
   })

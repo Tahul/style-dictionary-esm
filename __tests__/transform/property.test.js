@@ -22,12 +22,14 @@ const options = {
           foo: 'bar',
         }
       },
-    }, {
+    },
+    {
       type: 'attribute',
       transformer() {
         return { bar: 'foo' }
       },
-    }, {
+    },
+    {
       type: 'name',
       matcher(prop) { return prop.attributes.foo === 'bar' },
       transformer() { return 'hello' },

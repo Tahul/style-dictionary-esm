@@ -17,19 +17,19 @@ describe('transform', () => {
   describe('propertySetup', () => {
     it('should error if property is not an object', () => {
       expect(
-        propertySetup.bind(null, null, 'foo', [])
+        propertySetup.bind(null, null, 'foo', []),
       ).toThrow('Property object must be an object')
     })
 
     it('should error if name in not a string', () => {
       expect(
-        propertySetup.bind(null, {}, null, [])
+        propertySetup.bind(null, {}, null, []),
       ).toThrow('Name must be a string')
     })
 
     it('should error path is not an array', () => {
       expect(
-        propertySetup.bind(null, {}, 'name', null)
+        propertySetup.bind(null, {}, 'name', null),
       ).toThrow('Path must be an array')
     })
 
@@ -37,7 +37,7 @@ describe('transform', () => {
       const test = propertySetup(
         { value: '#fff' },
         'white',
-        ['color', 'base']
+        ['color', 'base'],
       )
       expect(typeof test).toBe('object')
       expect(test).toHaveProperty('value')
@@ -51,7 +51,7 @@ describe('transform', () => {
       const test = propertySetup(
         original,
         'white',
-        ['color', 'base']
+        ['color', 'base'],
       )
       expect(test).toMatchObject(original)
     })
@@ -61,7 +61,7 @@ describe('transform', () => {
       const test = propertySetup(
         { value: '#fff', attributes },
         'white',
-        ['color', 'base']
+        ['color', 'base'],
       )
       expect(test.attributes).toMatchObject(attributes)
     })
@@ -71,7 +71,7 @@ describe('transform', () => {
       const test = propertySetup(
         { value: '#fff', name },
         'white',
-        ['color', 'base']
+        ['color', 'base'],
       )
       expect(test).toHaveProperty('name', name)
     })
@@ -80,7 +80,7 @@ describe('transform', () => {
       const test = propertySetup(
         { value: '#fff' },
         'white',
-        ['color', 'base']
+        ['color', 'base'],
       )
       expect(test).toHaveProperty('name', 'white')
     })
@@ -88,7 +88,9 @@ describe('transform', () => {
     it('should handle objects', () => {
       const test = propertySetup({
         value: {
-          h: 20, s: 50, l: 50,
+          h: 20,
+          s: 50,
+          l: 50,
         },
       }, 'red', ['color', 'red'])
       expect(test).toHaveProperty('value.h', 20)

@@ -21,28 +21,28 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           parse() {},
-        })
+        }),
       ).toThrow('pattern must be a regular expression')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: 1,
           parse() {},
-        })
+        }),
       ).toThrow('pattern must be a regular expression')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: [],
           parse() {},
-        })
+        }),
       ).toThrow('pattern must be a regular expression')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: {},
           parse() {},
-        })
+        }),
       ).toThrow('pattern must be a regular expression')
     })
 
@@ -50,35 +50,35 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: /$.json/,
-        })
+        }),
       ).toThrow('parse must be a function')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: /$.json/,
           parse: 1,
-        })
+        }),
       ).toThrow('parse must be a function')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: /$.json/,
           parse: 'name',
-        })
+        }),
       ).toThrow('parse must be a function')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: /$.json/,
           parse: [],
-        })
+        }),
       ).toThrow('parse must be a function')
 
       expect(
         StyleDictionaryExtended.registerParser.bind(null, {
           pattern: /$.json/,
           parse: {},
-        })
+        }),
       ).toThrow('parse must be a function')
     })
 

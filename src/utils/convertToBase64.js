@@ -16,8 +16,8 @@ import fs from 'node:fs'
 /**
  * Takes a file and converts it to a base64 string.
  * @private
- * @param {String} filePath - Path to the file you want base64'd
- * @returns {String}
+ * @param {string} filePath - Path to the file you want base64'd
+ * @returns {string}
  */
 function convertToBase64(filePath) {
   if (typeof filePath !== 'string')

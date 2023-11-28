@@ -13,7 +13,7 @@
 
 import * as path from 'pathe'
 import Color from 'tinycolor2'
-import * as _ from '../utils/es6_'
+import { camelCase, kebabCase, snakeCase, upperFirst } from '../utils/es6_'
 import convertToBase64 from '../utils/convertToBase64'
 
 const UNICODE_PATTERN = /&#x([^;]+);/g
@@ -162,7 +162,7 @@ export default {
   'name/cti/camel': {
     type: 'name',
     transformer(token, options) {
-      return _.camelCase([options.prefix].concat(token.path).join(' '))
+      return camelCase([options.prefix].concat(token.path).join(' '))
     },
   },
 
@@ -183,7 +183,7 @@ export default {
   'name/ti/camel': {
     type: 'name',
     transformer(token, options) {
-      return _.camelCase([options.prefix].concat(token.path.slice(1, token.path.length)).join(' '))
+      return camelCase([options.prefix].concat(token.path.slice(1, token.path.length)).join(' '))
     },
   },
 
@@ -202,7 +202,7 @@ export default {
   'name/cti/kebab': {
     type: 'name',
     transformer(token, options) {
-      return _.kebabCase([options.prefix].concat(token.path).join(' '))
+      return kebabCase([options.prefix].concat(token.path).join(' '))
     },
   },
 
@@ -221,7 +221,7 @@ export default {
   'name/cti/snake': {
     type: 'name',
     transformer(token, options) {
-      return _.snakeCase([options.prefix].concat(token.path).join(' '))
+      return snakeCase([options.prefix].concat(token.path).join(' '))
     },
   },
 
@@ -240,7 +240,7 @@ export default {
   'name/cti/constant': {
     type: 'name',
     transformer(token, options) {
-      return _.snakeCase([options.prefix].concat(token.path).join(' ')).toUpperCase()
+      return snakeCase([options.prefix].concat(token.path).join(' ')).toUpperCase()
     },
   },
 
@@ -260,7 +260,7 @@ export default {
     type: 'name',
     transformer(token, options) {
       const path = token.path.slice(1)
-      return _.snakeCase([options.prefix].concat(path).join(' ')).toUpperCase()
+      return snakeCase([options.prefix].concat(path).join(' ')).toUpperCase()
     },
   },
 
@@ -279,7 +279,7 @@ export default {
   'name/cti/pascal': {
     type: 'name',
     transformer(token, options) {
-      return _.upperFirst(_.camelCase([options.prefix].concat(token.path).join(' ')))
+      return upperFirst(camelCase([options.prefix].concat(token.path).join(' ')))
     },
   },
 
@@ -443,9 +443,9 @@ export default {
     transformer(token) {
       const rgb = Color(token.value).toRgb()
       return `[UIColor colorWithRed:${(rgb.r / 255).toFixed(3)}f`
-             + ` green:${(rgb.g / 255).toFixed(3)}f`
-             + ` blue:${(rgb.b / 255).toFixed(3)}f`
-             + ` alpha:${rgb.a.toFixed(3)}f]`
+        + ` green:${(rgb.g / 255).toFixed(3)}f`
+        + ` blue:${(rgb.b / 255).toFixed(3)}f`
+        + ` alpha:${rgb.a.toFixed(3)}f]`
     },
   },
 
@@ -1144,15 +1144,15 @@ export default {
   },
 
   /**
- * Wraps the value in a double-quoted string to make a string literal.
- *
- * ```dart
- * // Matches: token.attributes.category === 'font'
- * // Returns: "string"
- * ```
- *
- * @memberof Transforms
- */
+   * Wraps the value in a double-quoted string to make a string literal.
+   *
+   * ```dart
+   * // Matches: token.attributes.category === 'font'
+   * // Returns: "string"
+   * ```
+   *
+   * @memberof Transforms
+   */
   'font/flutter/literal': {
     type: 'value',
     matcher(token) {

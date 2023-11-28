@@ -18,7 +18,7 @@ import defaults from './defaults'
  *
  * @private
  * @param {Array} path
- * @param {Object} opts
+ * @param {object} opts
  * @returns {string} - The paths name
  */
 function getName(path, opts = {}) {

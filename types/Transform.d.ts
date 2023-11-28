@@ -11,39 +11,39 @@
  * and limitations under the License.
  */
 
-import { Matcher } from './Matcher';
-import { TransformedToken } from './TransformedToken';
-import { Platform } from './Platform';
+import type { Matcher } from './Matcher'
+import type { TransformedToken } from './TransformedToken'
+import type { Platform } from './Platform'
 
-export interface NameTransform<PlatformType = Record<string,any>> {
-  type: "name";
-  matcher?: Matcher;
+export interface NameTransform<PlatformType = Record<string, any>> {
+  type: 'name'
+  matcher?: Matcher
   transformer: (
     token: TransformedToken,
     options: Platform<PlatformType>
-  ) => string;
+  ) => string
 }
 
-export interface ValueTransform<PlatformType = Record<string,any>> {
-  type: "value";
-  transitive?: boolean;
-  matcher?: Matcher;
+export interface ValueTransform<PlatformType = Record<string, any>> {
+  type: 'value'
+  transitive?: boolean
+  matcher?: Matcher
   transformer: (
     token: TransformedToken,
     options: Platform<PlatformType>
-  ) => any;
+  ) => any
 }
 
-export interface AttributeTransform<PlatformType = Record<string,any>> {
-  type: "attribute";
-  matcher?: Matcher;
+export interface AttributeTransform<PlatformType = Record<string, any>> {
+  type: 'attribute'
+  matcher?: Matcher
   transformer: (
     token: TransformedToken,
     options: Platform<PlatformType>
-  ) => { [key: string]: any };
+  ) => { [key: string]: any }
 }
 
-export type Transform<PlatformType = Record<string,any>> =
+export type Transform<PlatformType = Record<string, any>> =
   | NameTransform<PlatformType>
   | ValueTransform<PlatformType>
-  | AttributeTransform<PlatformType>;
+  | AttributeTransform<PlatformType>

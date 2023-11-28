@@ -21,13 +21,13 @@ describe('utils', () => {
   describe('resolveObject', () => {
     it('should error on non-objects', () => {
       expect(
-        resolveObject.bind(null)
+        resolveObject.bind(null),
       ).toThrow('Please pass an object in')
       expect(
-        resolveObject.bind(null, 'foo')
+        resolveObject.bind(null, 'foo'),
       ).toThrow('Please pass an object in')
       expect(
-        resolveObject.bind(null, 0)
+        resolveObject.bind(null, 0),
       ).toThrow('Please pass an object in')
     })
 
@@ -87,8 +87,7 @@ describe('utils', () => {
       expect(test).toHaveProperty('e', 'foo bon bee bae')
       expect(test).toHaveProperty('f', 'foo bon bee')
       expect(test).toHaveProperty('g', 'foo bon')
-    }
-    )
+    })
 
     it('should handle deep nested pointers and nested references', async () => {
       const test = resolveObject(await helpers.fileToJSON('__json_files/nested_pointers_4.json'))
@@ -120,7 +119,7 @@ describe('utils', () => {
 
     it('should throw if pointers don\'t exist', async () => {
       expect(
-        resolveObject.bind(await helpers.fileToJSON('__json_files/non_existent.json'))
+        resolveObject.bind(await helpers.fileToJSON('__json_files/non_existent.json')),
       ).toThrow()
     })
 

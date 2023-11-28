@@ -14,8 +14,8 @@
 /**
  * Outputs an object stripping out everything except values
  * @memberof module:formatHelpers
- * @param {Object} obj - The object to minify. You will most likely pass `dictionary.tokens` to it.
- * @returns {Object}
+ * @param {object} obj - The object to minify. You will most likely pass `dictionary.tokens` to it.
+ * @returns {object}
  * @example
  * ```js
  * StyleDictionary.registerFormat({

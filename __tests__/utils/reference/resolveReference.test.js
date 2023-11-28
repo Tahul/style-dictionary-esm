@@ -43,22 +43,22 @@ describe('resolveReference()', () => {
 
   it('returns the part of the object if referenced path exists', () => {
     expect(
-      resolveReference(['color', 'palette', 'neutral', '0', 'value'], dictionary)
+      resolveReference(['color', 'palette', 'neutral', '0', 'value'], dictionary),
     ).toEqual(dictionary.color.palette.neutral['0'].value)
     expect(
-      resolveReference(['color'], dictionary)
+      resolveReference(['color'], dictionary),
     ).toEqual(dictionary.color)
   })
 
   it('works with arrays', () => {
     expect(
-      resolveReference(['arr'], dictionary)
+      resolveReference(['arr'], dictionary),
     ).toEqual(dictionary.arr)
   })
 
   it('works with array indices', () => {
     expect(
-      resolveReference(['arr', '0'], dictionary)
+      resolveReference(['arr', '0'], dictionary),
     ).toEqual(dictionary.arr[0])
   })
 })

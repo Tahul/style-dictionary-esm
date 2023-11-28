@@ -16,10 +16,10 @@ import * as _ from './es6_'
 /**
  * Performs an deep extend on the objects, from right to left.
  * @private
- * @param {Object[]} objects - An array of JS objects
+ * @param {object[]} objects - An array of JS objects
  * @param {Function} collision - A function to be called when a merge collision happens.
  * @param {string[]} path - (for internal use) An array of strings which is the current path down the object when this is called recursively.
- * @returns {Object}
+ * @returns {object}
  */
 function deepExtend(objects, collision, path) {
   if (objects == null)

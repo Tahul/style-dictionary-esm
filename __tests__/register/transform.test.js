@@ -21,7 +21,7 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerTransform.bind(null, {
           type: 3,
-        })
+        }),
       ).toThrow('type must be a string')
     })
 
@@ -29,7 +29,7 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerTransform.bind(null, {
           type: 'foo',
-        })
+        }),
       ).toThrow('foo type is not one of: name, value, attribute')
     })
 
@@ -37,7 +37,7 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerTransform.bind(null, {
           type: 'name',
-        })
+        }),
       ).toThrow('name must be a string')
     })
 
@@ -47,7 +47,7 @@ describe('register', () => {
           type: 'name',
           name: 'name',
           matcher: 'foo',
-        })
+        }),
       ).toThrow('matcher must be a function')
     })
 
@@ -58,7 +58,7 @@ describe('register', () => {
           name: 'name',
           matcher() { return true },
           transformer: 'foo',
-        })
+        }),
       ).toThrow('transformer must be a function')
     })
 

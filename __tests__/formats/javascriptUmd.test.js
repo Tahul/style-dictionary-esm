@@ -53,7 +53,7 @@ describe('formats', () => {
           dictionary,
           file,
           platform: {},
-        }), {}, file)
+        }), {}, file),
       )
 
       // Seems like evaluating .umd from this context ain't good

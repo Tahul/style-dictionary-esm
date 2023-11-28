@@ -23,7 +23,8 @@ function createReferenceRegex(opts = {}) {
     options.closingChar
     }]+)`
     + `\\${
-    options.closingChar}`, 'g'
+    options.closingChar}`,
+    'g',
   )
 }
 

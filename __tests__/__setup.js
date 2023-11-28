@@ -8,5 +8,5 @@ vi.setSystemTime(constantDate)
 beforeEach(
   async () => {
     await __helpers.clearOutput()
-  }
+  },
 )

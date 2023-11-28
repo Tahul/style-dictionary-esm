@@ -11,11 +11,11 @@
  * and limitations under the License.
  */
 
-import { FileHeader } from './FileHeader';
+import type { FileHeader } from './FileHeader'
 
 export interface Options {
-  showFileHeader?: boolean;
-  fileHeader?: string | FileHeader;
-  outputReferences?: boolean;
-  [key: string]: any;
+  showFileHeader?: boolean
+  fileHeader?: string | FileHeader
+  outputReferences?: boolean
+  [key: string]: any
 }

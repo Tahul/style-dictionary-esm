@@ -20,12 +20,14 @@ const options = {
       transformer() {
         return { foo: 'bar' }
       },
-    }, {
+    },
+    {
       type: 'attribute',
       transformer() {
         return { bar: 'foo' }
       },
-    }, {
+    },
+    {
       type: 'name',
       matcher(prop) {
         return prop.attributes.foo === 'bar'
@@ -33,7 +35,8 @@ const options = {
       transformer() {
         return 'transformer result'
       },
-    }, {
+    },
+    {
       type: 'value',
       matcher(prop) {
         return prop.path[0] === 'spacing'

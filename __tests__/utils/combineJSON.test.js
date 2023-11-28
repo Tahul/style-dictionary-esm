@@ -53,7 +53,7 @@ describe('utils', () => {
 
     it('should fail on invalid JSON', () => {
       expect(
-        combineJSON.bind(null, ['__tests__/__json_files/broken/*.json'], true)
+        combineJSON.bind(null, ['__tests__/__json_files/broken/*.json'], true),
       ).toThrow(/Failed to load or parse/)
     })
 
@@ -64,7 +64,7 @@ describe('utils', () => {
           expect(opts.target[opts.key]).toStrictEqual(2)
           expect(opts.copy[opts.key]).toStrictEqual(1)
           throw new Error('test')
-        }, true)
+        }, true),
       ).toThrow(/test/)
     })
 

@@ -21,7 +21,6 @@
  * @returns {module:style-dictionary}
  */
 function cleanAllPlatforms() {
-  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const self = this
 
   Object.keys(this.options.platforms).forEach((key) => {

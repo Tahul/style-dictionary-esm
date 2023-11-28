@@ -39,7 +39,7 @@ expectType<StyleDictionary.Core>(
         ],
       },
     },
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
@@ -49,13 +49,13 @@ expectType<StyleDictionary.Core>(
       console.log(
         'Copying assets directory',
         'assets',
-        `${config.buildPath}assets`
+        `${config.buildPath}assets`,
       )
     },
     undo(dictionary, config) {
       console.log('Cleaning assets directory', `${config.buildPath}assets`)
     },
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
@@ -64,7 +64,7 @@ expectType<StyleDictionary.Core>(
     matcher(token) {
       return token.attributes?.category === 'color'
     },
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
@@ -77,14 +77,14 @@ expectType<StyleDictionary.Core>(
       expectType<StyleDictionary.Platform>(platform)
       return JSON.stringify(dictionary.tokens, null, 2)
     },
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
   StyleDictionary.registerTemplate({
     name: 'Swift/colors',
     template: '../templates/swift/colors.template',
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
@@ -98,7 +98,7 @@ expectType<StyleDictionary.Core>(
       expectType<StyleDictionary.TransformedToken>(token)
       return `${(Number.parseInt(token.original.value) / 1000).toString()}s`
     },
-  })
+  }),
 )
 
 interface CustomPlatform {
@@ -120,14 +120,14 @@ expectType<StyleDictionary.Core>(
       else
         return 'dark'
     },
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
   StyleDictionary.registerTransformGroup({
     name: 'Swift',
     transforms: ['attribute/cti', 'size/pt', 'name/cti'],
-  })
+  }),
 )
 
 expectType<StyleDictionary.Core>(
@@ -136,7 +136,7 @@ expectType<StyleDictionary.Core>(
     parse: () => {
       return {}
     },
-  })
+  }),
 )
 
 const file: StyleDictionary.File = {

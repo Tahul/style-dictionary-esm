@@ -17,11 +17,10 @@ import createReferencesRegex from './createReferenceRegex'
  * Checks if the value uses a value reference.
  * @memberof Dictionary
  * @param {string} value
- * @param {Object|RegExp} referencesOptionsOrRegex
+ * @param {object | RegExp} referencesOptionsOrRegex
  * @returns {boolean} - True, if the value uses a value reference
  */
 function usesReference(value, referencesOptionsOrRegex = {}) {
-  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const self = this
 
   // `this` is the dictionary object passed to formats and actions

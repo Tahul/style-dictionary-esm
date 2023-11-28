@@ -18,26 +18,26 @@
  * this file in that format.
  */
 
-//start
+// start
 interface DesignToken {
-  value: any;
-  name?: string;
-  comment?: string;
-  themeable?: boolean;
+  value: any
+  name?: string
+  comment?: string
+  themeable?: boolean
   attributes?: {
-    category?: string;
-    type?: string;
-    item?: string;
-    subitem?: string;
-    state?: string;
-    [key: string]: any;
-  };
-  [key: string]: any;
+    category?: string
+    type?: string
+    item?: string
+    subitem?: string
+    state?: string
+    [key: string]: any
+  }
+  [key: string]: any
 }
-//end
+// end
 
-export { DesignToken };
+export { DesignToken }
 
 export interface DesignTokens {
-  [key: string]: DesignTokens | DesignToken;
+  [key: string]: DesignTokens | DesignToken
 }

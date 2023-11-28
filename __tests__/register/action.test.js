@@ -21,28 +21,28 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           do() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 1,
           do() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: [],
           do() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: {},
           do() {},
-        })
+        }),
       ).toThrow('name must be a string')
     })
 
@@ -50,35 +50,35 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
-        })
+        }),
       ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
           do: 1,
-        })
+        }),
       ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
           do: 'name',
-        })
+        }),
       ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
           do: [],
-        })
+        }),
       ).toThrow('do must be a function')
 
       expect(
         StyleDictionaryExtended.registerAction.bind(null, {
           name: 'test',
           do: {},
-        })
+        }),
       ).toThrow('do must be a function')
     })
 

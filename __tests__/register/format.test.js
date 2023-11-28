@@ -22,28 +22,28 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           formatter() {},
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 1,
           formatter() {},
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: [],
           formatter() {},
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: {},
           formatter() {},
-        })
+        }),
       ).toThrow(errorMessage)
     })
 
@@ -52,35 +52,35 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 'test',
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 'test',
           formatter: 1,
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 'test',
           formatter: 'name',
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 'test',
           formatter: [],
-        })
+        }),
       ).toThrow(errorMessage)
 
       expect(
         StyleDictionaryExtended.registerFormat.bind(null, {
           name: 'test',
           formatter: {},
-        })
+        }),
       ).toThrow(errorMessage)
     })
 

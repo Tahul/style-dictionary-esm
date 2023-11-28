@@ -11,33 +11,34 @@
  * and limitations under the License.
  */
 
-import { DesignToken } from './DesignToken';
+import type { DesignToken } from './DesignToken'
 
 export type TransformedToken = DesignToken & {
-  name: string;
-  /** The object path of the property.
+  name: string
+  /**
+   * The object path of the property.
    *
    * `color: { background: { primary: { value: "#fff" } } }` will have a path of `['color', 'background', 'primary']`.
    */
-  path: string[];
+  path: string[]
   /**
    * A pristine copy of the original property object.
    *
    * This is to make sure transforms and formats always have the unmodified version of  the original property.
    */
-  original: DesignToken;
+  original: DesignToken
   /**
    * The file path of the file the token is defined in.
    *
    * This file path is derived from the source or include file path arrays defined in the configuration.
    */
-  filePath: string;
+  filePath: string
   /**
    * If the token is from a file defined in the source array as opposed to include in the [configuration](https://amzn.github.io/style-dictionary/#/config).
    */
-  isSource: boolean;
+  isSource: boolean
 }
 
 export interface TransformedTokens {
-  [key: string]: TransformedTokens | TransformedToken;
+  [key: string]: TransformedTokens | TransformedToken
 }

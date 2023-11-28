@@ -24,10 +24,10 @@ const MISSING_TRANSFORM_ERRORS = GroupMessages.GROUP.MissingRegisterTransformErr
  * that has filters, transforms, formats, and actions
  * mapped properly.
  * @private
- * @param {Object} config
- * @param {Object} dictionary
- * @param {Object} platformName (only used for error messaging)
- * @returns {Object}
+ * @param {object} config
+ * @param {object} dictionary
+ * @param {object} platformName (only used for error messaging)
+ * @returns {object}
  */
 function transformConfig(config, dictionary, platformName) {
   const to_ret = _.clone(config)
@@ -61,7 +61,7 @@ function transformConfig(config, dictionary, platformName) {
     if (!dictionary.transform[name]) {
       GroupMessages.add(
         MISSING_TRANSFORM_ERRORS,
-        `"${name}"`
+        `"${name}"`,
       )
     }
     return dictionary.transform[name]
@@ -136,7 +136,7 @@ function transformConfig(config, dictionary, platformName) {
       if (dictionary.format[file.template]) {
         GroupMessages.add(
           TEMPLATE_DEPRECATION_WARNINGS,
-          `${file.destination} (template: ${file.template})`
+          `${file.destination} (template: ${file.template})`,
         )
         ext.format = dictionary.format[file.template]
       }

@@ -19,8 +19,8 @@ import buildFile from './buildFile'
  * should have been transformed and resolved before this
  * point.
  * @memberOf StyleDictionary
- * @param {Object} dictionary
- * @param {Object} platform
+ * @param {object} dictionary
+ * @param {object} platform
  * @returns {null}
  */
 function buildFiles(dictionary, platform) {

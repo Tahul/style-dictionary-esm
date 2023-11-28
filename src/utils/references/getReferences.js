@@ -32,7 +32,6 @@ import resolveReference from './resolveReference'
  * @returns {any}
  */
 function getReferences(value, references = []) {
-  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const self = this
 
   // `this` is the dictionary object passed to formats and actions

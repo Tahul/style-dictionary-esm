@@ -60,7 +60,7 @@ describe('utils', () => {
         expect(dictionary.getReferences(properties.color.danger.value)).toEqual(
           expect.arrayContaining([
             { value: '#f00', match: '{color.red.value}' },
-          ])
+          ]),
         )
       })
 
@@ -69,7 +69,7 @@ describe('utils', () => {
           expect.arrayContaining([
             { value: '2px', match: '{size.border.value}' },
             { value: '#f00', match: '{color.red.value}' },
-          ])
+          ]),
         )
       })
 
@@ -77,7 +77,7 @@ describe('utils', () => {
         expect(dictionary.getReferences(properties.border.secondary.value)).toEqual(
           expect.arrayContaining([
             { value: '#f00', match: '{color.red.value}' },
-          ])
+          ]),
         )
       })
 
@@ -86,7 +86,7 @@ describe('utils', () => {
           expect.arrayContaining([
             { value: '2px', match: '{size.border.value}' },
             { value: '#f00', match: '{color.red.value}' },
-          ])
+          ]),
         )
       })
 
@@ -129,7 +129,7 @@ describe('utils', () => {
           expect.arrayContaining([
             { value: '2px', match: '$size.border.value' },
             { value: '#f00', match: '$color.red.value' },
-          ])
+          ]),
         )
       })
     })

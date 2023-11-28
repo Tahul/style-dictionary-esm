@@ -27,8 +27,7 @@ describe('integration', () => {
           files: [{
             destination: 'variables.scss',
             format: 'scss/variables',
-          },
-          {
+          }, {
             destination: 'variables-themeable.scss',
             format: 'scss/variables',
             options: {

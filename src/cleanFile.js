@@ -19,10 +19,10 @@ import logger from './logger'
  * Takes the style property object and a format and returns a
  * string that can be written to a file.
  * @memberOf StyleDictionary
- * @param {String} destination
+ * @param {string} destination
  * @param {Function} format (unused)
- * @param {Object} platform
- * @param {Object} dictionary (unused)
+ * @param {object} platform
+ * @param {object} dictionary (unused)
  * @param {Function} filter (unused)
  * @returns {null}
  */

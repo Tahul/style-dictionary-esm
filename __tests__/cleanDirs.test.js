@@ -76,7 +76,7 @@ describe('cleanDirs', () => {
         cleanDirs({}, {
           buildPath: 'foo',
         })
-      }
+      },
     ).toThrow('Build path must end in a trailing slash or you will get weird file names.')
   })
 })

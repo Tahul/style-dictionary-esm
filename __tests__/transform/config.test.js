@@ -29,7 +29,7 @@ const dictionary = {
 
 describe('transform', () => {
   describe('config', () => {
-    it('Emits error when called with a transformGroup that does not exist in the dictionary', () => {
+    it('emits error when called with a transformGroup that does not exist in the dictionary', () => {
       const noTransformGroupCfg = {
         transformGroup: 'barTransformGroup',
       }
@@ -39,11 +39,11 @@ describe('transform', () => {
       + '"barTransformGroup" does not match the name of a registered transformGroup.'
 
       expect(
-        transformConfig.bind(null, noTransformGroupCfg, dictionary, 'test')
+        transformConfig.bind(null, noTransformGroupCfg, dictionary, 'test'),
       ).toThrow(err)
     })
 
-    it('Emits errors when called with a transform that does not exist', () => {
+    it('emits errors when called with a transform that does not exist', () => {
       const noTransformCfg = {
         transforms: ['fooTransform', 'barTransform', 'bazTransform'],
       }
@@ -60,7 +60,7 @@ describe('transform', () => {
       }
 
       expect(
-        transformConfig.bind(null, noTransformCfg, dictionary, 'test')
+        transformConfig.bind(null, noTransformCfg, dictionary, 'test'),
       ).toThrow(err)
     })
   })

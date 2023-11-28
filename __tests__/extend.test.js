@@ -60,7 +60,7 @@ describe('extend', () => {
         Object.keys(StyleDictionaryExtended),
         (property) => {
           expect(StyleDictionaryExtended).toHaveProperty(property)
-        }
+        },
       )
     })
   })
@@ -68,7 +68,7 @@ describe('extend', () => {
   describe('includes', () => {
     it('should throw if include isnt an array', () => {
       expect(
-        StyleDictionary.extend.bind(null, { include: {} })
+        StyleDictionary.extend.bind(null, { include: {} }),
       ).toThrow('include must be an array')
     })
 
@@ -136,7 +136,7 @@ describe('extend', () => {
   describe('source', () => {
     it('should throw if source isnt an array', () => {
       expect(
-        StyleDictionary.extend.bind(null, { source: {} })
+        StyleDictionary.extend.bind(null, { source: {} }),
       ).toThrow('source must be an array')
     })
 
@@ -222,7 +222,7 @@ describe('extend', () => {
       StyleDictionary.extend.bind(null, {
         source: [helpers.resolveTestsPath('/__properties/paddings.1.json'), helpers.resolveTestsPath('/__properties/paddings.json')],
         log: 'error',
-      })
+      }),
     ).toThrow('Collisions detected')
   })
 
@@ -231,7 +231,7 @@ describe('extend', () => {
       StyleDictionary.extend.bind(null, {
         source: [helpers.resolveTestsPath('/__properties/paddings.json'), helpers.resolveTestsPath('/__properties/paddings.json')],
         log: 'warn',
-      })
+      }),
     ).not.toThrow()
   })
 

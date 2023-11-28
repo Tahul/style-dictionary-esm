@@ -28,7 +28,7 @@ import logger from './logger'
  *
  * @static
  * @memberof module:style-dictionary
- * @param {String} platform - Name of the platform you want to build.
+ * @param {string} platform - Name of the platform you want to build.
  * @returns {module:style-dictionary}
  * @example
  * ```js

@@ -58,7 +58,7 @@ describe('utils', () => {
         expect(
           deepExtend.bind(null, [{ foo: { bar: 'bar' } }, { foo: { bar: 'baz' } }], () => {
             throw new Error('danger danger. high voltage.')
-          })
+          }),
         ).toThrow('danger danger. high voltage.')
       })
 

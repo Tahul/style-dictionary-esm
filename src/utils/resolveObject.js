@@ -141,7 +141,7 @@ function compile_value(value, stack) {
             // Add circ reference info to our list of warning messages
             GroupMessages.add(
               PROPERTY_REFERENCE_WARNINGS,
-              `Circular definition cycle:  ${circStack.join(', ')}`
+              `Circular definition cycle:  ${circStack.join(', ')}`,
             )
           }
           else {
@@ -160,7 +160,7 @@ function compile_value(value, stack) {
     else {
       GroupMessages.add(
         PROPERTY_REFERENCE_WARNINGS,
-        `Reference doesn't exist: ${context} tries to reference ${variable}, which is not defined`
+        `Reference doesn't exist: ${context} tries to reference ${variable}, which is not defined`,
       )
       to_ret = ref
     }

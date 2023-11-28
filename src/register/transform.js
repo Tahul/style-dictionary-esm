@@ -21,10 +21,10 @@ const transformTypes = ['name', 'value', 'attribute']
  * @name registerTransform
  * @memberof module:style-dictionary
  * @function
- * @param {Object} transform - Transform object
- * @param {String} transform.type - Type of transform, can be: name, attribute, or value
- * @param {String} transform.name - Name of the transformer (used by transformGroup to call a list of transforms).
- * @param {Boolean} transform.transitive - If the value transform should be applied transitively, i.e. should be applied to referenced values as well as absolute values.
+ * @param {object} transform - Transform object
+ * @param {string} transform.type - Type of transform, can be: name, attribute, or value
+ * @param {string} transform.name - Name of the transformer (used by transformGroup to call a list of transforms).
+ * @param {boolean} transform.transitive - If the value transform should be applied transitively, i.e. should be applied to referenced values as well as absolute values.
  * @param {Function} [transform.matcher] - Matcher function, return boolean if transform should be applied. If you omit the matcher function, it will match all tokens.
  * @param {Function} transform.transformer Modifies a design token object. The transformer function will receive the token and the platform configuration as its arguments. The transformer function should return a string for name transforms, an object for attribute transforms, and same type of value for a value transform.
  * @returns {module:style-dictionary}

@@ -21,28 +21,28 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           matcher() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 1,
           matcher() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: [],
           matcher() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: {},
           matcher() {},
-        })
+        }),
       ).toThrow('name must be a string')
     })
 
@@ -50,35 +50,35 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 'test',
-        })
+        }),
       ).toThrow('matcher must be a function')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 'test',
           matcher: 1,
-        })
+        }),
       ).toThrow('matcher must be a function')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 'test',
           matcher: 'name',
-        })
+        }),
       ).toThrow('matcher must be a function')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 'test',
           matcher: [],
-        })
+        }),
       ).toThrow('matcher must be a function')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: 'test',
           matcher: {},
-        })
+        }),
       ).toThrow('matcher must be a function')
     })
 

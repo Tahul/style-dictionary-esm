@@ -61,7 +61,7 @@ describe('formats', () => {
           dictionary,
           file: {},
           platform: {},
-        }), {}, {})
+        }), {}, {}),
       )
 
       let test = await import(helpers.resolveTestsPath('__output/output-flat.js'))

@@ -21,28 +21,28 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           fileHeader() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 1,
           fileHeader() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: [],
           fileHeader() {},
-        })
+        }),
       ).toThrow('name must be a string')
 
       expect(
         StyleDictionaryExtended.registerFilter.bind(null, {
           name: {},
           matcher() {},
-        })
+        }),
       ).toThrow('name must be a string')
     })
 
@@ -50,35 +50,35 @@ describe('register', () => {
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 'myCustomHeader',
-        })
+        }),
       ).toThrow('fileHeader must be a function')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 'myCustomHeader',
           fileHeader: 1,
-        })
+        }),
       ).toThrow('fileHeader must be a function')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 'myCustomHeader',
           fileHeader: 'name',
-        })
+        }),
       ).toThrow('fileHeader must be a function')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 'myCustomHeader',
           fileHeader: [],
-        })
+        }),
       ).toThrow('fileHeader must be a function')
 
       expect(
         StyleDictionaryExtended.registerFileHeader.bind(null, {
           name: 'myCustomHeader',
           fileHeader: {},
-        })
+        }),
       ).toThrow('fileHeader must be a function')
     })
 

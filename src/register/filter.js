@@ -15,8 +15,8 @@
  * Add a custom filter to the style dictionary
  * @static
  * @memberof module:style-dictionary
- * @param {Object} filter
- * @param {String} filter.name - Name of the filter to be referenced in your config.json
+ * @param {object} filter
+ * @param {string} filter.name - Name of the filter to be referenced in your config.json
  * @param {Function} filter.matcher - Matcher function, return boolean if the token should be included.
  * @returns {module:style-dictionary}
  * @example
@@ -24,8 +24,8 @@
  * StyleDictionary.registerFilter({
  *   name: 'isColor',
  *   matcher: function(token) {
-  *     return token.attributes.category === 'color';
-  *   }
+ *     return token.attributes.category === 'color';
+ *   }
  * })
  * ```
  */

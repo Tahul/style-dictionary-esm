@@ -32,9 +32,9 @@ import { unique } from '../../utils/es6_'
  * });
  *```
  * @param {*} value A value to check the type of.
- * @param {Object} options
- * @param {Boolean} options.outputStringLiterals - Whether or not to output literal types for string values
- * @return {String} A valid name for a TypeScript type.
+ * @param {object} options
+ * @param {boolean} options.outputStringLiterals - Whether or not to output literal types for string values
+ * @return {string} A valid name for a TypeScript type.
  *
  */
 function getTypeScriptType(value, options = {}) {
@@ -53,8 +53,8 @@ function getTypeScriptType(value, options = {}) {
 }
 
 /**
- * @param {Object} value An object with uknown type properties
- * @returns {String} A representation of the type model for the passed object
+ * @param {object} value An object with uknown type properties
+ * @returns {string} A representation of the type model for the passed object
  */
 function getObjectType(value) {
   const entries = Object.entries(value)
@@ -66,7 +66,7 @@ function getObjectType(value) {
 
 /**
  * @param {Array} value An array to check each property of
- * @returns {String} A valid type for the passed array and it's items
+ * @returns {string} A valid type for the passed array and it's items
  */
 function getArrayType(passedArray) {
   if (passedArray.length > 0) {

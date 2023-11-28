@@ -24,14 +24,14 @@ describe('exportPlatform', () => {
   beforeEach(
     () => {
       StyleDictionaryExtended = StyleDictionary.extend(config)
-    }
+    },
   )
 
   it('should throw if not given a platform', () => {
     expect(
       () => {
         StyleDictionaryExtended.exportPlatform()
-      }
+      },
     ).toThrow()
   })
 
@@ -39,7 +39,7 @@ describe('exportPlatform', () => {
     expect(
       () => {
         StyleDictionaryExtended.exportPlatform('foo')
-      }
+      },
     ).toThrow()
   })
 
@@ -47,7 +47,7 @@ describe('exportPlatform', () => {
     expect(
       () => {
         StyleDictionaryExtended.exportPlatform('web')
-      }
+      },
     ).not.toThrow()
   })
 
@@ -191,7 +191,7 @@ describe('exportPlatform', () => {
             properties,
             platforms,
           }).exportPlatform('css')
-        }
+        },
       ).toThrow(errorMessage)
     })
 
@@ -206,7 +206,7 @@ describe('exportPlatform', () => {
             properties,
             platforms,
           }).exportPlatform('css')
-        }
+        },
       ).toThrow(errorMessage)
     })
 
@@ -229,7 +229,7 @@ describe('exportPlatform', () => {
             properties,
             platforms,
           }).exportPlatform('css')
-        }
+        },
       ).toThrow(errorMessage)
     })
   })
@@ -375,10 +375,7 @@ describe('exportPlatform', () => {
 
     // making the css/color transform transitive so we can be sure the references
     // get resolved properly and transformed.
-    const transitiveTransform = Object.assign({},
-      StyleDictionary.transform['color/css'],
-      { transitive: true }
-    )
+    const transitiveTransform = Object.assign({}, StyleDictionary.transform['color/css'], { transitive: true })
 
     const actual = StyleDictionary.extend({
       tokens,

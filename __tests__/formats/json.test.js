@@ -48,7 +48,7 @@ describe('formats', () => {
           dictionary,
           file,
           platform: {},
-        }), {}, file)
+        }), {}, file),
       )
 
       let test = await import(helpers.resolveTestsPath('__output/output.json'))
