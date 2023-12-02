@@ -10,38 +10,43 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-
-var property = require('../../lib/transform/property');
+import { expect } from 'chai';
+import token from '../../lib/transform/token.js';
 
 var options = {
   transforms: [
     {
       type: 'attribute',
-      transformer: function() {
+      transformer: function () {
         return {
-          foo: 'bar'
-        }
-      }
-    },{
+          foo: 'bar',
+        };
+      },
+    },
+    {
       type: 'attribute',
-      transformer: function() {
-        return {bar: 'foo'}
-      }
-    },{
+      transformer: function () {
+        return { bar: 'foo' };
+      },
+    },
+    {
       type: 'name',
-      matcher: function(prop) { return prop.attributes.foo === 'bar'; },
-      transformer: function() { return "hello"; }
-    }
-  ]
+      matcher: function (prop) {
+        return prop.attributes.foo === 'bar';
+      },
+      transformer: function () {
+        return 'hello';
+      },
+    },
+  ],
 };
 
 describe('transform', () => {
-  describe('property', () => {
-
+  describe('token', () => {
     it('should work', () => {
-      var test = property({attributes:{baz:'blah'}}, options);
-      expect(test).toHaveProperty('attributes.bar', 'foo');
-      expect(test).toHaveProperty('name', 'hello');
+      const test = token({ attributes: { baz: 'blah' } }, options);
+      expect(test).to.have.nested.property('attributes.bar', 'foo');
+      expect(test).to.have.property('name', 'hello');
     });
 
     // Add more tests

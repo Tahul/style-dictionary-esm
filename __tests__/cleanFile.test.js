@@ -10,35 +10,39 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-
-var helpers   = require('./__helpers');
-var buildFile = require('../lib/buildFile');
-var cleanFile = require('../lib/cleanFile');
+import { expect } from 'chai';
+import { fileExists, clearOutput } from './__helpers.js';
+import buildFile from '../lib/buildFile.js';
+import cleanFile from '../lib/cleanFile.js';
 
 function format() {
-  return "hi";
+  return 'hi';
 }
 
 describe('cleanFile', () => {
-
   beforeEach(() => {
-    helpers.clearOutput();
+    clearOutput();
   });
 
   afterEach(() => {
-    helpers.clearOutput();
+    clearOutput();
   });
 
   it('should delete a file properly', () => {
-    buildFile({destination:'test.txt', format}, {buildPath: '__tests__/__output/'}, {});
-    cleanFile({destination:'test.txt', format}, {buildPath: '__tests__/__output/'}, {});
-    expect(helpers.fileDoesNotExist('./__tests__/__output/test.txt')).toBeTruthy();
+    buildFile({ destination: 'test.txt', format }, { buildPath: '__tests__/__output/' }, {});
+    cleanFile({ destination: 'test.txt', format }, { buildPath: '__tests__/__output/' }, {});
+    expect(fileExists('__tests__/__output/test.txt')).to.be.false;
   });
 
   describe('if a file does not exist', () => {
     it('should not throw', () => {
-      expect(() => cleanFile({destination: 'non-existent.txt', format}, { buildPath: '__tests__/__output/' }, {})).not.toThrow();
-    })
-  })
-
+      expect(() =>
+        cleanFile(
+          { destination: 'non-existent.txt', format },
+          { buildPath: '__tests__/__output/' },
+          {},
+        ),
+      ).to.not.throw();
+    });
+  });
 });

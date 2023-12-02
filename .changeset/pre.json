@@ -1,0 +1,18 @@
+{
+  "mode": "pre",
+  "tag": "prerelease",
+  "initialVersions": {
+    "style-dictionary": "3.8.0"
+  },
+  "changesets": [
+    "big-worms-collect-2",
+    "big-worms-collect",
+    "bright-timers-shout",
+    "fifty-dragons-heal",
+    "gorgeous-lamps-chew",
+    "honest-toes-wink",
+    "light-games-occur",
+    "nice-ears-shop",
+    "unlucky-cameras-draw"
+  ]
+}

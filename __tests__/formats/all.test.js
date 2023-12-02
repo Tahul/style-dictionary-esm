@@ -10,62 +10,62 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
+import { expect } from 'chai';
+import formats from '../../lib/common/formats.js';
+import createDictionary from '../../lib/utils/createDictionary.js';
+import createFormatArgs from '../../lib/utils/createFormatArgs.js';
 
-var formats = require('../../lib/common/formats');
-var createDictionary = require('../../lib/utils/createDictionary');
-var createFormatArgs = require('../../lib/utils/createFormatArgs');
-var _ = require('../../lib/utils/es6_');
-
-var file = {
-  "destination": "__output/",
-  "format": "javascript/es6",
-  "filter": {
-    "attributes": {
-      "category": "color"
-    }
-  }
+const file = {
+  destination: '__output/',
+  format: 'javascript/es6',
+  filter: {
+    attributes: {
+      category: 'color',
+    },
+  },
 };
 
-var properties = {
-  "color": {
-    "red": {
+const tokens = {
+  color: {
+    red: {
       value: '#FF0000',
       original: { value: '#FF0000' },
       name: 'color_red',
       comment: 'comment',
       attributes: {
-          category: 'color',
-          type: 'red',
-          item: undefined,
-          subitem: undefined,
-          state: undefined
+        category: 'color',
+        type: 'red',
+        item: undefined,
+        subitem: undefined,
+        state: undefined,
       },
-      path: ['color','red']
-    }
-  }
+      path: ['color', 'red'],
+    },
+  },
 };
 
 describe('formats', () => {
-  _.each(_.keys(formats), function(key) {
-
-    var formatter = formats[key].bind(file);
-    const dictionary = createDictionary({ properties });
-    var output = formatter(createFormatArgs({
-      dictionary,
+  Object.keys(formats).forEach((key) => {
+    const formatter = formats[key].bind(file);
+    const dictionary = createDictionary({ tokens });
+    const output = formatter(
+      createFormatArgs({
+        dictionary,
+        file,
+        platform: {},
+      }),
+      {},
       file,
-      platform: {},
-    }), {}, file);
+    );
 
     describe('all', () => {
-
-      it('should match ' + key + ' snapshot', () => {
-        expect(output).toMatchSnapshot();
+      it('should match ' + key + ' snapshot', async () => {
+        await expect(output).to.matchSnapshot();
       });
 
       it('should return ' + key + ' as a string', () => {
-        expect(typeof output).toBe('string');
+        expect(typeof output).to.equal('string');
       });
     });
-
   });
 });

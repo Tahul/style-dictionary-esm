@@ -15,7 +15,7 @@ $ npm install -D style-dictionary
 To use the style dictionary build system in node, there are generally three steps:
 
 1. Require/import the StyleDictionary module
-1. Extend the module with a configuration, creating the fully defined dictionary (importing all properties and intended outputs)
+1. Extend the module with a configuration, creating the fully defined dictionary (importing all tokens and intended outputs)
 1. Call one or more build calls for various platforms
 
 To use the NPM module you will need to update your NPM script that runs Style Dictionary from using the CLI command to running Node on the file you are using.
@@ -36,7 +36,7 @@ becomes
   }
 ```
 
-Update "build.js" to the name of the file you created. 
+Update "build.js" to the name of the file you created.
 
 Using a JSON [configuration](config.md) file, that looks like this:
 
@@ -50,18 +50,20 @@ Alternatively, you can pass in a [configuration](config.md) object to the extend
 
 ```javascript
 const StyleDictionary = require('style-dictionary').extend({
-  source: ['properties/**/*.json'],
+  source: ['tokens/**/*.json'],
   platforms: {
     scss: {
       transformGroup: 'scss',
       buildPath: 'build/',
-      files: [{
-        destination: 'variables.scss',
-        format: 'scss/variables'
-      }]
-    }
+      files: [
+        {
+          destination: 'variables.scss',
+          format: 'scss/variables',
+        },
+      ],
+    },
     // ...
-  }
+  },
 });
 
 StyleDictionary.buildAllPlatforms();
@@ -76,13 +78,17 @@ const styleDictionary = StyleDictionary.extend({
   // add custom formats/transforms
 });
 
-styleDictionary.extend({
-  // ...
-}).buildAllPlatforms();
+styleDictionary
+  .extend({
+    // ...
+  })
+  .buildAllPlatforms();
 
-styleDictionary.extend({
-  // ...
-}).buildAllPlatforms();
+styleDictionary
+  .extend({
+    // ...
+  })
+  .buildAllPlatforms();
 ```
 
 Another way to do this is to loop over an array and apply different configurations to Style Dictionary:
@@ -91,7 +97,7 @@ Another way to do this is to loop over an array and apply different configuratio
 const StyleDictionary = require('style-dictionary');
 
 const brands = [`brand-1`, `brand-2`, `brand-3`];
-brands.forEach(brand => {
+brands.forEach((brand) => {
   StyleDictionary.extend({
     include: [`tokens/default/**/*.json`],
     source: [`tokens/${brand}/**/*.json`],
@@ -102,7 +108,7 @@ brands.forEach(brand => {
 
 The [multi-brand-multi-platform example](https://github.com/amzn/style-dictionary/tree/main/examples/advanced/multi-brand-multi-platform) uses this method.
 
-----
+---
 
 ## NPM Module API
 

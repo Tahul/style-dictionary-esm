@@ -10,92 +10,91 @@
  * CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions
  * and limitations under the License.
  */
-
-var StyleDictionary = require('../../index');
-var StyleDictionaryExtended = StyleDictionary.extend({});
+import { expect } from 'chai';
+import StyleDictionary from 'style-dictionary';
 
 describe('register', () => {
-  describe('format', () => {
+  describe('format', async () => {
+    const StyleDictionaryExtended = new StyleDictionary({});
 
     it('should error if name is not a string', () => {
-      const errorMessage = `Can't register format; format.name must be a string`
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
-          formatter: function() {}
-        })
-      ).toThrow(errorMessage);
+      const errorMessage = `Can't register format; format.name must be a string`;
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
+          formatter: function () {},
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: 1,
-          formatter: function() {}
-        })
-      ).toThrow(errorMessage);
+          formatter: function () {},
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: [],
-          formatter: function() {}
-        })
-      ).toThrow(errorMessage);
+          formatter: function () {},
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: {},
-          formatter: function() {}
-        })
-      ).toThrow(errorMessage);
+          formatter: function () {},
+        });
+      }).to.throw(errorMessage);
     });
 
     it('should error if format is not a function', () => {
-      const errorMessage = `Can't register format; format.formatter must be a function`
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
-          name: 'test'
-        })
-      ).toThrow(errorMessage);
-
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      const errorMessage = `Can't register format; format.formatter must be a function`;
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: 'test',
-          formatter: 1
-        })
-      ).toThrow(errorMessage);
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: 'test',
-          formatter: 'name'
-        })
-      ).toThrow(errorMessage);
+          formatter: 1,
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: 'test',
-          formatter: []
-        })
-      ).toThrow(errorMessage);
+          formatter: 'name',
+        });
+      }).to.throw(errorMessage);
 
-      expect(
-        StyleDictionaryExtended.registerFormat.bind(null, {
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
           name: 'test',
-          formatter: {}
-        })
-      ).toThrow(errorMessage);
+          formatter: [],
+        });
+      }).to.throw(errorMessage);
+
+      expect(() => {
+        StyleDictionaryExtended.registerFormat({
+          name: 'test',
+          formatter: {},
+        });
+      }).to.throw(errorMessage);
     });
 
     it('should work if name and format are good', () => {
       StyleDictionaryExtended.registerFormat({
         name: 'scss',
-        formatter: function() {}
+        formatter: function () {},
       });
-      expect(typeof StyleDictionaryExtended.format['scss']).toBe('function');
+      expect(typeof StyleDictionaryExtended.format['scss']).to.equal('function');
     });
 
-    it('should properly pass the registered format to instances', () => {
-      var SDE2 = StyleDictionaryExtended.extend({});
-      expect(typeof SDE2.format['scss']).toBe('function');
+    it('should properly pass the registered format to instances', async () => {
+      const SDE2 = await StyleDictionaryExtended.extend({});
+      expect(typeof SDE2.format['scss']).to.equal('function');
     });
-
   });
 });
