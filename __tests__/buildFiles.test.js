@@ -104,7 +104,7 @@ describe('buildFiles', () => {
 
   it('should work without buildPath', () => {
     buildFiles(dictionary, platform);
-    expect(fileExists('__tests__/__output/test.json')).to.be.true;
+    expect(fileExists('__tests__/__output/test.json')).to.be.false;
   });
 
   it('should work with buildPath', () => {

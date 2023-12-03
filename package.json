@@ -19,6 +19,7 @@
     "style guide"
   ],
   "type": "module",
+  "module": "./lib/StyleDictionary.js",
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
@@ -40,6 +41,7 @@
     "lib",
     "examples",
     "fs.js",
+    "fs-node.js",
     "index.js",
     "index-node.js",
     "LICENSE",

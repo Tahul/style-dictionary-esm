@@ -1,7 +1,6 @@
 /* @web/test-runner snapshot v1 */
 export const snapshots = {};
 
-
 snapshots["formats less/variables should have a valid less syntax and match snapshot 1"] = 
 `
 // Do not edit directly

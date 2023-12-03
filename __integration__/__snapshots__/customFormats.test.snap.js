@@ -4,7 +4,9 @@ export const snapshots = {};
 snapshots["inline custom with old args should match snapshot"] = 
 `{
   "dictionary": {
+    "referencesOptions": {},
     "dictionary": {
+      "referencesOptions": {},
       "tokens": {
         "size": {
           "padding": {
@@ -508,7 +510,9 @@ snapshots["inline custom with old args should match snapshot"] =
 
 snapshots["inline custom with new args should match snapshot"] = 
 `{
+  "referencesOptions": {},
   "dictionary": {
+    "referencesOptions": {},
     "tokens": {
       "size": {
         "padding": {
@@ -967,7 +971,9 @@ snapshots["inline custom with new args should match snapshot"] =
 snapshots["register custom format with old args should match snapshot"] = 
 `{
   "dictionary": {
+    "referencesOptions": {},
     "dictionary": {
+      "referencesOptions": {},
       "tokens": {
         "size": {
           "padding": {
@@ -1471,7 +1477,9 @@ snapshots["register custom format with old args should match snapshot"] =
 
 snapshots["register custom format with new args should match snapshot"] = 
 `{
+  "referencesOptions": {},
   "dictionary": {
+    "referencesOptions": {},
     "tokens": {
       "size": {
         "padding": {

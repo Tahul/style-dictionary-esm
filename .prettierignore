@@ -1,2 +1,4 @@
 .changeset/
 **/*.snap.js
+__tests__/__json_files/broken/broken.json
+**/*.hbs

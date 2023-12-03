@@ -653,6 +653,10 @@ public class  {
 }`;
 /* end snapshot formats all should match ios-swift/any.swift snapshot */
 
+snapshots["formats all should match css/fonts.css snapshot"] = 
+``;
+/* end snapshot formats all should match css/fonts.css snapshot */
+
 snapshots["formats all should match json snapshot"] = 
 `{
   "color": {
@@ -746,14 +750,12 @@ class  {
 }`;
 /* end snapshot formats all should match flutter/class.dart snapshot */
 
-snapshots["formats all should match css/fonts.css snapshot"] = 
-``;
-/* end snapshot formats all should match css/fonts.css snapshot */
-
 snapshots["formats all should match registerCustomFormatWithOldArgs snapshot"] = 
 `{
   "dictionary": {
+    "referencesOptions": {},
     "dictionary": {
+      "referencesOptions": {},
       "tokens": {
         "color": {
           "red": {
@@ -858,7 +860,9 @@ snapshots["formats all should match registerCustomFormatWithOldArgs snapshot"] =
 
 snapshots["formats all should match registerCustomFormatWithNewArgs snapshot"] = 
 `{
+  "referencesOptions": {},
   "dictionary": {
+    "referencesOptions": {},
     "tokens": {
       "color": {
         "red": {
