@@ -1,6 +1,6 @@
 {
   "name": "@pinceau/style-dictionary",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Style once, use everywhere. A build system for creating cross-platform styles.",
   "keywords": [
     "style dictionary",
@@ -64,8 +64,7 @@
     "serve-docs": "docsify serve docs -p 3000 -P 12345",
     "install-cli": "npm install -g $(npm pack)",
     "release": "node scripts/inject-version.js && changeset publish",
-    "prepare": "husky install",
-    "postinstall": "patch-package"
+    "prepare": "husky install && patch-package"
   },
   "standard-version": {
     "scripts": {
