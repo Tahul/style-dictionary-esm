@@ -54,6 +54,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint \"**/*.js\"",
     "lint:prettier": "prettier \"**/*.{js,md}\" \"package.json\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
+    "lint:prettier:fix": "prettier \"**/*.{js,md}\" \"package.json\" --list-different -w || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
     "test": "npm run test:browser && npm run test:node",
     "test:browser": "web-test-runner --coverage",
     "test:browser:coverage": "cd coverage/lcov-report && npx http-server -o -c-1",
